@@ -3,6 +3,9 @@ import { Layout } from "../Layout/Layout";
 import { path } from "../../shared/constants/constants";
 import { Home } from "../../pages/Home/Home";
 import { About } from "../../pages/About/About";
+import { Education } from "pages/Education/Education";
+import { BankVacancy } from "pages/BankVacancy/BankVacancy";
+import { Contacts } from "pages/Contacts/Contacts";
 
 
 export const Router = createBrowserRouter(
@@ -18,7 +21,30 @@ export const Router = createBrowserRouter(
                     path: path.about,
                     element: <About/>,
                 }, 
-
+                {
+                    path: path.services,
+                    element: <Services/>,
+                },
+                {
+                    path: path.legislativenews,
+                    element: <Legislativenews/>,
+                },
+                {
+                    path: path.analyticandspublications,
+                    element: <Analyticandspublications/>,
+                },
+                {
+                    path: path.education,
+                    element: <Education/>,
+                },
+                {
+                    path: path.bankvacancy,
+                    element: <BankVacancy/>,
+                },
+                {
+                    path: path.contacts,
+                    element: <Contacts/>,
+                }
             ]
         }
     ]
