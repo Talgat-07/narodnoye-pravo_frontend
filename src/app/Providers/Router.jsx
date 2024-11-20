@@ -8,17 +8,16 @@ import { About } from "../../pages/About/About";
 export const Router = createBrowserRouter(
     [
         {
-            element: <Layout/>,
+            element: <Layout />,
             children: [
                 {
                     path: path.home,
-                    element: <Home/>,
+                    element: <Home />,
                 },
                 {
                     path: path.about,
-                    element: <About/>,
-                }, 
-
+                    element: <About />,
+                }
             ]
         }
     ]

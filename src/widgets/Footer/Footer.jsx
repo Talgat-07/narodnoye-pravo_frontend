@@ -1,10 +1,17 @@
+import { navLinks } from "shared/constants/constants";
 
 
 export const Footer = () => {
     return (
-        <div>
-            <h1>footer</h1>
-        </div>
+        <footer>
+            {
+                navLinks.map(el => (
+                    <li key={el.path}>
+                        <Link to={el.path}>{el.label}</Link>
+                    </li>
+                ))
+            }
+        </footer>
     );
 };
 
