@@ -6,6 +6,7 @@ export const Footer = () => {
     const navLinks = [
         { path: path.home, label: "Главная страница" },
         { path: path.about, label: "О нас" },
+        { path: path.services, label: "Услуги" },
         { path: path.legislativenews, label: "Новости законодательства" },
         { path: path.analyticandpublications, label: "Аналитика и публикации" },
         { path: path.education, label: "Обучение" },
