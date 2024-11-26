@@ -3,7 +3,7 @@
 export const About = () => {
     return (
         <div>
-            <h1>about</h1>
+            <h1>О нас</h1>
         </div>
     );
 };

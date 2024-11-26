@@ -1,13 +1,13 @@
-import { AnalyticandsPublications } from "pages/Anal&publ/analyt&public";
+import { AnalyticAndPublications } from "pages/AnalytAndPublic/AnalytAndPublic";
 import { Education } from "pages/Education/Education";
-import { Legislativenews } from "pages/Legislativenews/Legislative.news";
+import { LegislativeNews } from "pages/LegislativeNews/LegislativeNews";
 
 export const path = {
     home: '/',
     about: '/about',
     services: '/services',
     legislativenews: '/legidslativenews',
-    analyticandspublications: '/analyticandspublications',
+    analyticandpublications: '/analyticandpublications',
     education: '/education',
     bankvacancy: '/bankvacancy',
     contacts: '/contacts'

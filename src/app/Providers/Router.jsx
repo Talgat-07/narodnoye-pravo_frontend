@@ -3,6 +3,9 @@ import { Layout } from "../Layout/Layout";
 import { path } from "../../shared/constants/constants";
 import { Home } from "../../pages/Home/Home";
 import { About } from "../../pages/About/About";
+import { Services } from "pages/Services/Services";
+import { LegislativeNews } from "pages/LegislativeNews/LegislativeNews";
+import { AnalyticAndPublications } from "pages/AnalytAndPublic/AnalytAndPublic";
 import { Education } from "pages/Education/Education";
 import { BankVacancy } from "pages/BankVacancy/BankVacancy";
 import { Contacts } from "pages/Contacts/Contacts";
@@ -11,39 +14,39 @@ import { Contacts } from "pages/Contacts/Contacts";
 export const Router = createBrowserRouter(
     [
         {
-            element: <Layout/>,
+            element: <Layout />,
             children: [
                 {
                     path: path.home,
-                    element: <Home/>,
+                    element: <Home />,
                 },
                 {
                     path: path.about,
-                    element: <About/>,
-                }, 
+                    element: <About />,
+                },
                 {
                     path: path.services,
-                    element: <Services/>,
+                    element: <Services />,
                 },
                 {
                     path: path.legislativenews,
-                    element: <Legislativenews/>,
+                    element: <LegislativeNews />,
                 },
                 {
-                    path: path.analyticandspublications,
-                    element: <Analyticandspublications/>,
+                    path: path.analyticandpublications,
+                    element: <AnalyticAndPublications />,
                 },
                 {
                     path: path.education,
-                    element: <Education/>,
+                    element: <Education />,
                 },
                 {
                     path: path.bankvacancy,
-                    element: <BankVacancy/>,
+                    element: <BankVacancy />,
                 },
                 {
                     path: path.contacts,
-                    element: <Contacts/>,
+                    element: <Contacts />,
                 }
             ]
         }

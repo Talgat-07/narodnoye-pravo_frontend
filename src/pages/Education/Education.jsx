@@ -3,7 +3,7 @@
 export const Education = () => {
     return (
         <div>
-            <h1>Education</h1>
+            <h1>Обучение</h1>
         </div>
     );
 };
