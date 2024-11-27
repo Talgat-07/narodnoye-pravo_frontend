@@ -3,9 +3,13 @@ import { Layout } from "../Layout/Layout";
 import { path } from "../../shared/constants/constants";
 import { Home } from "../../pages/Home/Home";
 import { About } from "../../pages/About/About";
-import { Education } from "pages/Education/Education";
-import { BankVacancy } from "pages/BankVacancy/BankVacancy";
-import { Contacts } from "pages/Contacts/Contacts";
+import { Services} from "../../pages/Services/Services";
+import { Legislativenews } from "../../pages/Legislativenews/Legislative.news";
+import { AnalyticsandPublications } from "pages/Anal&publ/analyt&public";
+import { Education } from "../../pages/Education/Education";
+import { BankVacancy } from "../../pages/BankVacancy/BankVacancy";
+import { Contacts } from "../../pages/Contacts/Contacts";
+
 
 
 export const Router = createBrowserRouter(
@@ -30,8 +34,8 @@ export const Router = createBrowserRouter(
                     element: <Legislativenews/>,
                 },
                 {
-                    path: path.analyticandspublications,
-                    element: <Analyticandspublications/>,
+                    path: path. analyticandspublications,
+                    element: <AnalyticsandPublications/>,
                 },
                 {
                     path: path.education,
