@@ -7,10 +7,10 @@ export const Footer = () => {
         { path: path.home, label: "Главная страница" },
         { path: path.about, label: "О нас" },
         { path: path.services, label: "Услуги" },
-        { path: path.legislativenews, label: "Новости законодательства" },
-        { path: path.analyticandpublications, label: "Аналитика и публикации" },
+        { path: path.legislativenews, label: "Новости" },
+        { path: path.analyticandpublications, label: "Научные статьи" },
         { path: path.education, label: "Обучение" },
-        { path: path.bankvacancy, label: "Банк вакансий" },
+        { path: path.bankvacancy, label: "Вакансии" },
         { path: path.contacts, label: "Контакты" },
     ];
     return (
