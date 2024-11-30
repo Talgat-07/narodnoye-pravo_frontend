@@ -11,7 +11,8 @@ export const Typography = (props) => {
         color = 'black',
         truncate = false,
         styleType = 'regular',
-        lineHeight = 'lineRegular'
+        lineHeight = 'lineRegular',
+        fontFamily = 'default',
     } = props;
 
     const Tags = {
@@ -28,6 +29,7 @@ export const Typography = (props) => {
         s[weight],
         s[color],
         s[lineHeight],
+        fontFamily === 'second' ? s.fontComfortaa : s.fontOpenSans,
         variant === 'p' && s[`p${styleType}`],
         className,
     ]

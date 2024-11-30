@@ -39,12 +39,14 @@ export const Footer = () => {
                     <ul className={s.footerUl}>
                         {
                             navLinks.map(el => (
-                                <li key={el.path}>
+                                <li className={s.footerLi} key={el.path}>
                                     <Link to={el.path}>
                                         <Typography
                                             variant='p'
                                             styleType={location.pathname === el.path ? 'Big' : 'Small'}
-                                            weight={location.pathname === el.path ? 'bold' : 'regular'}>
+                                            weight={location.pathname === el.path ? 'bold' : 'regular'}
+                                            color='black'
+                                            fontFamily='second'>
                                             {el.label}
                                         </Typography>
                                     </Link>
@@ -58,6 +60,8 @@ export const Footer = () => {
                         variant='p'
                         styleType='Big'
                         weight='bold'
+                        color='black'
+                        fontFamily='second'
                     >
                         КОНТАКТЫ
                     </Typography>
@@ -77,29 +81,40 @@ export const Footer = () => {
                     <div className={s.phoneWrap}>
                         <Phone />
                         <div className={s.phone}>
-                            <Typography
-                                variant="p"
-                                styleType="Small"
-                                weight="regular">
-                                +996 (550) 18-87-77
-                            </Typography>
-                            <Typography
-                                variant="p"
-                                styleType="Small"
-                                weight="regular">
-                                +996 (702) 18-87-77
-                            </Typography>
+                            <a href="tel:+996550188777">
+                                <Typography
+                                    variant="p"
+                                    styleType="Small"
+                                    weight="regular"
+                                    color='black'
+                                    fontFamily='second'>
+                                    +996 (550) 18-87-77
+                                </Typography>
+                            </a>
+                            <a href="tel:+996702188777">
+                                <Typography
+                                    variant="p"
+                                    styleType="Small"
+                                    weight="regular"
+                                    color='black'
+                                    fontFamily='second'>
+                                    +996 (702) 18-87-77
+                                </Typography>
+                            </a>
                         </div>
                     </div>
                     <div className={s.email}>
                         <Email />
-                        <Typography
-                            className={s.emalSvg}
-                            variant="p"
-                            styleType="Small"
-                            weight="regular">
-                            N.pravo2018@gmail.com
-                        </Typography>
+                        <a href="mailto:N.pravo2018@gmail.com">
+                            <Typography
+                                className={s.emalSvg}
+                                variant="p"
+                                styleType="Small"
+                                weight="regular"
+                                fontFamily='second'>
+                                N.pravo2018@gmail.com
+                            </Typography>
+                        </a>
                     </div>
                 </div>
                 <div className={s.right}>
@@ -107,6 +122,8 @@ export const Footer = () => {
                         variant='p'
                         styleType='Big'
                         weight='bold'
+                        color='black'
+                        fontFamily='second'
                     >
                         АДРЕС
                     </Typography>
@@ -116,22 +133,25 @@ export const Footer = () => {
                             className={s.address}
                             variant="p"
                             styleType="Small"
-                            weight="regular">
+                            weight="regular"
+                            lineHeight='lineMedium'
+                            color='black'
+                            fontFamily='second'>
                             Кыргызская Республика,
-                            город Бишкек,
-                            ул. Токтогула, 87,
+                            город Бишкек,<br />
+                            ул. Токтогула, 87,<br />
                             4 этаж
                         </Typography>
                     </div>
                 </div>
-            </div>
-            <div className={s.down}>
+            </div >
+            <div className={s.down} >
                 <WhatsApp />
                 <Instagram />
                 <Facebook />
                 <Telegram />
                 <Youtube />
-            </div>
+            </div >
             <div className={s.geeks}>
                 <Typography
                     className={s.geeksLogo}
@@ -141,7 +161,7 @@ export const Footer = () => {
                     Made by GeeksPro
                 </Typography>
             </div>
-        </footer>
+        </footer >
     );
 };
 
