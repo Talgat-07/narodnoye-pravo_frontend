@@ -1,29 +1,44 @@
-.text {
+.fontOpenSans {
     font-family: 'Open Sans', sans-serif;
+}
+
+.fontComfortaa {
+    font-family: 'Comfortaa', sans-serif;
 }
 
 h1 {
     font-size: 48px;
-    color: #000;
+}
+
+h3 {
+    font-size: 40px;
+}
+
+h4 {
+    font-size: 32px;
 }
 
 .pBig {
-    font-family: "Comfortaa", sans-serif;
     font-size: 20px;
     line-height: 140%;
-    color: #000;
+}
+
+.pMedium {
+    font-size: 18px;
+}
+
+.pRegular {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
 }
 
 .pSmall {
-    font-family: "Comfortaa", sans-serif;
-    font-size: 20px;
-    color: rgba(0, 0, 0, 0.9);
+    font-size: 18px;
 }
 
 .pLogo {
     font-size: 11px;
     text-transform: uppercase;
-    color: #000;
 }
 
 .regular {
@@ -54,12 +69,18 @@ h1 {
     line-height: 140%;
 }
 
-// color
+.lineLittle {
+    line-height: 111%;
+}
 
-// .black {
-//     color: #000;
-// }
+.black {
+    color: #000;
+}
 
-// .blackNoActive {
-//     color: rgba(0, 0, 0, 0.9);
-// }
+.white {
+    color: #fff;
+}
+
+.blue {
+    color: #7490f5;
+}

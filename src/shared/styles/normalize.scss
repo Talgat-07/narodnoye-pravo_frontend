@@ -24,6 +24,8 @@ html {
         Helvetica,
         Arial,
         sans-serif,
+        'Open Sans',
+        "Comfortaa",
         'Apple Color Emoji',
         'Segoe UI Emoji';
     line-height: 1.15;
@@ -32,6 +34,7 @@ html {
     /* 2. Prevent adjustments of font size after orientation changes in iOS. */
     tab-size: 4;
     /* 3. Use a more readable tab size (opinionated). */
+    box-sizing: border-box;
 }
 
 /*
@@ -234,4 +237,19 @@ summary {
 
 ul {
     list-style-type: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+}
+
+p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+h1,
+h3,
+h4 {
+    margin-block-start: 0;
+    margin-block-end: 0;
 }
