@@ -1,0 +1,65 @@
+.text {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    font-size: 48px;
+    color: #000;
+}
+
+.pBig {
+    font-family: "Comfortaa", sans-serif;
+    font-size: 20px;
+    line-height: 140%;
+    color: #000;
+}
+
+.pSmall {
+    font-family: "Comfortaa", sans-serif;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.pLogo {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #000;
+}
+
+.regular {
+    font-weight: 400;
+}
+
+.meddium {
+    font-weight: 500;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.lineRegular {
+    line-height: 1.5;
+}
+
+.lineBig {
+    line-height: 170%;
+}
+
+.lineMedium {
+    line-height: 160%;
+}
+
+.lineSmall {
+    line-height: 140%;
+}
+
+// color
+
+// .black {
+//     color: #000;
+// }
+
+// .blackNoActive {
+//     color: rgba(0, 0, 0, 0.9);
+// }

@@ -1,0 +1,101 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #7490f5;
+}
+
+
+.up {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 106px 40px 75px;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+//left
+.left {
+    display: flex;
+    align-items: flex-start;
+    gap: 58px;
+    margin-right: 180px;
+}
+
+.footerUl {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    margin-top: 25px;
+}
+
+//middle
+.middle {
+    margin-top: 22px;
+}
+
+.phoneWrap {
+    display: flex;
+    margin-top: 18px;
+    gap: 11px;
+}
+
+.phone {
+    margin-top: -8px;
+}
+
+.emalSvg {
+    margin-left: 12px;
+}
+
+.email {
+    display: flex;
+    margin-top: 12px;
+}
+
+//right
+.right {
+    margin-top: 20px;
+}
+
+.addressWrap {
+    display: flex;
+    margin-top: 19px;
+    gap: 10px;
+}
+
+.address {
+    width: 276px;
+    height: 116px;
+}
+
+//down
+.down {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 53px;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.geeks {
+    padding: 7px 11px;
+    height: 37px;
+    background: #0171b9;
+}
+
+.geeksLogo {
+    max-width: 1440px;
+    text-align: center;
+}
+
+ul {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+}
+
+p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
