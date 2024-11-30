@@ -1,6 +1,4 @@
-import { AnalyticandsPublications } from "pages/Anal&publ/analyt&public";
-import { Education } from "pages/Education/Education";
-import { Legislativenews } from "pages/Legislativenews/Legislative.news";
+
 
 export const path = {
     home: '/',
