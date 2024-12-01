@@ -1,4 +1,4 @@
-import React from 'react';
+
 import s from './Service.module.scss'
 import { Typography } from 'shared/ui/Typography/Typography';
 import { ServiceCard } from 'shared/ui/ServiceCard/ServiceCard';

@@ -1,4 +1,3 @@
-import React from 'react';
 
 export const Arrow = (props) => {
     const { width = '20', height = '20', color = '#7490F5' } = props

@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const Instagram = (props) => {
-    const { width = '40', height = '40', color = '#000', link = 'https://instagram.com/narodnoe_pravo_kg' } = props
+    const { width='40', height='40', color='#000', link='https://instagram.com/narodnoe_pravo_kg' } = props
 
     return (
         <a href={link} target="_blank" rel="noopener noreferrer">
