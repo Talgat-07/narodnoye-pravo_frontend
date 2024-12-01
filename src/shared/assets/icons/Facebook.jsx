@@ -1,6 +1,7 @@
-import React from 'react';
+
 
 export const Facebook = (props) => {
+    
     const { width = '40', height = '40', link = 'https://www.facebook.com/npravo?mibextid=LQQJ4d' } = props
     return (
         <a href={link} target="_blank" rel="noopener noreferrer">

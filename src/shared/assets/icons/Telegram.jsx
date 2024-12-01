@@ -1,7 +1,6 @@
-import React from 'react';
 
 export const Telegram = (props) => {
-    const { width = '40', height = '40', color = '#000', link = 'https://t.me/+Mylbg2YA13o5MDVi' } = props
+    const { width='40', height='40', color='#000', link='https://t.me/+Mylbg2YA13o5MDVi' } = props
 
     return (
         <a href={link} target="_blank" rel="noopener noreferrer">

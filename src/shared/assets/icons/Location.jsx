@@ -1,4 +1,3 @@
-import React from 'react';
 
 export const Location = (props) => {
     const { width = '24', height = '24' } = props
