@@ -1,7 +1,7 @@
-import React from 'react';
+
 
 export const Facebook = (props) => {
-    const { width = '40', height = '40' } = props
+    const { width='40', height='40' } = props
     return (
         <svg
             width={width}
