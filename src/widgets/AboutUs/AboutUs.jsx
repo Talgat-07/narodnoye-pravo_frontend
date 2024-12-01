@@ -1,6 +1,9 @@
 import { Typography } from 'shared/ui/Typography/Typography';
 import aboutUs from '../../shared/assets/img/aboutUsImg.png'
 import s from './AboutUs.module.scss'
+import { Link } from 'react-router-dom';
+import { path } from 'shared/constants/constants';
+import { Arrow } from 'shared/assets/icons/Arrow';
 
 
 export function AboutUs() {
@@ -35,6 +38,18 @@ export function AboutUs() {
                      cupiditate fugit praesentium! Voluptas modi eos esse mollitia voluptatum quis excepturi sit.
                     
             </Typography>
+
+            <Link to={path.about}>
+                <Typography
+                    className={s.arrow}
+                    variant='p'
+                    styleType='Medium'
+                    lineHeight='lineLittle'
+                    color='blue'>
+                    Узнать подробнее
+                    <Arrow />
+                </Typography>
+            </Link>
 
                 
 
