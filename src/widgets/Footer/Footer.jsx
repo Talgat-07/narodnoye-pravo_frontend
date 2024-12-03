@@ -4,7 +4,7 @@ import { Typography } from "shared/ui/Typography/Typography";
 import { Phone } from "shared/assets/icons/Phone";
 import Email from "shared/assets/icons/Email";
 import { Location } from "shared/assets/icons/Location";
-import logo from '../../shared/assets/img/logo.webp'
+import logo from '../../shared/assets/img/logo.png'
 import { WhatsApp } from "shared/assets/icons/WhatsApp";
 import { Instagram } from "shared/assets/icons/Instagram";
 import { Facebook } from "shared/assets/icons/Facebook";
@@ -35,7 +35,9 @@ export const Footer = () => {
         <footer className={s.footer}>
             <div className={s.up} >
                 <div className={s.left}>
-                    <img src={logo} alt='"Народное право" логотип' />
+                    <Link to={path.home}>
+                        <img src={logo} alt='"Народное право" логотип' />
+                    </Link>
                     <ul className={s.footerUl}>
                         {
                             navLinks.map(el => (
