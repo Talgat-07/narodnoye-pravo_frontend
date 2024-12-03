@@ -1,11 +1,13 @@
 import React from 'react';
 import s from './ServiceCard.module.scss'
-import pic from '../../assets/img/service.webp'
-import { Typography } from '../Typography/Typography';
+import { Typography } from '../../shared/ui/Typography/Typography';
+import { Link } from 'react-router-dom';
+import { path } from 'shared/constants/constants';
 
 export const ServiceCard = () => {
     return (
-        <div className={s.seviceCard}>
+        <Link to={path.services}
+            className={s.seviceCard}>
             <Typography
                 className={s.text}
                 variant='p'
@@ -13,6 +15,6 @@ export const ServiceCard = () => {
                 color='white'>
                 Lorem ipsum dolor sit amet
             </Typography>
-        </div>
+        </Link>
     );
 };
