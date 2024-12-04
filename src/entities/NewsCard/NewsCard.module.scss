@@ -1,0 +1,66 @@
+.newsCard {
+    box-shadow: 4px 10px 12px 0 rgba(0, 0, 0, 0.16);
+
+    // &.largeContent {
+    //     display: flex;
+    //     border-radius: 4px;
+    //     width: 1070px;
+    //     height: 470px;
+    //     justify-content: space-between;
+    //     margin: 0 auto;
+
+    //     .image {
+    //         width: 520px;
+    //         height: 470px;
+    //     }
+    // }
+
+    // &.small {
+    //     display: flex;
+    //     flex-direction: column;
+    //     border-radius: 4px;
+    //     width: 330px;
+    //     height: 370px;
+    // }
+
+}
+
+.largeContent {
+    display: flex;
+    border-radius: 4px;
+    width: 1070px;
+    height: 470px;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.title {
+    margin-bottom: 18px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 520px;
+    height: 470px;
+}
+
+.up {
+    border-bottom: 1px solid #000;
+    display: flex;
+    justify-content: space-between;
+    padding: 22px 20px;
+    margin-bottom: 25px;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.down {
+    padding-right: 45px;
+    padding-left: 20px;
+}

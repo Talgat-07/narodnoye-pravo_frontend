@@ -1,30 +1,58 @@
-import { Typography } from "shared/ui/Typography/Typography"
-import NewsCard from "entities/NewsCard/NewsCard"
-
-
+import { NewsCard } from 'entities/NewsCard/NewsCard';
+import s from './LegislativeNews.module.scss';
+import pic from '../../shared/assets/img/NewsBig.png'
+import img from '../../shared/assets/img/NewsSmall.png'
 
 
 
 
 
 export const LegislativeNews = () => {
+    const mockNews = [
+        {
+            id: 1,
+            date: '22.11.2024 г.',
+            title: "Lorem ipsum dolor sit amet consectetur. Aenean massa scelerisque nisl libero ipsum libero.",
+            description: "Lorem ipsum dolor sit amet consectetur. Sit tincidunt lorem faucibus orci nibh turpis risus ullamcorper suscipit. Netus volutpat suscipit interdum ornare proin etiam dui fringilla at. Ultrices aliquam arcu et dui ut id maecenas. Nec vestibulum donec amet in blandit id diam massa.",
+            image: pic,
+        },
+        {
+            id: 2,
+            date: '22.11.2024 г.',
+            title: "Lorem ipsum dolor sit amet consectetur. Aenean massa scelerisque nisl libero ipsum libero.",
+            description: "Lorem ipsum dolor sit amet consectetur. Sit tincidunt lorem faucibus orci nibh turpis risus ullamcorper suscipit. Netus volutpat suscipit interdum ornare proin etiam dui fringilla at. Ultrices aliquam arcu et dui ut id maecenas. Nec vestibulum donec amet in blandit id diam massa.",
+            image: img,
+        },
+        {
+            id: 3,
+            date: '22.11.2024 г.',
+            title: "Lorem ipsum dolor sit amet consectetur. Aenean massa scelerisque nisl libero ipsum libero.",
+            description: "Lorem ipsum dolor sit amet consectetur. Sit tincidunt lorem faucibus orci nibh turpis risus ullamcorper suscipit. Netus volutpat suscipit interdum ornare proin etiam dui fringilla at. Ultrices aliquam arcu et dui ut id maecenas. Nec vestibulum donec amet in blandit id diam massa.",
+            image: img,
+        },
+        {
+            id: 4,
+            date: '22.11.2024 г.',
+            title: "Lorem ipsum dolor sit amet consectetur. Aenean massa scelerisque nisl libero ipsum libero.",
+            description: "Lorem ipsum dolor sit amet consectetur. Sit tincidunt lorem faucibus orci nibh turpis risus ullamcorper suscipit. Netus volutpat suscipit interdum ornare proin etiam dui fringilla at. Ultrices aliquam arcu et dui ut id maecenas. Nec vestibulum donec amet in blandit id diam massa.",
+            image: img,
+        },
+    ];
+
+
     return (
-        <div>
-            <Typography>Новости законодательства</Typography>
-
-            <Typography>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium, nemo officia distinctio maxime alias ipsam,
-                cumque molestias suscipit unde enim possimus, sunt vitae sapiente aspernatur. Animi adipisci eligendi error, ratione deleniti
-                excepturi quam recusandae, enim modi accusamus iusto laboriosam voluptatum, architecto dicta! Voluptate molestias cum aspernatur
-                debitis modi labore quos!</Typography>
-
-            <Typography>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem officia explicabo ipsum!
-                Est aliquid saepe temporibus officia placeat repellat quo, praesentium officiis harum eaque,
-                labore quod delectus, quas pariatur porro.</Typography>
-
-            <Typography>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem velit laboriosam tempore eligendi qui accusamus
-                porro dolorum error perferendis eius atque quo necessitatibus quis, sapiente maiores harum voluptas minima quia!
-            </Typography>
-
+            <div className={s.newsGrid}>
+                
+      {mockNews.map((newsItem) => (
+        <NewsCard
+          key={newsItem.id}
+          title={newsItem.title}
+          description={newsItem.description}
+          image={newsItem.image}
+          date={newsItem.date}
+          isLarge={newsItem.id === 1}
+        />
+      ))}
         </div>
     )
 }

@@ -1,0 +1,13 @@
+.newsGrid {
+    width: 1440px;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    
+        .newsCard {
+            &.large {
+                grid-column: 1 / -1;
+            }
+        }
+    }
