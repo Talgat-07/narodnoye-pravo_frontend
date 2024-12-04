@@ -1,18 +1,58 @@
-import { Typography } from "shared/ui/Typography/Typography"
-import NewsCard from "entities/NewsCard/NewsCard"
+import { NewsCard } from 'entities/NewsCard/NewsCard';
+import s from './LegislativeNews.module.scss';
+import pic from '../../shared/assets/img/NewsBig.png'
+import img from '../../shared/assets/img/NewsSmall.png'
 
 
 
-// export const LegislativeNews = () => {
-//     return (
-//         <div>
-//             <Typography>Новости законодательства</Typography>
-           
-//             <NewsCard></NewsCard>
-//             <NewsCard></NewsCard>
-//             <NewsCard></NewsCard>
-//             <NewsCard></NewsCard>
 
-//         </div>
-//     )
-// }
+
+export const LegislativeNews = () => {
+    const mockNews = [
+        {
+            id: 1,
+            date: '22.11.2024 г.',
+            title: "Lorem ipsum dolor sit amet consectetur. Aenean massa scelerisque nisl libero ipsum libero.",
+            description: "Lorem ipsum dolor sit amet consectetur. Sit tincidunt lorem faucibus orci nibh turpis risus ullamcorper suscipit. Netus volutpat suscipit interdum ornare proin etiam dui fringilla at. Ultrices aliquam arcu et dui ut id maecenas. Nec vestibulum donec amet in blandit id diam massa.",
+            image: pic,
+        },
+        {
+            id: 2,
+            date: '22.11.2024 г.',
+            title: "Lorem ipsum dolor sit amet consectetur. Aenean massa scelerisque nisl libero ipsum libero.",
+            description: "Lorem ipsum dolor sit amet consectetur. Sit tincidunt lorem faucibus orci nibh turpis risus ullamcorper suscipit. Netus volutpat suscipit interdum ornare proin etiam dui fringilla at. Ultrices aliquam arcu et dui ut id maecenas. Nec vestibulum donec amet in blandit id diam massa.",
+            image: img,
+        },
+        {
+            id: 3,
+            date: '22.11.2024 г.',
+            title: "Lorem ipsum dolor sit amet consectetur. Aenean massa scelerisque nisl libero ipsum libero.",
+            description: "Lorem ipsum dolor sit amet consectetur. Sit tincidunt lorem faucibus orci nibh turpis risus ullamcorper suscipit. Netus volutpat suscipit interdum ornare proin etiam dui fringilla at. Ultrices aliquam arcu et dui ut id maecenas. Nec vestibulum donec amet in blandit id diam massa.",
+            image: img,
+        },
+        {
+            id: 4,
+            date: '22.11.2024 г.',
+            title: "Lorem ipsum dolor sit amet consectetur. Aenean massa scelerisque nisl libero ipsum libero.",
+            description: "Lorem ipsum dolor sit amet consectetur. Sit tincidunt lorem faucibus orci nibh turpis risus ullamcorper suscipit. Netus volutpat suscipit interdum ornare proin etiam dui fringilla at. Ultrices aliquam arcu et dui ut id maecenas. Nec vestibulum donec amet in blandit id diam massa.",
+            image: img,
+        },
+    ];
+
+
+    return (
+            <div className={s.newsGrid}>
+                
+      {mockNews.map((newsItem) => (
+        <NewsCard
+          key={newsItem.id}
+          title={newsItem.title}
+          description={newsItem.description}
+          image={newsItem.image}
+          date={newsItem.date}
+          isLarge={newsItem.id === 1}
+        />
+      ))}
+        </div>
+    )
+}

@@ -1,6 +1,7 @@
 .footer {
     display: flex;
     flex-direction: column;
+    align-items: center;
     border-top: 1px solid #7490f5;
 }
 
@@ -8,9 +9,9 @@
 .up {
     display: flex;
     justify-content: space-between;
-    padding: 40px 106px 40px 75px;
+    padding: 40px 106px 0 75px;
     max-width: 1440px;
-    margin: 0 auto;
+    gap: 66px;
 }
 
 //left
@@ -18,28 +19,36 @@
     display: flex;
     align-items: flex-start;
     gap: 58px;
-    margin-right: 180px;
+    margin-right: 174px;
+    min-width: 381px;
 }
 
 .footerUl {
     display: flex;
     flex-direction: column;
-    gap: 1px;
+    gap: 4px;
     margin-top: 25px;
+}
+
+.footerLi {
+    width: 200px;
 }
 
 //middle
 .middle {
-    margin-top: 22px;
+    margin-top: 25px;
 }
 
 .phoneWrap {
     display: flex;
-    margin-top: 18px;
+    margin-top: 19px;
     gap: 11px;
 }
 
 .phone {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
     margin-top: -8px;
 }
 
@@ -49,17 +58,18 @@
 
 .email {
     display: flex;
-    margin-top: 12px;
+    margin-top: 9px;
+    align-items: center;
 }
 
 //right
 .right {
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .addressWrap {
     display: flex;
-    margin-top: 19px;
+    margin-top: 15px;
     gap: 10px;
 }
 
@@ -73,7 +83,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 53px;
+    margin-top: 93px;
     gap: 30px;
     margin-bottom: 40px;
 }
@@ -82,20 +92,13 @@
     padding: 7px 11px;
     height: 37px;
     background: #0171b9;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .geeksLogo {
     max-width: 1440px;
     text-align: center;
-}
-
-ul {
-    margin-block-start: 0;
-    margin-block-end: 0;
-    padding-inline-start: 0;
-}
-
-p {
-    margin-block-start: 0;
-    margin-block-end: 0;
 }

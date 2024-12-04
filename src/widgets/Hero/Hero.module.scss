@@ -1,0 +1,40 @@
+.hero {
+    background: #d9d9d9;
+}
+
+.wrap {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    padding: 0 75px;
+    gap: 96px;
+    margin-bottom: 120px;
+}
+
+.title {
+    max-width: 454px;
+    margin-bottom: 65px;
+}
+
+.h1 {
+    margin-top: 127px;
+}
+
+.h4 {
+    text-align: end;
+}
+
+.text {
+    max-width: 410px;
+    margin-bottom: 30px;
+}
+
+.right {
+    width: 740px;
+    height: 730px;
+}
+
+.right img {
+    width: 100%;
+    height: 100%;
+}
