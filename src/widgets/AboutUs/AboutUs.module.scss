@@ -1,20 +1,21 @@
-.aboutUs{
+.aboutUs {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2.5rem;
+    margin-bottom: 120px;
 }
 
-.image{
+.image {
     width: 848px;
     height: 400px;
 }
 
-.text{
+.text {
     width: 70%;
-    
+
 }
 
-.arrow{
-   margin-bottom: 5rem;
+.arrow {
+    margin-bottom: 5rem;
 }

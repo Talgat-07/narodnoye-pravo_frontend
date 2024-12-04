@@ -55,7 +55,7 @@ export const NewsCard = ({ title, description, image, isLarge, date }) => {
       ) : (
         // Маленькая карточка
         <div className={s.smallContent}>
-          <div className={s.up}>
+          <div className={s.smallUp}>
             <Typography
               variant='p'
               styleType='Medium'
@@ -77,19 +77,12 @@ export const NewsCard = ({ title, description, image, isLarge, date }) => {
           <div className={s.imageWrap}>
             <img src={image} alt={title} className={s.image} />
           </div>
-          <div className={s.down}>
+          <div className={s.smallDown}>
             <Typography
-              className={s.title}
-              variant='p'
-              styleType='Big'
-              lineHeight='lineBig'
-              weight='normal'
-            >{title}</Typography>
-            <Typography
-              className={s.description}
+              className={s.smallDescription}
               variant='p'
               styleType='Little'
-              lineHeight='lineBig'
+              lineHeight='lineSmall'
               weight='regular'
             >{description}</Typography>
           </div>
