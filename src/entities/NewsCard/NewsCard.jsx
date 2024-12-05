@@ -17,17 +17,16 @@ export const NewsCard = ({ title, description, image, isLarge, date }) => {
           <div className={s.content}>
             <div className={s.up}>
               <Typography
-                variant='p'
-                styleType='Medium'
-                lineHeight='lineLittle'
-                weight='normal'
+                variant='bodyL'
+                lineHeight='lineTight'
+                weight='regular'
               >{date}</Typography>
               <Link to={path.services}>
                 <Typography
                   className={s.link}
-                  variant='p'
-                  styleType='Medium'
-                  lineHeight='lineLittle'
+                  variant='bodyM'
+                  weight='semibold'
+                  lineHeight='lineSemiTight'
                   color='blue'>
                   Подробнее
                   <Arrow />
@@ -37,15 +36,13 @@ export const NewsCard = ({ title, description, image, isLarge, date }) => {
             <div className={s.down}>
               <Typography
                 className={s.title}
-                variant='p'
-                styleType='Big'
+                variant='bodyXL'
                 lineHeight='lineBig'
-                weight='normal'
+                weight='semibold'
               >{title}</Typography>
               <Typography
                 className={s.description}
-                variant='p'
-                styleType='Little'
+                variant='bodyM'
                 lineHeight='lineBig'
                 weight='regular'
               >{description}</Typography>
@@ -57,17 +54,16 @@ export const NewsCard = ({ title, description, image, isLarge, date }) => {
         <div className={s.smallContent}>
           <div className={s.smallUp}>
             <Typography
-              variant='p'
-              styleType='Medium'
-              lineHeight='lineLittle'
-              weight='normal'
+              variant='bodyM'
+              lineHeight='lineSemiTight'
+              weight='regular'
             >{date}</Typography>
             <Link to={path.services}>
               <Typography
                 className={s.link}
-                variant='p'
-                styleType='Medium'
-                lineHeight='lineLittle'
+                variant='bodyM'
+                weight='semibold'
+                lineHeight='lineSemiTight'
                 color='blue'>
                 Подробнее
                 <Arrow />
@@ -80,10 +76,9 @@ export const NewsCard = ({ title, description, image, isLarge, date }) => {
           <div className={s.smallDown}>
             <Typography
               className={s.smallDescription}
-              variant='p'
-              styleType='Little'
-              lineHeight='lineSmall'
+              variant='bodyM'
               weight='regular'
+              lineHeight='lineCompact'
             >{description}</Typography>
           </div>
         </div>

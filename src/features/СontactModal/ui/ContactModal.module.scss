@@ -1,0 +1,44 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    border-radius: 4px;
+    width: 630px;
+    padding: 30px 23px;
+    position: relative;
+    z-index: 1001;
+}
+
+
+.close {
+    background: transparent;
+    border: none;
+    align-self: flex-end;
+    margin-bottom: 4px;
+    cursor: pointer;
+}
+
+.title {
+    margin-bottom: 44px;
+}
+
+.linkWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 32px;
+}

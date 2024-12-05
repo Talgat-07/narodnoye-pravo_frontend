@@ -58,9 +58,9 @@ export const Service = () => {
     return (
         <section className={s.service}>
             <Typography
+                className={s.title}
                 variant='h3'
-                weight='bold'
-                color='black'>
+                weight='bold'>
                 Услуги
             </Typography>
             {/* <div className={s.cardWrap}>
