@@ -6,6 +6,7 @@ import { Service } from "widgets/Service/Service";
 
 
 export const Home = () => {
+
     return (
         <div>
             <Hero />

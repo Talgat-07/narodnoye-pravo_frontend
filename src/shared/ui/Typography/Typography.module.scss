@@ -18,42 +18,36 @@ h4 {
     font-size: 32px;
 }
 
-.pBig {
-    font-size: 20px;
-    line-height: 140%;
-}
-
-.pMedium {
-    font-size: 18px;
-}
-
-.pRegular {
-    font-family: 'Open Sans', sans-serif;
+.bodyXXL {
     font-size: 24px;
 }
 
-.pSmall {
+.bodyXL {
+    font-size: 20px;
+}
+
+.bodyL {
     font-size: 18px;
 }
 
-.pLittle {
+.bodyM {
     font-size: 16px;
 }
 
-.pLogo {
+.bodyS {
     font-size: 11px;
-    text-transform: uppercase;
 }
 
+//font-weight:
 .regular {
     font-weight: 400;
 }
 
-.meddium {
+.medium {
     font-weight: 500;
 }
 
-.normal {
+.semibold {
     font-weight: 600;
 }
 
@@ -61,26 +55,44 @@ h4 {
     font-weight: 700;
 }
 
-.lineRegular {
+//line-height
+.lineDefault {
     line-height: 1.5;
 }
 
+.lineFixed {
+    line-height: 27.2px;
+}
+
 .lineBig {
-    line-height: 170%;
+    line-height: 1.8;
 }
 
-.lineMedium {
-    line-height: 160%;
+.lineLarge {
+    line-height: 1.7;
 }
 
-.lineSmall {
-    line-height: 140%;
+.lineModerate {
+    line-height: 1.6;
 }
 
-.lineLittle {
-    line-height: 111%;
+.lineCompact {
+    line-height: 1.4;
 }
 
+.lineSemiTight {
+    line-height: 1.25;
+}
+
+.lineTight {
+    line-height: 1.11;
+}
+
+.lineShort {
+    line-height: 1;
+}
+
+//color
 .black {
     color: #000;
 }
@@ -91,4 +103,8 @@ h4 {
 
 .blue {
     color: #7490f5;
+}
+
+.lightBlue {
+    color: #345ea6;
 }
