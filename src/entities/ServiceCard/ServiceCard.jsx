@@ -10,18 +10,18 @@ export const ServiceCard = ({ id, title, description }) => {
             <div className={s.content}>
                 <Typography
                     className={s.title}
-                    variant='p'
-                    styleType='Regular'
+                    variant='bodyXXL'
+                    weight='semibold'
                     color='white'
                 >
                     {title}
                 </Typography>
                 <Typography
                     className={s.description}
-                    variant='p'
-                    styleType='Little'
+                    variant='bodyM'
+                    weight='regular'
                     color='white'
-                    lineHeight='lineNormal'
+                    lineHeight='lineLarge'
                 >
                     {description}
                 </Typography>

@@ -35,20 +35,16 @@ export const Footer = () => {
         <footer className={s.footer}>
             <div className={s.up} >
                 <div className={s.left}>
-                    <Link to={path.home}>
-                        <img src={logo} alt='"Народное право" логотип' />
-                    </Link>
+                    <img className={s.footerImg} src={logo} alt='"Народное право" логотип' />
                     <ul className={s.footerUl}>
                         {
                             navLinks.map(el => (
                                 <li className={s.footerLi} key={el.path}>
                                     <Link to={el.path}>
                                         <Typography
-                                            variant='p'
-                                            styleType={location.pathname === el.path ? 'Big' : 'Small'}
+                                            variant={location.pathname === el.path ? 'bodyXL' : 'bodyM'}
                                             weight={location.pathname === el.path ? 'bold' : 'regular'}
-                                            color='black'
-                                            fontFamily='second'>
+                                            color='black'>
                                             {el.label}
                                         </Typography>
                                     </Link>
@@ -59,11 +55,10 @@ export const Footer = () => {
                 </div>
                 <div className={s.middle}>
                     <Typography
-                        variant='p'
-                        styleType='Big'
+                        variant='bodyXL'
                         weight='bold'
+                        lineHeight='height'
                         color='black'
-                        fontFamily='second'
                     >
                         КОНТАКТЫ
                     </Typography>
@@ -85,21 +80,17 @@ export const Footer = () => {
                         <div className={s.phone}>
                             <a href="tel:+996550188777">
                                 <Typography
-                                    variant="p"
-                                    styleType="Small"
+                                    variant="bodyM"
                                     weight="regular"
-                                    color='black'
-                                    fontFamily='second'>
+                                    color='black'>
                                     +996 (550) 18-87-77
                                 </Typography>
                             </a>
                             <a href="tel:+996702188777">
                                 <Typography
-                                    variant="p"
-                                    styleType="Small"
+                                    variant="bodyM"
                                     weight="regular"
-                                    color='black'
-                                    fontFamily='second'>
+                                    color='black'>
                                     +996 (702) 18-87-77
                                 </Typography>
                             </a>
@@ -110,10 +101,9 @@ export const Footer = () => {
                         <a href="mailto:N.pravo2018@gmail.com">
                             <Typography
                                 className={s.emalSvg}
-                                variant="p"
-                                styleType="Small"
+                                variant="bodyM"
                                 weight="regular"
-                                fontFamily='second'>
+                                color='black'>
                                 N.pravo2018@gmail.com
                             </Typography>
                         </a>
@@ -121,11 +111,9 @@ export const Footer = () => {
                 </div>
                 <div className={s.right}>
                     <Typography
-                        variant='p'
-                        styleType='Big'
+                        variant='bodyXL'
                         weight='bold'
                         color='black'
-                        fontFamily='second'
                     >
                         АДРЕС
                     </Typography>
@@ -133,12 +121,10 @@ export const Footer = () => {
                         <Location />
                         <Typography
                             className={s.address}
-                            variant="p"
-                            styleType="Small"
+                            variant="bodyM"
                             weight="regular"
-                            lineHeight='lineMedium'
-                            color='black'
-                            fontFamily='second'>
+                            lineHeight='lineModerate'
+                            color='black'>
                             Кыргызская Республика,
                             город Бишкек,<br />
                             ул. Токтогула, 87,<br />
@@ -157,9 +143,8 @@ export const Footer = () => {
             <div className={s.geeks}>
                 <Typography
                     className={s.geeksLogo}
-                    variant='p'
-                    styleType='Logo'
-                    weight='meddium'>
+                    variant='bodyS'
+                    weight='medium'>
                     Made by GeeksPro
                 </Typography>
             </div>

@@ -1,10 +1,12 @@
 import React from 'react';
-import heroImg from '../../shared/assets/img/hero.webp'
 import { Typography } from 'shared/ui/Typography/Typography';
 import s from './Hero.module.scss'
 import { Button } from 'shared/ui/Button/Button';
+import { ContactModal } from 'features/СontactModal/ui/ContactModal';
+import { useContactModal } from 'features/СontactModal/model/useContactModal';
 
 export const Hero = () => {
+    const { isOpen, openModal, closeModal } = useContactModal();
     return (
         <section className={s.hero}>
             <div className={s.wrap}>
@@ -14,32 +16,29 @@ export const Hero = () => {
                             className={s.h1}
                             variant='h1'
                             weight='bold'
-                            color='black'>
+                            color='blue'>
                             “Народное право”
                         </Typography>
                         <Typography
                             className={s.h4}
                             variant='h4'
                             weight='regular'
-                            color='black'>
+                            color='lightBlue'>
                             -доступно всем
                         </Typography>
                     </div>
                     <Typography
                         className={s.text}
-                        variant='p'
-                        styleType='Medium'
+                        variant='bodyM'
                         weight='regular'
-                        color='black'
-                        fontFamily='second'>
-                        Компания «Народное право» оказывает качественные юридические услуги <br /> по доступной цене.
+                        lineHeight='lineBig'
+                        color='black'>
+                        Компания «Народное право» оказывает качественные юридические услуги по доступной цене.
                     </Typography>
-                    <Button />
-                </div>
-                <div className={s.right}>
-                    <img src={heroImg} alt="книги, весы и молоток" />
+                    <Button onClick={openModal}>Оставить заявку</Button>
                 </div>
             </div>
+            <ContactModal isOpen={isOpen} closeModal={closeModal} />
         </section>
     );
 };

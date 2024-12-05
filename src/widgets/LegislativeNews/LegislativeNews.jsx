@@ -45,8 +45,7 @@ export const LegislativeNews = () => {
             <Typography
                 className={s.title}
                 variant='h3'
-                weight='bold'
-                color='black'>
+                weight='bold'>
                 Новости законодательства
             </Typography>
             <div className={s.newsGrid}>
