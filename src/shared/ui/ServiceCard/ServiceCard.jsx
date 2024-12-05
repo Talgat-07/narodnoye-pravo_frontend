@@ -1,6 +1,6 @@
 
 import s from './ServiceCard.module.scss'
-import { Typography } from '../../shared/ui/Typography/Typography';
+import { Typography } from '../Typography/Typography';
 import { Link } from 'react-router-dom';
 import { path } from 'shared/constants/constants';
 
