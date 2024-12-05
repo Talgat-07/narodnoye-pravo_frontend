@@ -1,13 +1,19 @@
-.newsGrid {
-    width: 1440px;
-    display: grid;
-    grid-template-rows: auto auto;
-    grid-template-columns: 1fr;
-    gap: 16px;
-    
-        .newsCard {
-            &.large {
-                grid-column: 1 / -1;
-            }
+.block {
+    display: flex;
+    flex-direction: column;
+
+    .newsGrid {
+        max-width: 1440px;
+        width: 100%;
+        display: grid;
+        grid-template-rows: auto auto;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 16px;
+        
+            // .newsCard {
+            //     &.large {
+            //         grid-column: 1 / -1;
+            //     }
+            // }
         }
-    }
+}
