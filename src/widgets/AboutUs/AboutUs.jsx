@@ -3,13 +3,14 @@ import aboutUs from '../../shared/assets/img/aboutUsImg.png'
 import s from './AboutUs.module.scss'
 import { Link } from 'react-router-dom';
 import { path } from 'shared/constants/constants';
-import { Arrow } from 'shared/assets/icons/Arrow';
+import { ButtonLink } from 'shared/ui/ButtonLink/ButtonLink';
 
 
 export function AboutUs() {
     return (
         <div className={s.aboutUs}>
             <Typography
+                className={s.title}
                 variant='h3'
                 weight='bold'>
                 О нас
@@ -19,36 +20,16 @@ export function AboutUs() {
 
             <Typography
                 className={s.text}
-                variant='p'
-                styleType='Medium'
-                weight='regular'>
+                variant='bodyM'
+                weight='regular'
+                color='black'
+                lineHeight='lineBig'>
 
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Suscipit recusandae cupiditate pariatur exercitationem harum rem explicabo,
-                ullam vitae ad quos, modi consequatur quo rerum labore tempora veniam velit
-                blanditiis expedita vel quod!
-                Qui porro et itaque fugit,
-                corporis facere mollitia hic! Quibusdam sequi optio consectetur?
-                Ab hic eligendi cupiditate officia.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic recusandae magni consectetur ex magnam aliquam corrupti
-                qui asperiores iure, praesentium quasi dolor autem! Odio eveniet amet, perspiciatis rerum quidem voluptatibus! Laudantium
-                vero recusandae quia consequatur iusto ea et ut pariatur ratione libero, aliquam officiis ipsa iste dignissimos accusamus mollitia maxime?
-                Sequi, dolor cumque non voluptatibus obcaecati explicabo facilis esse laudantium facere, rerum nisi nobis deleniti iure modi vero enim dolore
-                similique nostrum assumenda commodi nemo quo dignissimos? Hic eius fuga voluptate at temporibus? Obcaecati modi soluta, molestias dolor
-                cupiditate fugit praesentium! Voluptas modi eos esse mollitia voluptatum quis excepturi sit.
-
+                Lorem ipsum dolor sit amet consectetur. Nunc auctor tempor urna enim quis hendrerit. Metus sed quisque mattis interdum justo id turpis tempus. Sodales risus pellentesque odio nisl. At sit ultricies mi non. Vel massa arcu ut bibendum nisi aenean pellentesque. Donec interdum malesuada leo tristique tellus massa tempus nunc. Lobortis elit tortor fames sollicitudin tellus. At mi vitae enim quisque lectus ipsum lorem. Tellus id condimentum ornare eu et. Metus gravida lectus cras sit turpis ornare nunc varius. Cursus molestie ipsum urna eu id arcu fames nulla. Maecenas lectus est ullamcorper nullam. Nisl eget aliquam nunc in faucibus. Sed morbi enim ut eget maecenas ut egestas interdum sed. Lorem ipsum dolor sit amet consectetur. Nunc auctor tempor urna enim quis hendrerit. Metus sed quisque mattis interdum justo id turpis tempus. Sodales risus pellentesque odio nisl. At sit ultricies mi non. Vel massa arcu ut bibendum nisi aenean pellentesque.
             </Typography>
 
             <Link to={path.about}>
-                <Typography
-                    className={s.arrow}
-                    variant='p'
-                    styleType='Medium'
-                    lineHeight='lineLittle'
-                    color='blue'>
-                    Узнать подробнее
-                    <Arrow />
-                </Typography>
+                <ButtonLink />
             </Link>
 
 

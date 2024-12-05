@@ -2,6 +2,10 @@ import { NewsCard } from 'shared/ui/NewsCard/NewsCard';
 import s from './LegislativeNews.module.scss';
 import pic from '../../shared/assets/img/NewsBig.png'
 import img from '../../shared/assets/img/NewsSmall.png'
+import { Typography } from 'shared/ui/Typography/Typography';
+import { ButtonLink } from 'shared/ui/ButtonLink/ButtonLink';
+import { Link } from 'react-router-dom';
+import { path } from 'shared/constants/constants';
 
 
 
