@@ -3,7 +3,6 @@ import aboutUs from '../../shared/assets/img/aboutUsImg.png'
 import s from './AboutUs.module.scss'
 import { Link } from 'react-router-dom';
 import { path } from 'shared/constants/constants';
-// import { Arrow } from 'shared/assets/icons/Arrow';
 import { ButtonLink } from 'shared/ui/ButtonLink/ButtonLink';
 
 

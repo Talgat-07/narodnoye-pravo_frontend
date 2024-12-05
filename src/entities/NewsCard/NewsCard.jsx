@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Link } from "react-router-dom";
 import s from "./NewsCard.module.scss";
 import { Typography } from "shared/ui/Typography/Typography";
