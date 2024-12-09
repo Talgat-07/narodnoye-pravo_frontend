@@ -8,26 +8,28 @@
 
 .up {
     display: flex;
+    width: 1070px;
     justify-content: space-between;
-    padding: 40px 106px 0 75px;
-    max-width: 1440px;
-    gap: 66px;
+    padding-top: 58px;
 }
 
 //left
 .left {
     display: flex;
     align-items: flex-start;
-    gap: 58px;
-    margin-right: 174px;
-    min-width: 381px;
+    gap: 89px;
+}
+
+.footerImg {
+    width: 130px;
+    height: 92px;
 }
 
 .footerUl {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    margin-top: 25px;
+    gap: 15px;
+    margin-top: 12px;
 }
 
 .footerLi {
@@ -36,20 +38,19 @@
 
 //middle
 .middle {
-    margin-top: 25px;
+    margin-top: 9px;
 }
 
 .phoneWrap {
     display: flex;
     margin-top: 19px;
-    gap: 11px;
+    gap: 15px;
 }
 
 .phone {
     display: flex;
     flex-direction: column;
-    gap: 7px;
-    margin-top: -8px;
+    gap: 16px;
 }
 
 .emalSvg {
@@ -58,24 +59,24 @@
 
 .email {
     display: flex;
-    margin-top: 9px;
+    margin-top: 17px;
     align-items: center;
 }
 
 //right
 .right {
-    margin-top: 25px;
+    margin-top: 9px;
 }
 
 .addressWrap {
     display: flex;
-    margin-top: 15px;
+    margin-top: 19px;
     gap: 10px;
 }
 
 .address {
-    width: 276px;
-    height: 116px;
+    width: 191px;
+    height: 104px;
 }
 
 //down
@@ -83,9 +84,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 93px;
+    margin-top: 77px;
     gap: 30px;
-    margin-bottom: 40px;
+    margin-bottom: 36px;
 }
 
 .geeks {
@@ -101,4 +102,5 @@
 .geeksLogo {
     max-width: 1440px;
     text-align: center;
+    text-transform: uppercase;
 }

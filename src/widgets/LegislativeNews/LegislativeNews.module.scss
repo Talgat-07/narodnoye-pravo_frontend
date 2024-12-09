@@ -1,19 +1,32 @@
-.block {
+.newsWrap {
+    width: 1440px;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
     flex-direction: column;
+    margin-bottom: 130px;
+}
 
-    .newsGrid {
-        max-width: 1440px;
-        width: 100%;
-        display: grid;
-        grid-template-rows: auto auto;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 16px;
-        
-            // .newsCard {
-            //     &.large {
-            //         grid-column: 1 / -1;
-            //     }
-            // }
-        }
+.title {
+    margin-bottom: 80px;
+}
+
+.newsGrid {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.smallCards {
+    display: flex;
+    justify-content: space-between;
+}
+
+.smallContent {
+    border-radius: 4px;
+    width: 330px;
+    height: 370px;
 }

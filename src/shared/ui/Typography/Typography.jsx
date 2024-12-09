@@ -1,16 +1,15 @@
-import React from 'react';
+
 import { Fragment } from 'react';
 import s from './Typography.module.scss'
 
 export const Typography = (props) => {
     const {
-        variant = 'p',
+        variant = 'bodyXL',
         weight = 'regular',
         className,
         children,
         color = 'black',
         truncate = false,
-        styleType = 'regular',
         lineHeight = 'lineRegular',
         fontFamily = 'default',
     } = props;
@@ -20,7 +19,11 @@ export const Typography = (props) => {
         h2: 'h2',
         h3: 'h3',
         h4: 'h4',
-        p: 'p',
+        h5: 'h5',
+        bodyXL: 'p',
+        bodyL: 'p',
+        bodyM: 'p',
+        bodyS: 'p',
     };
 
     const classNamedGenerated = [
@@ -30,7 +33,8 @@ export const Typography = (props) => {
         s[color],
         s[lineHeight],
         fontFamily === 'second' ? s.fontComfortaa : s.fontOpenSans,
-        variant === 'p' && s[`p${styleType}`],
+        s[variant],
+
         className,
     ]
         .filter(Boolean)
