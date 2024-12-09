@@ -1,4 +1,4 @@
-
+/* eslint-disable react/prop-types*/
 import s from './ContactModal.module.scss';
 import { contactLinks } from '../config/links';
 import { ModalButton } from 'shared/ui/ModalButton/ModalButton';

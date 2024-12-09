@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Typography } from 'shared/ui/Typography/Typography';
 import s from './Hero.module.scss'
 import { Button } from 'shared/ui/Button/Button';

@@ -1,4 +1,4 @@
-
+/* eslint-disable react/prop-types*/
 import { Link } from "react-router-dom";
 import s from "./NewsCard.module.scss";
 import { Typography } from "shared/ui/Typography/Typography";

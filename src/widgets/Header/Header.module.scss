@@ -1,0 +1,54 @@
+.container{
+    background-color: white;
+    height: 90px;
+    margin: 0 auto;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5.625rem;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.logo{
+    width: 6.125rem;
+}
+
+.list{
+    display: flex;
+    gap: 3.125rem;
+}
+
+.list > li:hover,
+.list > li:focus{
+    border-bottom:4px solid #7490f5;
+}
+
+.button{
+    font-family: "Open Sans", sans-serif;
+    border-radius: 4px;
+    padding: 10px 20px;
+    background: #7490f5;
+    border: none;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #8BA4FE;
+}
+
+.lang{
+  
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+
+
