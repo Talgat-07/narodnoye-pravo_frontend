@@ -1,10 +1,8 @@
-
 import s from './Service.module.scss'
 import { Typography } from 'shared/ui/Typography/Typography';
 import { ServiceCard } from 'shared/ui/ServiceCard/ServiceCard';
 import { Link } from 'react-router-dom';
 import { path } from 'shared/constants/constants';
-// import { Arrow } from 'shared/assets/icons/Arrow';
 import { ButtonLink } from 'shared/ui/ButtonLink/ButtonLink';
 
 export const Service = () => {

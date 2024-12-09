@@ -1,5 +1,5 @@
 import { path } from "shared/constants/constants";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Typography } from "shared/ui/Typography/Typography";
 import { Phone } from "shared/assets/icons/Phone";
 import Email from "shared/assets/icons/Email";
@@ -13,7 +13,8 @@ import { Youtube } from "shared/assets/icons/Youtube";
 import s from './Footer.module.scss'
 
 export const Footer = () => {
-    const location = useLocation()
+    const address = "Кыргызская Республика, город Бишкек, ул. Токтогула, 87, 4 этаж";
+    const googleMapsUrl = `https://www.google.com/maps?q=${encodeURIComponent(address)}`;
 
     const navLinks = [
         { path: path.home, label: "Главная" },
@@ -31,20 +32,31 @@ export const Footer = () => {
     //     { type: 'phone', value: '+996 (702) 18-87-77' },
     //     { type: 'email', value: 'N.pravo2018@gmail.com' },
     // ]
+
+    const lastPath = navLinks[0]
+    const renderPath = navLinks.slice(1)
     return (
         <footer className={s.footer}>
             <div className={s.up} >
                 <div className={s.left}>
                     <img className={s.footerImg} src={logo} alt='"Народное право" логотип' />
                     <ul className={s.footerUl}>
+                        {lastPath && (
+                            <Link to={path.home} key={path.home}>
+                                <Typography
+                                    variant='bodyXL'
+                                    weight='bold'>
+                                    {lastPath.label}
+                                </Typography>
+                            </Link>
+                        )}
                         {
-                            navLinks.map(el => (
+                            renderPath.map(el => (
                                 <li className={s.footerLi} key={el.path}>
                                     <Link to={el.path}>
                                         <Typography
-                                            variant={location.pathname === el.path ? 'bodyXL' : 'bodyM'}
-                                            weight={location.pathname === el.path ? 'bold' : 'regular'}
-                                            color='black'>
+                                            variant="bodyM"
+                                            weight="regular">
                                             {el.label}
                                         </Typography>
                                     </Link>
@@ -117,7 +129,10 @@ export const Footer = () => {
                     >
                         АДРЕС
                     </Typography>
-                    <div className={s.addressWrap}>
+                    <a href={googleMapsUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={s.addressWrap}>
                         <Location />
                         <Typography
                             className={s.address}
@@ -130,7 +145,7 @@ export const Footer = () => {
                             ул. Токтогула, 87,<br />
                             4 этаж
                         </Typography>
-                    </div>
+                    </a>
                 </div>
             </div >
             <div className={s.down} >
@@ -141,12 +156,16 @@ export const Footer = () => {
                 <Youtube />
             </div >
             <div className={s.geeks}>
-                <Typography
-                    className={s.geeksLogo}
-                    variant='bodyS'
-                    weight='medium'>
-                    Made by GeeksPro
-                </Typography>
+                <a href="https://geeks.kg/geeks-pro"
+                    rel="noopener noreferrer"
+                    target="_blank">
+                    <Typography
+                        className={s.geeksLogo}
+                        variant='bodyS'
+                        weight='medium'>
+                        Made by GeeksPro
+                    </Typography>
+                </a>
             </div>
         </footer >
     );
