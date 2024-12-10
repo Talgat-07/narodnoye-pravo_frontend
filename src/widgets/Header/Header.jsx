@@ -12,7 +12,6 @@ export const Header = () => {
     const { isOpen, openModal, closeModal } = useContactModal();
 
     const navLinks = [
-        { path: path.home, label: "Главная" },
         { path: path.about, label: "О нас" },
         { path: path.services, label: "Услуги" },
         { path: path.legislativenews, label: "Новости" },
@@ -26,7 +25,7 @@ export const Header = () => {
         <div  className={s.container}>
            <header  className={s.header}>
               
-              <img className={s.logo} src={logo} alt="'народное право' логотип" />
+              <a href={ path.home}><img className={s.logo} src={logo} alt="'народное право' логотип" /></a>
                 <nav>
                     <ul className={s.list}>
                         {
