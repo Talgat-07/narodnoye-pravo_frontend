@@ -1,4 +1,4 @@
-
+/* eslint-disable react/prop-types*/
 import { Fragment } from 'react';
 import s from './Typography.module.scss'
 
@@ -19,7 +19,7 @@ export const Typography = (props) => {
         h2: 'h2',
         h3: 'h3',
         h4: 'h4',
-        h5: 'h5',
+        span: 'span',
         bodyXL: 'p',
         bodyL: 'p',
         bodyM: 'p',
@@ -32,7 +32,7 @@ export const Typography = (props) => {
         s[weight],
         s[color],
         s[lineHeight],
-        fontFamily === 'second' ? s.fontComfortaa : s.fontOpenSans,
+        s[fontFamily],
         s[variant],
 
         className,

@@ -1,0 +1,57 @@
+.container {
+    background-color: white;
+    margin: 0 auto;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5.625rem;
+    width: 85%;
+    margin: 0 auto;
+}
+
+.logo {
+    width: 6.125rem;
+}
+
+.list {
+    display: flex;
+    gap: 3.125rem;
+}
+
+.list > li {
+    border-bottom: 4px solid transparent;
+    transition: border-color 0.5 ease;
+}
+
+.list > li:hover,
+.list > li:focus{
+   border-color: #7490f5;
+}
+
+.button {
+    font-family: "Open Sans", sans-serif;
+    border-radius: 4px;
+    padding: 10px 20px;
+    background: #7490f5;
+    border: none;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #8BA4FE;
+}
+
+.lang {
+
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+

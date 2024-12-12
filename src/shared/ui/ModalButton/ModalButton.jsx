@@ -1,12 +1,13 @@
-import React from 'react';
+/* eslint-disable react/prop-types*/
 import s from './ModalButton.module.scss'
 import { Typography } from '../Typography/Typography';
 
-export const ModalButton = ({ href, text, icon }) => {
-    if (!href) return null;
+export const ModalButton = ({ onClick, text, icon }) => {
+    // if (!href) return null;
+    if (!onClick) return null;
 
     return (
-        <a className={s.link} href={href} target="_blank" rel="noopener noreferrer">
+        <a className={s.link} onClick={onClick} rel="noopener noreferrer">
             <Typography
                 variant='bodyM'
                 weight='semibold'

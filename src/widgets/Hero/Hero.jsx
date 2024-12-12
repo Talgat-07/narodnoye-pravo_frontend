@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Typography } from 'shared/ui/Typography/Typography';
 import s from './Hero.module.scss'
 import { Button } from 'shared/ui/Button/Button';
@@ -17,7 +17,7 @@ export const Hero = () => {
                             variant='h1'
                             weight='bold'
                             color='blue'>
-                            “Народное право”
+                            «Народное право»
                         </Typography>
                         <Typography
                             className={s.h4}
@@ -29,13 +29,21 @@ export const Hero = () => {
                     </div>
                     <Typography
                         className={s.text}
-                        variant='bodyM'
+                        variant='bodyL'
                         weight='regular'
                         lineHeight='lineBig'
                         color='black'>
                         Компания «Народное право» оказывает качественные юридические услуги по доступной цене.
                     </Typography>
-                    <Button onClick={openModal}>Оставить заявку</Button>
+                    <Button onClick={openModal}>
+                        <Typography
+                            variant='span'
+                            weight='semibold'
+                            lineHeight='lineSemiTight'
+                            color='white'>
+                            Оставить заявку
+                        </Typography>
+                    </Button>
                 </div>
             </div>
             <ContactModal isOpen={isOpen} closeModal={closeModal} />

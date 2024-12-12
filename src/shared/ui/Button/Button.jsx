@@ -1,4 +1,4 @@
-import React from 'react';
+/* eslint-disable react/prop-types*/
 import s from './Button.module.scss'
 import { Typography } from '../Typography/Typography';
 

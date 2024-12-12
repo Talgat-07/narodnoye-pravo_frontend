@@ -23,37 +23,40 @@ export const LegislativeNews = () => {
         {
             id: 2,
             date: '22.11.2024 г.',
-            title: "Lorem ipsum dolor sit amet consectetur. Aenean massa scelerisque nisl libero ipsum libero.",
+            title: "2Lorem ipsum dolor sit amet consectetur. Aenean massa scelerisque nisl libero ipsum libero.",
             description: "Lorem ipsum dolor sit amet consectetur. Sit tincidunt lorem faucibus orci nibh turpis risus ullamcorper suscipit. Netus volutpat suscipit interdum ornare proin etiam dui fringilla at. Ultrices aliquam arcu et dui ut id maecenas. Nec vestibulum donec amet in blandit id diam massa.",
             image: img,
         },
         {
             id: 3,
             date: '22.11.2024 г.',
-            title: "Lorem ipsum dolor sit amet consectetur. Aenean massa scelerisque nisl libero ipsum libero.",
+            title: "3Lorem ipsum dolor sit amet consectetur. Aenean massa scelerisque nisl libero ipsum libero.",
             description: "Lorem ipsum dolor sit amet consectetur. Sit tincidunt lorem faucibus orci nibh turpis risus ullamcorper suscipit. Netus volutpat suscipit interdum ornare proin etiam dui fringilla at. Ultrices aliquam arcu et dui ut id maecenas. Nec vestibulum donec amet in blandit id diam massa.",
             image: img,
         },
         {
             id: 4,
             date: '22.11.2024 г.',
-            title: "Lorem ipsum dolor sit amet consectetur. Aenean massa scelerisque nisl libero ipsum libero.",
+            title: "4Lorem ipsum dolor sit amet consectetur. Aenean massa scelerisque nisl libero ipsum libero.",
             description: "Lorem ipsum dolor sit amet consectetur. Sit tincidunt lorem faucibus orci nibh turpis risus ullamcorper suscipit. Netus volutpat suscipit interdum ornare proin etiam dui fringilla at. Ultrices aliquam arcu et dui ut id maecenas. Nec vestibulum donec amet in blandit id diam massa.",
             image: img,
         },
     ];
 
+    const lastNew = mockNews[0]
+    const renderNews = mockNews.slice(1)
+
 
     return (
         <div className={s.block}>
-            {lastNew && ( 
+            {lastNew && (
                 <NewsCard
-                key={lastNew.id}
-                title={lastNew.title}
-                description={lastNew.description}
-                image={lastNew.image}
-                date={lastNew.date}
-            />
+                    key={lastNew.id}
+                    title={lastNew.title}
+                    description={lastNew.description}
+                    image={lastNew.image}
+                    date={lastNew.date}
+                />
             )}
             <div className={s.newsGrid}>
                 {renderNews.map((newsItem) => (
