@@ -19,18 +19,18 @@
 
 .left {
     border-radius: 4px;
-    width: 520px;
-    height: 386px;
+    width: 536px;
+    height: 423px;
     backdrop-filter: blur(4px);
     background: rgba(255, 255, 255, 0.5);
-    padding: 34px 33px;
+    padding: 33px 29px 33px 33px;
     display: flex;
     flex-direction: column;
 }
 
 .title {
-    max-width: 454px;
-    margin-bottom: 53px;
+    width: 475px;
+    margin-bottom: 54px;
 }
 
 .h1 {
@@ -39,12 +39,11 @@
 
 .h4 {
     text-align: end;
-    padding-right: 5px;
 }
 
 .text {
     max-width: 450px;
-    margin-bottom: 35px;
+    margin-bottom: 33px;
 }
 
 .right {
