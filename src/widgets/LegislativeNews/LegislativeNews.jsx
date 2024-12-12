@@ -16,7 +16,7 @@ export const LegislativeNews = () => {
         {
             id: 1,
             date: '22.11.2024 г.',
-            title: "1Lorem ipsum dolor sit amet consectetur. Aenean massa scelerisque nisl libero ipsum libero.",
+            title: "Lorem ipsum dolor sit amet consectetur. Aenean massa scelerisque nisl libero ipsum libero.",
             description: "Lorem ipsum dolor sit amet consectetur. Sit tincidunt lorem faucibus orci nibh turpis risus ullamcorper suscipit. Netus volutpat suscipit interdum ornare proin etiam dui fringilla at. Ultrices aliquam arcu et dui ut id maecenas. Nec vestibulum donec amet in blandit id diam massa.",
             image: pic,
         },
