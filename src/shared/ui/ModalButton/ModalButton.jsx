@@ -7,7 +7,7 @@ export const ModalButton = ({ onClick, text, icon }) => {
     if (!onClick) return null;
 
     return (
-        <a className={s.link} onClick={onClick} target="_blank" rel="noopener noreferrer">
+        <a className={s.link} onClick={onClick} rel="noopener noreferrer">
             <Typography
                 variant='bodyM'
                 weight='semibold'

@@ -23,33 +23,33 @@ export const Header = () => {
     ];
 
     return (
-        <div  className={s.container}>
-           <header  className={s.header}>
-              
-              <img className={s.logo} src={logo} alt="'народное право' логотип" />
+        <div className={s.container}>
+            <header className={s.header}>
+
+                <img className={s.logo} src={logo} alt="'народное право' логотип" />
                 <nav>
                     <ul className={s.list}>
                         {
                             navLinks.map(el => (
                                 <li className={s.li} key={el.path}>
 
-                                <Link to={el.path}>
-                                    <Typography 
-                                    color='black'
-                                    variant='bodyM'
-                                    weight = 'regular'> 
-                                        {el.label}
-                                    </Typography>
-                                </Link>
+                                    <Link to={el.path}>
+                                        <Typography
+                                            color='black'
+                                            variant='bodyM'
+                                            weight='regular'>
+                                            {el.label}
+                                        </Typography>
+                                    </Link>
 
-                            </li>
+                                </li>
                             ))
                         }
                     </ul>
-                
+
                 </nav>
 
-                <button className={s.button} onClick={openModal}> 
+                <button className={s.button} onClick={openModal}>
                     <Typography
                         variant='p'
                         styleType='Medium'
@@ -66,9 +66,9 @@ export const Header = () => {
                     <option value="ru">RU</option>
                     <option value="kg">KG</option>
                 </select>
-                
-              
-           </header>
+
+
+            </header>
         </div>
     );
 };

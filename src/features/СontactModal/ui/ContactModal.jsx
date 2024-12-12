@@ -21,8 +21,7 @@ export const ContactModal = ({ isOpen, closeModal }) => {
     if (!isOpen) return null
 
     const handlerBtnClick = (action) => {
-        console.log(action)
-        setPendingAction(() => action)
+        setPendingAction(() => () => action('_blank'))
         setConformationOpen(true)
     }
     const handleConfirm = () => {
@@ -32,64 +31,68 @@ export const ContactModal = ({ isOpen, closeModal }) => {
     }
     const handleCancel = () => {
         setConformationOpen(false)
+        closeModal()
     }
-
 
     return (
         <div className={s.overlay} onClick={closeModal}>
-            <div className={s.modal} ref={modalRef}>
-                <button className={s.close} onClick={closeModal}>
-                    <Close />
-                </button>
-                <Typography
-                    className={s.title}
-                    variant="h4"
-                    weight="semibold"
-                >
-                    Свяжитесь с нами
-                </Typography>
-                <div className={s.linkWrap}>
-                    <ModalButton
-                        // onClick={() => handlerBtnClick(() => window.location.href = contactLinks.whatsapp)}
-                        // href={contactLinks.whatsapp}
-                        // text="Whatsapp"
-                        // icon={<ModalWhatsApp />}
-                        onClick={() => handlerBtnClick(() => window.location.href = contactLinks.whatsapp)}
-                        text="Whatsapp"
-                        icon={<ModalWhatsApp />}
-                    />
-                    <ModalButton
-                        onClick={() => handlerBtnClick(() => window.location.href = contactLinks.telegram)}
-                        // href={contactLinks.telegram}
-                        text="Telegram"
-                        icon={<ModalTelegram />}
-                    />
-                    <ModalButton
-                        onClick={() => handlerBtnClick(() => window.location.href = contactLinks.instagram)}
-                        // href={contactLinks.instagram}
-                        text="Instagram"
-                        icon={<ModalInstagram />}
-                    />
-                </div>
-            </div>
+            <div className={s.modal} ref={modalRef} onClick={(e) => e.stopPropagation()}>
+                {!confirmationOpen ? (
+                    <>
+                        <button className={s.close} onClick={closeModal}>
+                            <Close />
+                        </button>
+                        <Typography variant="h4" weight="semibold">
+                            Свяжитесь с нами
+                        </Typography>
+                        <div className={s.linkWrap}>
+                            <ModalButton
+                                onClick={() => handlerBtnClick((target) => window.open(contactLinks.whatsapp, target))}
+                                text="WhatsApp"
+                                icon={<ModalWhatsApp />}
+                            />
+                            <ModalButton
+                                onClick={() => handlerBtnClick((target) => window.open(contactLinks.telegram, target))}
+                                text="Telegram"
+                                icon={<ModalTelegram />}
+                            />
+                            <ModalButton
+                                onClick={() => handlerBtnClick((target) => window.open(contactLinks.instagram, target))}
+                                text="Instagram"
+                                icon={<ModalInstagram />}
+                            />
 
-            {confirmationOpen && (
-                <div className={s.overlay}>
-                    <div className={s.modal}>
+                        </div>
+                    </>
+                ) : (
+                    <div className={s.extraModal} >
                         <Typography variant="h4" weight="semibold">
                             Сайт, который вы просматриваете, пытается открыть внешнее приложение. Вы хотите продолжить?
                         </Typography>
                         <div className={s.buttonWrap}>
                             <button onClick={handleCancel} className={s.cancelButton}>
-                                Назад
+                                <Typography
+                                    variant='span'
+                                    styleType='Medium'
+                                    color='white'
+                                    lineHeight='lineLittle'>
+                                    Назад
+                                </Typography>
                             </button>
                             <button onClick={handleConfirm} className={s.confirmButton}>
-                                Продолжить
+                                <Typography
+                                    variant='span'
+                                    styleType='Medium'
+                                    color='white'
+                                    lineHeight='lineLittle'>
+                                    Продолжить
+                                </Typography>
                             </button>
                         </div>
                     </div>
-                </div>
-            )}
+                )}
+            </div>
         </div>
+
     );
 };

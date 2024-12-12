@@ -55,6 +55,7 @@ export const Footer = () => {
                                 <li className={s.footerLi} key={el.path}>
                                     <Link to={el.path}>
                                         <Typography
+                                            className={s.leftLink}
                                             variant="bodyM"
                                             weight="regular">
                                             {el.label}
@@ -92,6 +93,7 @@ export const Footer = () => {
                         <div className={s.phone}>
                             <a href="tel:+996550188777">
                                 <Typography
+                                    className={s.middlePhone}
                                     variant="bodyM"
                                     weight="regular"
                                     color='black'>
@@ -100,6 +102,7 @@ export const Footer = () => {
                             </a>
                             <a href="tel:+996702188777">
                                 <Typography
+                                    className={s.middlePhone}
                                     variant="bodyM"
                                     weight="regular"
                                     color='black'>

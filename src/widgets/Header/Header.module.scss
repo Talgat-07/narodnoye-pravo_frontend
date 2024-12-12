@@ -1,4 +1,4 @@
-.container{
+.container {
     background-color: white;
     height: 90px;
     margin: 0 auto;
@@ -6,7 +6,8 @@
     top: 0;
     z-index: 1;
 }
-.header{
+
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,21 +16,21 @@
     margin: 0 auto;
 }
 
-.logo{
+.logo {
     width: 6.125rem;
 }
 
-.list{
+.list {
     display: flex;
     gap: 3.125rem;
 }
 
-.list > li:hover,
-.list > li:focus{
-    border-bottom:4px solid #7490f5;
+.list>li:hover,
+.list>li:focus {
+    border-bottom: 4px solid #7490f5;
 }
 
-.button{
+.button {
     font-family: "Open Sans", sans-serif;
     border-radius: 4px;
     padding: 10px 20px;
@@ -43,12 +44,9 @@
     background: #8BA4FE;
 }
 
-.lang{
-  
+.lang {
+
     padding: 3px 8px;
     border-radius: 4px;
     text-align: center;
 }
-
-
-
