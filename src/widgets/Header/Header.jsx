@@ -35,8 +35,9 @@ export const Header = () => {
                                     <Link to={el.path}>
                                         <Typography 
                                         className={s.typo}
-                                        variant='bodyM'
-                                        >{el.label}</Typography> 
+                                        variant='bodyM'>
+                                        {el.label}
+                                        </Typography> 
                                     </Link>
 
                                 </li>
