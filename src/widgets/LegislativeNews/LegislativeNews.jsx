@@ -49,14 +49,14 @@ export const LegislativeNews = () => {
 
     return (
         <div className={s.block}>
-            {lastNew && ( 
+            {lastNew && (
                 <NewsCard
-                key={lastNew.id}
-                title={lastNew.title}
-                description={lastNew.description}
-                image={lastNew.image}
-                date={lastNew.date}
-            />
+                    key={lastNew.id}
+                    title={lastNew.title}
+                    description={lastNew.description}
+                    image={lastNew.image}
+                    date={lastNew.date}
+                />
             )}
             <div className={s.newsGrid}>
                 {renderNews.map((newsItem) => (

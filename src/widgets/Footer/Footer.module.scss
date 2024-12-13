@@ -32,9 +32,10 @@
     margin-top: 12px;
 }
 
-.footerLi {
-    width: 200px;
-}
+// .footerLi {
+//     width: 200px;
+// }
+
 
 //middle
 .middle {
@@ -103,4 +104,10 @@
     max-width: 1440px;
     text-align: center;
     text-transform: uppercase;
+}
+
+.leftLink:hover,
+.middlePhone:hover,
+.emalSvg:hover {
+    color: #0171b9;
 }
