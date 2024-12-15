@@ -33,12 +33,11 @@ export const Header = () => {
                                 <li className={s.li} key={el.path}>
 
                                     <Link to={el.path}>
-                                        <Typography
-                                            color='black'
-                                            variant='bodyM'
-                                            weight='regular'>
-                                            {el.label}
-                                        </Typography>
+                                        <Typography 
+                                        className={s.typo}
+                                        variant='bodyM'>
+                                        {el.label}
+                                        </Typography> 
                                     </Link>
 
                                 </li>

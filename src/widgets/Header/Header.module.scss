@@ -11,7 +11,7 @@
     justify-content: space-between;
     align-items: center;
     height: 5.625rem;
-    width: 85%;
+    width: 90%;
     margin: 0 auto;
 }
 
@@ -25,14 +25,21 @@
 }
 
 .list > li {
-    border-bottom: 4px solid transparent;
+    border-bottom: 3px solid transparent;
     transition: border-color 0.5 ease;
 }
 
-.list > li:hover,
+.list > li:hover ,
 .list > li:focus{
-   border-color: #7490f5;
+    
+    border-color: #7490f5;
+   
 }
+.typo:hover{
+    color: #7490f5;
+}
+
+
 
 .button {
     font-family: "Open Sans", sans-serif;
@@ -41,6 +48,7 @@
     background: #7490f5;
     border: none;
     transition: 0.5s;
+    margin-left: 2rem;
     cursor: pointer;
 }
 
