@@ -1,0 +1,40 @@
+.lab {
+    margin-bottom: 8px;
+}
+
+.inp {
+    border: 1px solid #b0c3e0;
+    border-radius: 4px;
+    padding: 10px 15px;
+    width: 630px;
+    height: 46px;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 18px;
+    color: #505ea5;
+}
+
+.inp:hover {
+    background-color: #f4f9ff;
+}
+
+.inp:focus {
+    outline: none;
+    border: 1px solid #8aa3d0;
+}
+
+::placeholder {
+    font-weight: 400;
+    font-size: 18px;
+    color: #b0c3e0;
+}
+
+.errorInput {
+    border: 1px solid red;
+}
+
+.errorText {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}

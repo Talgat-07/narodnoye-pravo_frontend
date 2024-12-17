@@ -11,7 +11,7 @@ export const Home = () => {
         <div>
             <Hero />
             <AboutUs />
-            <Service />
+            <Service weight='bold' />
             <LegislativeNews />
         </div>
     );

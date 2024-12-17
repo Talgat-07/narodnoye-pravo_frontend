@@ -76,8 +76,7 @@ export const LegislativeNews = () => {
                         title={newsItem.title}
                         description={newsItem.description}
                         image={newsItem.image}
-                        date={newsItem.date}
-                    />
+                        date={newsItem.date} />
                 ))}
                 </div>
             </div>

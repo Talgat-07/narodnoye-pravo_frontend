@@ -24,18 +24,19 @@
     gap: 3.125rem;
 }
 
-.list > li {
+.list>li {
     border-bottom: 3px solid transparent;
     transition: border-color 0.5 ease;
 }
 
-.list > li:hover ,
-.list > li:focus{
-    
+.list>li:hover,
+.list>li:focus {
+
     border-color: #7490f5;
-   
+
 }
-.typo:hover{
+
+.typo:hover {
     color: #7490f5;
 }
 
@@ -45,7 +46,7 @@
     font-family: "Open Sans", sans-serif;
     border-radius: 4px;
     padding: 10px 20px;
-    background: #7490f5;
+    background: #365180;
     border: none;
     transition: 0.5s;
     margin-left: 2rem;
@@ -53,7 +54,7 @@
 }
 
 .button:hover {
-    background: #8BA4FE;
+    background: #4D73AA;
 }
 
 .lang {
@@ -61,5 +62,3 @@
     padding: 3px 8px;
     border-radius: 4px;
 }
-
-

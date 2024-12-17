@@ -35,7 +35,6 @@ export const Breadcrumbs = () => {
                 const to = `/${pathnames.slice(0, index + 1).join('/')}`;
                 return (
                     <span key={to} className={s.right}>
-                        {/* {' > '} */}
                         <Arrow />
                         {routesMap[to] ? (
                             <Link to={to}>

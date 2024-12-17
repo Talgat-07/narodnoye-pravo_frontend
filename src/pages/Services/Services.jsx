@@ -1,12 +1,16 @@
 import { Breadcrumbs } from "shared/ui/Breadcrumbs/Breadcrumbs";
+import { Container } from "shared/ui/Container/Container";
+import { Service } from "widgets/Service/Service";
 
 
 
 export const Services = () => {
     return (
-        <div>
+        <Container>
             <Breadcrumbs />
-            <h1>Услуги</h1>
-        </div>
+            <Service weight='semibold'
+                withButton={false}
+                cardWrapClassName='cardWrapPage' />
+        </Container>
     );
 };

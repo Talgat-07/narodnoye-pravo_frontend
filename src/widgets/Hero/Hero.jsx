@@ -2,7 +2,7 @@
 import { Typography } from 'shared/ui/Typography/Typography';
 import s from './Hero.module.scss'
 import { Button } from 'shared/ui/Button/Button';
-import { ContactModal } from 'features/СontactModal/ui/ContactModal';
+import { ContactModal } from 'features/СontactModal/ui/ContactModal/ContactModal';
 import { useContactModal } from 'features/СontactModal/model/useContactModal';
 
 export const Hero = () => {
@@ -23,7 +23,7 @@ export const Hero = () => {
                             className={s.h4}
                             variant='h4'
                             weight='regular'
-                            color='lightBlue'>
+                            color='blue'>
                             -доступно всем
                         </Typography>
                     </div>

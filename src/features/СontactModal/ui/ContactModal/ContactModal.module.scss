@@ -17,8 +17,10 @@
     align-items: center;
     background: #fff;
     border-radius: 4px;
-    width: 630px;
-    height: 404px;
+    // width: 630px;
+    // height: 404px;
+    width: 1072px;
+    height: 700px;
     padding: 30px 23px;
     position: relative;
     z-index: 1001;
@@ -42,6 +44,7 @@
     flex-direction: column;
     gap: 20px;
     margin-top: 44px;
+    align-items: center;
 }
 
 .extraModal {
@@ -77,4 +80,86 @@
 .cancelButton:hover,
 .confirmButton:hover {
     background: #8BA4FE;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.lab {
+    margin-bottom: 8px;
+}
+
+.inp {
+    border: 1px solid #b0c3e0;
+    border-radius: 4px;
+    padding: 10px 15px;
+    width: 630px;
+    height: 46px;
+    cursor: pointer;
+}
+
+.inp:hover {
+    background-color: #f4f9ff;
+}
+
+.inp:focus {
+    outline: none;
+    border: 1px solid #8aa3d0;
+}
+
+::placeholder {
+    font-weight: 400;
+    font-size: 18px;
+    color: #b0c3e0;
+}
+
+.select {
+    border: 1px solid #b0c3e0;
+    border-radius: 4px;
+    padding: 10px 15px;
+    width: 630px;
+    height: 44px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+
+
+.errorText {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
 }

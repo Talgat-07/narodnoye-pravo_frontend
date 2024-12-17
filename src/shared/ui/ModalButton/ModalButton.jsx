@@ -2,21 +2,18 @@
 import s from './ModalButton.module.scss'
 import { Typography } from '../Typography/Typography';
 
-export const ModalButton = ({ onClick, text, icon }) => {
-    // if (!href) return null;
-    if (!onClick) return null;
+export const ModalButton = () => {
 
     return (
-        <a className={s.link} onClick={onClick} rel="noopener noreferrer">
+        <button className={s.btn}>
             <Typography
-                variant='bodyM'
+                variant='span'
                 weight='semibold'
                 lineHeight='lineSemiTight'
-                color='blue'>
-                {text}
+                color='white'>
+                Отправить
             </Typography>
-            {icon && <span className={s.icon}>{icon}</span>}
-        </a>
+        </button>
     );
 };
 
