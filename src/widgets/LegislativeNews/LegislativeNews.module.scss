@@ -1,19 +1,64 @@
+
+
+.title{
+    text-align: center;
+}
+
+
 .block {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
+  }
+  
+.newsCard {
+    display: flex ;
+    justify-content: center;
+    gap: 40px; 
+  
+  }
 
-    .newsGrid {
-        max-width: 1440px;
-        width: 100%;
-        display: grid;
-        grid-template-rows: auto auto;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 16px;
-        
-            // .newsCard {
-            //     &.large {
-            //         grid-column: 1 / -1;
-            //     }
-            // }
-        }
+.btn{
+   display: flex;
+   justify-content: center;
+   margin-bottom: 150px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .block {
+//     display: flex;
+//     flex-direction: column;
+
+//     .newsGrid {
+//         max-width: 1440px;
+//         width: 100%;
+//         display: grid;
+//         grid-template-rows: auto auto;
+//         grid-template-columns: 1fr 1fr 1fr;
+//         gap: 16px;
+        
+//             // .newsCard {
+//             //     &.large {
+//             //         grid-column: 1 / -1;
+//             //     }
+//             // }
+//         }
+// }

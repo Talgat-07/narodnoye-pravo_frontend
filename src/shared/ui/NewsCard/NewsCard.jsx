@@ -5,6 +5,9 @@ import { Typography } from "shared/ui/Typography/Typography";
 import { Arrow } from "shared/assets/icons/Arrow";
 import { path } from "shared/constants/constants";
 
+
+
+
 export const NewsCard = ({ title, description, image, isLarge, date }) => {
   return (
     <div className={`${s.newsCard} ${isLarge ? s.large : s.small}`}>
@@ -12,7 +15,7 @@ export const NewsCard = ({ title, description, image, isLarge, date }) => {
         // Большая карточка
         <div className={s.largeContent}>
           <div className={s.imageWrap}>
-            <img src={image} alt={title} className={s.image} />
+            <img src={image} alt={title} className={s.imageLarge} />
           </div>
           <div className={s.content}>
             <div className={s.up}>
@@ -23,25 +26,25 @@ export const NewsCard = ({ title, description, image, isLarge, date }) => {
               >{date}</Typography>
               <Link to={path.services}>
                 <Typography
-                  className={s.link}
+                  className={s.linkLarge}
                   variant='bodyM'
                   weight='semibold'
                   lineHeight='lineSemiTight'
                   color='blue'>
-                  Подробнее
+                  Подробнее 
                   <Arrow />
                 </Typography>
               </Link>
             </div>
-            <div className={s.down}>
+            <div className={s.downLarge}>
               <Typography
-                className={s.title}
+                className={s.titleLarge}
                 variant='bodyXL'
                 lineHeight='lineBig'
                 weight='semibold'
               >{title}</Typography>
               <Typography
-                className={s.description}
+                className={s.descriptionLarge}
                 variant='bodyM'
                 lineHeight='lineBig'
                 weight='regular'
@@ -71,7 +74,7 @@ export const NewsCard = ({ title, description, image, isLarge, date }) => {
             </Link>
           </div>
           <div className={s.imageWrap}>
-            <img src={image} alt={title} className={s.image} />
+            <img src={image} alt={title} className={s.imageSmall} />
           </div>
           <div className={s.smallDown}>
             <Typography
@@ -83,6 +86,7 @@ export const NewsCard = ({ title, description, image, isLarge, date }) => {
           </div>
         </div>
       )}
+       
     </div>
   );
 };
