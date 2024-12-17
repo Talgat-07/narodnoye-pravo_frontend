@@ -10,7 +10,7 @@ export const ButtonLink = () => {
                 styleType='Little'
                 lineHeight='lineSmall'
                 weight='normal'
-                color='blue'
+                color='azure'
             >
                 Подробнее
             </Typography>

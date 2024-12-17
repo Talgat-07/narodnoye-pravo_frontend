@@ -44,8 +44,9 @@ export const NewsCard = ({ title, description, image, isLarge, date }) => {
                 className={s.description}
                 variant='bodyM'
                 lineHeight='lineBig'
-                weight='regular'
-              >{description}</Typography>
+                weight='regular'>
+                {description}
+              </Typography>
             </div>
           </div>
         </div>
@@ -56,8 +57,9 @@ export const NewsCard = ({ title, description, image, isLarge, date }) => {
             <Typography
               variant='bodyM'
               lineHeight='lineSemiTight'
-              weight='regular'
-            >{date}</Typography>
+              weight='regular'>
+              {date}
+            </Typography>
             <Link to={path.services}>
               <Typography
                 className={s.link}

@@ -8,7 +8,7 @@
 
 .up {
     display: flex;
-    width: 1070px;
+    width: 1290px;
     justify-content: space-between;
     padding-top: 58px;
 }
@@ -32,9 +32,9 @@
     margin-top: 12px;
 }
 
-// .footerLi {
-//     width: 200px;
-// }
+.footerLi {
+    width: 200px;
+}
 
 
 //middle
@@ -108,6 +108,7 @@
 
 .leftLink:hover,
 .middlePhone:hover,
-.emalSvg:hover {
+.emalSvg:hover,
+.address:hover {
     color: #0171b9;
 }

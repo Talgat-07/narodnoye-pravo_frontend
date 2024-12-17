@@ -55,8 +55,7 @@ export const LegislativeNews = () => {
                     title={lastNew.title}
                     description={lastNew.description}
                     image={lastNew.image}
-                    date={lastNew.date}
-                />
+                    date={lastNew.date} />
             )}
             <div className={s.newsGrid}>
                 {renderNews.map((newsItem) => (
@@ -65,8 +64,7 @@ export const LegislativeNews = () => {
                         title={newsItem.title}
                         description={newsItem.description}
                         image={newsItem.image}
-                        date={newsItem.date}
-                    />
+                        date={newsItem.date} />
                 ))}
             </div>
         </div>

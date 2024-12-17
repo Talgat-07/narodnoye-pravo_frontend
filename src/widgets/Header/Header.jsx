@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Typography } from "shared/ui/Typography/Typography";
 import logo from '../../shared/assets/img/logo.png'
 import s from "./Header.module.scss"
-import { ContactModal } from 'features/СontactModal/ui/ContactModal';
+import { ContactModal } from 'features/СontactModal/ui/ContactModal/ContactModal';
 import { useContactModal } from 'features/СontactModal/model/useContactModal';
 
 export const Header = () => {
@@ -22,10 +22,10 @@ export const Header = () => {
     ];
 
     return (
-        <div  className={s.container}>
-           <header  className={s.header}>
-              
-              <a href={ path.home}><img className={s.logo} src={logo} alt="'народное право' логотип" /></a>
+        <div className={s.container}>
+            <header className={s.header}>
+
+                <a href={path.home}><img className={s.logo} src={logo} alt="'народное право' логотип" /></a>
                 <nav>
                     <ul className={s.list}>
                         {
@@ -33,11 +33,11 @@ export const Header = () => {
                                 <li className={s.li} key={el.path}>
 
                                     <Link to={el.path}>
-                                        <Typography 
-                                        className={s.typo}
-                                        variant='bodyM'>
-                                        {el.label}
-                                        </Typography> 
+                                        <Typography
+                                            className={s.typo}
+                                            variant='bodyM'>
+                                            {el.label}
+                                        </Typography>
                                     </Link>
 
                                 </li>

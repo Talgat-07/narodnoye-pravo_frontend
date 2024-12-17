@@ -4,6 +4,7 @@ import { Typography } from '../Typography/Typography';
 import { Link } from 'react-router-dom';
 import { path } from 'shared/constants/constants';
 
+
 export const ServiceCard = ({ title, description }) => {
     return (
         <Link to={path.services} className={s.seviceCard}>
