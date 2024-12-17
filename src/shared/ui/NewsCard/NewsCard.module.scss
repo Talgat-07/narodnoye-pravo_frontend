@@ -1,19 +1,28 @@
-.largeContent {
+.largeContent{
     display: flex;
-    border-radius: 4px;
+    justify-content: space-between;
+    margin: 60px auto ;
     width: 1070px;
     height: 470px;
-    justify-content: space-between;
-    margin: 0 auto;
+    border-radius: 4px;
     box-shadow: 4px 10px 12px 0 rgba(0, 0, 0, 0.16);
 }
+
 
 
 .smallContent {
     border-radius: 4px;
     width: 330px;
-    height: 370px;
+    height: 420px;
     box-shadow: 4px 10px 12px 0 rgba(0, 0, 0, 0.16);
+    margin: 10px 0 50px 0;
+    box-sizing: border-box;
+}
+
+.descriptionLarge{
+    width: 450px;
+    height: 246px;
+    margin-top: 30px;
 }
 
 .title {
@@ -25,6 +34,7 @@
     flex-direction: column;
     width: 520px;
     height: 470px;
+    
 }
 
 .up {
@@ -57,3 +67,4 @@
     padding-right: 45px;
     padding-left: 20px;
 }
+
