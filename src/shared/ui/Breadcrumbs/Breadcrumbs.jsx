@@ -1,7 +1,6 @@
-/* eslint-disable react/prop-types*/
 import { Arrow } from 'shared/assets/icons/Arrow';
-import { Typography } from '../Typography/Typography';
-import s from './Breadcrumbs.module.scss'
+import { Typography } from 'shared/ui/Typography/Typography';
+import s from './Breadcrumbs.module.scss';
 import { Link, useLocation } from 'react-router-dom';
 
 const routesMap = {
@@ -13,8 +12,7 @@ const routesMap = {
     '/education': 'Обучение',
     '/bankvacancy': 'Вакансии',
     '/contacts': 'Контакты',
-}
-
+};
 
 export const Breadcrumbs = () => {
     const location = useLocation();
@@ -25,29 +23,27 @@ export const Breadcrumbs = () => {
             <Link to="/">
                 <Typography
                     className={s.title}
-                    variant='bodyM'
-                    weight='regular'
-                    color='lightGrey'>
+                    variant="bodyM"
+                    weight="regular">
                     Главная
                 </Typography>
             </Link>
             {pathnames.map((value, index) => {
+                if (pathnames[0] === 'services' && index > 0) return null;
+
                 const to = `/${pathnames.slice(0, index + 1).join('/')}`;
+                const displayName = routesMap[to] || value;
+
                 return (
                     <span key={to} className={s.right}>
                         <Arrow />
-                        {routesMap[to] ? (
-                            <Link to={to}>
-                                <Typography
-                                    variant='bodyM'
-                                    weight='regular'
-                                    color='lightGrey'>
-                                    {routesMap[to]}
-                                </Typography>
-                            </Link>
-                        ) : (
-                            value
-                        )}
+                        <Link to={to}>
+                            <Typography
+                                variant="bodyM"
+                                weight="regular">
+                                {displayName}
+                            </Typography>
+                        </Link>
                     </span>
                 );
             })}

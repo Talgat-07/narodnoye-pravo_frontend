@@ -1,13 +1,14 @@
-/* eslint-disable react/prop-types*/
 import s from './ContactModal.module.scss';
 import { Typography } from 'shared/ui/Typography/Typography';
 import { Close } from 'shared/assets/icons/Close';
 import { useState } from 'react';
-import { ModalButton } from 'shared/ui/ModalButton/ModalButton';
+import { ModalButton } from 'features/СontactModal/ui/ModalButton/ModalButton';
 import { ModalNameInput } from 'features/СontactModal/ui/ModalNameInput/ModalNameInput';
 import { ModalPhoneInput } from 'features/СontactModal/ui/ModalPhoneInput/ModalPhoneInput';
 import { ModalCheckbox } from 'features/СontactModal/ui/ModalCheckbox/ModalCheckbox';
 import { SelectField } from 'features/СontactModal/ui/SelectField/SelectField';
+import { options } from 'features/СontactModal/model/selectConfig';
+import PropTypes from 'prop-types'
 
 export const ContactModal = ({ isOpen, closeModal }) => {
     const [name, setName] = useState('');
@@ -16,27 +17,21 @@ export const ContactModal = ({ isOpen, closeModal }) => {
     const [agreement, setAgreement] = useState(false);
     const [errors, setErrors] = useState({});
 
-    const options = [
-        { value: "1", label: 'Запись на онлайн-консультацию' },
-        { value: "2", label: 'Запись на живую/офлайн-консультацию' },
-        { value: "3", label: 'Оставить заявку на размещение научную публикацию' },
-        { value: "4", label: 'Оставить резюме соискателя' },
-        { value: "5", label: 'Оставить вакансию работодателя' },
-    ]
 
     const validate = () => {
         const errors = {};
         const nameRegex = /^[a-zA-Zа-яА-ЯёЁ\s]{2,}$/;
+        const phoneRegex = /^\(\d{3}\)\s\d{2}-\d{2}-\d{2}$/;
+
         if (!name.trim()) {
             errors.name = 'Поле имени не может быть пустым.';
         } else if (!nameRegex.test(name)) {
             errors.name = 'Имя должно содержать только буквы и быть не менее 2 символов.';
         }
-        const phoneRegex = /^\+996\d{9}$/;
         if (!phone.trim()) {
             errors.phone = 'Поле телефона не может быть пустым.';
         } else if (!phoneRegex.test(phone)) {
-            errors.phone = 'Телефон должен содержать ровно 9 цифр.';
+            errors.phone = 'Телефон должен быть в формате (000) 00-00-00.';
         }
         if (!question) {
             errors.question = 'Пожалуйста, выберите интересующий вопрос.';
@@ -52,30 +47,50 @@ export const ContactModal = ({ isOpen, closeModal }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (validate()) {
-            switch (question) {
-                case '1':
-                case '2':
-                    window.open('https://wa.me/1234567890', '_blank'); // Ссылка на WhatsApp организации
-                    break;
-                case '3':
-                    window.location.href = 'mailto:analytics@organization.com?subject=Запрос на публикацию';
-                    break;
-                case '4':
-                case '5':
-                    window.location.href = 'mailto:jobs@organization.com?subject=Запрос на размещение';
-                    break;
-                default:
-                    break;
+            const userName = name.trim();
+            const selectedOption = options.find(opt => opt.value === question);
+
+            if (selectedOption) {
+                const shortLabel = selectedOption.shortLabel;
+                let message = `Здравствуйте, меня зовут ${userName}. Я бы хотел(а) записаться на ${shortLabel}.`;
+                let message2 = `Здравствуйте, меня зовут ${userName}. Я бы хотел(а) оставить заявку на ${shortLabel}.`;
+
+                switch (question) {
+                    case '1':
+                    case '2':
+                        window.open(`https://wa.me/+996707890112?text=${encodeURIComponent(message)}`, '_blank');
+                        break;
+                    case '3':
+                        window.location.href = `mailto:usubalievabermet@gmail.com?subject=Запрос на публикацию&body=${encodeURIComponent(message2)}`;
+                        break;
+                    case '4':
+                        window.location.href = `mailto:usubalievabermet@gmail.com?subject=Запрос на размещение&body=${encodeURIComponent(message2)}`;
+                        break;
+                    default:
+                        break;
+                }
             }
+            setName('');
+            setQuestion('');
+            setPhone('');
+            setAgreement(false);
+            closeModal()
         }
     };
 
+
+
+
     const handleNameChange = (e) => setName(e.target.value);
     const handlePhoneChange = (e) => {
-        const input = e.target.value.replace(/\D/g, '');
-        const formattedPhone = input.slice(0, 9);
-        setPhone(`+996${formattedPhone}`);
+        const digits = e.target.value.replace(/\D/g, '').slice(0, 9);
+        let mask = '(___) __-__-__';
+        for (let i = 0; i < digits.length; i++) {
+            mask = mask.replace('_', digits[i]);
+        }
+        setPhone(mask);
     };
+
 
     const displayPhone = phone.replace(/^\+996/, '');
 
@@ -94,12 +109,11 @@ export const ContactModal = ({ isOpen, closeModal }) => {
 
 
 
-
+    console.log(phone)
 
     return (
         <div className={s.overlay} onClick={handleCloseModal}>
             <form className={s.modal}
-                //  ref={modalRef}
                 onClick={(e) => e.stopPropagation()}
                 onSubmit={handleSubmit}>
                 <button className={s.close} onClick={handleCloseModal}>
@@ -124,27 +138,8 @@ export const ContactModal = ({ isOpen, closeModal }) => {
                         label="Интересующий вопрос*"
                         options={options}
                         value={question}
-                        onChange={(selectedOption) => setQuestion(selectedOption)}
+                        onChange={setQuestion}
                         error={errors.question} />
-                    {/* <div>
-                        <label htmlFor="question">
-                            <Typography
-                                className={s.lab}
-                                variant='bodyXL'
-                                weight='semibold'>
-                                Интересующий вопрос*
-                            </Typography>
-                        </label>
-                        <CreatableSelect
-                            styles={customStyles}
-                            options={options}
-                            value={options.find((opt) => opt.value === question)}
-                            onChange={(selectedOption) => setQuestion(selectedOption ? selectedOption.value : '')}
-                            isClearable={false}
-                            placeholder="Выбрать опцию"
-                        />
-                        {errors.question && <p className={s.errorText}>{errors.question}</p>}
-                    </div> */}
                     <ModalPhoneInput
                         children='Номер телефона*'
                         type='text'
@@ -159,11 +154,22 @@ export const ContactModal = ({ isOpen, closeModal }) => {
                         name='agreement'
                         checked={agreement}
                         onChange={handleAgreementChange}
+                        children='Нажимая на кнопку и/или отправляя данные, вы соглашаетесь на обработку персональных данных*'
                         error={errors.agreement} />
-                    <ModalButton />
+                    <ModalButton
+                        variant='span'
+                        weight='semibold'
+                        lineHeight='lineSemiTight'
+                        color='white'
+                        children='Отправить' />
                 </div>
             </form>
         </div>
 
     );
 };
+
+ContactModal.propTypes = {
+    isOpen: PropTypes.bool.isRequired,
+    closeModal: PropTypes.func.isRequired,
+}

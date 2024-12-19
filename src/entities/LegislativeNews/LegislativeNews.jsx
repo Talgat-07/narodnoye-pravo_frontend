@@ -1,15 +1,11 @@
-/* eslint-disable react/prop-types*/
 import { NewsCard } from 'shared/ui/NewsCard/NewsCard';
 import s from './LegislativeNews.module.scss';
-import pic from '../../shared/assets/img/NewsBig.png'
-import img from '../../shared/assets/img/NewsSmall.png'
+import pic from 'shared/assets/img/NewsBig.png'
+import img from 'shared/assets/img/NewsSmall.png'
 import { Typography } from 'shared/ui/Typography/Typography';
 import { ButtonLink } from 'shared/ui/ButtonLink/ButtonLink';
 import { Link } from "react-router-dom";
 import { path } from "shared/constants/constants";
-
-
-
 
 
 
@@ -51,7 +47,7 @@ export const LegislativeNews = () => {
 
     return (
         <div className={s.container}>
-           <Typography
+            <Typography
                 className={s.title}
                 variant='h3'
                 weight='bold'>
@@ -59,36 +55,39 @@ export const LegislativeNews = () => {
             </Typography>
 
             <div className={s.block}>
-            {lastNews && (
-                <NewsCard
-                    key={lastNews.id}
-                    title={lastNews.title}
-                    description={lastNews.description}
-                    image={lastNews.image}
-                    date={lastNews.date}
-                    isLarge={true}
-                />
-            )}
-            <div className={s.newsCard}>
-                {renderNews.map((newsItem) => (
+                {lastNews && (
                     <NewsCard
-                        key={newsItem.id}
-                        title={newsItem.title}
-                        description={newsItem.description}
-                        image={newsItem.image}
-                        date={newsItem.date} />
-                ))}
+                        key={lastNews.id}
+                        title={lastNews.title}
+                        description={lastNews.description}
+                        image={lastNews.image}
+                        date={lastNews.date}
+                        isLarge={true}
+                    />
+                )}
+                <div className={s.newsCard}>
+                    {renderNews.map((newsItem) => (
+                        <NewsCard
+                            key={newsItem.id}
+                            title={newsItem.title}
+                            description={newsItem.description}
+                            image={newsItem.image}
+                            date={newsItem.date}
+                            isLarge={false} />
+                    ))}
                 </div>
             </div>
             <div className={s.btn}>
-                <Link  to={path.about}>
-                    <ButtonLink />
+                <Link to={path.legislativenews}>
+                    <ButtonLink
+                        variant='span'
+                        lineHeight='lineSemiTight'
+                        weight='semibold'
+                        color='azure'
+                        children='Подробнее' />
                 </Link>
             </div>
-           
-            
-                      
         </div>
-        
+
     )
 }

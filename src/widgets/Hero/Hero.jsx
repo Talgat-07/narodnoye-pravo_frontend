@@ -1,4 +1,3 @@
-
 import { Typography } from 'shared/ui/Typography/Typography';
 import s from './Hero.module.scss'
 import { Button } from 'shared/ui/Button/Button';
@@ -17,14 +16,14 @@ export const Hero = () => {
                             variant='h1'
                             weight='bold'
                             color='blue'>
-                            «Народное право»
+                            Народное право
                         </Typography>
                         <Typography
                             className={s.h4}
                             variant='h4'
                             weight='regular'
                             color='blue'>
-                            -доступно всем
+                            - доступно всем!
                         </Typography>
                     </div>
                     <Typography
@@ -33,17 +32,15 @@ export const Hero = () => {
                         weight='regular'
                         lineHeight='lineBig'
                         color='black'>
-                        Компания «Народное право» оказывает качественные юридические услуги по доступной цене.
+                        Мы оказываем качественные юридические услуги по доступной цене.
                     </Typography>
-                    <Button onClick={openModal}>
-                        <Typography
-                            variant='span'
-                            weight='semibold'
-                            lineHeight='lineSemiTight'
-                            color='white'>
-                            Оставить заявку
-                        </Typography>
-                    </Button>
+                    <Button onClick={openModal}
+                        className={`${s.btnHero}`}
+                        variant='span'
+                        weight='semibold'
+                        lineHeight='lineSemiTight'
+                        color='white'
+                        children=' Оставить заявку' />
                 </div>
             </div>
             <ContactModal isOpen={isOpen} closeModal={closeModal} />

@@ -1,11 +1,11 @@
-/* eslint-disable react/prop-types*/
 import { path } from "shared/constants/constants";
 import { Link } from "react-router-dom";
 import { Typography } from "shared/ui/Typography/Typography";
-import logo from '../../shared/assets/img/logo.png'
 import s from "./Header.module.scss"
 import { ContactModal } from 'features/СontactModal/ui/ContactModal/ContactModal';
 import { useContactModal } from 'features/СontactModal/model/useContactModal';
+import { Button } from "shared/ui/Button/Button";
+import { HeaderLogo } from "shared/assets/icons/HeaderLogo";
 
 export const Header = () => {
 
@@ -25,7 +25,9 @@ export const Header = () => {
         <div className={s.container}>
             <header className={s.header}>
 
-                <a href={path.home}><img className={s.logo} src={logo} alt="'народное право' логотип" /></a>
+                <a href={path.home}>
+                    <HeaderLogo />
+                </a>
                 <nav>
                     <ul className={s.list}>
                         {
@@ -46,17 +48,14 @@ export const Header = () => {
                     </ul>
 
                 </nav>
-
-                <button className={s.button} onClick={openModal}>
-                    <Typography
-                        variant='p'
-                        styleType='Medium'
-                        color='white'
-                        lineHeight='lineLittle'
-                        fontFamily='default'>
-                        Оставить заявку
-                    </Typography>
-                </button>
+                <Button
+                    onClick={openModal}
+                    className={s.button}
+                    variant='span'
+                    weight='semibold'
+                    color='white'
+                    lineHeight='lineTight'
+                    children='Оставить заявку' />
 
                 <ContactModal isOpen={isOpen} closeModal={closeModal} />
 

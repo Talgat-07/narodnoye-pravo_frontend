@@ -1,7 +1,7 @@
-/* eslint-disable react/prop-types*/
 import ArrowDown from 'shared/assets/icons/ArrowDown';
-import { Typography } from '../../../../shared/ui/Typography/Typography';
+import { Typography } from 'shared/ui/Typography/Typography';
 import s from './ModalPhoneInput.module.scss'
+import PropTypes from 'prop-types'
 
 export const ModalPhoneInput = ({ children, type, id, value, onChange, placeholder, error }) => {
     return (
@@ -41,3 +41,13 @@ export const ModalPhoneInput = ({ children, type, id, value, onChange, placehold
         </div>
     );
 };
+
+ModalPhoneInput.propTypes = {
+    children: PropTypes.node.isRequired,
+    type: PropTypes.oneOf(['text']).isRequired,
+    id: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+    placeholder: PropTypes.string,
+    error: PropTypes.string
+}
