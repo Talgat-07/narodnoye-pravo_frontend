@@ -8,40 +8,61 @@ import { ModalPhoneInput } from 'features/СontactModal/ui/ModalPhoneInput/Modal
 import { ModalCheckbox } from 'features/СontactModal/ui/ModalCheckbox/ModalCheckbox';
 import { SelectField } from 'features/СontactModal/ui/SelectField/SelectField';
 import { options } from 'features/СontactModal/model/selectConfig';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 export const ContactModal = ({ isOpen, closeModal }) => {
     const [name, setName] = useState('');
     const [question, setQuestion] = useState('');
-    const [phone, setPhone] = useState('');
+    const [digits, setDigits] = useState('');
     const [agreement, setAgreement] = useState(false);
     const [errors, setErrors] = useState({});
 
+    const nameRegex = /^[a-zA-Zа-яА-ЯёЁ\s]{2,}$/;
+    const phoneRegex = /^\(\d{3}\)\s\d{2}-\d{2}-\d{2}$/;
+
+    const formatPhone = (digits) => {
+        const length = digits.length;
+        if (!length) return '';
+
+        let formatted = digits;
+        if (length > 3) {
+            formatted = `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+        }
+        if (length > 5) {
+            formatted = `(${digits.slice(0, 3)}) ${digits.slice(3, 5)}-${digits.slice(5)}`;
+        }
+        if (length > 7) {
+            formatted = `(${digits.slice(0, 3)}) ${digits.slice(3, 5)}-${digits.slice(5, 7)}-${digits.slice(7)}`;
+        }
+        return formatted;
+    };
 
     const validate = () => {
-        const errors = {};
-        const nameRegex = /^[a-zA-Zа-яА-ЯёЁ\s]{2,}$/;
-        const phoneRegex = /^\(\d{3}\)\s\d{2}-\d{2}-\d{2}$/;
+        const newErrors = {};
+        const phone = formatPhone(digits);
 
         if (!name.trim()) {
-            errors.name = 'Поле имени не может быть пустым.';
+            newErrors.name = 'Поле имени не может быть пустым.';
         } else if (!nameRegex.test(name)) {
-            errors.name = 'Имя должно содержать только буквы и быть не менее 2 символов.';
-        }
-        if (!phone.trim()) {
-            errors.phone = 'Поле телефона не может быть пустым.';
-        } else if (!phoneRegex.test(phone)) {
-            errors.phone = 'Телефон должен быть в формате (000) 00-00-00.';
-        }
-        if (!question) {
-            errors.question = 'Пожалуйста, выберите интересующий вопрос.';
-        }
-        if (!agreement) {
-            errors.agreement = 'Необходимо подтвердить согласие.';
+            newErrors.name = 'Имя должно содержать только буквы и быть не менее 2 символов.';
         }
 
-        setErrors(errors);
-        return Object.keys(errors).length === 0;
+        if (!phone.trim()) {
+            newErrors.phone = 'Поле телефона не может быть пустым.';
+        } else if (!phoneRegex.test(phone)) {
+            newErrors.phone = 'Телефон должен быть в формате (000) 00-00-00.';
+        }
+
+        if (!question) {
+            newErrors.question = 'Пожалуйста, выберите интересующий вопрос.';
+        }
+
+        if (!agreement) {
+            newErrors.agreement = 'Необходимо подтвердить согласие.';
+        }
+
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
     };
 
     const handleSubmit = (e) => {
@@ -72,44 +93,31 @@ export const ContactModal = ({ isOpen, closeModal }) => {
             }
             setName('');
             setQuestion('');
-            setPhone('');
+            setDigits('');
             setAgreement(false);
-            closeModal()
+            closeModal();
         }
     };
-
-
-
 
     const handleNameChange = (e) => setName(e.target.value);
+
     const handlePhoneChange = (e) => {
-        const digits = e.target.value.replace(/\D/g, '').slice(0, 9);
-        let mask = '(___) __-__-__';
-        for (let i = 0; i < digits.length; i++) {
-            mask = mask.replace('_', digits[i]);
-        }
-        setPhone(mask);
+        const onlyDigits = e.target.value.replace(/\D/g, '').slice(0, 9);
+        setDigits(onlyDigits);
     };
-
-
-    const displayPhone = phone.replace(/^\+996/, '');
 
     const handleAgreementChange = (e) => setAgreement(e.target.checked);
 
     const handleCloseModal = () => {
         setName('');
         setQuestion('');
-        setPhone('');
+        setDigits('');
         setAgreement(false);
         setErrors({});
         closeModal();
     };
 
-    if (!isOpen) return null
-
-
-
-    console.log(phone)
+    if (!isOpen) return null;
 
     return (
         <div className={s.overlay} onClick={handleCloseModal}>
@@ -133,43 +141,47 @@ export const ContactModal = ({ isOpen, closeModal }) => {
                         value={name}
                         onChange={handleNameChange}
                         placeholder='Имя'
-                        error={errors.name} />
+                        error={errors.name}
+                    />
                     <SelectField
                         label="Интересующий вопрос*"
                         options={options}
                         value={question}
                         onChange={setQuestion}
-                        error={errors.question} />
+                        error={errors.question}
+                    />
                     <ModalPhoneInput
                         children='Номер телефона*'
                         type='text'
                         id='phone'
                         name='phone'
-                        value={displayPhone}
+                        value={formatPhone(digits)}
                         onChange={handlePhoneChange}
                         placeholder='(000) 00-00-00'
-                        error={errors.phone} />
+                        error={errors.phone}
+                    />
                     <ModalCheckbox
                         type='checkbox'
                         name='agreement'
                         checked={agreement}
                         onChange={handleAgreementChange}
                         children='Нажимая на кнопку и/или отправляя данные, вы соглашаетесь на обработку персональных данных*'
-                        error={errors.agreement} />
+                        error={errors.agreement}
+                    />
                     <ModalButton
                         variant='span'
                         weight='semibold'
                         lineHeight='lineSemiTight'
                         color='white'
-                        children='Отправить' />
+                        children='Отправить'
+                    />
                 </div>
             </form>
         </div>
-
     );
 };
 
 ContactModal.propTypes = {
     isOpen: PropTypes.bool.isRequired,
     closeModal: PropTypes.func.isRequired,
-}
+};
