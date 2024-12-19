@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types*/
 import { Fragment } from 'react';
 import s from './Typography.module.scss'
+import PropTypes from 'prop-types';
 
 export const Typography = (props) => {
     const {
@@ -10,7 +10,7 @@ export const Typography = (props) => {
         children,
         color = 'black',
         truncate = false,
-        lineHeight = 'lineRegular',
+        lineHeight = 'lineDefault',
         fontFamily = 'default',
     } = props;
 
@@ -20,6 +20,7 @@ export const Typography = (props) => {
         h3: 'h3',
         h4: 'h4',
         span: 'span',
+        bodyXXL: 'p',
         bodyXL: 'p',
         bodyL: 'p',
         bodyM: 'p',
@@ -70,3 +71,16 @@ export const Typography = (props) => {
         </TagName>
     );
 };
+
+Typography.propTypes = {
+    variant: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'span', 'bodyXXL', 'bodyXL', 'bodyL', 'bodyM', 'bodyS']),
+    weight: PropTypes.oneOf(['bold', 'semibold', 'medium', 'regular']),
+    className: PropTypes.string,
+    children: PropTypes.node.isRequired,
+    color: PropTypes.oneOf(['black', 'blue', 'white', 'azure', 'lightBlue', 'semiBlue', 'placeholder']),
+    truncate: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
+    lineHeight: PropTypes.oneOf(['lineShort', 'lineTight', 'lineSemiTight', 'lineCompact', 'lineModerate', 'lineLarge', 'lineBig', 'lineFixed', 'lineDefault']),
+    fontFamily: PropTypes.oneOf(['default', 'serif', 'sans-serif', 'monospace']),
+};
+
+

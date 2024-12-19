@@ -1,8 +1,10 @@
+@use 'shared/styles/variables' as vars;
+
 .btn {
     border-radius: 4px;
     padding: 16px 32px;
     width: 153px;
     height: 52px;
-    background-color: #365180;
+    background-color: vars.$primary-color;
     border-color: transparent;
 }

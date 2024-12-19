@@ -1,3 +1,5 @@
+@use 'shared/styles/variables' as vars;
+
 .container {
     background-color: white;
     margin: 0 auto;
@@ -11,8 +13,9 @@
     justify-content: space-between;
     align-items: center;
     height: 5.625rem;
-    width: 90%;
+    width: 1440px;
     margin: 0 auto;
+    padding: 0 75px;
 }
 
 .logo {
@@ -32,12 +35,12 @@
 .list>li:hover,
 .list>li:focus {
 
-    border-color: #7490f5;
+    border-color: vars.$link-hover;
 
 }
 
 .typo:hover {
-    color: #7490f5;
+    color: vars.$link-hover;
 }
 
 
@@ -46,7 +49,7 @@
     font-family: "Open Sans", sans-serif;
     border-radius: 4px;
     padding: 10px 20px;
-    background: #365180;
+    background: vars.$primary-btn;
     border: none;
     transition: 0.5s;
     margin-left: 2rem;
@@ -54,11 +57,10 @@
 }
 
 .button:hover {
-    background: #4D73AA;
+    background: vars.$primary-btn-hover;
 }
 
 .lang {
-
     padding: 3px 8px;
     border-radius: 4px;
 }

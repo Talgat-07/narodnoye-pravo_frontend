@@ -1,19 +1,25 @@
-
 import s from './ButtonLink.module.scss'
-import { Typography } from '../Typography/Typography';
+import { Typography } from 'shared/ui/Typography/Typography';
+import PropTypes from 'prop-types'
 
-export const ButtonLink = () => {
+export const ButtonLink = ({ variant, lineHeight, weight, color, children }) => {
     return (
         <button className={s.btn}>
             <Typography
-                variant='p'
-                styleType='Little'
-                lineHeight='lineSmall'
-                weight='normal'
-                color='azure'
-            >
-                Подробнее
+                variant={variant}
+                lineHeight={lineHeight}
+                weight={weight}
+                color={color}>
+                {children}
             </Typography>
         </button>
     );
 };
+
+ButtonLink.propTypes = {
+    variant: PropTypes.oneOf(['span']).isRequired,
+    lineHeight: PropTypes.oneOf(['lineSemiTight']).isRequired,
+    weight: PropTypes.oneOf(['semibold']).isRequired,
+    color: PropTypes.string,
+    children: PropTypes.node.isRequired
+}

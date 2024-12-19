@@ -1,3 +1,5 @@
+@use 'shared/styles/variables' as vars;
+
 .wrap {
     display: flex;
     flex-direction: column;
@@ -9,7 +11,7 @@
 }
 
 .phoneInputWrapper {
-    border: 1px solid #b0c3e0;
+    border: 1px solid vars.$placeholder;
     border-radius: 4px;
     padding: 10px 15px;
     width: 630px;
@@ -21,7 +23,7 @@
     display: flex;
     align-items: center;
     font-size: 14px;
-    color: #505ea5;
+    color: vars.$input-text;
     margin-right: 8px;
     white-space: nowrap;
 }
@@ -31,7 +33,7 @@
 }
 
 .line {
-    border: 1px solid #b0c3e0;
+    border: 1px solid vars.$placeholder;
     width: 14px;
     height: 0px;
     transform: rotate(90deg);
@@ -52,7 +54,7 @@
 
 .phoneInputWrapper:hover,
 .phoneInputWrapper:hover .phoneInput {
-    background-color: #f4f9ff;
+    background-color: vars.$input-hover;
 }
 
 .errorInput {

@@ -1,6 +1,6 @@
 import { Breadcrumbs } from "shared/ui/Breadcrumbs/Breadcrumbs";
 import { Container } from "shared/ui/Container/Container";
-import { Service } from "widgets/Service/Service";
+import { Service } from "entities/Service/Service";
 
 
 

@@ -1,7 +1,7 @@
 import { AboutUs } from "widgets/AboutUs/AboutUs";
 import { Hero } from "widgets/Hero/Hero";
-import { LegislativeNews } from "widgets/LegislativeNews/LegislativeNews";
-import { Service } from "widgets/Service/Service";
+import { LegislativeNews } from "entities/LegislativeNews/LegislativeNews";
+import { Service } from "entities/Service/Service";
 
 
 

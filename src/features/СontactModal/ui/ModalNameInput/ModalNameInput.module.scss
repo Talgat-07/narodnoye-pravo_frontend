@@ -1,9 +1,11 @@
+@use 'shared/styles/variables' as vars;
+
 .lab {
     margin-bottom: 8px;
 }
 
 .inp {
-    border: 1px solid #b0c3e0;
+    border: 1px solid vars.$input-color;
     border-radius: 4px;
     padding: 10px 15px;
     width: 630px;
@@ -11,22 +13,22 @@
     cursor: pointer;
     font-weight: 400;
     font-size: 18px;
-    color: #505ea5;
+    color: vars.$input-text;
 }
 
 .inp:hover {
-    background-color: #f4f9ff;
+    background-color: vars.$input-hover;
 }
 
 .inp:focus {
     outline: none;
-    border: 1px solid #8aa3d0;
+    border: 1px solid vars.$input-focus;
 }
 
 ::placeholder {
     font-weight: 400;
     font-size: 18px;
-    color: #b0c3e0;
+    color: vars.$placeholder;
 }
 
 .errorInput {

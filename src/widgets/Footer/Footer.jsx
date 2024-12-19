@@ -4,17 +4,17 @@ import { Typography } from "shared/ui/Typography/Typography";
 import { Phone } from "shared/assets/icons/Phone";
 import Email from "shared/assets/icons/Email";
 import { Location } from "shared/assets/icons/Location";
-import logo from '../../shared/assets/img/logo.png'
 import { WhatsApp } from "shared/assets/icons/WhatsApp";
 import { Instagram } from "shared/assets/icons/Instagram";
 import { Facebook } from "shared/assets/icons/Facebook";
 import { Telegram } from "shared/assets/icons/Telegram";
 import { Youtube } from "shared/assets/icons/Youtube";
 import s from './Footer.module.scss'
+import { Geeks } from "shared/assets/icons/Geeks";
+import { Logo } from "shared/assets/icons/Logo";
 
 export const Footer = () => {
-    const address = "Кыргызская Республика, город Бишкек, ул. Токтогула, 87, 4 этаж";
-    const googleMapsUrl = `https://www.google.com/maps?q=${encodeURIComponent(address)}`;
+    const googleMapsUrl = `https://maps.app.goo.gl/Rj2MmFEyRoTXYVdk6`;
 
     const navLinks = [
         { path: path.home, label: "Главная" },
@@ -26,12 +26,13 @@ export const Footer = () => {
         { path: path.bankvacancy, label: "Вакансии" },
         { path: path.contacts, label: "Контакты" },
     ];
-    // это если нужно все же делать map
-    // const contacts = [
-    //     { type: 'phone', value: '+996 (550) 18-87-77' },
-    //     { type: 'phone', value: '+996 (702) 18-87-77' },
-    //     { type: 'email', value: 'N.pravo2018@gmail.com' },
-    // ]
+
+
+    const contacts = [
+        { type: 'phone', value: '+996 (550) 18-87-77' },
+        { type: 'phone', value: '+996 (702) 18-87-77' },
+        { type: 'email', value: 'N.pravo2018@gmail.com' },
+    ]
 
     const lastPath = navLinks[0]
     const renderPath = navLinks.slice(1)
@@ -39,7 +40,7 @@ export const Footer = () => {
         <footer className={s.footer}>
             <div className={s.up} >
                 <div className={s.left}>
-                    <img className={s.footerImg} src={logo} alt='"Народное право" логотип' />
+                    <Logo />
                     <ul className={s.footerUl}>
                         {lastPath && (
                             <Link to={path.home} key={path.home}>
@@ -70,66 +71,54 @@ export const Footer = () => {
                     <Typography
                         variant='bodyXL'
                         weight='bold'
-                        lineHeight='height'
-                        color='black'
-                    >
+                        color='black'>
                         КОНТАКТЫ
                     </Typography>
-                    {/* если здесь делать map не понимаю как стилизовать это */}
-                    {/* <Phone />
-                    {contacts.map((contact, index) => (
-                        <Typography
-                            key={index}
-                            variant="p"
-                            styleType="Small"
-                            weight="regular">
-                            {contact.type === "phone" ? (' ') : (<Email />)}
-                            {' '}
-                            {contact.value}
-                        </Typography>
-                    ))} */}
-                    <div className={s.phoneWrap}>
-                        <Phone />
-                        <div className={s.phone}>
-                            <a href="tel:+996550188777">
-                                <Typography
-                                    className={s.middlePhone}
-                                    variant="bodyM"
-                                    weight="regular"
-                                    color='black'>
-                                    +996 (550) 18-87-77
-                                </Typography>
-                            </a>
-                            <a href="tel:+996702188777">
-                                <Typography
-                                    className={s.middlePhone}
-                                    variant="bodyM"
-                                    weight="regular"
-                                    color='black'>
-                                    +996 (702) 18-87-77
-                                </Typography>
-                            </a>
-                        </div>
-                    </div>
-                    <div className={s.email}>
-                        <Email />
-                        <a href="mailto:N.pravo2018@gmail.com">
-                            <Typography
-                                className={s.emalSvg}
-                                variant="bodyM"
-                                weight="regular"
-                                color='black'>
-                                N.pravo2018@gmail.com
-                            </Typography>
-                        </a>
-                    </div>
+                    {contacts.map((contact, index) => {
+                        if (contact.type === 'phone' && index === 0) {
+                            return (
+                                <div className={s.contactItem} key={index}>
+                                    <Phone />
+                                    <a href={`tel:${contact.value.replace(/[\s()]/g, '')}`} className={s.contactLink}>
+                                        <Typography className={s.contactText} variant="bodyM" weight="regular">
+                                            {contact.value}
+                                        </Typography>
+                                    </a>
+                                </div>
+                            );
+                        }
+                        if (contact.type === 'phone' && index > 0) {
+                            return (
+                                <div className={s.contactWithoutIcon} key={index}>
+                                    <div className="emptySpace"></div>
+                                    <a href={`tel:${contact.value.replace(/[\s()]/g, '')}`} className={s.contactLink}>
+                                        <Typography className={s.contactText} variant="bodyM" weight="regular">
+                                            {contact.value}
+                                        </Typography>
+                                    </a>
+                                </div>
+                            );
+                        }
+                        if (contact.type === 'email') {
+                            return (
+                                <div className={s.contactItem} key={index}>
+                                    <Email />
+                                    <a href={`mailto:${contact.value}`} className={s.contactLink}>
+                                        <Typography className={s.contactText} variant="bodyM" weight="regular">
+                                            {contact.value}
+                                        </Typography>
+                                    </a>
+                                </div>
+                            );
+                        }
+                        return null;
+                    })}
                 </div>
                 <div className={s.right}>
                     <Typography
                         variant='bodyXL'
                         weight='bold'
-                        color='black'
-                    >
+                        color='black'>
                         АДРЕС
                     </Typography>
                     <a href={googleMapsUrl}
@@ -159,7 +148,8 @@ export const Footer = () => {
                 <Youtube />
             </div >
             <div className={s.geeks}>
-                <a href="https://geeks.kg/geeks-pro"
+                <a className={s.geeksLink}
+                    href="https://geeks.kg/geeks-pro"
                     rel="noopener noreferrer"
                     target="_blank">
                     <Typography
@@ -168,6 +158,7 @@ export const Footer = () => {
                         weight='medium'>
                         Made by GeeksPro
                     </Typography>
+                    <Geeks />
                 </a>
             </div>
         </footer >

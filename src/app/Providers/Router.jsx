@@ -1,20 +1,27 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Layout } from "../Layout/Layout";
-import { path } from "../../shared/constants/constants";
-import { Home } from "../../pages/Home/Home";
-import { About } from "../../pages/About/About";
+import { Layout } from "app/Layout/Layout";
+import { path } from "shared/constants/constants";
+import { Home } from "pages/Home/Home";
+import { About } from "pages/About/About";
 import { Services } from "pages/Services/Services";
 import { LegislativeNews } from "pages/LegislativeNews/LegislativeNews";
 import { AnalyticAndPublications } from "pages/AnalytAndPublic/AnalytAndPublic";
 import { Education } from "pages/Education/Education";
 import { BankVacancy } from "pages/BankVacancy/BankVacancy";
 import { Contacts } from "pages/Contacts/Contacts";
+import { ServiceDetail } from "shared/ui/ServiceDetail/ServiceDetail";
+import { ScrollToTop } from "shared/ui/ScrollToTop/ScrollToTop";
 
 
 export const Router = createBrowserRouter(
     [
         {
-            element: <Layout />,
+            element: (
+                <>
+                    <ScrollToTop />
+                    <Layout />
+                </>
+            ),
             children: [
                 {
                     path: path.home,
@@ -27,6 +34,10 @@ export const Router = createBrowserRouter(
                 {
                     path: path.services,
                     element: <Services />,
+                },
+                {
+                    path: path.serviceDetail,
+                    element: <ServiceDetail />,
                 },
                 {
                     path: path.legislativenews,
