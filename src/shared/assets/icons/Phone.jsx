@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 
 export const Phone = (props) => {
     const { width = '19', height = '19', } = props
@@ -16,3 +16,7 @@ export const Phone = (props) => {
     );
 };
 
+Phone.propTypes = {
+    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+}

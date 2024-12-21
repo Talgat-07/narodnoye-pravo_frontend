@@ -1,0 +1,24 @@
+@use 'shared/styles/variables' as vars;
+
+
+.left {
+    display: flex;
+    align-items: flex-start;
+    gap: 89px;
+
+    .footerImg {
+        width: 130px;
+        height: 92px;
+    }
+
+    .footerUl {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 12px;
+    }
+}
+
+.leftLink:hover>p {
+    color: vars.$link-hover;
+}

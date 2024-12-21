@@ -1,27 +1,31 @@
 import { Link } from "react-router-dom";
 import s from "./NewsCard.module.scss";
 import { Typography } from "shared/ui/Typography/Typography";
-import { Arrow } from "shared/assets/icons/Arrow";
 import { path } from "shared/constants/constants";
 import PropTypes from 'prop-types'
+import { ArrowLink } from "shared/assets/icons/ArrowLink";
 
 
 export const NewsCard = ({ title, description, image, isLarge, date }) => {
   return (
     <div className={`${s.newsCard} ${isLarge ? s.large : s.small}`}>
       {isLarge ? (
-        <Link to={path.services}>
+        <Link to={path.legislativenews}>
           <div className={s.largeContent}>
             <div className={s.imageWrap}>
-              <img src={image} alt={title} className={s.imageLarge} />
+              <img
+                src={image}
+                alt={title}
+                className={s.imageLarge} />
             </div>
             <div className={s.content}>
               <div className={s.up}>
                 <Typography
                   variant='bodyL'
                   lineHeight='lineTight'
-                  weight='regular'
-                >{date}</Typography>
+                  weight='regular'>
+                  {date}
+                </Typography>
                 <Typography
                   className={s.linkLarge}
                   variant='bodyM'
@@ -29,7 +33,7 @@ export const NewsCard = ({ title, description, image, isLarge, date }) => {
                   lineHeight='lineSemiTight'
                   color='blue'>
                   Подробнее
-                  <Arrow />
+                  <ArrowLink />
                 </Typography>
               </div>
               <div className={s.downLarge}>
@@ -67,24 +71,27 @@ export const NewsCard = ({ title, description, image, isLarge, date }) => {
                 lineHeight='lineSemiTight'
                 color='blue'>
                 Подробнее
-                <Arrow />
+                <ArrowLink />
               </Typography>
             </div>
             <div className={s.imageWrap}>
-              <img src={image} alt={title} className={s.imageSmall} />
+              <img
+                src={image}
+                alt={title}
+                className={s.imageSmall} />
             </div>
             <div className={s.smallDown}>
               <Typography
                 className={s.smallDescription}
                 variant='bodyM'
                 weight='regular'
-                lineHeight='lineCompact'
-              >{description}</Typography>
+                lineHeight='lineCompact' >
+                {description}
+              </Typography>
             </div>
           </div>
         </Link>
       )}
-
     </div>
   );
 };

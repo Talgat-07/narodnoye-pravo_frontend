@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 
 export const Arrow = (props) => {
     const { width = '18', height = '18', color = 'rgba(0, 0, 0, 0.3)' } = props
@@ -15,3 +16,9 @@ export const Arrow = (props) => {
         </svg>
     );
 };
+
+Arrow.propTypes = {
+    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    color: PropTypes.string
+}

@@ -1,7 +1,7 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 
 export const Instagram = (props) => {
-    const { width='40', height='40', color='#000', link='https://instagram.com/narodnoe_pravo_kg' } = props
+    const { width = '40', height = '40', color = '#000', link = 'https://instagram.com/narodnoe_pravo_kg' } = props
 
     return (
         <a href={link} target="_blank" rel="noopener noreferrer">
@@ -17,3 +17,10 @@ export const Instagram = (props) => {
         </a >
     );
 };
+
+Instagram.propTypes = {
+    link: PropTypes.string,
+    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    color: PropTypes.string,
+}

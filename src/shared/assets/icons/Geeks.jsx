@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types'
 
 export const Geeks = (props) => {
     const { width = '17', height = '23', color = 'black' } = props
@@ -8,3 +8,8 @@ export const Geeks = (props) => {
         </svg>
     );
 };
+Geeks.propTypes = {
+    color: PropTypes.string,
+    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+}

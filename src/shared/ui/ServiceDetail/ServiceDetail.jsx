@@ -1,16 +1,17 @@
 import { Link, useParams } from 'react-router-dom';
-import s from './ServiceDetail.module.scss'
-import { Typography } from '../Typography/Typography';
+import s from './ServiceDetail.module.scss';
+import { Typography } from 'shared/ui/Typography/Typography';
 import { path } from 'shared/constants/constants';
-import { Container } from '../Container/Container';
-import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
-import { ServiceCard } from '../ServiceCard/ServiceCard';
-import img1 from '../../assets/img/service1.png'
-import img2 from '../../assets/img/service2.png'
-import img3 from '../../assets/img/service3.png'
+import { Container } from 'shared/ui/Container/Container';
+import { Breadcrumbs } from 'shared/ui/Breadcrumbs/Breadcrumbs';
+import { ServiceCard } from 'shared/ui/ServiceCard/ServiceCard';
+import consultingService from 'shared/assets/img/service1.png';
+import contractWork from 'shared/assets/img/service2.png';
+import representation from 'shared/assets/img/service3.png';
+import { Button } from 'shared/ui/Button/Button';
 
 export const ServiceDetail = () => {
-    const { id } = useParams()
+    const { id } = useParams();
 
     const mockService = [
         {
@@ -18,21 +19,21 @@ export const ServiceDetail = () => {
             title: 'Консультирование',
             description: 'Устные и письменные консультации по любым правовым вопросам',
             text: 'По запросу мы готовим информацию и разъясняем содержание и значение правовых норм, регулирующих те или иные правоотношения. Консультации предоставляются нами в онлайн формате и в рамках личного приема. Консультирование основано на принципе сохранения полной конфиденциальности данных. Особенностью предоставляемых консультаций является применяемый нами комплексный подход - мы рассматриваем вопрос с различных аспектов, учитываем возможные последствия каждого из потенциальных решений.',
-            img: img1,
+            img: consultingService,
         },
         {
             id: 2,
             title: 'Договорная работа',
             description: 'Разработка и правовая экспертиза гражданско-правовых договоров',
             text: 'Мы разрабатываем договоры любой сложности, а также проводим правовую экспертизу имеющихся проектов договоров на предмет их соответствия требованиям законодательства Кыргызской Республики и учета интересов клиента. Мы осуществляем разработку как поименованных, так и непоименованных договоров, принимая во внимание постоянно развивающийся гражданский оборот, включение в него новых объектов гражданских прав и трансформацию привычных типов юридических связей.',
-            img: img2,
+            img: contractWork,
         },
         {
             id: 3,
             title: 'Представительство',
             description: 'Представление интересов в органах государственной власти, в том числе, в суде',
             text: 'Мы оказываем услуги представительства, в том числе, судебного в целях наилучшей защиты прав и законных интересов клиента. Судебная защита гражданских прав является во многих случаях крайней мерой, и мы прикладываем все усилия для разрешения спора в досудебном порядке. Однако, в случае, когда иным способом разрешить спор не представляется возможным, мы в рамках судебного представительства осуществляем полное сопровождение - консультируем по ходу процесса, готовим все процессуальные документы, участвуем в судебных заседаниях, принимаем участие в сборе доказательств по делу.',
-            img: img3,
+            img: representation,
         },
         {
             id: 4,
@@ -72,7 +73,7 @@ export const ServiceDetail = () => {
         },
     ];
 
-    const service = mockService.find((item) => item.id === parseInt(id));
+    const service = mockService.find((item) => item.id === parseInt(id, 10));
 
     if (!service) return <p>Услуга не найдена</p>;
 
@@ -80,7 +81,7 @@ export const ServiceDetail = () => {
 
     return (
         <Container>
-            <Breadcrumbs />
+            <Breadcrumbs currentTitle={service.title} />
             <div className={s.serviceDetail}>
                 <Typography
                     className={s.title}
@@ -104,15 +105,14 @@ export const ServiceDetail = () => {
                     {service.text}
                 </Typography>
                 <Link to={path.services}>
-                    <button className={s.btn}>
-                        <Typography
-                            variant='span'
-                            weight='semibold'
-                            lineHeight='lineSemiTight'
-                            color='white'>
-                            Вернуться к услугам
-                        </Typography>
-                    </button>
+                    <Button
+                        className='ServiceBtn'
+                        variant='span'
+                        weight='semibold'
+                        lineHeight='lineSemiTight'
+                        color='white'>
+                        Вернуться к услугам
+                    </Button>
                 </Link>
                 <div className={s.line}>
                     <Typography

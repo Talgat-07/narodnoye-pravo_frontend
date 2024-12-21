@@ -23,7 +23,7 @@
     display: flex;
     align-items: center;
     font-size: 14px;
-    color: vars.$input-text;
+    color: vars.$semiBlue;
     margin-right: 8px;
     white-space: nowrap;
 }
@@ -55,15 +55,4 @@
 .phoneInputWrapper:hover,
 .phoneInputWrapper:hover .phoneInput {
     background-color: vars.$input-hover;
-}
-
-.errorInput {
-    border: 1px solid red;
-}
-
-.errorTextPhone {
-    color: red;
-    font-size: 12px;
-    margin-top: 15px;
-    margin-left: -16px;
 }

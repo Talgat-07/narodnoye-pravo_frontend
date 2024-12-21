@@ -1,7 +1,7 @@
-
+import PropTypes from 'prop-types'
 
 export const Facebook = (props) => {
-    
+
     const { width = '40', height = '40', link = 'https://www.facebook.com/npravo?mibextid=LQQJ4d' } = props
     return (
         <a href={link} target="_blank" rel="noopener noreferrer">
@@ -17,3 +17,9 @@ export const Facebook = (props) => {
         </a>
     );
 };
+
+Facebook.propTypes = {
+    link: PropTypes.string,
+    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+}

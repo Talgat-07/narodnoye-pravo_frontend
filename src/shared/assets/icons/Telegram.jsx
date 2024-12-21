@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 
 export const Telegram = (props) => {
-    const { width='40', height='40', color='#000', link='https://t.me/+Mylbg2YA13o5MDVi' } = props
+    const { width = '40', height = '40', color = '#000', link = 'https://t.me/+Mylbg2YA13o5MDVi' } = props
 
     return (
         <a href={link} target="_blank" rel="noopener noreferrer">
@@ -16,3 +17,10 @@ export const Telegram = (props) => {
         </a>
     );
 };
+
+Telegram.propTypes = {
+    color: PropTypes.string,
+    link: PropTypes.string,
+    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+}

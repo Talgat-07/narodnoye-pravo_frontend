@@ -1,6 +1,6 @@
+import PropTypes from 'prop-types';
 
-
-const ArrowDown = (props) => {
+export const ArrowDown = (props) => {
     const { width = '14', height = '8', color = "#505EA5" } = props
 
     return (
@@ -15,4 +15,8 @@ const ArrowDown = (props) => {
     );
 };
 
-export default ArrowDown;
+ArrowDown.propTypes = {
+    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    color: PropTypes.string
+}

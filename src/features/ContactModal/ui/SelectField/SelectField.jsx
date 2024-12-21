@@ -1,10 +1,10 @@
 import CreatableSelect from 'react-select/creatable';
 import s from './SelectField.module.scss'
 import { Typography } from 'shared/ui/Typography/Typography';
-import { customStyles } from 'features/СontactModal/model/selectConfig';
+import { customStyles } from 'features/ContactModal/model/selectConfig';
 import PropTypes from 'prop-types'
 
-export const SelectField = ({ label, options, value, onChange, error }) => {
+export const SelectField = ({ label, options, value, onChange, }) => {
     return (
         <div>
             <label htmlFor="question">
@@ -16,14 +16,13 @@ export const SelectField = ({ label, options, value, onChange, error }) => {
                 </Typography>
             </label>
             <CreatableSelect
-                styles={customStyles(error)}
+                styles={customStyles()}
                 options={options}
                 value={options.find((opt) => opt.value === value)}
                 onChange={(selectedOption) => onChange(selectedOption ? selectedOption.value : '')}
                 isClearable={false}
                 placeholder="Выбрать опцию"
             />
-            {error && <p className={s.errorText}>{error}</p>}
         </div>
     );
 };
