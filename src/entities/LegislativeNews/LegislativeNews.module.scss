@@ -1,26 +1,24 @@
-
-
-.title{
-    text-align: center;
+.title {
+  text-align: center;
 }
 
 
 .block {
-    display: flex;
-    flex-direction: column; 
-  }
-  
-.newsCard {
-    display: flex ;
-    justify-content: center;
-    gap: 40px; 
-  
-  }
+  display: flex;
+  flex-direction: column;
+}
 
-.btn{
-   display: flex;
-   justify-content: center;
-   margin-bottom: 150px;
+.newsCard {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 150px;
 }
 
 
@@ -54,7 +52,7 @@
 //         grid-template-rows: auto auto;
 //         grid-template-columns: 1fr 1fr 1fr;
 //         gap: 16px;
-        
+
 //             // .newsCard {
 //             //     &.large {
 //             //         grid-column: 1 / -1;

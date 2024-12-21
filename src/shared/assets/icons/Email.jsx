@@ -1,6 +1,6 @@
-import React from 'react';
+import PropTypes from 'prop-types'
 
-const Email = (props) => {
+export const Email = (props) => {
     const { color = '#000', width = '24', height = '24', } = props
     return (
         <svg
@@ -14,4 +14,8 @@ const Email = (props) => {
     );
 };
 
-export default Email;
+Email.propTypes = {
+    color: PropTypes.string,
+    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+}

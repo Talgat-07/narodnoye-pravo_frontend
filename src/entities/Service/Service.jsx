@@ -3,7 +3,6 @@ import { Typography } from 'shared/ui/Typography/Typography';
 import { ServiceCard } from 'shared/ui/ServiceCard/ServiceCard';
 import { Link } from 'react-router-dom';
 import { path } from 'shared/constants/constants';
-import { ButtonLink } from 'shared/ui/ButtonLink/ButtonLink';
 import { Container } from 'shared/ui/Container/Container';
 import img1 from 'shared/assets/img/service1.png'
 import img2 from 'shared/assets/img/service2.png'
@@ -15,18 +14,17 @@ import img7 from 'shared/assets/img/service7.png'
 import img8 from 'shared/assets/img/service8.png'
 import img9 from 'shared/assets/img/service9.png'
 import PropTypes from 'prop-types'
-import useServicesStore from 'shared/store/servicesStore';
-import { useEffect } from 'react';
+import { Button } from 'shared/ui/Button/Button';
 
 export const Service = ({ weight, withButton = true, cardWrapClassName = '' }) => {
-    const { services, isLoading, error, fetchServices } = useServicesStore()
+    // const { services, isLoading, error, fetchServices } = useServicesStore()
 
-    useEffect(() => {
-        fetchServices()
-    }, [fetchServices])
+    // useEffect(() => {
+    //     fetchServices()
+    // }, [fetchServices])
 
-    if (isLoading) return <div>Загрузка...</div>
-    if (error) return <div>Ошибка: {error}</div>
+    // if (isLoading) return <div>Загрузка...</div>
+    // if (error) return <div>Ошибка: {error}</div>
 
     const mockService = [
         {
@@ -85,7 +83,7 @@ export const Service = ({ weight, withButton = true, cardWrapClassName = '' }) =
         },
     ]
 
-    console.log(services)
+    // console.log(services)
     return (
         <Container>
             <section className={s.service}>
@@ -116,12 +114,14 @@ export const Service = ({ weight, withButton = true, cardWrapClassName = '' }) =
                 </div>
                 {withButton && (
                     <Link to={path.services}>
-                        <ButtonLink
+                        <Button
+                            className='linkBtn'
                             variant='span'
                             lineHeight='lineSemiTight'
                             weight='semibold'
-                            color='azure'
-                            children='Подробнее' />
+                            color='azure'>
+                            Подробнее
+                        </Button>
                     </Link>
                 )}
             </section>

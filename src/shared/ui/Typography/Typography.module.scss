@@ -1,3 +1,5 @@
+@use 'shared/styles/variables' as vars;
+
 .default {
     font-family: 'Open Sans', sans-serif;
 }
@@ -94,33 +96,33 @@ span {
 
 //color
 .black {
-    color: #000;
-}
-
-.lightGrey {
-    color: rgba(0, 0, 0, 0.9);
+    color: vars.$black;
 }
 
 .white {
-    color: #fff;
+    color: vars.$white;
+}
+
+.lightGrey {
+    color: vars.$lightGrey;
 }
 
 .blue {
-    color: #365180;
+    color: vars.$primary-color;
 }
 
 .azure {
-    color: #6f91c1;
+    color: vars.$secondary-color;
 }
 
 .lightBlue {
-    color: #345ea6;
+    color: vars.$lightBlue;
 }
 
 .semiBlue {
-    color: #505ea5;
+    color: vars.$semiBlue;
 }
 
 .placeholder {
-    color: #b0c3e0;
+    color: vars.$placeholder;
 }

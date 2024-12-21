@@ -34,5 +34,5 @@ ServiceCard.propTypes = {
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    img: PropTypes.string.isRequired
+    img: PropTypes.string
 }

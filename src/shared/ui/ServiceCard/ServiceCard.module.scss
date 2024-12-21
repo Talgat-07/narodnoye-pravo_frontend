@@ -1,3 +1,5 @@
+@use 'shared/styles/variables' as vars;
+
 .seviceCard {
     border-radius: 4px;
     width: 410px;
@@ -15,7 +17,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    background: rgba(0, 0, 0, 0.38);
+    background: vars.$opacity;
     width: 410px;
     height: 123px;
     padding: 33px 64px 0 64px;

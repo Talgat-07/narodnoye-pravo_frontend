@@ -2,10 +2,10 @@ import { path } from "shared/constants/constants";
 import { Link } from "react-router-dom";
 import { Typography } from "shared/ui/Typography/Typography";
 import s from "./Header.module.scss"
-import { ContactModal } from 'features/СontactModal/ui/ContactModal/ContactModal';
-import { useContactModal } from 'features/СontactModal/model/useContactModal';
+import { useContactModal } from "features/ContactModal/model/useContactModal";
 import { Button } from "shared/ui/Button/Button";
 import { HeaderLogo } from "shared/assets/icons/HeaderLogo";
+import { ContactModal } from "features/ContactModal/ui/ContactModal/ContactModal";
 
 export const Header = () => {
 
@@ -24,7 +24,6 @@ export const Header = () => {
     return (
         <div className={s.container}>
             <header className={s.header}>
-
                 <a href={path.home}>
                     <HeaderLogo />
                 </a>
@@ -33,38 +32,32 @@ export const Header = () => {
                         {
                             navLinks.map(el => (
                                 <li className={s.li} key={el.path}>
-
-                                    <Link to={el.path}>
+                                    <Link to={el.path}
+                                        className={s.typo}>
                                         <Typography
-                                            className={s.typo}
                                             variant='bodyM'>
                                             {el.label}
                                         </Typography>
                                     </Link>
-
                                 </li>
                             ))
                         }
                     </ul>
-
                 </nav>
                 <Button
                     onClick={openModal}
-                    className={s.button}
+                    className='buttonSend'
                     variant='span'
                     weight='semibold'
                     color='white'
-                    lineHeight='lineTight'
-                    children='Оставить заявку' />
-
+                    lineHeight='lineTight'>
+                    Оставить заявку
+                </Button>
                 <ContactModal isOpen={isOpen} closeModal={closeModal} />
-
                 <select className={s.lang}>
                     <option value="ru">RU</option>
                     <option value="kg">KG</option>
                 </select>
-
-
             </header>
         </div>
     );

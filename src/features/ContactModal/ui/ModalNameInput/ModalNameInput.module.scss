@@ -1,10 +1,10 @@
 @use 'shared/styles/variables' as vars;
 
-.lab {
+.inputText {
     margin-bottom: 8px;
 }
 
-.inp {
+.inputName {
     border: 1px solid vars.$input-color;
     border-radius: 4px;
     padding: 10px 15px;
@@ -13,14 +13,14 @@
     cursor: pointer;
     font-weight: 400;
     font-size: 18px;
-    color: vars.$input-text;
+    color: vars.$semiBlue;
 }
 
-.inp:hover {
+.inputName:hover {
     background-color: vars.$input-hover;
 }
 
-.inp:focus {
+.inputName:focus {
     outline: none;
     border: 1px solid vars.$input-focus;
 }
@@ -29,14 +29,4 @@
     font-weight: 400;
     font-size: 18px;
     color: vars.$placeholder;
-}
-
-.errorInput {
-    border: 1px solid red;
-}
-
-.errorText {
-    color: red;
-    font-size: 12px;
-    margin-top: 5px;
 }

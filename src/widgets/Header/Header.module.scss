@@ -39,25 +39,8 @@
 
 }
 
-.typo:hover {
+.typo:hover>p {
     color: vars.$link-hover;
-}
-
-
-
-.button {
-    font-family: "Open Sans", sans-serif;
-    border-radius: 4px;
-    padding: 10px 20px;
-    background: vars.$primary-btn;
-    border: none;
-    transition: 0.5s;
-    margin-left: 2rem;
-    cursor: pointer;
-}
-
-.button:hover {
-    background: vars.$primary-btn-hover;
 }
 
 .lang {

@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 
 export const Youtube = (props) => {
     const { width = '40', height = '40', color = '#000', link = 'https://www.youtube.com/' } = props
@@ -17,3 +17,10 @@ export const Youtube = (props) => {
         </a>
     );
 };
+
+Youtube.propTypes = {
+    color: PropTypes.string,
+    link: PropTypes.string,
+    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+}

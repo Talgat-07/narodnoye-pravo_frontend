@@ -1,11 +1,12 @@
+import PropTypes from 'prop-types';
 
 export const Location = (props) => {
     const { width = '24', height = '24' } = props
 
     return (
         <svg
-            width="24"
-            height="24"
+            width={width}
+            height={height}
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg">
@@ -15,3 +16,9 @@ export const Location = (props) => {
         </svg>
     );
 };
+
+Location.propTypes = {
+    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+}
+

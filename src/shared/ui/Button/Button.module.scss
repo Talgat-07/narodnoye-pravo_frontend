@@ -1,0 +1,100 @@
+@use 'shared/styles/variables' as vars;
+
+.linkBtn {
+    border: 1px solid vars.$secondary-color;
+    border-radius: 4px;
+    padding: 16px 32px;
+    width: 154px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    transition: 0.5s;
+    cursor: pointer;
+
+    &:hover {
+        background-color: vars.$btn-link-hover;
+    }
+}
+
+.modalBtn {
+    border-radius: 4px;
+    padding: 16px 32px;
+    width: 153px;
+    height: 52px;
+    background-color: vars.$primary-color;
+    border-color: transparent;
+    transition: 0.5s;
+    cursor: pointer;
+
+    &:hover {
+        background: vars.$primary-btn-hover;
+    }
+}
+
+.buttonSend {
+    font-family: "Open Sans", sans-serif;
+    border-radius: 4px;
+    padding: 10px 20px;
+    background: vars.$primary-color;
+    border: none;
+    transition: 0.5s;
+    margin-left: 2rem;
+    cursor: pointer;
+
+    &:hover {
+        background: vars.$primary-btn-hover;
+    }
+}
+
+.buttonSendHero {
+    width: 476px;
+    height: 52px;
+    font-family: "Open Sans", sans-serif;
+    border-radius: 4px;
+    padding: 10px 20px;
+    background: vars.$primary-color;
+    border: none;
+    margin-top: -6px;
+    transition: 0.5s;
+    cursor: pointer;
+
+    &:hover {
+        background: vars.$primary-btn-hover;
+    }
+}
+
+.btnHero {
+    border-radius: 4px;
+    padding: 16px 32px;
+    height: 52px;
+    background: vars.$primary-color;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: self-end;
+    transition: 0.5s;
+    cursor: pointer;
+
+    &:hover {
+        background: vars.$primary-btn-hover;
+    }
+}
+
+.ServiceBtn {
+    border-radius: 4px;
+    padding: 16px 32px;
+    width: 450px;
+    height: 52px;
+    background: vars.$primary-color;
+    border: transparent;
+    margin-bottom: 80px;
+    transition: 0.5s;
+    cursor: pointer;
+
+    &:hover {
+        background: vars.$primary-btn-hover;
+    }
+}

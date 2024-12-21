@@ -3,28 +3,23 @@ import aboutUs from 'shared/assets/img/AboutUs.png'
 import s from './AboutUs.module.scss'
 import { Link } from 'react-router-dom';
 import { path } from 'shared/constants/constants';
-import { ButtonLink } from 'shared/ui/ButtonLink/ButtonLink';
+import { Button } from 'shared/ui/Button/Button';
 
 
 export function AboutUs() {
     return (
         <div className={s.aboutUs}>
-
-
             <Typography
                 className={s.title}
                 variant='h3'
                 weight='bold'>
                 О нас
             </Typography>
-
             <div className={s.main}>
-
                 <img className={s.image} src={aboutUs} alt='сотрудники компании' />
                 <div className={s.text}>
                     <Typography
-                        className={s.text1}
-                        variant='bodyM'
+                        variant='bodyL'
                         weight='regular'
                         lineHeight='lineBig'>
                         <strong>Юридическая компания «Народное право»</strong> — компания, созданная в 2008 году.
@@ -32,8 +27,7 @@ export function AboutUs() {
                         занимает устойчивое положение на рынке юридических услуг.
                     </Typography>
                     <Typography
-                        className={s.text2}
-                        variant='bodyM'
+                        variant='bodyL'
                         weight='regular'
                         lineHeight='lineBig'>
                         <strong>Основная цель нашей компании </strong> — сделать юридические услуги доступными для всех.
@@ -42,16 +36,16 @@ export function AboutUs() {
                         оказать необходимую юридическую помощь — проконсультировать, разъяснить, представить интересы.
                     </Typography>
                 </div>
-
             </div>
-
             <Link to={path.about}>
-                <ButtonLink
+                <Button
+                    className='linkBtn'
                     variant='span'
                     lineHeight='lineSemiTight'
                     weight='semibold'
-                    color='azure'
-                    children='Подробнее' />
+                    color='azure'>
+                    Подробнее
+                </Button>
             </Link>
         </div>
     );

@@ -1,0 +1,17 @@
+@use 'shared/styles/variables' as vars;
+
+.right {
+    margin-top: 9px;
+
+    .addressWrap {
+        display: flex;
+        margin-top: 19px;
+        gap: 10px;
+        width: 254px;
+        height: 116px;
+    }
+}
+
+.addressWrap:hover>p {
+    color: vars.$link-hover;
+}
