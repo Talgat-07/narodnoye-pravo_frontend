@@ -4,15 +4,15 @@ import { ServiceCard } from 'shared/ui/ServiceCard/ServiceCard';
 import { Link } from 'react-router-dom';
 import { path } from 'shared/constants/constants';
 import { Container } from 'shared/ui/Container/Container';
-import img1 from 'shared/assets/img/service1.png'
-import img2 from 'shared/assets/img/service2.png'
-import img3 from 'shared/assets/img/service3.png'
-import img4 from 'shared/assets/img/service4.png'
-import img5 from 'shared/assets/img/service5.png'
-import img6 from 'shared/assets/img/service6.png'
-import img7 from 'shared/assets/img/service7.png'
-import img8 from 'shared/assets/img/service8.png'
-import img9 from 'shared/assets/img/service9.png'
+import img1 from 'shared/assets/img/service1.webp'
+import img2 from 'shared/assets/img/service2.webp'
+import img3 from 'shared/assets/img/service3.webp'
+import img4 from 'shared/assets/img/service4.webp'
+import img5 from 'shared/assets/img/service5.webp'
+import img6 from 'shared/assets/img/service6.webp'
+import img7 from 'shared/assets/img/service7.webp'
+import img8 from 'shared/assets/img/service8.webp'
+import img9 from 'shared/assets/img/service9.webp'
 import PropTypes from 'prop-types'
 import { Button } from 'shared/ui/Button/Button';
 

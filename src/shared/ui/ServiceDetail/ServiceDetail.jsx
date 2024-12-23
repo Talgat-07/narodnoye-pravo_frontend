@@ -5,9 +5,9 @@ import { path } from 'shared/constants/constants';
 import { Container } from 'shared/ui/Container/Container';
 import { Breadcrumbs } from 'shared/ui/Breadcrumbs/Breadcrumbs';
 import { ServiceCard } from 'shared/ui/ServiceCard/ServiceCard';
-import consultingService from 'shared/assets/img/service1.png';
-import contractWork from 'shared/assets/img/service2.png';
-import representation from 'shared/assets/img/service3.png';
+import consultingService from 'shared/assets/img/service1.webp';
+import contractWork from 'shared/assets/img/service2.webp';
+import representation from 'shared/assets/img/service3.webp';
 import { Button } from 'shared/ui/Button/Button';
 
 export const ServiceDetail = () => {
