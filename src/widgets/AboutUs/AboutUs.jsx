@@ -1,5 +1,5 @@
 import { Typography } from 'shared/ui/Typography/Typography';
-import aboutUs from 'shared/assets/img/AboutUs.png'
+import aboutUs from 'shared/assets/img/AboutUs.webp'
 import s from './AboutUs.module.scss'
 import { Link } from 'react-router-dom';
 import { path } from 'shared/constants/constants';

@@ -19,11 +19,13 @@ export const Typography = (props) => {
         h2: 'h2',
         h3: 'h3',
         h4: 'h4',
+        h5: 'h5',
         span: 'span',
         bodyXXL: 'p',
         bodyXL: 'p',
         bodyL: 'p',
         bodyM: 'p',
+        bodyXS: 'p',
         bodyS: 'p',
     };
 
@@ -73,7 +75,7 @@ export const Typography = (props) => {
 };
 
 Typography.propTypes = {
-    variant: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'span', 'bodyXXL', 'bodyXL', 'bodyL', 'bodyM', 'bodyS']),
+    variant: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'span', 'bodyXXL', 'bodyXL', 'bodyL', 'bodyM', 'bodyXS', 'bodyS']),
     weight: PropTypes.oneOf(['bold', 'semibold', 'medium', 'regular']),
     className: PropTypes.string,
     children: PropTypes.node.isRequired,
