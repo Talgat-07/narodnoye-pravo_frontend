@@ -1,29 +1,19 @@
-import s from './Nav.module.scss'
+import style from './Nav.module.scss'
 import { Link } from 'react-router-dom';
 import { Logo } from 'shared/assets/icons/Logo';
 import { path } from 'shared/constants/constants';
 import { Typography } from 'shared/ui/Typography/Typography';
+import { navLinks } from 'shared/constants/constants'
 
 export const Nav = () => {
-    const navLinks = [
-        { path: path.home, label: "Главная" },
-        { path: path.about, label: "О нас" },
-        { path: path.services, label: "Услуги" },
-        { path: path.legislativenews, label: "Новости" },
-        { path: path.analyticandpublications, label: "Научные статьи" },
-        { path: path.education, label: "Обучение" },
-        { path: path.bankvacancy, label: "Вакансии" },
-        { path: path.contacts, label: "Контакты" },
-    ];
-
 
     const lastPath = navLinks[0]
     const renderPath = navLinks.slice(1)
 
     return (
-        <div className={s.left}>
+        <div className={style.left}>
             <Logo />
-            <ul className={s.footerUl}>
+            <ul className={style.footerUl}>
                 {lastPath && (
                     <Link to={path.home} key={path.home}>
                         <Typography
@@ -35,8 +25,8 @@ export const Nav = () => {
                 )}
                 {
                     renderPath.map(el => (
-                        <li className={s.footerLi} key={el.path}>
-                            <Link to={el.path} className={s.leftLink}>
+                        <li className={style.footerLi} key={el.path}>
+                            <Link to={el.path} className={style.leftLink}>
                                 <Typography
                                     variant="bodyM"
                                     weight="regular">

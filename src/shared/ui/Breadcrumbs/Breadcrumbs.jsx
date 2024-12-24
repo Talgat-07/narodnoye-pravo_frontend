@@ -1,29 +1,20 @@
 import { Arrow } from 'shared/assets/icons/Arrow';
 import { Typography } from 'shared/ui/Typography/Typography';
-import s from './Breadcrumbs.module.scss';
+import style from './Breadcrumbs.module.scss';
 import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types'
+import { routesMap } from 'shared/constants/constants'
 
 export const Breadcrumbs = ({ currentTitle }) => {
     const location = useLocation();
     const pathnames = location.pathname.split('/').filter((x) => x);
 
-    const routesMap = {
-        '/': 'Главная',
-        '/about': 'О нас',
-        '/services': 'Услуги',
-        '/legidslativenews': 'Новости',
-        '/analyticandpublications': 'Научные статьи',
-        '/education': 'Обучение',
-        '/bankvacancy': 'Вакансии',
-        '/contacts': 'Контакты',
-    };
 
     return (
-        <nav className={s.breadcrumbs} aria-label="breadcrumb">
+        <nav className={style.breadcrumbs} aria-label="breadcrumb">
             <Link to="/">
                 <Typography
-                    className={s.title}
+                    className={style.title}
                     variant="bodyM"
                     weight="regular">
                     Главная
@@ -36,7 +27,7 @@ export const Breadcrumbs = ({ currentTitle }) => {
 
                 if (isLast && currentTitle) {
                     return (
-                        <span key="current" className={s.right} aria-current="page">
+                        <span key="current" className={style.right} aria-current="page">
                             <Arrow />
                             <Typography
                                 variant="bodyM"
@@ -48,7 +39,7 @@ export const Breadcrumbs = ({ currentTitle }) => {
                 }
 
                 return (
-                    <span key={to} className={s.right}>
+                    <span key={to} className={style.right}>
                         <Arrow />
                         <Link to={to}>
                             <Typography

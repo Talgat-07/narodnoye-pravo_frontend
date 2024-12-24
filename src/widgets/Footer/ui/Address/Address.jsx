@@ -1,4 +1,4 @@
-import s from './Address.module.scss'
+import style from './Address.module.scss'
 import { Email } from 'shared/assets/icons/Email';
 import { Phone } from 'shared/assets/icons/Phone';
 import { Typography } from 'shared/ui/Typography/Typography';
@@ -10,7 +10,7 @@ export const Address = () => {
         { type: 'email', value: 'N.pravo2018@gmail.com' },
     ]
     return (
-        <div className={s.middle}>
+        <div className={style.middle}>
             <Typography
                 variant='bodyXL'
                 weight='bold'
@@ -20,10 +20,10 @@ export const Address = () => {
             {contacts.map((contact, index) => {
                 if (contact.type === 'phone' && index === 0) {
                     return (
-                        <div className={s.contactItem} key={index}>
+                        <div className={style.contactItem} key={index}>
                             <Phone />
                             <a href={`tel:${contact.value.replace(/[\s()]/g, '')}`}
-                                className={s.contactLink}>
+                                className={style.contactLink}>
                                 <Typography
                                     variant="bodyM"
                                     weight="regular">
@@ -35,9 +35,9 @@ export const Address = () => {
                 }
                 if (contact.type === 'phone' && index > 0) {
                     return (
-                        <div className={s.contactWithoutIcon} key={index}>
+                        <div className={style.contactWithoutIcon} key={index}>
                             <div className="emptySpace"></div>
-                            <a href={`tel:${contact.value.replace(/[\s()]/g, '')}`} className={s.contactLink}>
+                            <a href={`tel:${contact.value.replace(/[\s()]/g, '')}`} className={style.contactLink}>
                                 <Typography
                                     variant="bodyM"
                                     weight="regular">
@@ -49,10 +49,10 @@ export const Address = () => {
                 }
                 if (contact.type === 'email') {
                     return (
-                        <div className={s.contactItem} key={index}>
+                        <div className={style.contactItem} key={index}>
                             <Email />
                             <a href={`mailto:${contact.value}`}
-                                className={s.contactLink}>
+                                className={style.contactLink}>
                                 <Typography
                                     variant="bodyM"
                                     weight="regular">

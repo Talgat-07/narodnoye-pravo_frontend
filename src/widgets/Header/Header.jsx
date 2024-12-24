@@ -1,39 +1,32 @@
 import { path } from "shared/constants/constants";
 import { Link } from "react-router-dom";
 import { Typography } from "shared/ui/Typography/Typography";
-import s from "./Header.module.scss"
-import { useContactModal } from "features/ContactModal/model/useContactModal";
+import style from "./Header.module.scss"
+import { useContactModal } from "shared/lib/hooks/hooks";
 import { Button } from "shared/ui/Button/Button";
 import { HeaderLogo } from "shared/assets/icons/HeaderLogo";
-import { ContactModal } from "features/ContactModal/ui/ContactModal/ContactModal";
+import { ContactModal } from "shared/ui/ContactModal/ContactModal/ContactModal";
+import { navLinks } from 'shared/constants/constants'
 
 export const Header = () => {
 
     const { isOpen, openModal, closeModal } = useContactModal();
 
-    const navLinks = [
-        { path: path.about, label: "О нас" },
-        { path: path.services, label: "Услуги" },
-        { path: path.legislativenews, label: "Новости" },
-        { path: path.analyticandpublications, label: "Научные статьи" },
-        { path: path.education, label: "Обучение" },
-        { path: path.bankvacancy, label: "Вакансии" },
-        { path: path.contacts, label: "Контакты" },
-    ];
+    const navLink = navLinks.slice(1)
 
     return (
-        <div className={s.container}>
-            <header className={s.header}>
+        <div className={style.container}>
+            <header className={style.header}>
                 <a href={path.home}>
                     <HeaderLogo />
                 </a>
                 <nav>
-                    <ul className={s.list}>
+                    <ul className={style.list}>
                         {
-                            navLinks.map(el => (
-                                <li className={s.li} key={el.path}>
+                            navLink.map(el => (
+                                <li className={style.li} key={el.path}>
                                     <Link to={el.path}
-                                        className={s.typo}>
+                                        className={style.typo}>
                                         <Typography
                                             variant='bodyM'>
                                             {el.label}
@@ -54,7 +47,7 @@ export const Header = () => {
                     Оставить заявку
                 </Button>
                 <ContactModal isOpen={isOpen} closeModal={closeModal} />
-                <select className={s.lang}>
+                <select className={style.lang}>
                     <option value="ru">RU</option>
                     <option value="kg">KG</option>
                 </select>

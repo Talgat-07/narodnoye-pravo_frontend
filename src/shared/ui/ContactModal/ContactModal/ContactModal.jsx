@@ -1,15 +1,15 @@
-import s from './ContactModal.module.scss';
+import style from './ContactModal.module.scss';
 import { Typography } from 'shared/ui/Typography/Typography';
 import { Close } from 'shared/assets/icons/Close';
-import { useRef, useState } from 'react';
-import { options } from 'features/ContactModal/model/selectConfig';
+import { useRef, useState, useEffect } from 'react';
+import { options } from 'shared/ui/ContactModal/SelectField/SelectStyles';
 import PropTypes from 'prop-types';
 import { Button } from 'shared/ui/Button/Button';
-import { SelectField } from 'features/ContactModal/ui/SelectField/SelectField';
-import { ModalPhoneInput } from 'features/ContactModal/ui/ModalPhoneInput/ModalPhoneInput';
-import { ModalCheckbox } from 'features/ContactModal/ui/ModalCheckbox/ModalCheckbox';
-import { ModalNameInput } from 'features/ContactModal/ui/ModalNameInput/ModalNameInput';
-import { useClickOutside } from 'features/ContactModal/model/useClickOutside';
+import { SelectField } from 'shared/ui/ContactModal/SelectField/SelectField';
+import { ModalPhoneInput } from 'shared/ui/ContactModal/ModalPhoneInput/ModalPhoneInput';
+import { ModalCheckbox } from 'shared/ui/ContactModal/ModalCheckbox/ModalCheckbox';
+import { ModalNameInput } from 'shared/ui/ContactModal/ModalNameInput/ModalNameInput';
+import { useClickOutside } from 'shared/lib/hooks/hooks';
 
 export const ContactModal = ({ isOpen, closeModal }) => {
     const modalRef = useRef(null)
@@ -21,6 +21,18 @@ export const ContactModal = ({ isOpen, closeModal }) => {
     const [question, setQuestion] = useState('');
     const [digits, setDigits] = useState('');
     const [agreement, setAgreement] = useState(false);
+
+
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isOpen]);
 
 
     const handleSubmit = (e) => {
@@ -46,11 +58,11 @@ export const ContactModal = ({ isOpen, closeModal }) => {
 
 
     return (
-        <div className={s.overlay}>
-            <form className={s.modal}
+        <div className={style.overlay}>
+            <form className={style.modal}
                 ref={modalRef}
                 onSubmit={handleSubmit}>
-                <button className={s.close} onClick={handleCloseModal}>
+                <button className={style.close} onClick={handleCloseModal}>
                     <Close />
                 </button>
                 <Typography variant="h3"
@@ -58,7 +70,7 @@ export const ContactModal = ({ isOpen, closeModal }) => {
                     color='lightBlue'>
                     Контактная форма
                 </Typography>
-                <div className={s.linkWrap}>
+                <div className={style.linkWrap}>
                     <ModalNameInput
                         type='text'
                         id='name'

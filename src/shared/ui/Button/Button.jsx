@@ -1,5 +1,5 @@
 import { Typography } from 'shared/ui/Typography/Typography'
-import s from './Button.module.scss'
+import style from './Button.module.scss'
 import PropTypes from 'prop-types'
 
 export const Button = ({
@@ -11,7 +11,7 @@ export const Button = ({
     lineHeight,
     color,
     type }) => {
-    const combinedClassName = `${s.button} ${className ? s[className] : ''}`;
+    const combinedClassName = `${style.button} ${className ? style[className] : ''}`;
     return (
         <button className={combinedClassName} onClick={onClick}>
             <Typography

@@ -1,23 +1,23 @@
 import { Typography } from 'shared/ui/Typography/Typography';
-import s from './ModalPhoneInput.module.scss'
+import style from './ModalPhoneInput.module.scss'
 import PropTypes from 'prop-types'
 import { ArrowDown } from 'shared/assets/icons/ArrowDown';
 
 export const ModalPhoneInput = ({ children, type, id, value, onChange, placeholder, }) => {
     return (
-        <div className={s.wrap}>
-            <label htmlFor="phone" className={s.phoneLab}>
+        <div className={style.wrap}>
+            <label htmlFor="phone" className={style.phoneLab}>
                 <Typography
-                    className={s.inputText}
+                    className={style.inputText}
                     variant='bodyXL'
                     weight='semibold'>
                     {children}
                 </Typography>
             </label>
-            <div className={`${s.phoneInputWrapper}`}>
-                <span className={s.phonePrefix}>
+            <div className={`${style.phoneInputWrapper}`}>
+                <span className={style.phonePrefix}>
                     <Typography
-                        className={s.phonePrefixText}
+                        className={style.phonePrefixText}
                         variant='bodyM'
                         weight='semibold'
                         lineHeight='lineSemiTight'
@@ -25,9 +25,9 @@ export const ModalPhoneInput = ({ children, type, id, value, onChange, placehold
                         KG +996
                     </Typography>
                     <ArrowDown />
-                    <span className={s.line}></span>
+                    <span className={style.line}></span>
                     <input
-                        className={s.phoneInput}
+                        className={style.phoneInput}
                         type={type}
                         id={id}
                         name={id}

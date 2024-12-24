@@ -11,6 +11,7 @@ import { BankVacancy } from "pages/BankVacancy/BankVacancy";
 import { Contacts } from "pages/Contacts/Contacts";
 import { ServiceDetail } from "shared/ui/ServiceDetail/ServiceDetail";
 import { ScrollToTop } from "shared/ui/ScrollToTop/ScrollToTop";
+import { NewsDetail } from "shared/ui/NewsDetail/NewsDetail";
 
 
 export const Router = createBrowserRouter(
@@ -40,11 +41,15 @@ export const Router = createBrowserRouter(
                     element: <ServiceDetail />,
                 },
                 {
-                    path: path.legislativenews,
+                    path: path.legislativeNews,
                     element: <LegislativeNews />,
                 },
                 {
-                    path: path.analyticandpublications,
+                    path: path.legislativeNewsDetail,
+                    element: <NewsDetail />
+                },
+                {
+                    path: path.analyticAndPublications,
                     element: <AnalyticAndPublications />,
                 },
                 {
@@ -52,7 +57,7 @@ export const Router = createBrowserRouter(
                     element: <Education />,
                 },
                 {
-                    path: path.bankvacancy,
+                    path: path.bankVacancy,
                     element: <BankVacancy />,
                 },
                 {

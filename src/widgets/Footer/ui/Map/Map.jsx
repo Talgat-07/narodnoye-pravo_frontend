@@ -1,12 +1,12 @@
 import { Location } from 'shared/assets/icons/Location';
-import s from './Map.module.scss'
-import { Typography } from '../../../shared/ui/Typography/Typography';
+import style from './Map.module.scss'
+import { Typography } from '../../../../shared/ui/Typography/Typography';
 
 
 export const Map = () => {
     const googleMapsUrl = `https://maps.app.goo.gl/Rj2MmFEyRoTXYVdk6`;
     return (
-        <div className={s.right}>
+        <div className={style.right}>
             <Typography
                 variant='bodyXL'
                 weight='bold'
@@ -16,7 +16,7 @@ export const Map = () => {
             <a href={googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={s.addressWrap}>
+                className={style.addressWrap}>
                 <Location />
                 <Typography
                     variant="bodyM"

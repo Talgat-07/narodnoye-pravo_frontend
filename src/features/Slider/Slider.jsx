@@ -1,10 +1,10 @@
 import { useRef, useEffect } from 'react';
-import s from './Slider.module.scss';
+import style from './Slider.module.scss';
 import slider1 from 'shared/assets/img/swiper2_11zon.webp';
 import slider2 from 'shared/assets/img/swiper_11zon.webp';
 import slider3 from 'shared/assets/img/swiper1_11zon.webp';
 import slider4 from 'shared/assets/img/swiper4_11zon.webp';
-import { Typography } from '../Typography/Typography';
+import { Typography } from '../../shared/ui/Typography/Typography';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/scss';
@@ -61,11 +61,11 @@ export const Slider = () => {
     }, []);
 
     return (
-        <div className={s.swiperWrapper}>
+        <div className={style.swiperWrapper}>
             <Swiper
                 modules={[Navigation, Pagination]}
                 loop={true}
-                className={s.swiperContainer}
+                className={style.swiperContainer}
                 slidesPerView={3}
                 slidesOffsetBefore={30}
                 slidesOffsetAfter={30}
@@ -75,13 +75,13 @@ export const Slider = () => {
                 }}
             >
                 {slides.map((slide) => (
-                    <SwiperSlide key={slide.id} className={s.swiperSlide}>
-                        <div className={s.card}>
+                    <SwiperSlide key={slide.id} className={style.swiperSlide}>
+                        <div className={style.card}>
                             <img src={slide.img} alt={`Слайд ${slide.id}`} />
-                            <div className={s.wrapText}>
-                                <div className={s.initials}>
+                            <div className={style.wrapText}>
+                                <div className={style.initials}>
                                     <Typography
-                                        className={s.nameWrap}
+                                        className={style.nameWrap}
                                         variant="bodyXS"
                                         weight="semibold"
                                         lineHeight="lineLarge">
@@ -94,9 +94,9 @@ export const Slider = () => {
                                         {slide.name}
                                     </Typography>
                                 </div>
-                                <div className={s.initials}>
+                                <div className={style.initials}>
                                     <Typography
-                                        className={s.nameWrap}
+                                        className={style.nameWrap}
                                         variant="bodyXS"
                                         weight="semibold"
                                         lineHeight="lineLarge">
@@ -110,9 +110,9 @@ export const Slider = () => {
                                         {slide.jobTitle}
                                     </Typography>
                                 </div>
-                                <div className={s.initials}>
+                                <div className={style.initials}>
                                     <Typography
-                                        className={s.nameWrap}
+                                        className={style.nameWrap}
                                         variant="bodyXS"
                                         weight="semibold"
                                         lineHeight="lineLarge"
@@ -132,11 +132,11 @@ export const Slider = () => {
                     </SwiperSlide>
                 ))}
             </Swiper>
-            <div className={s.navigationButtons}>
-                <button ref={prevRef} className={`${s.navButton} ${s.prevButton}`}>
+            <div className={style.navigationButtons}>
+                <button ref={prevRef} className={`${style.navButton} ${style.prevButton}`}>
                     <PrevBtn />
                 </button>
-                <button ref={nextRef} className={`${s.navButton} ${s.nextButton}`}>
+                <button ref={nextRef} className={`${style.navButton} ${style.nextButton}`}>
                     <NextBtn />
                 </button>
             </div>
