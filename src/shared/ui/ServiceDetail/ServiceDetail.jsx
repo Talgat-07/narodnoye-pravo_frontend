@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import s from './ServiceDetail.module.scss';
+import style from './ServiceDetail.module.scss';
 import { Typography } from 'shared/ui/Typography/Typography';
 import { path } from 'shared/constants/constants';
 import { Container } from 'shared/ui/Container/Container';
@@ -82,15 +82,15 @@ export const ServiceDetail = () => {
     return (
         <Container>
             <Breadcrumbs currentTitle={service.title} />
-            <div className={s.serviceDetail}>
+            <div className={style.serviceDetail}>
                 <Typography
-                    className={s.title}
+                    className={style.title}
                     variant="h3"
                     weight='semibold'>
                     {service.title}
                 </Typography>
                 <Typography
-                    className={s.description}
+                    className={style.description}
                     variant="bodyXXL"
                     weight='regular'
                     lineHeight='lineLarge'
@@ -98,7 +98,7 @@ export const ServiceDetail = () => {
                     {service.description}
                 </Typography>
                 <Typography
-                    className={s.text}
+                    className={style.text}
                     variant="bodyXXL"
                     weight='regular'
                     lineHeight='lineLarge'>
@@ -114,13 +114,13 @@ export const ServiceDetail = () => {
                         Вернуться к услугам
                     </Button>
                 </Link>
-                <div className={s.line}>
+                <div className={style.line}>
                     <Typography
-                        className={s.lineText}
+                        className={style.lineText}
                         variant="h4"
                         weight='bold'>Другие услуги</Typography>
                 </div>
-                <div className={s.relatedServices}>
+                <div className={style.relatedServices}>
                     {relatedServices.map((relatedService) => (
                         <ServiceCard
                             key={relatedService.id}

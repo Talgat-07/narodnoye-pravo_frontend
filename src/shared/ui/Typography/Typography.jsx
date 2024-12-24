@@ -81,7 +81,7 @@ Typography.propTypes = {
     children: PropTypes.node.isRequired,
     color: PropTypes.oneOf(['black', 'blue', 'white', 'azure', 'lightBlue', 'semiBlue', 'placeholder']),
     truncate: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
-    lineHeight: PropTypes.oneOf(['lineShort', 'lineTight', 'lineSemiTight', 'lineCompact', 'lineModerate', 'lineLarge', 'lineBig', 'lineFixed', 'lineDefault']),
+    lineHeight: PropTypes.oneOf(['lineShort', 'lineTight', 'lineSemiTight', 'lineCompact', 'lineModerate', 'lineLarge', 'lineBig', 'lineFixed', 'lineDefault', 'lineXL']),
     fontFamily: PropTypes.oneOf(['default', 'serif', 'sans-serif', 'monospace']),
 };
 

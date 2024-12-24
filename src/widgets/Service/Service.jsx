@@ -1,4 +1,4 @@
-import s from './Service.module.scss'
+import style from './Service.module.scss'
 import { Typography } from 'shared/ui/Typography/Typography';
 import { ServiceCard } from 'shared/ui/ServiceCard/ServiceCard';
 import { Link } from 'react-router-dom';
@@ -17,14 +17,6 @@ import PropTypes from 'prop-types'
 import { Button } from 'shared/ui/Button/Button';
 
 export const Service = ({ weight, withButton = true, cardWrapClassName = '' }) => {
-    // const { services, isLoading, error, fetchServices } = useServicesStore()
-
-    // useEffect(() => {
-    //     fetchServices()
-    // }, [fetchServices])
-
-    // if (isLoading) return <div>Загрузка...</div>
-    // if (error) return <div>Ошибка: {error}</div>
 
     const mockService = [
         {
@@ -83,17 +75,16 @@ export const Service = ({ weight, withButton = true, cardWrapClassName = '' }) =
         },
     ]
 
-    // console.log(services)
     return (
         <Container>
-            <section className={s.service}>
+            <section className={style.service}>
                 <Typography
-                    className={s.title}
+                    className={style.title}
                     variant='h3'
                     weight={weight}>
                     Услуги
                 </Typography>
-                <div className={`${s.cardWrap} ${cardWrapClassName ? s[cardWrapClassName] : ''}`}>
+                <div className={`${style.cardWrap} ${cardWrapClassName ? style[cardWrapClassName] : ''}`}>
                     {mockService.map(servItem => (
                         <ServiceCard
                             key={servItem.id}

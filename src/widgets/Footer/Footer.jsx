@@ -4,34 +4,34 @@ import { Instagram } from "shared/assets/icons/Instagram";
 import { Facebook } from "shared/assets/icons/Facebook";
 import { Telegram } from "shared/assets/icons/Telegram";
 import { Youtube } from "shared/assets/icons/Youtube";
-import s from './Footer.module.scss'
+import style from './Footer.module.scss'
 import { Geeks } from "shared/assets/icons/Geeks";
-import { Map } from "widgets/Footer/Map/Map";
-import { Address } from "./Address/Address";
-import { Nav } from "./Nav/Nav";
+import { Map } from "widgets/Footer/ui/Map/Map";
+import { Address } from "./ui/Address/Address";
+import { Nav } from "./ui/Nav/Nav";
 
 export const Footer = () => {
     return (
-        <footer className={s.footer}>
-            <div className={s.up} >
+        <footer className={style.footer}>
+            <div className={style.up} >
                 <Nav />
                 <Address />
                 <Map />
             </div >
-            <div className={s.down} >
+            <div className={style.down} >
                 <WhatsApp />
                 <Instagram />
                 <Facebook />
                 <Telegram />
                 <Youtube />
             </div >
-            <div className={s.geeks}>
-                <a className={s.geeksLink}
+            <div className={style.geeks}>
+                <a className={style.geeksLink}
                     href="https://geeks.kg/geeks-pro"
                     rel="noopener noreferrer"
                     target="_blank">
                     <Typography
-                        className={s.geeksLogo}
+                        className={style.geeksLogo}
                         variant='bodyS'
                         weight='medium'>
                         Made by GeeksPro

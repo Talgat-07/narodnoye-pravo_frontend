@@ -1,6 +1,6 @@
 import { Typography } from 'shared/ui/Typography/Typography';
 import aboutUs from 'shared/assets/img/AboutUs.webp'
-import s from './AboutUs.module.scss'
+import style from './AboutUs.module.scss'
 import { Link } from 'react-router-dom';
 import { path } from 'shared/constants/constants';
 import { Button } from 'shared/ui/Button/Button';
@@ -8,16 +8,16 @@ import { Button } from 'shared/ui/Button/Button';
 
 export function AboutUs() {
     return (
-        <div className={s.aboutUs}>
+        <div className={style.aboutUs}>
             <Typography
-                className={s.title}
+                className={style.title}
                 variant='h3'
                 weight='bold'>
                 О нас
             </Typography>
-            <div className={s.main}>
-                <img className={s.image} src={aboutUs} alt='сотрудники компании' />
-                <div className={s.text}>
+            <div className={style.main}>
+                <img className={style.image} src={aboutUs} alt='сотрудники компании' />
+                <div className={style.text}>
                     <Typography
                         variant='bodyL'
                         weight='regular'

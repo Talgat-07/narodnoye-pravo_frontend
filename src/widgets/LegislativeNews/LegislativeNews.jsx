@@ -1,5 +1,5 @@
 import { NewsCard } from 'shared/ui/NewsCard/NewsCard';
-import s from './LegislativeNews.module.scss';
+import style from './LegislativeNews.module.scss';
 import NewsBig from 'shared/assets/img/NewsBig.webp'
 import NewsSmall from 'shared/assets/img/NewsSmall.webp'
 import { Typography } from 'shared/ui/Typography/Typography';
@@ -14,29 +14,29 @@ export const LegislativeNews = () => {
         {
             id: 1,
             date: '22.11.2024 г.',
-            title: "Lorem ipsum dolor sit amet consectetur. Aenean massa scelerisque nisl libero ipsum libero.",
-            description: "Netus volutpat suscipit interdum ornare proin etiam dui fringilla at Netus volutpat suscipit interdum ornare proin etiam dui fringilla at Netus volutpat suscipit interdum ornare proin etiam dui fringilla at. Ultrices aliquam arcu et dui ut id maecenas. Nec vestibulum donec amet in blandit id diam massa.",
+            title: 'В Кыргызстане утверждены Правила надлежащей аптечной практики',
+            description: 'Постановлением Кабинета Министров Кыргызской Республики от 2 декабря 2024 года № 720 утверждена Правила надлежащей аптечной практики. Они содержат основные требования, предъявляемые к работе аптечных организаций, и направлены на укрепление здоровья, рациональное применение качественных, безопасных лекарственных средств…',
             image: NewsBig,
         },
         {
             id: 2,
             date: '22.11.2024 г.',
-            title: "2Lorem ipsum dolor sit amet consectetur. Aenean massa scelerisque nisl libero ipsum libero.",
-            description: "Netus volutpat suscipit interdum ornare proin etiam dui fringilla at. Ultrices aliquam arcu et dui ut id maecenas. Nec vestibulum donec amet in blandit id diam massa.",
+            title: 'В Кыргызстане утверждены новые правила регулирова...',
+            description: 'Постановлением Кабинета Министров Кыргызской Республики “О вопросах регу...',
             image: NewsSmall,
         },
         {
             id: 3,
             date: '22.11.2024 г.',
-            title: "3Lorem ipsum dolor sit amet consectetur. Aenean massa scelerisque nisl libero ipsum libero.",
-            description: " Netus volutpat suscipit interdum ornare proin etiam dui fringilla at. Ultrices aliquam arcu et dui ut id maecenas. Nec vestibulum donec amet in blandit id diam massa.",
+            title: 'В Кыргызстане внедрена Дорожная карта по введени...',
+            description: 'Распоряжением Кабинета Министров Кыргызской Республики от 2 декабря',
             image: NewsSmall,
         },
         {
             id: 4,
             date: '22.11.2024 г.',
-            title: "4Lorem ipsum dolor sit amet consectetur. Aenean massa scelerisque nisl libero ipsum libero.",
-            description: " Netus volutpat suscipit interdum ornare proin etiam dui fringilla at. Ultrices aliquam arcu et dui ut id maecenas. Nec vestibulum donec amet in blandit id diam massa.",
+            title: 'В Кыргызстане утверждены новые правила регулирова...',
+            description: 'Постановлением Кабинета Министров Кыргызской Республики “О вопросах регу...',
             image: NewsSmall,
         },
     ];
@@ -46,17 +46,18 @@ export const LegislativeNews = () => {
 
 
     return (
-        <div className={s.container}>
+        <div className={style.container}>
             <Typography
-                className={s.title}
+                className={style.title}
                 variant='h3'
                 weight='bold'>
                 Новости законодательства
             </Typography>
 
-            <div className={s.block}>
+            <div className={style.block}>
                 {lastNews && (
                     <NewsCard
+                        id={lastNews.id}
                         key={lastNews.id}
                         title={lastNews.title}
                         description={lastNews.description}
@@ -65,9 +66,10 @@ export const LegislativeNews = () => {
                         isLarge={true}
                     />
                 )}
-                <div className={s.newsCard}>
+                <div className={style.newsCard}>
                     {renderNews.map((newsItem) => (
                         <NewsCard
+                            id={newsItem.id}
                             key={newsItem.id}
                             title={newsItem.title}
                             description={newsItem.description}
@@ -77,8 +79,8 @@ export const LegislativeNews = () => {
                     ))}
                 </div>
             </div>
-            <div className={s.btn}>
-                <Link to={path.legislativenews}>
+            <div className={style.btn}>
+                <Link to={path.legislativeNews}>
                     <Button
                         className='linkBtn'
                         variant='span'
