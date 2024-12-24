@@ -1,16 +1,16 @@
 import { Typography } from 'shared/ui/Typography/Typography';
-import s from './Hero.module.scss'
+import style from './Hero.module.scss'
 import { Button } from 'shared/ui/Button/Button';
-import { useContactModal } from 'features/ContactModal/model/useContactModal';
-import { ContactModal } from 'features/ContactModal/ui/ContactModal/ContactModal';
+import { useContactModal } from 'shared/lib/hooks/hooks';
+import { ContactModal } from 'shared/ui/ContactModal/ContactModal/ContactModal';
 
 export const Hero = () => {
     const { isOpen, openModal, closeModal } = useContactModal();
     return (
-        <section className={s.hero}>
-            <div className={s.wrap}>
-                <div className={s.left}>
-                    <div className={s.title}>
+        <section className={style.hero}>
+            <div className={style.wrap}>
+                <div className={style.left}>
+                    <div className={style.title}>
                         <Typography
                             variant='h1'
                             weight='bold'

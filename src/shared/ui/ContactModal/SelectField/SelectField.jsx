@@ -1,7 +1,7 @@
 import CreatableSelect from 'react-select/creatable';
-import s from './SelectField.module.scss'
+import style from './SelectField.module.scss'
 import { Typography } from 'shared/ui/Typography/Typography';
-import { customStyles } from 'features/ContactModal/model/selectConfig';
+import { customStyles } from 'shared/ui/ContactModal/SelectField/SelectStyles';
 import PropTypes from 'prop-types'
 
 export const SelectField = ({ label, options, value, onChange, }) => {
@@ -9,7 +9,7 @@ export const SelectField = ({ label, options, value, onChange, }) => {
         <div>
             <label htmlFor="question">
                 <Typography
-                    className={s.lab}
+                    className={style.lab}
                     variant="bodyXL"
                     weight="semibold">
                     {label}

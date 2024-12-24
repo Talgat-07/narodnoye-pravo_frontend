@@ -1,25 +1,25 @@
 import { Typography } from 'shared/ui/Typography/Typography';
-import s from './AboutPage.module.scss'
+import style from './AboutPage.module.scss'
 import aboutPage from 'shared/assets/img/aboutPage2.webp'
 import aboutPage2 from 'shared/assets/img/aboutPage.webp'
 import aboutPage3 from 'shared/assets/img/aboutPage3.webp'
 import aboutPage4 from 'shared/assets/img/aboutPage4.webp'
-import { Slider } from 'shared/ui/Slider/Slider';
+import { Slider } from 'features/Slider/Slider';
 
 
 export const AboutPage = () => {
     return (
-        <section className={s.aboutPage}>
+        <section className={style.aboutPage}>
             <Typography
-                className={s.title}
+                className={style.title}
                 variant='h3'
                 weight='semibold'>
                 О нас
             </Typography>
-            <div className={s.wrap}>
-                <div className={s.member}>
+            <div className={style.wrap}>
+                <div className={style.member}>
                     <img src={aboutPage} alt="команда «Народное право»" />
-                    <div className={s.memberText1}>
+                    <div className={style.memberText1}>
                         <Typography
                             variant='bodyL'
                             weight='regular'
@@ -34,8 +34,8 @@ export const AboutPage = () => {
                         </Typography>
                     </div>
                 </div>
-                <div className={s.member}>
-                    <div className={s.memberText2}>
+                <div className={style.member}>
+                    <div className={style.memberText2}>
                         <Typography
                             variant='bodyL'
                             weight='regular'
@@ -51,9 +51,9 @@ export const AboutPage = () => {
                     </div>
                     <img src={aboutPage2} alt="команда «Народное право»" />
                 </div>
-                <div className={s.member}>
+                <div className={style.member}>
                     <img src={aboutPage3} alt="команда «Народное право»" />
-                    <div className={s.memberText3}>
+                    <div className={style.memberText3}>
                         <Typography
                             variant='bodyL'
                             weight='regular'>
@@ -66,8 +66,8 @@ export const AboutPage = () => {
                         </Typography>
                     </div>
                 </div>
-                <div className={s.member}>
-                    <div className={s.memberText4}>
+                <div className={style.member}>
+                    <div className={style.memberText4}>
                         <Typography
                             variant='bodyL'
                             weight='regular'>
@@ -83,7 +83,7 @@ export const AboutPage = () => {
                 </div>
             </div>
             <Typography
-                className={s.titleSlider}
+                className={style.titleSlider}
                 variant='h5'
                 weight='semibold'>
                 Наши сотрудники

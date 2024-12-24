@@ -1,52 +1,54 @@
 import { Link } from "react-router-dom";
-import s from "./NewsCard.module.scss";
+import style from "./NewsCard.module.scss";
 import { Typography } from "shared/ui/Typography/Typography";
 import { path } from "shared/constants/constants";
 import PropTypes from 'prop-types'
 import { ArrowLink } from "shared/assets/icons/ArrowLink";
 
 
-export const NewsCard = ({ title, description, image, isLarge, date }) => {
+export const NewsCard = ({ title, description, image, isLarge, date, id }) => {
   return (
-    <div className={`${s.newsCard} ${isLarge ? s.large : s.small}`}>
+    <div className={`${style.newsCard} ${isLarge ? style.large : style.small}`}>
       {isLarge ? (
-        <Link to={path.legislativenews}>
-          <div className={s.largeContent}>
-            <div className={s.imageWrap}>
+        <Link to={`${path.legislativeNews}/${id}`}>
+          <div className={style.largeContent}>
+            <div className={style.imageWrap}>
               <img
                 src={image}
                 alt={title}
-                className={s.imageLarge} />
+                className={style.imageLarge} />
             </div>
-            <div className={s.content}>
-              <div className={s.up}>
+            <div className={style.content}>
+              <div className={style.up}>
                 <Typography
                   variant='bodyL'
                   lineHeight='lineTight'
-                  weight='regular'>
+                  weight='regular'
+                >
                   {date}
                 </Typography>
                 <Typography
-                  className={s.linkLarge}
+                  className={style.linkLarge}
                   variant='bodyM'
                   weight='semibold'
                   lineHeight='lineSemiTight'
-                  color='blue'>
+                  color='blue'
+                >
                   Подробнее
                   <ArrowLink />
                 </Typography>
               </div>
-              <div className={s.downLarge}>
+              <div className={style.downLarge}>
                 <Typography
-                  className={s.titleLarge}
+                  className={style.titleLarge}
                   variant='bodyXL'
                   lineHeight='lineBig'
                   weight='semibold'
                 >{title}</Typography>
                 <Typography
-                  className={s.descriptionLarge}
+                  className={style.descriptionLarge}
                   variant='bodyM'
-                  lineHeight='lineBig'
+                  lineHeight='lineXL'
                   weight='regular'>
                   {description}
                 </Typography>
@@ -55,9 +57,9 @@ export const NewsCard = ({ title, description, image, isLarge, date }) => {
           </div>
         </Link>
       ) : (
-        <Link to={path.legislativenews}>
-          <div className={s.smallContent}>
-            <div className={s.smallUp}>
+        <Link to={`${path.legislativeNews}/${id}`}>
+          <div className={style.smallContent}>
+            <div className={style.smallUp}>
               <Typography
                 variant='bodyM'
                 lineHeight='lineSemiTight'
@@ -65,7 +67,7 @@ export const NewsCard = ({ title, description, image, isLarge, date }) => {
                 {date}
               </Typography>
               <Typography
-                className={s.link}
+                className={style.link}
                 variant='bodyM'
                 weight='semibold'
                 lineHeight='lineSemiTight'
@@ -74,15 +76,23 @@ export const NewsCard = ({ title, description, image, isLarge, date }) => {
                 <ArrowLink />
               </Typography>
             </div>
-            <div className={s.imageWrap}>
+            <div className={style.imageWrap}>
               <img
                 src={image}
                 alt={title}
-                className={s.imageSmall} />
+                className={style.imageSmall} />
             </div>
-            <div className={s.smallDown}>
+            <div className={style.smallDown}>
               <Typography
-                className={s.smallDescription}
+                variant='bodyL'
+                weight='semibold'
+                lineHeight='lineFixed'
+                className={style.smallTitle}
+              >
+                {title}
+              </Typography>
+              <Typography
+                className={style.smallDescription}
                 variant='bodyM'
                 weight='regular'
                 lineHeight='lineCompact' >
@@ -102,4 +112,5 @@ NewsCard.propTypes = {
   image: PropTypes.string.isRequired,
   isLarge: PropTypes.bool.isRequired,
   date: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 }

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export function useClickOutside(ref, handler) {
     useEffect(() => {
@@ -18,3 +18,15 @@ export function useClickOutside(ref, handler) {
         };
     }, [ref, handler]);
 }
+
+
+
+export const useContactModal = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+
+    const openModal = () => setIsOpen(true);
+    const closeModal = () => setIsOpen(false);
+
+    return { isOpen, openModal, closeModal };
+};
