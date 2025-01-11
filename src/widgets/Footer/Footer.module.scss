@@ -1,106 +1,103 @@
+@use 'shared/styles/variables' as vars;
+
+.footerWrap {
+    background-color: vars.$footer-background;
+
+}
+
 .footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-top: 1px solid #7490f5;
-}
+    padding: 20px 75px 0px;
+
+    @media (max-width:1160px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
 
-.up {
-    display: flex;
-    width: 1070px;
-    justify-content: space-between;
-    padding-top: 58px;
-}
+    .up {
+        display: flex;
+        gap: 143px;
 
-//left
-.left {
-    display: flex;
-    align-items: flex-start;
-    gap: 89px;
-}
+        @media (max-width:1320px) {
+            gap: 110px;
+        }
 
-.footerImg {
-    width: 130px;
-    height: 92px;
-}
+        @media (max-width:768px) {
+            flex-direction: column;
+            align-items: center;
+            gap: 36px;
+        }
 
-.footerUl {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 12px;
-}
 
-.footerLi {
-    width: 200px;
-}
 
-//middle
-.middle {
-    margin-top: 9px;
-}
+        &>svg {
+            width: 130px;
+            height: 112px;
+        }
+    }
 
-.phoneWrap {
-    display: flex;
-    margin-top: 19px;
-    gap: 15px;
-}
+    .allWrap {
+        max-width: 960px;
+        display: flex;
+        gap: 180px;
 
-.phone {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
+        @media (max-width:1320px) {
+            gap: 110px;
+        }
+    }
 
-.emalSvg {
-    margin-left: 12px;
-}
+    .right {
+        display: flex;
+        gap: 170px;
 
-.email {
-    display: flex;
-    margin-top: 17px;
-    align-items: center;
-}
+        @media (max-width:1320px) {
+            gap: 110px;
+        }
 
-//right
-.right {
-    margin-top: 9px;
-}
+        @media (max-width:1160px) {
+            flex-direction: column;
+            gap: 0px;
+        }
 
-.addressWrap {
-    display: flex;
-    margin-top: 19px;
-    gap: 10px;
-}
+        @media (max-width:768px) {
+            gap: 1px;
+            flex-direction: column;
+        }
 
-.address {
-    width: 191px;
-    height: 104px;
-}
+    }
 
-//down
-.down {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 77px;
-    gap: 30px;
-    margin-bottom: 36px;
+
+    .down {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 40px 0 28px;
+        gap: 30px;
+    }
+
+
 }
 
 .geeks {
-    padding: 7px 11px;
-    height: 37px;
-    background: #0171b9;
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-}
+    padding: 7px 11px;
+    height: 37px;
+    background: vars.$footer-line;
+    width: 100%;
 
-.geeksLogo {
-    max-width: 1440px;
-    text-align: center;
-    text-transform: uppercase;
+    .geeksLogo {
+        max-width: 1440px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .geeksLink {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
 }

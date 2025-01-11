@@ -1,154 +1,140 @@
-import { path } from "shared/constants/constants";
-import { Link, useLocation } from "react-router-dom";
 import { Typography } from "shared/ui/Typography/Typography";
-import { Phone } from "shared/assets/icons/Phone";
-import Email from "shared/assets/icons/Email";
-import { Location } from "shared/assets/icons/Location";
-import logo from '../../shared/assets/img/logo.png'
-import { WhatsApp } from "shared/assets/icons/WhatsApp";
-import { Instagram } from "shared/assets/icons/Instagram";
-import { Facebook } from "shared/assets/icons/Facebook";
-import { Telegram } from "shared/assets/icons/Telegram";
-import { Youtube } from "shared/assets/icons/Youtube";
-import s from './Footer.module.scss'
+import styles from './Footer.module.scss'
+import { Geeks } from "shared/assets/icons/Geeks";
+import { Map } from "widgets/Footer/ui/Map/Map";
+import { Address } from "./ui/Address/Address";
+import { Nav } from "./ui/Nav/Nav";
+import { Logo } from 'shared/assets/icons/Logo';
+import { useFooterIconStore } from "shared/store/footerIconStore";
+import { Container } from "shared/ui/Container/Container";
+
 
 export const Footer = () => {
-    const location = useLocation()
+    const {
+        whatsappUrl, whatsappImg, whatsappImgHover,
+        instagramUrl, instagramImg, instagramImgHover,
+        facebookUrl, facebookImg, facebookImgHover,
+        telegramUrl, telegramImg, telegramImgHover,
+        youtubeUrl, youtubeImg, youtubeImgHover,
+        error
+    } = useFooterIconStore();
 
-    const navLinks = [
-        { path: path.home, label: "Главная" },
-        { path: path.about, label: "О нас" },
-        { path: path.services, label: "Услуги" },
-        { path: path.legislativenews, label: "Новости" },
-        { path: path.analyticandpublications, label: "Научные статьи" },
-        { path: path.education, label: "Обучение" },
-        { path: path.bankvacancy, label: "Вакансии" },
-        { path: path.contacts, label: "Контакты" },
-    ];
-    // это если нужно все же делать map
-    // const contacts = [
-    //     { type: 'phone', value: '+996 (550) 18-87-77' },
-    //     { type: 'phone', value: '+996 (702) 18-87-77' },
-    //     { type: 'email', value: 'N.pravo2018@gmail.com' },
-    // ]
+
+    const handleImageError = (e) => {
+        e.target.styles.display = 'none';
+    }
+
+    if (error) return <div>Ошибка: {error}</div>
+
+
     return (
-        <footer className={s.footer}>
-            <div className={s.up} >
-                <div className={s.left}>
-                    <img className={s.footerImg} src={logo} alt='"Народное право" логотип' />
-                    <ul className={s.footerUl}>
-                        {
-                            navLinks.map(el => (
-                                <li className={s.footerLi} key={el.path}>
-                                    <Link to={el.path}>
-                                        <Typography
-                                            variant={location.pathname === el.path ? 'bodyXL' : 'bodyM'}
-                                            weight={location.pathname === el.path ? 'bold' : 'regular'}
-                                            color='black'>
-                                            {el.label}
-                                        </Typography>
-                                    </Link>
-                                </li>
-                            ))
-                        }
-                    </ul>
-                </div>
-                <div className={s.middle}>
-                    <Typography
-                        variant='bodyXL'
-                        weight='bold'
-                        lineHeight='height'
-                        color='black'
-                    >
-                        КОНТАКТЫ
-                    </Typography>
-                    {/* если здесь делать map не понимаю как стилизовать это */}
-                    {/* <Phone />
-                    {contacts.map((contact, index) => (
-                        <Typography
-                            key={index}
-                            variant="p"
-                            styleType="Small"
-                            weight="regular">
-                            {contact.type === "phone" ? (' ') : (<Email />)}
-                            {' '}
-                            {contact.value}
-                        </Typography>
-                    ))} */}
-                    <div className={s.phoneWrap}>
-                        <Phone />
-                        <div className={s.phone}>
-                            <a href="tel:+996550188777">
-                                <Typography
-                                    variant="bodyM"
-                                    weight="regular"
-                                    color='black'>
-                                    +996 (550) 18-87-77
-                                </Typography>
-                            </a>
-                            <a href="tel:+996702188777">
-                                <Typography
-                                    variant="bodyM"
-                                    weight="regular"
-                                    color='black'>
-                                    +996 (702) 18-87-77
-                                </Typography>
-                            </a>
+        <Container noPadding>
+            <div className={styles.footerWrap}>
+                <footer className={styles.footer}>
+                    <div className={styles.up} >
+                        <Logo />
+                        <div className={styles.allWrap}>
+                            <Nav />
+                            <div className={styles.right}>
+                                <Address />
+                                <Map />
+                            </div>
                         </div>
-                    </div>
-                    <div className={s.email}>
-                        <Email />
-                        <a href="mailto:N.pravo2018@gmail.com">
-                            <Typography
-                                className={s.emalSvg}
-                                variant="bodyM"
-                                weight="regular"
-                                color='black'>
-                                N.pravo2018@gmail.com
-                            </Typography>
-                        </a>
-                    </div>
-                </div>
-                <div className={s.right}>
-                    <Typography
-                        variant='bodyXL'
-                        weight='bold'
-                        color='black'
-                    >
-                        АДРЕС
-                    </Typography>
-                    <div className={s.addressWrap}>
-                        <Location />
+                    </div >
+                    <div className={styles.down} >
+                        {whatsappUrl && whatsappImg && (
+                            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer"
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.querySelector('img').src = whatsappImgHover;
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.querySelector('img').src = whatsappImg;
+                                }}>
+                                <img
+                                    src={whatsappImg}
+                                    alt="WhatsApp"
+                                    onError={handleImageError}
+                                />
+                            </a>
+                        )}
+                        {instagramUrl && instagramImg && (
+                            <a href={instagramUrl} target="_blank" rel="noopener noreferrer"
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.querySelector('img').src = instagramImgHover;
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.querySelector('img').src = instagramImg;
+                                }}>
+                                <img
+                                    src={instagramImg}
+                                    alt="Instagram"
+                                    onError={handleImageError}
+                                />
+                            </a>
+                        )}
+                        {facebookUrl && facebookImg && (
+                            <a href={facebookUrl} target="_blank" rel="noopener noreferrer"
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.querySelector('img').src = facebookImgHover;
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.querySelector('img').src = facebookImg;
+                                }}>
+                                <img
+                                    src={facebookImg}
+                                    alt="Facebook"
+                                    onError={handleImageError}
+                                />
+                            </a>
+                        )}
+                        {telegramUrl && telegramImg && (
+                            <a href={telegramUrl} target="_blank" rel="noopener noreferrer"
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.querySelector('img').src = telegramImgHover;
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.querySelector('img').src = telegramImg;
+                                }}>
+                                <img
+                                    src={telegramImg}
+                                    alt="Telegram"
+                                    onError={handleImageError}
+                                />
+                            </a>
+                        )}
+                        {youtubeUrl && youtubeImg && (
+                            <a href={youtubeUrl} target="_blank" rel="noopener noreferrer"
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.querySelector('img').src = youtubeImgHover;
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.querySelector('img').src = youtubeImg;
+                                }}>
+                                <img
+                                    src={youtubeImg}
+                                    alt="YouTube"
+                                    onError={handleImageError}
+                                />
+                            </a>
+                        )}
+                    </div >
+                </footer >
+                <div className={styles.geeks}>
+                    <a className={styles.geeksLink}
+                        href="https://geeks.kg/geeks-pro"
+                        rel="noopener noreferrer"
+                        target="_blank">
                         <Typography
-                            className={s.address}
-                            variant="bodyM"
-                            weight="regular"
-                            lineHeight='lineModerate'
-                            color='black'>
-                            Кыргызская Республика,
-                            город Бишкек,<br />
-                            ул. Токтогула, 87,<br />
-                            4 этаж
+                            className={styles.geeksLogo}
+                            variant='bodyS'
+                            weight='medium'>
+                            Made by GeeksPro
                         </Typography>
-                    </div>
+                        <Geeks />
+                    </a>
                 </div>
-            </div >
-            <div className={s.down} >
-                <WhatsApp />
-                <Instagram />
-                <Facebook />
-                <Telegram />
-                <Youtube />
-            </div >
-            <div className={s.geeks}>
-                <Typography
-                    className={s.geeksLogo}
-                    variant='bodyS'
-                    weight='medium'>
-                    Made by GeeksPro
-                </Typography>
             </div>
-        </footer >
-    );
-};
+        </Container>
+    )
+}
 

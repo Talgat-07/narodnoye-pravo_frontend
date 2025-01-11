@@ -1,84 +1,57 @@
-
-import s from './Service.module.scss'
+import styles from './Service.module.scss'
 import { Typography } from 'shared/ui/Typography/Typography';
 import { ServiceCard } from 'shared/ui/ServiceCard/ServiceCard';
 import { Link } from 'react-router-dom';
 import { path } from 'shared/constants/constants';
-// import { Arrow } from 'shared/assets/icons/Arrow';
-import { ButtonLink } from 'shared/ui/ButtonLink/ButtonLink';
+import { Container } from 'shared/ui/Container/Container';
+import PropTypes from 'prop-types'
+import { Button } from 'shared/ui/Button/Button';
+import { useServicesStore } from 'shared/store/servicesStore';
 
-export const Service = () => {
-    const mockService = [
-        {
-            id: 1,
-            title: 'Услуга №1',
-            description: "Lorem ipsum dolor sit amet consectetur. Laoreet sed neque commodo turpis gravida tellus nulla lacus. Facilisis proin est in velit blandit varius massa. Leo tellus adipiscing in vulputate.",
-        },
-        {
-            id: 2,
-            title: 'Услуга №1',
-            description: "Lorem ipsum dolor sit amet consectetur. Laoreet sed neque commodo turpis gravida tellus nulla lacus. Facilisis proin est in velit blandit varius massa. Leo tellus adipiscing in vulputate.",
-        },
-        {
-            id: 3,
-            title: 'Услуга №1',
-            description: "Lorem ipsum dolor sit amet consectetur. Laoreet sed neque commodo turpis gravida tellus nulla lacus. Facilisis proin est in velit blandit varius massa. Leo tellus adipiscing in vulputate.",
-        },
-        {
-            id: 4,
-            title: 'Услуга №1',
-            description: "Lorem ipsum dolor sit amet consectetur. Laoreet sed neque commodo turpis gravida tellus nulla lacus. Facilisis proin est in velit blandit varius massa. Leo tellus adipiscing in vulputate.",
-        },
-        {
-            id: 5,
-            title: 'Услуга №1',
-            description: "Lorem ipsum dolor sit amet consectetur. Laoreet sed neque commodo turpis gravida tellus nulla lacus. Facilisis proin est in velit blandit varius massa. Leo tellus adipiscing in vulputate.",
-        },
-        {
-            id: 6,
-            title: 'Услуга №1',
-            description: "Lorem ipsum dolor sit amet consectetur. Laoreet sed neque commodo turpis gravida tellus nulla lacus. Facilisis proin est in velit blandit varius massa. Leo tellus adipiscing in vulputate.",
-        },
-        {
-            id: 7,
-            title: 'Услуга №1',
-            description: "Lorem ipsum dolor sit amet consectetur. Laoreet sed neque commodo turpis gravida tellus nulla lacus. Facilisis proin est in velit blandit varius massa. Leo tellus adipiscing in vulputate.",
-        },
-        {
-            id: 8,
-            title: 'Услуга №1',
-            description: "Lorem ipsum dolor sit amet consectetur. Laoreet sed neque commodo turpis gravida tellus nulla lacus. Facilisis proin est in velit blandit varius massa. Leo tellus adipiscing in vulputate.",
-        },
-        {
-            id: 9,
-            title: 'Услуга №1',
-            description: "Lorem ipsum dolor sit amet consectetur. Laoreet sed neque commodo turpis gravida tellus nulla lacus. Facilisis proin est in velit blandit varius massa. Leo tellus adipiscing in vulputate.",
-        },
-    ]
+export const Service = ({ withButton = true, cardWrapClassName = '' }) => {
+    const { services, error } = useServicesStore()
+
+    if (error) return <div>Ошибка: {error}</div>
+
     return (
-        <section className={s.service}>
-            <Typography
-                className={s.title}
-                variant='h3'
-                weight='bold'>
-                Услуги
-            </Typography>
-            {/* <div className={s.cardWrap}>
-                {Array.from({ length: 9 }, (_, index) => (
-                    <ServiceCard key={index} />
-                ))}
-            </div> */}
-            <div className={s.cardWrap}>
-                {mockService.map(servItem => (
-                    <ServiceCard
-                        key={servItem.id}
-                        title={servItem.title}
-                        description={servItem.description} />
-                ))}
-            </div>
-            <Link to={path.services}>
-                <ButtonLink />
-            </Link>
-        </section>
+        <Container>
+            <section className={styles.service}>
+                <Typography
+                    className={styles.title}
+                    variant='h3'
+                    weight='bold'>
+                    Услуги
+                </Typography>
+                <div className={`${styles.cardWrap} ${cardWrapClassName ? styles[cardWrapClassName] : ''}`}>
+                    {services.map((service) => (
+                        <ServiceCard
+                            key={service.id}
+                            id={service.id}
+                            title={service.title}
+                            subtitle={service.subtitle}
+                            description={service.text}
+                            img={service.image}
+                        />
+                    ))}
+                </div>
+                {withButton && (
+                    <Link to={path.services}>
+                        <Button
+                            className='linkBtn'
+                            variant='span'
+                            lineHeight='lineSemiTight'
+                            weight='semibold'
+                            color='blue'>
+                            Подробнее
+                        </Button>
+                    </Link>
+                )}
+            </section>
+        </Container>
     );
 };
+
+Service.propTypes = {
+    withButton: PropTypes.bool,
+    cardWrapClassName: PropTypes.string,
+}

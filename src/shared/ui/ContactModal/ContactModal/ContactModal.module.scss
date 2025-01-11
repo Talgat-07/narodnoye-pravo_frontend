@@ -1,0 +1,62 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    border-radius: 4px;
+    width: 1072px;
+    height: 700px;
+    padding: 30px 23px;
+    position: relative;
+    z-index: 1001;
+}
+
+
+.close {
+    background: transparent;
+    border: none;
+    align-self: flex-end;
+    margin-bottom: 2px;
+    cursor: pointer;
+}
+
+.linkWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 44px;
+    align-items: center;
+}
+
+::placeholder {
+    font-weight: 400;
+    font-size: 18px;
+    color: #b0c3e0;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+
+
+.errorText {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}

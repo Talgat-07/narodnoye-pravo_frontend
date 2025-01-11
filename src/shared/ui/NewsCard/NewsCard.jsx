@@ -1,88 +1,116 @@
-
 import { Link } from "react-router-dom";
-import s from "./NewsCard.module.scss";
+import styles from "./NewsCard.module.scss";
 import { Typography } from "shared/ui/Typography/Typography";
-import { Arrow } from "shared/assets/icons/Arrow";
 import { path } from "shared/constants/constants";
+import PropTypes from 'prop-types'
+import { ArrowLink } from "shared/assets/icons/ArrowLink";
 
-export const NewsCard = ({ title, description, image, isLarge, date }) => {
+
+export const NewsCard = ({ title, description, image, isLarge, date, id }) => {
   return (
-    <div className={`${s.newsCard} ${isLarge ? s.large : s.small}`}>
+    <div className={`${styles.newsCard} ${isLarge ? styles.large : styles.small}`}>
       {isLarge ? (
-        // Большая карточка
-        <div className={s.largeContent}>
-          <div className={s.imageWrap}>
-            <img src={image} alt={title} className={s.image} />
-          </div>
-          <div className={s.content}>
-            <div className={s.up}>
-              <Typography
-                variant='bodyL'
-                lineHeight='lineTight'
-                weight='regular'
-              >{date}</Typography>
-              <Link to={path.services}>
+        <Link to={`${path.legislativeNews}/${id}`}>
+          <div className={styles.largeContent}>
+            <div className={styles.imageWrap}>
+              <img
+                src={image}
+                alt={title}
+                className={styles.imageLarge} />
+            </div>
+            <div className={styles.content}>
+              <div className={styles.up}>
                 <Typography
-                  className={s.link}
+                  variant='bodyL'
+                  lineHeight='lineTight'
+                  weight='regular'
+                >
+                  {date}
+                </Typography>
+                <Typography
+                  className={styles.linkLarge}
                   variant='bodyM'
                   weight='semibold'
                   lineHeight='lineSemiTight'
-                  color='blue'>
+                  color='blue'
+                >
                   Подробнее
-                  <Arrow />
+                  <ArrowLink />
                 </Typography>
-              </Link>
-            </div>
-            <div className={s.down}>
-              <Typography
-                className={s.title}
-                variant='bodyXL'
-                lineHeight='lineBig'
-                weight='semibold'
-              >{title}</Typography>
-              <Typography
-                className={s.description}
-                variant='bodyM'
-                lineHeight='lineBig'
-                weight='regular'
-              >{description}</Typography>
+              </div>
+              <div className={styles.downLarge}>
+                <Typography
+                  className={styles.titleLarge}
+                  variant='bodyXLL'
+                  lineHeight='lineLarge'
+                  weight='semibold'
+                >{title}</Typography>
+                <Typography
+                  className={styles.descriptionLarge}
+                  variant='bodyL'
+                  lineHeight='lineBig'
+                  weight='regular'>
+                  {description}
+                </Typography>
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
       ) : (
-        // Маленькая карточка
-        <div className={s.smallContent}>
-          <div className={s.smallUp}>
-            <Typography
-              variant='bodyM'
-              lineHeight='lineSemiTight'
-              weight='regular'
-            >{date}</Typography>
-            <Link to={path.services}>
+        <Link to={`${path.legislativeNews}/${id}`}>
+          <div className={styles.smallContent}>
+            <div className={styles.smallUp}>
               <Typography
-                className={s.link}
+                variant='bodyM'
+                lineHeight='lineSemiTight'
+                weight='regular'>
+                {date}
+              </Typography>
+              <Typography
+                className={styles.link}
                 variant='bodyM'
                 weight='semibold'
                 lineHeight='lineSemiTight'
                 color='blue'>
                 Подробнее
-                <Arrow />
+                <ArrowLink />
               </Typography>
-            </Link>
+            </div>
+            <div className={styles.imageWrapSmall}>
+              <img
+                src={image}
+                alt={title}
+                className={styles.imageSmall} />
+            </div>
+            <div className={styles.smallDown}>
+              <Typography
+                variant='bodyL'
+                weight='semibold'
+                lineHeight='lineFixed'
+                className={styles.smallTitle}
+              >
+                {title}
+              </Typography>
+              <Typography
+                className={styles.smallDescription}
+                variant='bodyL'
+                weight='regular'
+                lineHeight='lineDefault' >
+                {description}
+              </Typography>
+            </div>
           </div>
-          <div className={s.imageWrap}>
-            <img src={image} alt={title} className={s.image} />
-          </div>
-          <div className={s.smallDown}>
-            <Typography
-              className={s.smallDescription}
-              variant='bodyM'
-              weight='regular'
-              lineHeight='lineCompact'
-            >{description}</Typography>
-          </div>
-        </div>
+        </Link>
       )}
     </div>
   );
 };
+
+NewsCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  isLarge: PropTypes.bool.isRequired,
+  date: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+}

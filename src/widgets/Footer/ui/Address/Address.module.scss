@@ -1,0 +1,38 @@
+@use 'shared/styles/variables' as vars;
+
+.middle {
+    margin-top: 47px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-left: -12px;
+
+    @media (max-width:768px) {
+        margin-top: 0;
+        gap: 27px;
+    }
+
+    .contactItem,
+    .contactWithoutIcon {
+        display: grid;
+        grid-template-columns: 20px auto;
+        align-items: center;
+        gap: 14px;
+
+        &.contactWithoutIcon {
+            gap: 8px;
+
+            .emptySpace {
+                width: 20px;
+            }
+        }
+    }
+}
+
+.secondContactItem {
+    margin-left: 34px;
+}
+
+.contactLink:hover>p {
+    color: vars.$footerHover;
+}

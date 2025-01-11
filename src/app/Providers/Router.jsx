@@ -1,20 +1,28 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Layout } from "../Layout/Layout";
-import { path } from "../../shared/constants/constants";
-import { Home } from "../../pages/Home/Home";
-import { About } from "../../pages/About/About";
+import { Layout } from "app/Layout/Layout";
+import { path } from "shared/constants/constants";
+import { Home } from "pages/Home/Home";
+import { About } from "pages/About/About";
 import { Services } from "pages/Services/Services";
 import { LegislativeNews } from "pages/LegislativeNews/LegislativeNews";
 import { AnalyticAndPublications } from "pages/AnalytAndPublic/AnalytAndPublic";
 import { Education } from "pages/Education/Education";
 import { BankVacancy } from "pages/BankVacancy/BankVacancy";
 import { Contacts } from "pages/Contacts/Contacts";
+import { ServiceDetail } from "shared/ui/ServiceDetail/ServiceDetail";
+import { ScrollToTop } from "shared/ui/ScrollToTop/ScrollToTop";
+import { NewsDetail } from "shared/ui/NewsDetail/NewsDetail";
 
 
 export const Router = createBrowserRouter(
     [
         {
-            element: <Layout />,
+            element: (
+                <>
+                    <ScrollToTop />
+                    <Layout />
+                </>
+            ),
             children: [
                 {
                     path: path.home,
@@ -29,11 +37,19 @@ export const Router = createBrowserRouter(
                     element: <Services />,
                 },
                 {
-                    path: path.legislativenews,
+                    path: path.serviceDetail,
+                    element: <ServiceDetail />,
+                },
+                {
+                    path: path.legislativeNews,
                     element: <LegislativeNews />,
                 },
                 {
-                    path: path.analyticandpublications,
+                    path: path.legislativeNewsDetail,
+                    element: <NewsDetail />
+                },
+                {
+                    path: path.analyticAndPublications,
                     element: <AnalyticAndPublications />,
                 },
                 {
@@ -41,7 +57,7 @@ export const Router = createBrowserRouter(
                     element: <Education />,
                 },
                 {
-                    path: path.bankvacancy,
+                    path: path.bankVacancy,
                     element: <BankVacancy />,
                 },
                 {

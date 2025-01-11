@@ -1,9 +1,10 @@
+import { Container } from "shared/ui/Container/Container";
 
 
 export const AnalyticAndPublications = () => {
     return (
-        <div>
+        <Container>
             <h1>Научные статьи</h1>
-        </div>
+        </Container>
     );
 };

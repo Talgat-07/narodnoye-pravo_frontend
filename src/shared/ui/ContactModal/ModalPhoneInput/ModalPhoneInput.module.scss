@@ -1,0 +1,58 @@
+@use 'shared/styles/variables' as vars;
+
+.wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.phoneLab {
+    align-self: baseline;
+}
+
+.phoneInputWrapper {
+    border: 1px solid vars.$placeholder;
+    border-radius: 4px;
+    padding: 10px 15px;
+    width: 630px;
+    height: 46px;
+    margin: -20px 0px 4px 0px;
+}
+
+.phonePrefix {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: vars.$semiBlue;
+    margin-right: 8px;
+    white-space: nowrap;
+}
+
+.phonePrefixText {
+    margin-right: 10px;
+}
+
+.line {
+    border: 1px solid vars.$placeholder;
+    width: 14px;
+    height: 0px;
+    transform: rotate(90deg);
+    margin-left: 6px;
+}
+
+.phoneInput {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 14px;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 18px;
+    color: #505ea5;
+}
+
+.phoneInputWrapper:hover,
+.phoneInputWrapper:hover .phoneInput {
+    background-color: vars.$input-hover;
+}

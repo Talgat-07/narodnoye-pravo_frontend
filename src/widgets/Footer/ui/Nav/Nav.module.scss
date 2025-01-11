@@ -1,0 +1,38 @@
+@use 'shared/styles/variables' as vars;
+
+
+.left {
+    display: flex;
+    align-items: flex-start;
+    gap: 150px;
+
+    @media (max-width:768px) {
+        margin-left: -210px;
+    }
+
+    .footerImg {
+        width: 130px;
+        height: 92px;
+    }
+
+    .footerUl {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-top: 46px;
+
+        @media (max-width:768px) {
+            margin-top: 0;
+            gap: 18px;
+        }
+    }
+
+}
+
+.leftLink:hover>p {
+    color: vars.$footerHover;
+}
+
+.title {
+    text-transform: uppercase;
+}

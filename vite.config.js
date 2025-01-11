@@ -2,7 +2,6 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 
-
 export default defineConfig({
   plugins: [react()],
   resolve: {
@@ -13,7 +12,7 @@ export default defineConfig({
       pages: "/src/pages",
       shared: "/src/shared",
       widgets: "/src/widgets",
-      constants:"/src/shared/constants"
+      constants: "/src/shared/constants"
     },
   },
 });

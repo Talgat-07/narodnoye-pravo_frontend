@@ -1,9 +1,12 @@
+import { Container } from "shared/ui/Container/Container";
+import { SuccessWindow } from "shared/ui/SuccessWindow/SuccessWindow";
 
 
 export const BankVacancy = () => {
     return (
-        <div>
+        <Container>
             <h1>Вакансии</h1>
-        </div>
+            <SuccessWindow />
+        </Container>
     );
 };

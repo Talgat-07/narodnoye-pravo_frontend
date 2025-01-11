@@ -1,40 +1,86 @@
 import { Typography } from 'shared/ui/Typography/Typography';
-import aboutUs from '../../shared/assets/img/aboutUsImg.png'
-import s from './AboutUs.module.scss'
+import styles from './AboutUs.module.scss'
 import { Link } from 'react-router-dom';
 import { path } from 'shared/constants/constants';
-import { ButtonLink } from 'shared/ui/ButtonLink/ButtonLink';
+import { Button } from 'shared/ui/Button/Button';
+import { useAboutUsStore } from 'shared/store/aboutUsStore';
+import { Container } from 'shared/ui/Container/Container';
 
 
 export function AboutUs() {
+    const { title1, text1, title2, text2, error, image } = useAboutUsStore()
+
+    if (error) return <div>Ошибка... {error}</div>
+
     return (
-        <div className={s.aboutUs}>
-            <Typography
-                className={s.title}
-                variant='h3'
-                weight='bold'>
-                О нас
-            </Typography>
-
-            <img className={s.image} src={aboutUs} alt='весы, рукопожатие' />
-
-            <Typography
-                className={s.text}
-                variant='bodyM'
-                weight='regular'
-                color='black'
-                lineHeight='lineBig'>
-
-                Lorem ipsum dolor sit amet consectetur. Nunc auctor tempor urna enim quis hendrerit. Metus sed quisque mattis interdum justo id turpis tempus. Sodales risus pellentesque odio nisl. At sit ultricies mi non. Vel massa arcu ut bibendum nisi aenean pellentesque. Donec interdum malesuada leo tristique tellus massa tempus nunc. Lobortis elit tortor fames sollicitudin tellus. At mi vitae enim quisque lectus ipsum lorem. Tellus id condimentum ornare eu et. Metus gravida lectus cras sit turpis ornare nunc varius. Cursus molestie ipsum urna eu id arcu fames nulla. Maecenas lectus est ullamcorper nullam. Nisl eget aliquam nunc in faucibus. Sed morbi enim ut eget maecenas ut egestas interdum sed. Lorem ipsum dolor sit amet consectetur. Nunc auctor tempor urna enim quis hendrerit. Metus sed quisque mattis interdum justo id turpis tempus. Sodales risus pellentesque odio nisl. At sit ultricies mi non. Vel massa arcu ut bibendum nisi aenean pellentesque.
-            </Typography>
-
-            <Link to={path.about}>
-                <ButtonLink />
-            </Link>
-
-
-
-        </div>
+        <Container>
+            <div className={styles.aboutUs}>
+                <Typography
+                    className={styles.title}
+                    variant='h3'
+                    weight='bold'>
+                    О нас
+                </Typography>
+                <div className={styles.main}>
+                    <div className={styles.back}></div>
+                    <div className={styles.imageWrap}>
+                        <img
+                            className={styles.image}
+                            src={image}
+                            alt='сотрудники компании'
+                        />
+                    </div>
+                    <div className={styles.text}>
+                        <div className={styles.textUp}>
+                            <Typography
+                                variant='bodyL'
+                                weight='semibold'
+                                lineHeight='lineBig'
+                                className={styles.titleUp}
+                            >
+                                {title1}
+                            </Typography>
+                            <Typography
+                                className={styles.titleDown}
+                                variant='bodyL'
+                                weight='regular'
+                                lineHeight='lineBig'
+                            >
+                                {text1}
+                            </Typography>
+                        </div>
+                        <div className={styles.textDown}>
+                            <Typography
+                                variant='bodyL'
+                                weight='semibold'
+                                lineHeight='lineBig'
+                                className={styles.titleUp}
+                            >
+                                {title2}
+                            </Typography>
+                            <Typography
+                                className={styles.titleDown}
+                                variant='bodyL'
+                                weight='regular'
+                                lineHeight='lineBig'
+                            >
+                                {text2}
+                            </Typography>
+                        </div>
+                    </div>
+                </div>
+                <Link to={path.about}>
+                    <Button
+                        className='linkBtn'
+                        variant='span'
+                        lineHeight='lineSemiTight'
+                        weight='semibold'
+                        color='blue'>
+                        Подробнее
+                    </Button>
+                </Link>
+            </div>
+        </Container>
     );
 }
 

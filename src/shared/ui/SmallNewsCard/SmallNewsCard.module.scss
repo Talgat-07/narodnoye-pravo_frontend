@@ -1,0 +1,72 @@
+@use 'shared/styles/variables' as vars;
+
+
+.smallContent {
+    border-radius: 4px;
+    width: 300px;
+    height: 394px;
+    box-shadow: 2px 6px 8px 4px rgba(0, 0, 0, 0.12);
+    margin: 10px 0 50px 0;
+    box-sizing: border-box;
+}
+
+
+.smallDescription {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+}
+
+.smallTitle {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+}
+
+.smallUp {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 21px;
+}
+
+
+
+.link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-right: 20px;
+
+    &:hover {
+        color: vars.$primary-btn-hover;
+    }
+
+    &:hover svg path {
+        fill: vars.$primary-btn-hover;
+    }
+
+    & svg {
+        transition: transform 0.3s ease;
+    }
+
+    &:hover svg {
+        transform: translateX(4px);
+    }
+}
+
+.smallDown {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px 20px;
+}
+
+
+.imageSmall {
+    width: 300px;
+    height: 170px;
+    object-fit: cover;
+}

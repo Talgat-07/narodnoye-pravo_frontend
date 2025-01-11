@@ -1,1 +1,11 @@
-@import './fonts/fonts.css';
+@use './normalize.scss';
+@use './variables.scss';
+
+
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('./fonts/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 100 900;
+}

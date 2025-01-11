@@ -1,10 +1,11 @@
+import { Container } from "shared/ui/Container/Container";
 
 
 
 export const Contacts = () => {
     return (
-        <div>
+        <Container>
             <h1>Контакты</h1>
-        </div>
+        </Container>
     );
 };

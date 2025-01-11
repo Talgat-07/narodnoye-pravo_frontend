@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types'
 
 export const Close = (props) => {
     const { width = '16', height = '16' } = props
@@ -8,3 +8,8 @@ export const Close = (props) => {
         </svg>
     );
 };
+
+Close.propTypes = {
+    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+}

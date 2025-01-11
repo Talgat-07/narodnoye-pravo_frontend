@@ -1,9 +1,10 @@
+import { Container } from "shared/ui/Container/Container";
 
 
 export const Education = () => {
     return (
-        <div>
+        <Container>
             <h1>Обучение</h1>
-        </div>
+        </Container>
     );
 };
