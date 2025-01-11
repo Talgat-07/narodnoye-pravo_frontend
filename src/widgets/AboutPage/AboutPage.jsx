@@ -1,5 +1,5 @@
 import { Typography } from 'shared/ui/Typography/Typography';
-import style from './AboutPage.module.scss'
+import styles from './AboutPage.module.scss'
 import aboutPage from 'shared/assets/img/aboutPage2.webp'
 import aboutPage2 from 'shared/assets/img/aboutPage.webp'
 import aboutPage3 from 'shared/assets/img/aboutPage3.webp'
@@ -9,33 +9,35 @@ import { Slider } from 'features/Slider/Slider';
 
 export const AboutPage = () => {
     return (
-        <section className={style.aboutPage}>
+        <section className={styles.aboutPage}>
             <Typography
-                className={style.title}
+                className={styles.title}
                 variant='h3'
                 weight='semibold'>
                 О нас
             </Typography>
-            <div className={style.wrap}>
-                <div className={style.member}>
+            <div className={styles.wrap}>
+                <div className={styles.member1}>
                     <img src={aboutPage} alt="команда «Народное право»" />
-                    <div className={style.memberText1}>
-                        <Typography
-                            variant='bodyL'
-                            weight='regular'
-                            lineHeight='lineBig'>
-                            <strong>Юридическая компания «Народное право»</strong> — компания, созданная в 2008 году. За время своего существования прошла успешный путь и в настоящее время занимает устойчивое положение на рынке юридических услуг.
-                        </Typography>
-                        <Typography
-                            variant='bodyL'
-                            weight='regular'
-                            lineHeight='lineBig'>
-                            <strong>Основная цель нашей компании</strong> — сделать юридические услуги доступными для всех. Для нас не бывает мелких вопросов и незначительных просьб. Мы понимаем, что каждый человек в процессе своей жизни может столкнуться с правовой проблемой, и готовы оказать необходимую юридическую помощь — проконсультировать, разъяснить, представить интересы.
-                        </Typography>
+                    <div className={styles.darkBackGround}>
+                        <div className={styles.memberText1}>
+                            <Typography
+                                variant='bodyL'
+                                weight='regular'
+                                lineHeight='lineBig'>
+                                <strong>Юридическая компания «Народное право»</strong> — компания, созданная в 2008 году. За время своего существования прошла успешный путь и в настоящее время занимает устойчивое положение на рынке юридических услуг.
+                            </Typography>
+                            <Typography
+                                variant='bodyL'
+                                weight='regular'
+                                lineHeight='lineBig'>
+                                <strong>Основная цель нашей компании</strong> — сделать юридические услуги доступными для всех. Для нас не бывает мелких вопросов и незначительных просьб. Мы понимаем, что каждый человек в процессе своей жизни может столкнуться с правовой проблемой, и готовы оказать необходимую юридическую помощь — проконсультировать, разъяснить, представить интересы.
+                            </Typography>
+                        </div>
                     </div>
                 </div>
-                <div className={style.member}>
-                    <div className={style.memberText2}>
+                <div className={styles.member}>
+                    <div className={styles.memberText2}>
                         <Typography
                             variant='bodyL'
                             weight='regular'
@@ -51,23 +53,29 @@ export const AboutPage = () => {
                     </div>
                     <img src={aboutPage2} alt="команда «Народное право»" />
                 </div>
-                <div className={style.member}>
+                <div className={styles.member3}>
                     <img src={aboutPage3} alt="команда «Народное право»" />
-                    <div className={style.memberText3}>
-                        <Typography
-                            variant='bodyL'
-                            weight='regular'>
-                            У нас «говорящее» название. Народным право является потому, что мы реализуем социальный компонент, оказывая бесплатную юридическую помощь гражданам, которые не могут позволить себе оплатить услуги юриста, причем делаем это без ущерба для качества или объема оказываемых услуг.
-                        </Typography>
-                        <Typography
-                            variant='bodyL'
-                            weight='regular'>
-                            Наша команда постоянно совершенствует свою квалификацию, следит за изменениями законодательства, новейшими теоретическими разработками в области юриспруденции.
-                        </Typography>
+                    <div className={styles.darkBackGround}>
+                        <div className={styles.memberText3}>
+                            <Typography
+                                variant='bodyL'
+                                weight='regular'
+                                lineHeight='lineBig'
+                            >
+                                У нас «говорящее» название. Народным право является потому, что мы реализуем социальный компонент, оказывая бесплатную юридическую помощь гражданам, которые не могут позволить себе оплатить услуги юриста, причем делаем это без ущерба для качества или объема оказываемых услуг.
+                            </Typography>
+                            <Typography
+                                variant='bodyL'
+                                weight='regular'
+                                lineHeight='lineBig'
+                            >
+                                Наша команда постоянно совершенствует свою квалификацию, следит за изменениями законодательства, новейшими теоретическими разработками в области юриспруденции.
+                            </Typography>
+                        </div>
                     </div>
                 </div>
-                <div className={style.member}>
-                    <div className={style.memberText4}>
+                <div className={styles.member}>
+                    <div className={styles.memberText4}>
                         <Typography
                             variant='bodyL'
                             weight='regular'>
@@ -83,8 +91,8 @@ export const AboutPage = () => {
                 </div>
             </div>
             <Typography
-                className={style.titleSlider}
-                variant='h5'
+                className={styles.titleSlider}
+                variant='h3'
                 weight='semibold'>
                 Наши сотрудники
             </Typography>

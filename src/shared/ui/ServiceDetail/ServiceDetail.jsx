@@ -1,133 +1,101 @@
 import { Link, useParams } from 'react-router-dom';
-import style from './ServiceDetail.module.scss';
+import styles from './ServiceDetail.module.scss';
 import { Typography } from 'shared/ui/Typography/Typography';
 import { path } from 'shared/constants/constants';
 import { Container } from 'shared/ui/Container/Container';
-import { Breadcrumbs } from 'shared/ui/Breadcrumbs/Breadcrumbs';
 import { ServiceCard } from 'shared/ui/ServiceCard/ServiceCard';
-import consultingService from 'shared/assets/img/service1.webp';
-import contractWork from 'shared/assets/img/service2.webp';
-import representation from 'shared/assets/img/service3.webp';
 import { Button } from 'shared/ui/Button/Button';
+import { useServicesStore } from 'shared/store/servicesStore';
+import { useEffect } from 'react';
+import { CircleLoader } from '../Loader/CircleLoader';
 
 export const ServiceDetail = () => {
     const { id } = useParams();
 
-    const mockService = [
-        {
-            id: 1,
-            title: 'Консультирование',
-            description: 'Устные и письменные консультации по любым правовым вопросам',
-            text: 'По запросу мы готовим информацию и разъясняем содержание и значение правовых норм, регулирующих те или иные правоотношения. Консультации предоставляются нами в онлайн формате и в рамках личного приема. Консультирование основано на принципе сохранения полной конфиденциальности данных. Особенностью предоставляемых консультаций является применяемый нами комплексный подход - мы рассматриваем вопрос с различных аспектов, учитываем возможные последствия каждого из потенциальных решений.',
-            img: consultingService,
-        },
-        {
-            id: 2,
-            title: 'Договорная работа',
-            description: 'Разработка и правовая экспертиза гражданско-правовых договоров',
-            text: 'Мы разрабатываем договоры любой сложности, а также проводим правовую экспертизу имеющихся проектов договоров на предмет их соответствия требованиям законодательства Кыргызской Республики и учета интересов клиента. Мы осуществляем разработку как поименованных, так и непоименованных договоров, принимая во внимание постоянно развивающийся гражданский оборот, включение в него новых объектов гражданских прав и трансформацию привычных типов юридических связей.',
-            img: contractWork,
-        },
-        {
-            id: 3,
-            title: 'Представительство',
-            description: 'Представление интересов в органах государственной власти, в том числе, в суде',
-            text: 'Мы оказываем услуги представительства, в том числе, судебного в целях наилучшей защиты прав и законных интересов клиента. Судебная защита гражданских прав является во многих случаях крайней мерой, и мы прикладываем все усилия для разрешения спора в досудебном порядке. Однако, в случае, когда иным способом разрешить спор не представляется возможным, мы в рамках судебного представительства осуществляем полное сопровождение - консультируем по ходу процесса, готовим все процессуальные документы, участвуем в судебных заседаниях, принимаем участие в сборе доказательств по делу.',
-            img: representation,
-        },
-        {
-            id: 4,
-            title: 'Сопровождение',
-            description: 'Юридическое сопровождение хозяйствующих субъектов',
-            text: 'Мы полностью принимаем на себя должностные обязанности штатного юриста, при этом выполняем свою работу дистанционно, оперативно, квалифицированно. При необходимости выезжаем к клиенту, принимаем участие в переговорах, работаем с договорами, приказами, внутренними документами, взаимодействуем с бухгалтером и отделом кадров, оказываем содействие в прохождении организацией различных проверок, процедур лицензирования, перерегистрации, реорганизации.',
-        },
-        {
-            id: 5,
-            title: 'Аудит',
-            description: 'Правовой аудит деятельности хозяйствующих субъектов',
-            text: 'В процессе работы любой организации у нее формируется большой массив юридически значимых документов, далеко не все из которых соответствуют требованиям закона, интересам самой организации, правилам ведения делопроизводства. Мы проводим правовой аудит с целью выяснить, насколько документооборот в организации соответствует установленным требованиям, как правовая сторона деятельности организации соотносится с ведением бухгалтерского учета. ',
-        },
-        {
-            id: 6,
-            title: 'Кадровый учет',
-            description: 'Организация и ведение кадрового учета',
-            text: 'Мы содействуем правильной организации и корректному ведению кадрового учета в компаниях. В рамках этой услуги мы предлагаем разработку шаблонов кадровых документов, формирование принципов кадрового делопроизводства, внедрение внутренних локальных актов, направленных на регулирование трудовых отношений внутри организации.',
-        },
-        {
-            id: 7,
-            title: 'Бухгалтерский учет',
-            description: 'Организация и ведение бухгалтерского учета',
-            text: 'Наша компания предлагает ведение бухгалтерии, подготовку и сдачу налоговых отчетов, содействие в прохождении проверок, проводимых налоговыми органами. Мы предлагаем консультации по вопросу выбора оптимального режима налогообложения и правилам исчисления и уплаты отдельных налогов. В рамках бухгалтерского учета мы взаимодействуем с поставщиками товаров, работ и услуг.',
-        },
-        {
-            id: 8,
-            title: 'Планирование',
-            description: 'Стратегическое планирование бизнес-процессов',
-            text: 'Нет текста',
-        },
-        {
-            id: 9,
-            title: 'Лицензирование',
-            description: 'Юридическое сопровождение получения лицензий и разрешений',
-            text: 'Мы оказываем содействие в процедуре получения лицензий и разрешений на различные виды деятельности, помогаем в разработке необходимых документов, разъясняем особенности прохождения процедуры, при необходимости представляем интересы в соответствующих органах государственной власти.',
-        },
-    ];
 
-    const service = mockService.find((item) => item.id === parseInt(id, 10));
+    const { services, isLoading, error, fetchServices } = useServicesStore();
 
-    if (!service) return <p>Услуга не найдена</p>;
+    useEffect(() => {
+        if (!services || services.length === 0) {
+            fetchServices();
+        }
+    }, [services, fetchServices]);
 
-    const relatedServices = mockService.slice(0, 3);
+    if (isLoading) {
+        return <CircleLoader />
+    }
+
+    if (error) return <div>Ошибка: {error}</div>
+
+    const currentServiceId = parseInt(id, 10);
+    const service = services.find((item) => item.id === currentServiceId);
+
+    if (!service) {
+        return <p>Услуга не найдена</p>;
+    }
+    const relatedServices = services
+        .filter((item) => item.id !== currentServiceId)
+        .slice(0, 3);
 
     return (
         <Container>
-            <Breadcrumbs currentTitle={service.title} />
-            <div className={style.serviceDetail}>
-                <Typography
-                    className={style.title}
-                    variant="h3"
-                    weight='semibold'>
-                    {service.title}
-                </Typography>
-                <Typography
-                    className={style.description}
-                    variant="bodyXXL"
-                    weight='regular'
-                    lineHeight='lineLarge'
-                    color='blue'>
-                    {service.description}
-                </Typography>
-                <Typography
-                    className={style.text}
-                    variant="bodyXXL"
-                    weight='regular'
-                    lineHeight='lineLarge'>
-                    {service.text}
-                </Typography>
-                <Link to={path.services}>
-                    <Button
-                        className='ServiceBtn'
-                        variant='span'
-                        weight='semibold'
-                        lineHeight='lineSemiTight'
-                        color='white'>
-                        Вернуться к услугам
-                    </Button>
-                </Link>
-                <div className={style.line}>
+            <div className={styles.serviceDetail}>
+                <div className={styles.wrap}>
                     <Typography
-                        className={style.lineText}
-                        variant="h4"
-                        weight='bold'>Другие услуги</Typography>
+                        className={styles.title}
+                        variant="h3"
+                        weight='semibold'
+                    >
+                        {service.title}
+                    </Typography>
+                    <Typography
+                        className={styles.description}
+                        variant="bodyXXL"
+                        weight='regular'
+                        lineHeight='lineLarge'
+                        color='blue'
+                    >
+                        {service.subtitle}
+                    </Typography>
+                    <Typography
+                        className={styles.text}
+                        variant="bodyXXL"
+                        weight='regular'
+                        lineHeight='lineLarge'
+                    >
+                        {service.text}
+                    </Typography>
+                    <Link
+                        to={path.services}
+                        className={styles.linkService}
+                    >
+                        <Button
+                            className='serviceBtn'
+                            variant='span'
+                            weight='semibold'
+                            lineHeight='lineSemiTight'
+                            color='white'
+                        >
+                            Вернуться к услугам
+                        </Button>
+                    </Link>
                 </div>
-                <div className={style.relatedServices}>
+
+                <Typography
+                    className={styles.lineText}
+                    variant="h5"
+                    weight='bold'
+                >
+                    Другие услуги
+                </Typography>
+                <div className={styles.relatedServices}>
                     {relatedServices.map((relatedService) => (
                         <ServiceCard
                             key={relatedService.id}
                             id={relatedService.id}
                             title={relatedService.title}
-                            description={relatedService.description}
-                            img={relatedService.img}
+                            subtitle={relatedService.subtitle}
+                            img={relatedService.image}
                         />
                     ))}
                 </div>

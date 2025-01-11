@@ -1,69 +1,58 @@
-import style from './Address.module.scss'
+import styles from './Address.module.scss';
 import { Email } from 'shared/assets/icons/Email';
 import { Phone } from 'shared/assets/icons/Phone';
 import { Typography } from 'shared/ui/Typography/Typography';
+import { useFooterStore } from 'shared/store/footerStore';
 
 export const Address = () => {
-    const contacts = [
-        { type: 'phone', value: '+996 (550) 18-87-77' },
-        { type: 'phone', value: '+996 (702) 18-87-77' },
-        { type: 'email', value: 'N.pravo2018@gmail.com' },
-    ]
+    const { phone_numbers, emails, error } = useFooterStore();
+
+    if (error) return <div>Ошибка: {error}</div>;
+
     return (
-        <div className={style.middle}>
+        <div className={styles.middle}>
             <Typography
-                variant='bodyXL'
+                variant='bodyL'
                 weight='bold'
                 color='black'>
                 КОНТАКТЫ
             </Typography>
-            {contacts.map((contact, index) => {
-                if (contact.type === 'phone' && index === 0) {
-                    return (
-                        <div className={style.contactItem} key={index}>
-                            <Phone />
-                            <a href={`tel:${contact.value.replace(/[\s()]/g, '')}`}
-                                className={style.contactLink}>
-                                <Typography
-                                    variant="bodyM"
-                                    weight="regular">
-                                    {contact.value}
-                                </Typography>
-                            </a>
-                        </div>
-                    );
-                }
-                if (contact.type === 'phone' && index > 0) {
-                    return (
-                        <div className={style.contactWithoutIcon} key={index}>
-                            <div className="emptySpace"></div>
-                            <a href={`tel:${contact.value.replace(/[\s()]/g, '')}`} className={style.contactLink}>
-                                <Typography
-                                    variant="bodyM"
-                                    weight="regular">
-                                    {contact.value}
-                                </Typography>
-                            </a>
-                        </div>
-                    );
-                }
-                if (contact.type === 'email') {
-                    return (
-                        <div className={style.contactItem} key={index}>
-                            <Email />
-                            <a href={`mailto:${contact.value}`}
-                                className={style.contactLink}>
-                                <Typography
-                                    variant="bodyM"
-                                    weight="regular">
-                                    {contact.value}
-                                </Typography>
-                            </a>
-                        </div>
-                    );
-                }
-                return null;
-            })}
+            {phone_numbers.map((contact, index) => (
+                <div
+                    className={`${styles.contactItem} ${index === 1 ? styles.secondContactItem : ''
+                        }`}
+                    key={contact.id}
+                >
+                    {contact.id === 1 && <Phone />}
+                    <a
+                        href={`tel:${contact.phone_number.replace(/[\s()]/g, '')}`}
+                        className={styles.contactLink}
+                    >
+                        <Typography
+                            variant="bodyM"
+                            weight="regular">
+                            {contact.phone_number}
+                        </Typography>
+                    </a>
+                </div>
+            ))
+            }
+            {emails.map((email) => (
+                <div className={styles.contactItem} key={email.id}>
+                    <Email />
+                    <a
+                        href={`mailto:${email.email}`}
+                        className={styles.contactLink}
+                    >
+                        <Typography
+                            variant="bodyM"
+                            weight="regular">
+                            {email.email}
+                        </Typography>
+                    </a>
+                </div>
+            ))
+            }
         </div>
     );
 };

@@ -1,7 +1,7 @@
 @use 'shared/styles/variables' as vars;
 
 .linkBtn {
-    border: 1px solid vars.$secondary-color;
+    border: 1px solid vars.$primary-color;
     border-radius: 4px;
     padding: 16px 32px;
     width: 154px;
@@ -9,12 +9,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: transparent;
-    transition: 0.5s;
+    background-color: vars.$white;
+    transition: 0.3s;
     cursor: pointer;
+
+    span {
+        transition: 0.3s;
+    }
 
     &:hover {
         background-color: vars.$btn-link-hover;
+        border: 1px solid vars.$secondary-color;
+        color: vars.$secondary-color;
+    }
+
+    &:hover span {
+        color: vars.$secondary-color;
     }
 }
 
@@ -25,7 +35,7 @@
     height: 52px;
     background-color: vars.$primary-color;
     border-color: transparent;
-    transition: 0.5s;
+    transition: 0.3s;
     cursor: pointer;
 
     &:hover {
@@ -36,20 +46,28 @@
 .buttonSend {
     font-family: "Open Sans", sans-serif;
     border-radius: 4px;
-    padding: 10px 20px;
+    padding: 13px 14px;
     background: vars.$primary-color;
     border: none;
-    transition: 0.5s;
-    margin-left: 2rem;
+    transition: 0.3s;
+    margin-left: 40px;
     cursor: pointer;
 
     &:hover {
         background: vars.$primary-btn-hover;
     }
+
+    @media (max-width:1435px) {
+        margin-left: 20px;
+    }
+
+    @media (max-width:1340px) {
+        margin-left: 0;
+    }
 }
 
 .buttonSendHero {
-    width: 476px;
+    width: 418px;
     height: 52px;
     font-family: "Open Sans", sans-serif;
     border-radius: 4px;
@@ -57,7 +75,7 @@
     background: vars.$primary-color;
     border: none;
     margin-top: -6px;
-    transition: 0.5s;
+    transition: 0.3s;
     cursor: pointer;
 
     &:hover {
@@ -75,7 +93,7 @@
     align-items: center;
     justify-content: center;
     align-self: self-end;
-    transition: 0.5s;
+    transition: 0.3s;
     cursor: pointer;
 
     &:hover {
@@ -83,15 +101,45 @@
     }
 }
 
-.ServiceBtn {
+.serviceBtn {
     border-radius: 4px;
     padding: 16px 32px;
-    width: 450px;
+    width: 410px;
     height: 52px;
     background: vars.$primary-color;
     border: transparent;
-    margin-bottom: 80px;
-    transition: 0.5s;
+    margin-bottom: 35px;
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:hover {
+        background: vars.$primary-btn-hover;
+    }
+}
+
+.successBtn {
+    border-radius: 4px;
+    padding: 16px 32px;
+    width: 133px;
+    height: 54px;
+    background-color: vars.$primary-color;
+    border: transparent;
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:hover {
+        background: vars.$primary-btn-hover;
+    }
+}
+
+.newsBtn {
+    border-radius: 4px;
+    padding: 16px 32px;
+    width: 147px;
+    height: 56px;
+    background-color: vars.$primary-color;
+    border: transparent;
+    transition: 0.3s;
     cursor: pointer;
 
     &:hover {

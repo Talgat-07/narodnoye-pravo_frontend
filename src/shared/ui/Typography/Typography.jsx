@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import s from './Typography.module.scss'
+import styles from './Typography.module.scss'
 import PropTypes from 'prop-types';
 
 export const Typography = (props) => {
@@ -30,13 +30,13 @@ export const Typography = (props) => {
     };
 
     const classNamedGenerated = [
-        s.text,
-        s[variant],
-        s[weight],
-        s[color],
-        s[lineHeight],
-        s[fontFamily],
-        s[variant],
+        styles.text,
+        styles[variant],
+        styles[weight],
+        styles[color],
+        styles[lineHeight],
+        styles[fontFamily],
+        styles[variant],
 
         className,
     ]
@@ -75,13 +75,13 @@ export const Typography = (props) => {
 };
 
 Typography.propTypes = {
-    variant: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'span', 'bodyXXL', 'bodyXL', 'bodyL', 'bodyM', 'bodyXS', 'bodyS']),
+    variant: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'span', 'bodyXXL', 'bodyXL', 'bodyXLL', 'bodyL', 'bodyMl', 'bodyM', 'bodyXS', 'bodyS']),
     weight: PropTypes.oneOf(['bold', 'semibold', 'medium', 'regular']),
     className: PropTypes.string,
     children: PropTypes.node.isRequired,
-    color: PropTypes.oneOf(['black', 'blue', 'white', 'azure', 'lightBlue', 'semiBlue', 'placeholder']),
+    color: PropTypes.oneOf(['sliderText', 'dark', 'black', 'blue', 'white', 'azure', 'lightBlue', 'semiBlue', 'placeholder', 'grey', 'darkBlue',]),
     truncate: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
-    lineHeight: PropTypes.oneOf(['lineShort', 'lineTight', 'lineSemiTight', 'lineCompact', 'lineModerate', 'lineLarge', 'lineBig', 'lineFixed', 'lineDefault', 'lineXL']),
+    lineHeight: PropTypes.oneOf(['lineM', 'lineShort', 'lineTight', 'lineSemiTight', 'lineCompact', 'lineModerate', 'lineLarge', 'lineBig', 'lineFixed', 'lineDefault', 'lineXL', 'lineL']),
     fontFamily: PropTypes.oneOf(['default', 'serif', 'sans-serif', 'monospace']),
 };
 

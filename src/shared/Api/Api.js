@@ -1,9 +1,9 @@
 import axios from "axios";
-import { VITE_BASE_URL } from "shared/constants/constants";
+import { BASE_URL } from "shared/constants/constants";
 
 
 export const Api = axios.create({
-    baseURL: `${VITE_BASE_URL}` + 'ru/api/'
+    baseURL: `${BASE_URL}`
 })
 
 Api.interceptors.request.use(

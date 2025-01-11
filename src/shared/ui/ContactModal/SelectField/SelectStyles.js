@@ -25,7 +25,8 @@ export const customStyles = (hasError) => ({
     }),
     placeholder: (base) => ({
         ...base,
-        fontSize: '16px',
+        color: '#B0C3E0',
+        fontSize: '18px',
     }),
     option: (base) => ({
         ...base,

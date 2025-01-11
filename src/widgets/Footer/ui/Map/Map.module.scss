@@ -1,7 +1,11 @@
 @use 'shared/styles/variables' as vars;
 
 .right {
-    margin-top: 9px;
+    margin-top: 45px;
+
+    @media (max-width:768px) {
+        margin-top: 60px;
+    }
 
     .addressWrap {
         display: flex;
@@ -9,9 +13,19 @@
         gap: 10px;
         width: 254px;
         height: 116px;
+
+        & svg {
+            width: 22%;
+        }
     }
 }
 
 .addressWrap:hover>p {
-    color: vars.$link-hover;
+    color: vars.$footerHover;
+}
+
+.addressText {
+    @media (max-width:768px) {
+        line-height: 1.9;
+    }
 }

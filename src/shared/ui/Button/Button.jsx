@@ -1,6 +1,17 @@
 import { Typography } from 'shared/ui/Typography/Typography'
-import style from './Button.module.scss'
+import styles from './Button.module.scss'
 import PropTypes from 'prop-types'
+
+
+function getButtonClassName(className) {
+    if (!className) {
+        return ''
+    }
+    if (styles[className]) {
+        return styles[className];
+    }
+    return className
+}
 
 export const Button = ({
     className,
@@ -11,7 +22,11 @@ export const Button = ({
     lineHeight,
     color,
     type }) => {
-    const combinedClassName = `${style.button} ${className ? style[className] : ''}`;
+    const combinedClassName = `${styles.button}
+    ${getButtonClassName(className)}
+    `.trim()
+
+
     return (
         <button className={combinedClassName} onClick={onClick}>
             <Typography
@@ -31,7 +46,7 @@ Button.propTypes = {
     children: PropTypes.node,
     variant: PropTypes.string.isRequired,
     weight: PropTypes.oneOf(['light', 'regular', 'semibold', 'bold']),
-    lineHeight: PropTypes.oneOf(['lineDefault', 'lineFixed', 'lineBig', 'lineLarge', 'lineSemiTight', 'lineTight']),
+    lineHeight: PropTypes.oneOf(['lineDefault', 'lineFixed', 'lineBig', 'lineLarge', 'lineSemiTight', 'lineTight', 'lineCompact']),
     color: PropTypes.string.isRequired,
     className: PropTypes.string,
     type: PropTypes.string,

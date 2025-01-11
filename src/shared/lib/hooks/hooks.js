@@ -1,11 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useState } from "react";
+import { useEffect } from "react";
 
-export function useClickOutside(ref, handler) {
+export function useClickOutside(
+    mainRef,
+    handler,
+    ignoreRef
+) {
     useEffect(() => {
         const listener = (e) => {
-            if (!ref.current || ref.current.contains(e.target)) {
-                return;
-            }
+            if (!mainRef.current) return;
+            if (mainRef.current.contains(e.target)) return;
+            if (ignoreRef?.current?.contains(e.target)) return;
             handler(e);
         };
 
@@ -16,9 +21,8 @@ export function useClickOutside(ref, handler) {
             document.removeEventListener('mousedown', listener);
             document.removeEventListener('touchstart', listener);
         };
-    }, [ref, handler]);
+    }, [mainRef, handler, ignoreRef]);
 }
-
 
 
 export const useContactModal = () => {

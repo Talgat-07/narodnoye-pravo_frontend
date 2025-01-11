@@ -1,9 +1,17 @@
+@use 'shared/styles/variables' as vars;
+
 .aboutUs {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4rem;
-    margin: 6.5rem 0;
+    gap: 3.3rem;
+    margin: 6.4rem 0;
+
+    @media (max-width: 768px) {
+        margin-top: 15rem;
+        gap: 2rem;
+        margin-bottom: 70px;
+    }
 
 }
 
@@ -11,7 +19,30 @@
     display: flex;
     align-items: center;
     gap: 3rem;
+    position: relative;
 
+    @media (max-width: 1350px) {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    @media (max-width: 768px) {
+        gap: 3rem;
+    }
+}
+
+.back {
+    position: absolute;
+    background-color: vars.$blueLight;
+    width: 895px;
+    height: 508px;
+    z-index: -1;
+    right: -30px;
+    top: -35px;
+
+    @media (max-width: 1350px) {
+        display: none;
+    }
 }
 
 .text {
@@ -20,9 +51,32 @@
     display: flex;
     flex-direction: column;
     gap: 22px;
+
+    .titleUp {
+        display: inline;
+        margin-right: 5px;
+    }
+
+    .titleDown {
+        display: inline;
+    }
+
+    @media (max-width: 1350px) {
+        width: auto;
+        height: auto;
+    }
+
+}
+
+.imageWrap {
+    width: 630px;
+    height: 440px;
+
+    @media (max-width: 768px) {
+        width: 676px;
+    }
 }
 
 .image {
-    width: 630px;
-    height: 440px;
+    width: 100%;
 }

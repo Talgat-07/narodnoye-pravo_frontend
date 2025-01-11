@@ -1,32 +1,43 @@
-import style from './ServiceCard.module.scss'
+import styles from './ServiceCard.module.scss'
 import { Typography } from 'shared/ui/Typography/Typography';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types'
 import { path } from 'shared/constants/constants';
+import { Button } from 'shared/ui/Button/Button';
 
-
-export const ServiceCard = ({ id, title, description, img }) => {
+export const ServiceCard = ({ id, title, subtitle, img }) => {
     return (
         <Link
             to={`${path.services}/${id}`}
-            className={style.seviceCard}
-            style={{ backgroundImage: `url(${img})` }}>
-            <div className={style.content}>
+            className={styles.serviceCard}
+        >
+            <div className={styles.content}>
+                <img src={img} alt={title} className={styles.svg} />
                 <Typography
-                    className={style.title}
+                    className={styles.title}
                     variant='bodyXXL'
                     weight='semibold'
-                    color='white'>
+                >
                     {title}
                 </Typography>
                 <Typography
-                    className={style.description}
+                    className={styles.subtitle}
                     variant='bodyXL'
                     weight='regular'
-                    color='white'
-                    lineHeight='lineModerate'>
-                    {description}...
+                    color='grey'
+                    lineHeight='lineLarge'
+                >
+                    {subtitle}...
                 </Typography>
+                <Button
+                    className={styles.linkBtn}
+                    variant='span'
+                    lineHeight='lineSemiTight'
+                    weight='semibold'
+                    color='blue'
+                >
+                    Подробнее
+                </Button>
             </div>
         </Link >
     );
@@ -35,6 +46,6 @@ export const ServiceCard = ({ id, title, description, img }) => {
 ServiceCard.propTypes = {
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    img: PropTypes.string
+    subtitle: PropTypes.string.isRequired,
+    img: PropTypes.node
 }

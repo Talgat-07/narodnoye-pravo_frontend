@@ -1,16 +1,25 @@
+.wrap {
+    display: flex;
+    flex-direction: column;
+    width: 1070px;
+    margin: 0 auto;
+}
+
 .title {
     text-align: center;
-    margin-top: 38px;
 }
 
 .description {
-    margin-top: 70px;
+    margin-top: 40px;
 }
 
 .text {
-    width: 941px;
-    margin-top: 10px;
-    margin-bottom: 55px;
+    margin-top: 15px;
+    margin-bottom: 61px;
+}
+
+.linkService {
+    margin: 0 auto;
 }
 
 .line {
@@ -25,7 +34,7 @@
 }
 
 .lineText {
-    width: 253px;
+    text-align: center;
 }
 
 .relatedServices {

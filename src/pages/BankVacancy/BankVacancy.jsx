@@ -1,12 +1,12 @@
-import { Breadcrumbs } from "shared/ui/Breadcrumbs/Breadcrumbs";
 import { Container } from "shared/ui/Container/Container";
+import { SuccessWindow } from "shared/ui/SuccessWindow/SuccessWindow";
 
 
 export const BankVacancy = () => {
     return (
         <Container>
-            <Breadcrumbs />
             <h1>Вакансии</h1>
+            <SuccessWindow />
         </Container>
     );
 };

@@ -1,49 +1,103 @@
 @use 'shared/styles/variables' as vars;
 
-.footer {
+.footerWrap {
     background-color: vars.$footer-background;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
-    .up {
+}
+
+.footer {
+    padding: 20px 75px 0px;
+
+    @media (max-width:1160px) {
         display: flex;
-        width: 1440px;
-        justify-content: space-between;
-        padding: 58px 75px 0px 75px;
+        flex-direction: column;
+        align-items: center;
     }
 
 
+    .up {
+        display: flex;
+        gap: 143px;
+
+        @media (max-width:1320px) {
+            gap: 110px;
+        }
+
+        @media (max-width:768px) {
+            flex-direction: column;
+            align-items: center;
+            gap: 36px;
+        }
+
+
+
+        &>svg {
+            width: 130px;
+            height: 112px;
+        }
+    }
+
+    .allWrap {
+        max-width: 960px;
+        display: flex;
+        gap: 180px;
+
+        @media (max-width:1320px) {
+            gap: 110px;
+        }
+    }
+
+    .right {
+        display: flex;
+        gap: 170px;
+
+        @media (max-width:1320px) {
+            gap: 110px;
+        }
+
+        @media (max-width:1160px) {
+            flex-direction: column;
+            gap: 0px;
+        }
+
+        @media (max-width:768px) {
+            gap: 1px;
+            flex-direction: column;
+        }
+
+    }
 
 
     .down {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 77px 0 36px;
+        margin: 40px 0 28px;
         gap: 30px;
     }
 
-    .geeks {
+
+}
+
+.geeks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 11px;
+    height: 37px;
+    background: vars.$footer-line;
+    width: 100%;
+
+    .geeksLogo {
+        max-width: 1440px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .geeksLink {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 7px 11px;
-        height: 37px;
-        background: vars.$footer-line;
-        width: 100%;
-
-        .geeksLogo {
-            max-width: 1440px;
-            text-align: center;
-            text-transform: uppercase;
-        }
-
-        .geeksLink {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
+        gap: 8px;
     }
 }

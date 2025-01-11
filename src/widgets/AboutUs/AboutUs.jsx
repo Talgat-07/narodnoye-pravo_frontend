@@ -1,53 +1,86 @@
 import { Typography } from 'shared/ui/Typography/Typography';
-import aboutUs from 'shared/assets/img/AboutUs.webp'
-import style from './AboutUs.module.scss'
+import styles from './AboutUs.module.scss'
 import { Link } from 'react-router-dom';
 import { path } from 'shared/constants/constants';
 import { Button } from 'shared/ui/Button/Button';
+import { useAboutUsStore } from 'shared/store/aboutUsStore';
+import { Container } from 'shared/ui/Container/Container';
 
 
 export function AboutUs() {
+    const { title1, text1, title2, text2, error, image } = useAboutUsStore()
+
+    if (error) return <div>Ошибка... {error}</div>
+
     return (
-        <div className={style.aboutUs}>
-            <Typography
-                className={style.title}
-                variant='h3'
-                weight='bold'>
-                О нас
-            </Typography>
-            <div className={style.main}>
-                <img className={style.image} src={aboutUs} alt='сотрудники компании' />
-                <div className={style.text}>
-                    <Typography
-                        variant='bodyL'
-                        weight='regular'
-                        lineHeight='lineBig'>
-                        <strong>Юридическая компания «Народное право»</strong> — компания, созданная в 2008 году.
-                        За время своего существования прошла успешный путь и в настоящее время
-                        занимает устойчивое положение на рынке юридических услуг.
-                    </Typography>
-                    <Typography
-                        variant='bodyL'
-                        weight='regular'
-                        lineHeight='lineBig'>
-                        <strong>Основная цель нашей компании </strong> — сделать юридические услуги доступными для всех.
-                        Для нас не бывает мелких вопросов и незначительных просьб. Мы понимаем, что каждый
-                        человек в процессе своей жизни может столкнуться с правовой проблемой, и готовы
-                        оказать необходимую юридическую помощь — проконсультировать, разъяснить, представить интересы.
-                    </Typography>
+        <Container>
+            <div className={styles.aboutUs}>
+                <Typography
+                    className={styles.title}
+                    variant='h3'
+                    weight='bold'>
+                    О нас
+                </Typography>
+                <div className={styles.main}>
+                    <div className={styles.back}></div>
+                    <div className={styles.imageWrap}>
+                        <img
+                            className={styles.image}
+                            src={image}
+                            alt='сотрудники компании'
+                        />
+                    </div>
+                    <div className={styles.text}>
+                        <div className={styles.textUp}>
+                            <Typography
+                                variant='bodyL'
+                                weight='semibold'
+                                lineHeight='lineBig'
+                                className={styles.titleUp}
+                            >
+                                {title1}
+                            </Typography>
+                            <Typography
+                                className={styles.titleDown}
+                                variant='bodyL'
+                                weight='regular'
+                                lineHeight='lineBig'
+                            >
+                                {text1}
+                            </Typography>
+                        </div>
+                        <div className={styles.textDown}>
+                            <Typography
+                                variant='bodyL'
+                                weight='semibold'
+                                lineHeight='lineBig'
+                                className={styles.titleUp}
+                            >
+                                {title2}
+                            </Typography>
+                            <Typography
+                                className={styles.titleDown}
+                                variant='bodyL'
+                                weight='regular'
+                                lineHeight='lineBig'
+                            >
+                                {text2}
+                            </Typography>
+                        </div>
+                    </div>
                 </div>
+                <Link to={path.about}>
+                    <Button
+                        className='linkBtn'
+                        variant='span'
+                        lineHeight='lineSemiTight'
+                        weight='semibold'
+                        color='blue'>
+                        Подробнее
+                    </Button>
+                </Link>
             </div>
-            <Link to={path.about}>
-                <Button
-                    className='linkBtn'
-                    variant='span'
-                    lineHeight='lineSemiTight'
-                    weight='semibold'
-                    color='azure'>
-                    Подробнее
-                </Button>
-            </Link>
-        </div>
+        </Container>
     );
 }
 
