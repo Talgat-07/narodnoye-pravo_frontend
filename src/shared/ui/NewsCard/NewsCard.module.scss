@@ -1,85 +1,206 @@
+@use 'shared/styles/variables' as vars;
+
 .largeContent {
     display: flex;
     justify-content: space-between;
-    margin: 60px auto;
+    margin-top: 60px;
+    margin-bottom: 60px;
     width: 1070px;
     height: 470px;
     border-radius: 4px;
-    box-shadow: 4px 10px 12px 0 rgba(0, 0, 0, 0.16);
+    box-shadow: 2px 6px 8px 4px rgba(0, 0, 0, 0.12);
+
+    @media (max-width:1100px) {
+        width: 728px;
+        height: 770px;
+        position: relative;
+        flex-direction: column;
+        justify-content: start;
+        margin-top: 60px;
+        margin-bottom: 0;
+    }
+
+    .imageLarge {
+        width: 520px;
+        height: 470px;
+        object-fit: cover;
+
+
+        @media (max-width:1100px) {
+            width: 728px;
+            height: 400px;
+        }
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        width: 520px;
+        height: 470px;
+
+        @media (max-width:1100px) {
+            width: 728px;
+            height: 286px;
+        }
+
+    }
+
+    .up {
+        border-bottom: 1px solid #000;
+        display: flex;
+        justify-content: space-between;
+        padding: 21px 38px;
+        margin-bottom: 25px;
+
+        @media (max-width:1100px) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 20px 40px 20px 20px;
+            width: 100%;
+            margin-bottom: 0;
+        }
+    }
+
+    .linkLarge {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        & svg {
+            transition: transform 0.3s ease;
+        }
+
+        &:hover {
+            color: vars.$primary-btn-hover;
+        }
+
+        &:hover svg path {
+            fill: vars.$primary-btn-hover;
+        }
+
+        &:hover svg {
+            transform: translateX(4px);
+        }
+    }
+
+    .downLarge {
+        display: flex;
+        flex-direction: column;
+        padding: 0 50px 0 20px;
+
+        @media (max-width:1100px) {
+            padding: 20px;
+        }
+    }
+
+    .descriptionLarge {
+        width: 450px;
+        height: 260px;
+        margin-top: 30px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        -webkit-line-clamp: 8;
+
+        @media (max-width:1100px) {
+            width: 688px;
+            height: 160px;
+            margin-top: 11px;
+            -webkit-line-clamp: 5;
+        }
+    }
+
 }
 
-.downLarge {
-    display: flex;
-    flex-direction: column;
-    padding: 0 50px 0 20px;
+.imageWrap {
+    @media (max-width:1100px) {
+        margin-top: 60px;
+    }
 }
 
 .smallContent {
     border-radius: 4px;
     width: 330px;
     height: 420px;
-    box-shadow: 4px 10px 12px 0 rgba(0, 0, 0, 0.16);
+    box-shadow: 2px 6px 8px 4px rgba(0, 0, 0, 0.12);
     margin: 10px 0 50px 0;
     box-sizing: border-box;
-}
 
-.descriptionLarge {
-    width: 450px;
-    height: 246px;
-    margin-top: 30px;
-}
+    @media (max-width:1100px) {
+        width: 354px;
+        height: 440px;
+        margin: 0;
+    }
 
-.title {
-    margin-bottom: 18px;
-    text-align: center;
-}
+    .smallUp {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 21px;
 
-.content {
-    display: flex;
-    flex-direction: column;
-    width: 520px;
-    height: 470px;
+        @media (max-width:1100px) {
+            padding: 15px 10px 17px 20px;
+        }
+    }
 
-}
+    .link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-right: 20px;
 
-.up {
-    border-bottom: 1px solid #000;
-    display: flex;
-    justify-content: space-between;
-    padding: 21px 20px;
-    margin-bottom: 25px;
-}
+        &:hover {
+            color: vars.$primary-btn-hover;
+        }
 
-.smallUp {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 21px;
-}
+        &:hover svg path {
+            fill: vars.$primary-btn-hover;
+        }
 
+        & svg {
+            transition: transform 0.3s ease;
+        }
 
+        &:hover svg {
+            transform: translateX(4px);
+        }
+    }
 
-.link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-right: 20px;
-}
+    .imageSmall {
+        width: 330px;
+        height: 190px;
+        object-fit: cover;
 
-.down {
-    padding-right: 45px;
-    padding-left: 20px;
-}
+        @media (max-width:1100px) {
+            width: 354px;
+            height: 170px;
+        }
 
-.linkLarge {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+    }
 
-.smallDown {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 15px 20px;
+    .smallDown {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px 20px;
+
+        @media (max-width:1100px) {
+            gap: 25px;
+        }
+    }
+
+    .smallTitle {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        -webkit-line-clamp: 2;
+    }
+
+    .smallDescription {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        -webkit-line-clamp: 3;
+    }
 }

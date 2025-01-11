@@ -1,0 +1,33 @@
+@use 'shared/styles/variables' as vars;
+
+.scrollToTopButton {
+    position: fixed;
+    width: 64px;
+    height: 64px;
+    right: 30px;
+    bottom: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    background-color: vars.$primary-color;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scrollToTopButton:hover {
+    background-color: vars.$primary-btn-hover;
+}
+
+.arrowTop {
+    width: 13px;
+    height: 13px;
+    border-top: 3px solid white;
+    border-right: 3px solid white;
+    margin-right: 0px;
+    border-radius: 0px;
+    transform: rotate(-45deg);
+    margin-top: 8px;
+}

@@ -1,5 +1,9 @@
 @use 'shared/styles/variables' as vars;
 
+.no-scroll {
+    overflow: hidden;
+}
+
 .container {
     background-color: white;
     margin: 0 auto;
@@ -13,10 +17,49 @@
     justify-content: space-between;
     align-items: center;
     height: 5.625rem;
-    width: 1440px;
     margin: 0 auto;
-    padding: 0 75px;
+    max-width: 1290px;
+
+    @media (max-width:1435px) {
+        gap: 15px;
+    }
+
+    @media (max-width:1340px) {
+        position: relative;
+    }
 }
+
+.nav {
+    max-width: 816px;
+    margin-left: 35px;
+
+    @media (max-width: 1340px) {
+        transform: translate(-50%, -100%);
+        opacity: 0;
+        position: fixed;
+        top: 90px;
+        left: 50%;
+        width: 100%;
+        max-width: 768px;
+        height: auto;
+        background-color: vars.$blueLight;
+        padding: 23px 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        margin-left: 0;
+    }
+
+    &.open {
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        opacity: 1;
+        transform: translate(-50%, 0);
+        pointer-events: all;
+    }
+}
+
 
 .logo {
     width: 6.125rem;
@@ -25,25 +68,137 @@
 .list {
     display: flex;
     gap: 3.125rem;
+
+    @media (max-width:1435px) {
+        gap: 40px;
+    }
+
+    @media (max-width:1340px) {
+        flex-direction: column;
+        gap: 11px;
+        align-self: baseline;
+        width: 100%;
+    }
 }
 
 .list>li {
-    border-bottom: 3px solid transparent;
+    border-bottom: 4px solid transparent;
     transition: border-color 0.5 ease;
 }
 
-.list>li:hover,
-.list>li:focus {
+@media (hover: hover) {
 
-    border-color: vars.$link-hover;
+    .list>li:hover,
+    .list>li:focus {
+        border-color: vars.$primary-color;
 
+        .typo>p {
+            color: vars.$primary-color;
+        }
+    }
 }
 
-.typo:hover>p {
-    color: vars.$link-hover;
+@media (max-width: 1340px) {
+    .list>li {
+        border-bottom: 1px solid vars.$primary-color;
+    }
+
+    @media (hover: none) {
+
+        .list>li:hover,
+        .list>li:focus {
+            border-color: vars.$primary-color;
+        }
+
+        .list>li:hover .typo>p,
+        .list>li:focus .typo>p {
+            color: black;
+        }
+    }
+}
+
+
+.rightWrap {
+    display: flex;
+    align-items: center;
+    gap: 37px;
 }
 
 .lang {
-    padding: 3px 8px;
+
+    @media (max-width:1340px) {
+        display: none;
+    }
+}
+
+.btnWrap {
+    display: none;
+    gap: 10px;
+    margin-bottom: 28px;
+
+    @media (hover: hover) {
+
+        .ruLang:hover span,
+        .kgLang:hover span {
+            color: vars.$primary-color;
+        }
+    }
+
+    @media (hover: none) {
+
+        .ruLang:hover span,
+        .kgLang:hover span {
+            color: inherit;
+        }
+    }
+
+
+
+    @media (max-width:1340px) {
+        display: flex;
+    }
+
+}
+
+.burgerBtn {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border: 1px solid vars.$primary-color;
     border-radius: 4px;
+    padding: 10px;
+    width: 54px;
+    height: 54px;
+    background-color: vars.$blueLight;
+    position: relative;
+
+    .spanLine {
+        width: 28px;
+        height: 4px;
+        background-color: vars.$primary-color;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    &.open {
+        .spanLine:first-child {
+            transform: rotate(45deg);
+            position: absolute;
+        }
+
+        .spanLine:nth-child(2) {
+            opacity: 0;
+        }
+
+        .spanLine:last-child {
+            transform: rotate(-45deg);
+            position: absolute;
+        }
+    }
+
+    @media (max-width: 1340px) {
+        display: flex;
+    }
+
 }

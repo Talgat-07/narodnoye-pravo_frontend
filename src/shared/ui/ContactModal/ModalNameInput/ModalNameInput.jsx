@@ -1,5 +1,5 @@
 import { Typography } from 'shared/ui/Typography/Typography'
-import style from './ModalNameInput.module.scss'
+import styles from './ModalNameInput.module.scss'
 import PropTypes from 'prop-types'
 
 export const ModalNameInput = ({ children, type, id, value, onChange, placeholder, }) => {
@@ -7,14 +7,14 @@ export const ModalNameInput = ({ children, type, id, value, onChange, placeholde
         <div>
             <label htmlFor={id}>
                 <Typography
-                    className={style.inputText}
+                    className={styles.inputText}
                     variant='bodyXL'
                     weight='semibold'>
                     {children}
                 </Typography>
             </label>
             <input
-                className={style.inputName}
+                className={styles.inputName}
                 type={type}
                 id={id}
                 name={id}

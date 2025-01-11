@@ -1,45 +1,75 @@
 @use 'shared/styles/variables' as vars;
 
-.seviceCard {
+
+.linkBtn {
+    border: 1px solid vars.$primary-color;
+    border-radius: 4px;
+    padding: 16px 32px;
+    width: 154px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: vars.$white;
+    transition: 0.5s;
+    cursor: pointer;
+
+    span {
+        transition: 0.5s;
+    }
+}
+
+
+
+.serviceCard {
     border-radius: 4px;
     width: 410px;
-    height: 320px;
+    height: 380px;
     display: flex;
-    flex-direction: column-reverse;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     transition: 0.5s;
+    box-shadow: 2px 6px 8px 4px rgba(0, 0, 0, 0.12);
+    background: #fff;
+    padding: 35px 42px;
+
+    &:hover {
+        background-color: vars.$cardHover;
+
+        .linkBtn {
+            background-color: vars.$btn-link-hover;
+            border: 1px solid vars.$secondary-color;
+            color: vars.$secondary-color;
+
+            span {
+                color: vars.$secondary-color;
+            }
+        }
+    }
+
+    @media (max-width: 890px) {
+        width: 354px;
+    }
+
+    @media (max-width: 768px) {
+        padding: 35px 35px;
+    }
 }
+
 
 .content {
     display: flex;
-    align-items: center;
     flex-direction: column;
-    background: vars.$opacity;
-    width: 410px;
-    height: 123px;
-    padding: 33px 64px 0 64px;
-    transition: 0.5s;
-    text-align: center;
+    justify-content: space-between;
+
+    .subtitle {
+        @media (max-width: 768px) {
+            color: black;
+        }
+
+    }
 }
 
-.title {
-    margin-top: 14px;
-}
-
-.description {
-    margin-top: 70px;
-    transition: 0.5s;
-}
-
-.seviceCard:hover .content {
-    height: 240px;
-    padding-top: 0px;
-    padding: 23px 64px;
-}
-
-.seviceCard:hover .description {
-    margin-top: 14px;
+.svg {
+    margin-bottom: 17px;
+    width: 70px;
+    height: 70px;
 }

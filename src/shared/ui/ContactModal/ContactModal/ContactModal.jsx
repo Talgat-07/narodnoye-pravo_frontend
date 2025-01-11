@@ -1,4 +1,4 @@
-import style from './ContactModal.module.scss';
+import styles from './ContactModal.module.scss';
 import { Typography } from 'shared/ui/Typography/Typography';
 import { Close } from 'shared/assets/icons/Close';
 import { useRef, useState, useEffect } from 'react';
@@ -12,6 +12,7 @@ import { ModalNameInput } from 'shared/ui/ContactModal/ModalNameInput/ModalNameI
 import { useClickOutside } from 'shared/lib/hooks/hooks';
 
 export const ContactModal = ({ isOpen, closeModal }) => {
+
     const modalRef = useRef(null)
 
     useClickOutside(modalRef, closeModal)
@@ -58,11 +59,11 @@ export const ContactModal = ({ isOpen, closeModal }) => {
 
 
     return (
-        <div className={style.overlay}>
-            <form className={style.modal}
+        <div className={styles.overlay}>
+            <form className={styles.modal}
                 ref={modalRef}
                 onSubmit={handleSubmit}>
-                <button className={style.close} onClick={handleCloseModal}>
+                <button className={styles.close} onClick={handleCloseModal}>
                     <Close />
                 </button>
                 <Typography variant="h3"
@@ -70,15 +71,15 @@ export const ContactModal = ({ isOpen, closeModal }) => {
                     color='lightBlue'>
                     Контактная форма
                 </Typography>
-                <div className={style.linkWrap}>
+                <div className={styles.linkWrap}>
                     <ModalNameInput
                         type='text'
                         id='name'
                         name='name'
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        placeholder='Имя'>
-                        Имя Фамилия*
+                        placeholder='Имя Фамилия'>
+                        Имя*
                     </ModalNameInput>
                     <SelectField
                         label="Интересующий вопрос*"

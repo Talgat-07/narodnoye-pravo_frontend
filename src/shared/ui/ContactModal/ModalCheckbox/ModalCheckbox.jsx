@@ -1,10 +1,10 @@
-import style from './ModalCheckbox.module.scss'
+import styles from './ModalCheckbox.module.scss'
 import PropTypes from 'prop-types'
 
 export const ModalCheckbox = ({ type, name, checked, onChange, children }) => {
     return (
         <div>
-            <label className={style.agree}>
+            <label className={styles.agree}>
                 <input
                     type={type}
                     name={name}

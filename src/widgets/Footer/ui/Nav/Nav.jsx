@@ -1,6 +1,5 @@
-import style from './Nav.module.scss'
+import styles from './Nav.module.scss'
 import { Link } from 'react-router-dom';
-import { Logo } from 'shared/assets/icons/Logo';
 import { path } from 'shared/constants/constants';
 import { Typography } from 'shared/ui/Typography/Typography';
 import { navLinks } from 'shared/constants/constants'
@@ -11,13 +10,13 @@ export const Nav = () => {
     const renderPath = navLinks.slice(1)
 
     return (
-        <div className={style.left}>
-            <Logo />
-            <ul className={style.footerUl}>
+        <div className={styles.left}>
+            <ul className={styles.footerUl}>
                 {lastPath && (
                     <Link to={path.home} key={path.home}>
                         <Typography
-                            variant='bodyXL'
+                            className={styles.title}
+                            variant='bodyL'
                             weight='bold'>
                             {lastPath.label}
                         </Typography>
@@ -25,10 +24,10 @@ export const Nav = () => {
                 )}
                 {
                     renderPath.map(el => (
-                        <li className={style.footerLi} key={el.path}>
-                            <Link to={el.path} className={style.leftLink}>
+                        <li className={styles.footerLi} key={el.path}>
+                            <Link to={el.path} className={styles.leftLink}>
                                 <Typography
-                                    variant="bodyM"
+                                    variant="bodyL"
                                     weight="regular">
                                     {el.label}
                                 </Typography>

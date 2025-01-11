@@ -1,50 +1,74 @@
 import { Arrow } from 'shared/assets/icons/Arrow';
 import { Typography } from 'shared/ui/Typography/Typography';
-import style from './Breadcrumbs.module.scss';
+import styles from './Breadcrumbs.module.scss';
 import { Link, useLocation } from 'react-router-dom';
-import PropTypes from 'prop-types'
 import { routesMap } from 'shared/constants/constants'
+import { useNewsStore } from 'shared/store/newsStore';
+import { useServicesStore } from 'shared/store/servicesStore';
+import { useEffect } from 'react';
 
-export const Breadcrumbs = ({ currentTitle }) => {
+export const Breadcrumbs = () => {
     const location = useLocation();
-    const pathnames = location.pathname.split('/').filter((x) => x);
 
+    const pathnames = location.pathname.split('/').filter(Boolean)
 
+    const { services, fetchServices } = useServicesStore()
+
+    const { news, fetchAllNews } = useNewsStore()
+    useEffect(() => {
+        fetchServices();
+        fetchAllNews();
+    }, [fetchServices, fetchAllNews])
+
+    if (location.pathname === '/') {
+        return null;
+    }
+
+    if (!pathnames.length) {
+        return null;
+    }
     return (
-        <nav className={style.breadcrumbs} aria-label="breadcrumb">
+        <nav className={styles.breadcrumbs} aria-label="breadcrumb">
             <Link to="/">
                 <Typography
-                    className={style.title}
+                    className={styles.title}
                     variant="bodyM"
-                    weight="regular">
+                    weight="regular"
+                >
                     Главная
                 </Typography>
             </Link>
+
             {pathnames.map((value, index) => {
                 const to = `/${pathnames.slice(0, index + 1).join('/')}`;
-                const isLast = index === pathnames.length - 1;
-                const displayName = routesMap[to] || value;
-
-                if (isLast && currentTitle) {
-                    return (
-                        <span key="current" className={style.right} aria-current="page">
-                            <Arrow />
-                            <Typography
-                                variant="bodyM"
-                                weight="regular">
-                                {currentTitle}
-                            </Typography>
-                        </span>
-                    );
+                let displayName = routesMap[to];
+                if (!displayName && !Number.isNaN(Number(value))) {
+                    if (pathnames.includes('services')) {
+                        const service = services.find(
+                            (item) => item.id === parseInt(value, 10)
+                        );
+                        if (service) {
+                            displayName = service.title;
+                        }
+                    }
+                    if (pathnames.includes('legislativeNews')) {
+                        const newsItem = news.find(
+                            (item) => item.id === parseInt(value, 10)
+                        );
+                        if (newsItem) {
+                            displayName = newsItem.title;
+                        }
+                    }
+                }
+                if (!displayName) {
+                    displayName = value;
                 }
 
                 return (
-                    <span key={to} className={style.right}>
+                    <span key={to} className={styles.right}>
                         <Arrow />
                         <Link to={to}>
-                            <Typography
-                                variant="bodyM"
-                                weight="regular">
+                            <Typography variant="bodyM" weight="regular">
                                 {displayName}
                             </Typography>
                         </Link>
@@ -55,6 +79,4 @@ export const Breadcrumbs = ({ currentTitle }) => {
     );
 };
 
-Breadcrumbs.propTypes = {
-    currentTitle: PropTypes.string
-}
+

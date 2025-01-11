@@ -1,14 +1,20 @@
 import { Location } from 'shared/assets/icons/Location';
-import style from './Map.module.scss'
+import styles from './Map.module.scss'
 import { Typography } from '../../../../shared/ui/Typography/Typography';
+import { useFooterStore } from 'shared/store/footerStore';
 
 
 export const Map = () => {
-    const googleMapsUrl = `https://maps.app.goo.gl/Rj2MmFEyRoTXYVdk6`;
+    const { address, error } = useFooterStore()
+
+    if (error) return <div>Ошибка: {error}</div>
+
+    const encodedAddress = encodeURIComponent(address);
+    const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
     return (
-        <div className={style.right}>
+        <div className={styles.right}>
             <Typography
-                variant='bodyXL'
+                variant='bodyL'
                 weight='bold'
                 color='black'>
                 АДРЕС
@@ -16,17 +22,16 @@ export const Map = () => {
             <a href={googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={style.addressWrap}>
+                className={styles.addressWrap}>
                 <Location />
                 <Typography
+                    className={styles.addressText}
                     variant="bodyM"
                     weight="regular"
                     lineHeight='lineModerate'
-                    color='black'>
-                    Кыргызская Республика,
-                    город Бишкек,<br />
-                    ул. Токтогула, 87,<br />
-                    4 этаж
+                    color='black'
+                >
+                    {address}
                 </Typography>
             </a>
         </div>
