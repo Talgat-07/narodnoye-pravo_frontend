@@ -3,7 +3,7 @@
 .wrap {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 28px;
 }
 
 .phoneLab {
@@ -17,6 +17,8 @@
     width: 630px;
     height: 46px;
     margin: -20px 0px 4px 0px;
+    display: flex;
+    align-items: center;
 }
 
 .phonePrefix {
@@ -44,11 +46,10 @@
     border: none;
     outline: none;
     flex: 1;
-    font-size: 14px;
-    padding: 4px 8px;
+    padding: 4px 0;
     cursor: pointer;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 16px;
     color: #505ea5;
 }
 

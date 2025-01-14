@@ -83,7 +83,8 @@ export const AboutPage = () => {
                         </Typography>
                         <Typography
                             variant='bodyL'
-                            weight='regular'>
+                            weight='regular'
+                            lineHeight='lineBig'>
                             Мы рады приветствовать вас на нашем сайте!
                         </Typography>
                     </div>

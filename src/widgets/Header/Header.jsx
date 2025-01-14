@@ -40,9 +40,15 @@ export const Header = () => {
         <Container>
             <div className={styles.container}>
                 <header className={styles.header}>
-                    <a href={path.home}>
-                        <HeaderLogo />
-                    </a>
+                    {location.pathname === path.home ? (
+                        <div className={styles.logo}>
+                            <HeaderLogo />
+                        </div>
+                    ) : (
+                        <Link to={path.home} className={styles.logo}>
+                            <HeaderLogo />
+                        </Link>
+                    )}
                     <nav
                         ref={navRef}
                         className={`${styles.nav} ${menuOpen ? styles.open : ""}`}
