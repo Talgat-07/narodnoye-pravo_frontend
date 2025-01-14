@@ -13,22 +13,24 @@ export const ServiceCard = ({ id, title, subtitle, img }) => {
         >
             <div className={styles.content}>
                 <img src={img} alt={title} className={styles.svg} />
-                <Typography
-                    className={styles.title}
-                    variant='bodyXXL'
-                    weight='semibold'
-                >
-                    {title}
-                </Typography>
-                <Typography
-                    className={styles.subtitle}
-                    variant='bodyXL'
-                    weight='regular'
-                    color='grey'
-                    lineHeight='lineLarge'
-                >
-                    {subtitle}...
-                </Typography>
+                <div className={styles.wrapText}>
+                    <Typography
+                        className={styles.title}
+                        variant='bodyXXL'
+                        weight='semibold'
+                    >
+                        {title}
+                    </Typography>
+                    <Typography
+                        className={styles.subtitle}
+                        variant='bodyXL'
+                        weight='regular'
+                        color='grey'
+                        lineHeight='lineLarge'
+                    >
+                        {subtitle}...
+                    </Typography>
+                </div>
                 <Button
                     className={styles.linkBtn}
                     variant='span'

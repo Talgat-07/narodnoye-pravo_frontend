@@ -1,6 +1,6 @@
 import { Location } from 'shared/assets/icons/Location';
 import styles from './Map.module.scss'
-import { Typography } from '../../../../shared/ui/Typography/Typography';
+import { Typography } from 'shared/ui/Typography/Typography';
 import { useFooterStore } from 'shared/store/footerStore';
 
 
@@ -34,6 +34,6 @@ export const Map = () => {
                     {address}
                 </Typography>
             </a>
-        </div>
+        </div >
     );
 };

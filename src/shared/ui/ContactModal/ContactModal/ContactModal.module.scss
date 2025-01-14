@@ -19,7 +19,7 @@
     border-radius: 4px;
     width: 1072px;
     height: 700px;
-    padding: 30px 23px;
+    padding: 32px 30px;
     position: relative;
     z-index: 1001;
 }
@@ -29,15 +29,15 @@
     background: transparent;
     border: none;
     align-self: flex-end;
-    margin-bottom: 2px;
+    margin-bottom: 25px;
     cursor: pointer;
 }
 
 .linkWrap {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    margin-top: 44px;
+    gap: 12px;
+    margin-top: 25px;
     align-items: center;
 }
 

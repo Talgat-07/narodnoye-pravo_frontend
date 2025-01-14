@@ -25,6 +25,8 @@
 }
 
 .addressText {
+    white-space: pre-wrap;
+
     @media (max-width:768px) {
         line-height: 1.9;
     }

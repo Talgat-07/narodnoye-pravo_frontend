@@ -34,14 +34,19 @@
     &:hover {
         background-color: vars.$cardHover;
 
-        .linkBtn {
-            background-color: vars.$btn-link-hover;
-            border: 1px solid vars.$secondary-color;
-            color: vars.$secondary-color;
+        .subtitle {
+            color: black;
+        }
 
-            span {
-                color: vars.$secondary-color;
-            }
+    }
+
+    .linkBtn:hover {
+        background-color: vars.$btn-link-hover;
+        border: 1px solid vars.$secondary-color;
+        color: vars.$secondary-color;
+
+        span {
+            color: vars.$secondary-color;
         }
     }
 
@@ -69,7 +74,14 @@
 }
 
 .svg {
-    margin-bottom: 17px;
     width: 70px;
     height: 70px;
+}
+
+.wrapText {
+    height: 143px;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    margin-top: -9px;
 }
