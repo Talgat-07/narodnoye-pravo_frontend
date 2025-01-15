@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styles from "./SmallNewsCard.module.scss";
 import { Typography } from "shared/ui/Typography/Typography";
 import { path } from "shared/constants/constants";
@@ -7,8 +7,14 @@ import { ArrowLink } from "shared/assets/icons/ArrowLink";
 
 
 export const SmallNewsCard = ({ title, description, image, date, id }) => {
+    const location = useLocation()
     return (
-        <Link to={`${path.legislativeNews}/${id}`}>
+        <Link
+            to={{
+                pathname: `${path.legislativeNews}/${id}`
+            }}
+            state={{ from: location.pathname }}
+        >
             <div className={styles.smallContent}>
                 <div className={styles.smallUp}>
                     <Typography

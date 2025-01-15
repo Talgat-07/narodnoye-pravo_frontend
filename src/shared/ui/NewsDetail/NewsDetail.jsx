@@ -4,14 +4,18 @@ import { useNewsStore } from 'shared/store/newsStore';
 import { Container } from 'shared/ui/Container/Container';
 import { Typography } from 'shared/ui/Typography/Typography';
 import styles from './NewsDetail.module.scss'
-import { Link } from 'react-router-dom';
 import { Button } from 'shared/ui/Button/Button';
-import { path } from 'shared/constants/constants';
 import { SmallNewsCard } from 'shared/ui/SmallNewsCard/SmallNewsCard';
 import { CircleLoader } from '../Loader/CircleLoader';
 
+import { useNavigate, useLocation } from 'react-router-dom';
+
+
 export const NewsDetail = () => {
-    const { id } = useParams()
+    const navigate = useNavigate();
+    const location = useLocation();
+    const { id } = useParams();
+
     const { news, isLoading, error, fetchAllNews } = useNewsStore()
 
     useEffect(() => {
@@ -34,6 +38,9 @@ export const NewsDetail = () => {
     const relatedNews = news
         .filter((item) => item.id !== currentNewsId)
         .slice(0, 8)
+
+
+    const from = location.state?.from || "/";
     return (
         <Container>
             <div className={styles.wrap}>
@@ -47,7 +54,7 @@ export const NewsDetail = () => {
                 <img
                     className={styles.img}
                     src={newsAll.image}
-                    alt={news.title} />
+                    alt={newsAll.title} />
                 <Typography
                     className={styles.text}
                     variant="bodyL"
@@ -56,20 +63,16 @@ export const NewsDetail = () => {
                 >
                     {newsAll.text}
                 </Typography>
-                <Link
-                    to={path.legislativeNews}
-                    className={styles.linkService}
+                <Button
+                    onClick={() => navigate(from)}
+                    className='newsBtn'
+                    variant='span'
+                    weight='semibold'
+                    lineHeight='lineSemiTight'
+                    color='white'
                 >
-                    <Button
-                        className='newsBtn'
-                        variant='span'
-                        weight='semibold'
-                        lineHeight='lineSemiTight'
-                        color='white'
-                    >
-                        Назад
-                    </Button>
-                </Link>
+                    Назад
+                </Button>
             </div>
             <div className={styles.down}>
                 <Typography

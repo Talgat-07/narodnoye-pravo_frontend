@@ -10,10 +10,7 @@ import { PrevBtn } from 'shared/assets/icons/PrevBtn';
 import { NextBtn } from 'shared/assets/icons/NextBtn';
 import { useSliderStore } from 'shared/store/sliderStore';
 
-
-
 export const Slider = () => {
-
     const { employees, error } = useSliderStore();
 
     const prevRef = useRef(null);
@@ -35,11 +32,17 @@ export const Slider = () => {
         }
     }, [employees]);
 
+    const handleCardClick = (index) => {
+        if (!swiperRef.current) return;
+        if (swiperRef.current.realIndex === index) {
+            return;
+        }
+        swiperRef.current.slideToLoop(index, 500);
+    };
 
     if (error) {
         return <div>Ошибка: {error}</div>
     }
-
 
     if (employees.length < 3) {
         return null;
@@ -59,9 +62,12 @@ export const Slider = () => {
                     swiperRef.current = swiper;
                 }}
             >
-                {employees.map((employee) => (
+                {employees.map((employee, index) => (
                     <SwiperSlide key={employee.id} className={styles.swiperSlide}>
-                        <div className={styles.card}>
+                        <div
+                            className={styles.card}
+                            onClick={() => handleCardClick(index)}
+                        >
                             <img
                                 src={employee.image}
                                 alt={`Слайд ${employee.id}`}

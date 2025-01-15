@@ -1,4 +1,3 @@
-
 import { Typography } from 'shared/ui//Typography/Typography'
 import styles from './SuccessWindow.module.scss'
 import { Button } from 'shared/ui/Button/Button'

@@ -6,6 +6,10 @@
     align-items: flex-start;
     gap: 150px;
 
+    @media (max-width:1380px) {
+        width: 142px;
+    }
+
     @media (max-width:768px) {
         margin-left: -210px;
     }
