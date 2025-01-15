@@ -5,7 +5,7 @@ import { Typography } from 'shared/ui/Typography/Typography';
 import { useFooterStore } from 'shared/store/footerStore';
 
 export const Address = () => {
-    const { phone_numbers, emails, error } = useFooterStore();
+    const { formatted_phone_number, emails, error } = useFooterStore();
 
     if (error) return <div>Ошибка: {error}</div>;
 
@@ -17,7 +17,7 @@ export const Address = () => {
                 color='black'>
                 КОНТАКТЫ
             </Typography>
-            {phone_numbers.map((contact, index) => (
+            {formatted_phone_number.map((contact, index) => (
                 <div
                     className={`${styles.contactItem} ${index === 1 ? styles.secondContactItem : ''
                         }`}
