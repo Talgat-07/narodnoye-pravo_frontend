@@ -29,6 +29,9 @@
 }
 
 .modalBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 4px;
     padding: 16px 32px;
     width: 153px;
@@ -44,6 +47,9 @@
 }
 
 .buttonSend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: "Open Sans", sans-serif;
     border-radius: 4px;
     padding: 13px 14px;
@@ -67,6 +73,9 @@
 }
 
 .buttonSendHero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 418px;
     height: 52px;
     font-family: "Open Sans", sans-serif;
@@ -84,14 +93,14 @@
 }
 
 .btnHero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 4px;
     padding: 16px 32px;
     height: 52px;
     background: vars.$primary-color;
     border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     align-self: self-end;
     transition: 0.3s;
     cursor: pointer;
@@ -102,6 +111,9 @@
 }
 
 .serviceBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 4px;
     padding: 16px 32px;
     width: 410px;
@@ -133,6 +145,9 @@
 }
 
 .newsBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 4px;
     padding: 16px 32px;
     width: 147px;
