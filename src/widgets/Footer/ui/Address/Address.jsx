@@ -25,13 +25,13 @@ export const Address = () => {
                 >
                     {contact.id === 1 && <Phone />}
                     <a
-                        href={`tel:${contact.phone_number.replace(/[\s()]/g, '')}`}
+                        href={`tel:${contact.formatted_phone_number.replace(/[\s()]/g, '')}`}
                         className={styles.contactLink}
                     >
                         <Typography
                             variant="bodyM"
                             weight="regular">
-                            {contact.phone_number}
+                            {contact.formatted_phone_number}
                         </Typography>
                     </a>
                 </div>
