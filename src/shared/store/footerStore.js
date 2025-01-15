@@ -2,7 +2,7 @@ import { Api } from "shared/api/Api";
 import { create } from "zustand";
 
 export const useFooterStore = create((set) => ({
-    phone_numbers: [],
+    formatted_phone_number: [],
     emails: [],
     address: '',
     isLoading: false,
@@ -13,7 +13,7 @@ export const useFooterStore = create((set) => ({
             const response = await Api.get(`footer/`)
             const footerData = response.data
             set({
-                phone_numbers: Array.isArray(footerData.phone_numbers) ? footerData.phone_numbers : [],
+                formatted_phone_number: Array.isArray(footerData.formatted_phone_number) ? footerData.formatted_phone_number : [],
                 emails: Array.isArray(footerData.emails) ? footerData.emails : [],
                 address: typeof footerData.address === 'string' ? footerData.address : '',
                 isLoading: false,
