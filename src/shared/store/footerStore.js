@@ -8,10 +8,10 @@ export const useFooterStore = create((set) => ({
     isLoading: false,
     error: null,
     fetchFooter: async () => {
-        set({ isLoading: true, error: null })
+        set({ isLoading: true, error: null });
         try {
-            const response = await Api.get(`footer/`)
-            const footerData = response.data
+            const response = await Api.get(`footer/`);
+            const footerData = response.data;
             set({
                 phone_numbers: Array.isArray(footerData.phone_numbers) ? footerData.phone_numbers : [],
                 emails: Array.isArray(footerData.emails) ? footerData.emails : [],
@@ -19,7 +19,7 @@ export const useFooterStore = create((set) => ({
                 isLoading: false,
             });
         } catch (error) {
-            set({ error: error.message, isLoading: false })
+            set({ error: error.message, isLoading: false });
         }
     }
 }));

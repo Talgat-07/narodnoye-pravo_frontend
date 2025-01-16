@@ -50,7 +50,7 @@ export const SmallNewsCard = ({ title, description, image, date, id }) => {
                     </Typography>
                     <Typography
                         className={styles.smallDescription}
-                        variant='bodyM'
+                        variant='bodyMl'
                         weight='regular'
                         lineHeight='lineCompact' >
                         {description}

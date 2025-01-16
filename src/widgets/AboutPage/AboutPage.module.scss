@@ -60,14 +60,18 @@
 .memberText3,
 .memberText4 {
     display: flex;
-    width: 595px;
+    width: 600px;
     flex-direction: column;
     justify-content: center;
     gap: 12px;
 }
 
 .memberText4 {
-    gap: 60px;
+    gap: 30px;
+}
+
+.memberText2 {
+    gap: 33px;
 }
 
 .titleSlider {
