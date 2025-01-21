@@ -26,7 +26,6 @@ export const Home = () => {
         fetchFooterIcons()
         fetchFooter()
     }, [fetchAboutUs, fetchServices, fetchAllNews, fetchFooterIcons, fetchFooter])
-
     const pageIsLoading = aboutLoading || servicesLoading || newsLoading || footerIconLoading || footerLoading
 
     if (pageIsLoading) {

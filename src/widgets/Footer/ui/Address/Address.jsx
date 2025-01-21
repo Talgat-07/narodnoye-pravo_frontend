@@ -3,9 +3,14 @@ import { Email } from 'shared/assets/icons/Email';
 import { Phone } from 'shared/assets/icons/Phone';
 import { Typography } from 'shared/ui/Typography/Typography';
 import { useFooterStore } from 'shared/store/footerStore';
+import { useEffect } from "react";
 
 export const Address = () => {
-    const { phone_numbers, emails, error } = useFooterStore();
+    const { phone_numbers, emails, error, fetchFooter } = useFooterStore()
+
+    useEffect(() => {
+        fetchFooter()
+    }, [fetchFooter])
 
     if (error) return <div>Ошибка: {error}</div>;
 

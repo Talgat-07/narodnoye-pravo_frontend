@@ -7,10 +7,13 @@ import { useFooterStore } from 'shared/store/footerStore';
 export const Map = () => {
     const { address, error } = useFooterStore()
 
+
     if (error) return <div>Ошибка: {error}</div>
 
     const encodedAddress = encodeURIComponent(address);
     const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+
+
     return (
         <div className={styles.right}>
             <Typography

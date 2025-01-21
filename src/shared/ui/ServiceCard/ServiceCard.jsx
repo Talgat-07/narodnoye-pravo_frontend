@@ -12,7 +12,9 @@ export const ServiceCard = ({ id, title, subtitle, img }) => {
             className={styles.serviceCard}
         >
             <div className={styles.content}>
-                <img src={img} alt={title} className={styles.svg} />
+                <div className={styles.imgWrap}>
+                    <img src={img} alt={title} className={styles.svg} />
+                </div>
                 <div className={styles.wrapText}>
                     <Typography
                         className={styles.title}

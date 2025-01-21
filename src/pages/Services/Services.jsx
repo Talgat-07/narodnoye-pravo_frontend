@@ -1,5 +1,5 @@
 import { Container } from "shared/ui/Container/Container";
-import { Service } from "widgets/Service/Service";
+import { ServicePage } from "widgets/ServicePage/ServicePage";
 import { useServicesStore } from 'shared/store/servicesStore';
 import { CircleLoader } from 'shared/ui/Loader/CircleLoader';
 import { useFooterIconStore } from "shared/store/footerIconStore";
@@ -23,9 +23,7 @@ export const Services = () => {
     }
     return (
         <Container>
-            <Service
-                withButton={false}
-                cardWrapClassName='cardWrapPage' />
+            <ServicePage />
         </Container>
     );
 };

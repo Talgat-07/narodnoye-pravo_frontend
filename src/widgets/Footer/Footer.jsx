@@ -7,6 +7,7 @@ import { Nav } from "./ui/Nav/Nav";
 import { Logo } from 'shared/assets/icons/Logo';
 import { useFooterIconStore } from "shared/store/footerIconStore";
 import { Container } from "shared/ui/Container/Container";
+import { useEffect } from "react";
 
 
 export const Footer = () => {
@@ -16,7 +17,7 @@ export const Footer = () => {
         facebookUrl, facebookImg, facebookImgHover,
         telegramUrl, telegramImg, telegramImgHover,
         youtubeUrl, youtubeImg, youtubeImgHover,
-        error
+        error, fetchFooterIcons
     } = useFooterIconStore();
 
 
@@ -24,8 +25,12 @@ export const Footer = () => {
         e.target.styles.display = 'none';
     }
 
-    if (error) return <div>Ошибка: {error}</div>
 
+    useEffect(() => {
+        fetchFooterIcons()
+    }, [fetchFooterIcons])
+
+    if (error) return <div>Ошибка: {error}</div>
 
     return (
         <Container noPadding>
