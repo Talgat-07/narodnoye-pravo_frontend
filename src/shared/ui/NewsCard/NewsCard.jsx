@@ -6,9 +6,13 @@ import PropTypes from 'prop-types'
 import { ArrowLink } from "shared/assets/icons/ArrowLink";
 
 
-export const NewsCard = ({ title, description, image, isLarge, date, id }) => {
+export const NewsCard = ({ title, description, image, isLarge, date, id, className }) => {
   return (
-    <div className={`${styles.newsCard} ${isLarge ? styles.large : styles.small}`}>
+    <div className={`
+    ${styles.newsCard} 
+    ${isLarge ? styles.large : styles.small}
+    ${className || ''} 
+  `}>
       {isLarge ? (
         <Link to={`${path.legislativeNews}/${id}`}>
           <div className={styles.largeContent}>
@@ -25,7 +29,7 @@ export const NewsCard = ({ title, description, image, isLarge, date, id }) => {
                   lineHeight='lineTight'
                   weight='regular'
                 >
-                  {date}
+                  {date} г.
                 </Typography>
                 <Typography
                   className={styles.linkLarge}
@@ -64,7 +68,7 @@ export const NewsCard = ({ title, description, image, isLarge, date, id }) => {
                 variant='bodyM'
                 lineHeight='lineSemiTight'
                 weight='regular'>
-                {date}
+                {date} г.
               </Typography>
               <Typography
                 className={styles.link}
@@ -113,4 +117,5 @@ NewsCard.propTypes = {
   isLarge: PropTypes.bool.isRequired,
   date: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
+  className: PropTypes.string,
 }

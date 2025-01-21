@@ -150,8 +150,32 @@
     justify-content: center;
     border-radius: 4px;
     padding: 16px 32px;
-    width: 147px;
+    width: 244px;
     height: 56px;
+    background-color: vars.$primary-color;
+    border: transparent;
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:hover {
+        background: vars.$primary-btn-hover;
+    }
+
+    &>span {
+        display: flex;
+        gap: 13px;
+        align-items: center;
+    }
+}
+
+.searchBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 4px 4px 0;
+    padding: 16px 32px;
+    width: 150px;
+    height: 54px;
     background-color: vars.$primary-color;
     border: transparent;
     transition: 0.3s;

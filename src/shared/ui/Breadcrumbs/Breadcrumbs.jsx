@@ -40,7 +40,7 @@ export const Breadcrumbs = () => {
             </Link>
 
             {pathnames.map((value, index) => {
-                const to = `/${pathnames.slice(0, index + 1).join('/')}`;
+                const to = `/${pathnames.slice(0, index + 1).join('/')}`
                 let displayName = routesMap[to];
                 if (!displayName && !Number.isNaN(Number(value))) {
                     if (pathnames.includes('services')) {
@@ -78,5 +78,3 @@ export const Breadcrumbs = () => {
         </nav>
     );
 };
-
-

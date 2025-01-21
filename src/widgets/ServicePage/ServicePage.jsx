@@ -1,17 +1,14 @@
-import styles from './Service.module.scss'
+import styles from './ServicePage.module.scss'
 import { Typography } from 'shared/ui/Typography/Typography';
 import { ServiceCard } from 'shared/ui/ServiceCard/ServiceCard';
-import { Link } from 'react-router-dom';
-import { path } from 'shared/constants/constants';
 import { Container } from 'shared/ui/Container/Container';
-import { Button } from 'shared/ui/Button/Button';
 import { useServicesStore } from 'shared/store/servicesStore';
 
-export const Service = () => {
+export const ServicePage = () => {
     const { services, error } = useServicesStore()
 
     if (error) return <div>Ошибка: {error}</div>
-    const servicesForManPage = services.slice(0, 6)
+
     return (
         <Container>
             <section className={styles.service}>
@@ -22,7 +19,7 @@ export const Service = () => {
                     Услуги
                 </Typography>
                 <div className={styles.cardWrap}>
-                    {servicesForManPage.map((service) => (
+                    {services.map((service) => (
                         <ServiceCard
                             key={service.id}
                             id={service.id}
@@ -33,16 +30,6 @@ export const Service = () => {
                         />
                     ))}
                 </div>
-                <Link to={path.services}>
-                    <Button
-                        className='linkBtn'
-                        variant='span'
-                        lineHeight='lineSemiTight'
-                        weight='semibold'
-                        color='blue'>
-                        Все услуги
-                    </Button>
-                </Link>
             </section>
         </Container>
     );

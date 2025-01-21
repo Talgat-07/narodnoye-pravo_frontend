@@ -1,4 +1,3 @@
-import { Container } from "shared/ui/Container/Container";
 import { NewsPage } from "widgets/NewsPage/NewsPage";
 import { useNewsStore } from 'shared/store/newsStore';
 import { CircleLoader } from 'shared/ui/Loader/CircleLoader';
@@ -25,8 +24,6 @@ export const LegislativeNews = () => {
     }
 
     return (
-        <Container>
-            <NewsPage />
-        </Container>
+        <NewsPage />
     );
 };
