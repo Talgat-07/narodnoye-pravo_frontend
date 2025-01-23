@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import { path } from 'shared/constants/constants';
 import { Typography } from 'shared/ui/Typography/Typography';
 import { navLinks } from 'shared/constants/constants'
+import { useTranslation } from "react-i18next";
 
 export const Nav = () => {
-
-    const lastPath = navLinks[0]
-    const renderPath = navLinks.slice(1)
+    const { t } = useTranslation()
+    const lastPath = navLinks(t)[0]
+    const renderPath = navLinks(t).slice(1);
 
     return (
         <div className={styles.left}>
@@ -16,7 +17,7 @@ export const Nav = () => {
                     <Link to={path.home} key={path.home}>
                         <Typography
                             className={styles.title}
-                            variant='bodyL'
+                            variant='bodyXLL'
                             weight='bold'>
                             {lastPath.label}
                         </Typography>

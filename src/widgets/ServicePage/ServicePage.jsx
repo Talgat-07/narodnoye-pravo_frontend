@@ -2,7 +2,7 @@ import styles from './ServicePage.module.scss'
 import { Typography } from 'shared/ui/Typography/Typography';
 import { ServiceCard } from 'shared/ui/ServiceCard/ServiceCard';
 import { Container } from 'shared/ui/Container/Container';
-import { useServicesStore } from 'shared/store/servicesStore';
+import { useServicesStore } from 'entities/store/servicesStore/servicesStore';
 
 export const ServicePage = () => {
     const { services, error } = useServicesStore()

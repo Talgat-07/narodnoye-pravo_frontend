@@ -1,5 +1,5 @@
 import { Container } from "shared/ui/Container/Container";
-import { SuccessWindow } from "shared/ui/SuccessWindow/SuccessWindow";
+import { SuccessWindow } from "widgets/SuccessWindow/SuccessWindow";
 
 
 export const BankVacancy = () => {

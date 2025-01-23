@@ -4,12 +4,12 @@
 .aboutPage {
     display: flex;
     flex-direction: column;
-    align-items: center;
     width: 100%;
 }
 
 .title {
     margin-bottom: 45px;
+    text-align: center;
 }
 
 .darkBackGround {
@@ -19,7 +19,7 @@
     position: absolute;
     z-index: -1;
     top: -34px;
-    right: -36px;
+    right: -25px;
 }
 
 .member1,
@@ -68,15 +68,20 @@
 
 .memberText4 {
     gap: 30px;
+    margin-left: 5px;
+    margin-top: 11px;
 }
 
 .memberText2 {
     gap: 33px;
+    margin-left: 5px;
+    margin-top: 11px;
 }
 
 .titleSlider {
     margin-top: 42px;
     margin-bottom: 71px;
+    text-align: center;
 }
 
 .memberText3 {

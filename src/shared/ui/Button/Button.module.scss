@@ -40,10 +40,12 @@
     border-color: transparent;
     transition: 0.3s;
     cursor: pointer;
+    margin-top: 4px;
 
     &:hover {
         background: vars.$primary-btn-hover;
     }
+
 }
 
 .buttonSend {
@@ -52,11 +54,11 @@
     justify-content: center;
     font-family: "Open Sans", sans-serif;
     border-radius: 4px;
-    padding: 13px 14px;
+    padding: 12px 10px;
     background: vars.$primary-color;
     border: none;
     transition: 0.3s;
-    margin-left: 40px;
+    margin-left: 35px;
     cursor: pointer;
 
     &:hover {

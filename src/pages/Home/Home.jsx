@@ -2,13 +2,13 @@ import { AboutUs } from "widgets/AboutUs/AboutUs";
 import { Hero } from "widgets/Hero/Hero";
 import { LegislativeNews } from "widgets/LegislativeNews/LegislativeNews";
 import { Service } from "widgets/Service/Service";
-import { useAboutUsStore } from 'shared/store/aboutUsStore';
-import { useServicesStore } from 'shared/store/servicesStore';
-import { useNewsStore } from 'shared/store/newsStore';
+import { useAboutUsStore } from 'entities/store/aboutUsStore/aboutUsStore';
+import { useServicesStore } from 'entities/store/servicesStore/servicesStore';
+import { useNewsStore } from 'entities/store/newsStore/newsStore';
 import { CircleLoader } from 'shared/ui/Loader/CircleLoader';
 import { useEffect } from "react";
-import { useFooterIconStore } from "shared/store/footerIconStore";
-import { useFooterStore } from "shared/store/footerStore";
+import { useFooterIconStore } from "entities/store/footerIconStore/footerIconStore";
+import { useFooterStore } from "entities/store/footerStore/footerStore";
 
 
 

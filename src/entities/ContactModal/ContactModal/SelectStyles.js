@@ -10,6 +10,7 @@ export const customStyles = (hasError) => ({
         height: '46px',
         boxShadow: 'none',
         cursor: 'pointer',
+        background: '#fbfdff',
         '&:hover': {
             backgroundColor: hasError ? '#ffe6e6' : '#f4f9ff',
         },
@@ -22,11 +23,12 @@ export const customStyles = (hasError) => ({
     indicatorsContainer: (base) => ({
         ...base,
         height: '46px',
+        paddingRight: '10px',
     }),
     placeholder: (base) => ({
         ...base,
         color: '#B0C3E0',
-        fontSize: '18px',
+        fontSize: '16px',
     }),
     option: (base) => ({
         ...base,
@@ -48,6 +50,17 @@ export const customStyles = (hasError) => ({
         fontWeight: 400,
         fontSize: '16px',
         lineHeight: '125%',
+    }),
+    indicatorSeparator: (base) => ({
+        ...base,
+        display: 'none',
+    }),
+    dropdownIndicator: (base) => ({
+        ...base,
+        color: '#b0c3e0',
+        '&:hover': {
+            color: '#b0c3e0',
+        },
     }),
 });
 

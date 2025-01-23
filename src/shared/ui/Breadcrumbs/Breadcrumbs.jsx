@@ -3,8 +3,8 @@ import { Typography } from 'shared/ui/Typography/Typography';
 import styles from './Breadcrumbs.module.scss';
 import { Link, useLocation } from 'react-router-dom';
 import { routesMap } from 'shared/constants/constants'
-import { useNewsStore } from 'shared/store/newsStore';
-import { useServicesStore } from 'shared/store/servicesStore';
+import { useNewsStore } from 'entities/store/newsStore/newsStore';
+import { useServicesStore } from 'entities/store/servicesStore/servicesStore';
 import { useEffect } from 'react';
 
 export const Breadcrumbs = () => {

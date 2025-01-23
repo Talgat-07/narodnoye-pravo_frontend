@@ -5,9 +5,9 @@ import { path } from 'shared/constants/constants';
 import { Container } from 'shared/ui/Container/Container';
 import { ServiceCard } from 'shared/ui/ServiceCard/ServiceCard';
 import { Button } from 'shared/ui/Button/Button';
-import { useServicesStore } from 'shared/store/servicesStore';
+import { useServicesStore } from 'entities/store/servicesStore/servicesStore';
 import { useEffect } from 'react';
-import { CircleLoader } from '../Loader/CircleLoader';
+import { CircleLoader } from '../../shared/ui/Loader/CircleLoader';
 
 export const ServiceDetail = () => {
     const { id } = useParams();

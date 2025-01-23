@@ -1,0 +1,212 @@
+@use 'shared/styles/variables' as vars;
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    border-radius: 4px;
+    width: 1072px;
+    height: 700px;
+    padding: 32px 30px;
+    position: relative;
+    z-index: 1001;
+}
+
+
+.close {
+    background: transparent;
+    border: none;
+    align-self: flex-end;
+    margin-bottom: 25px;
+    cursor: pointer;
+}
+
+.linkWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 25px;
+    align-items: center;
+}
+
+::placeholder {
+    font-weight: 400;
+    font-size: 18px;
+    color: #b0c3e0;
+}
+
+
+.errorText {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+
+
+
+////////name//////
+
+.nameWrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputText {
+    margin-bottom: 8px;
+}
+
+.inputName {
+    border: 1px solid vars.$input-color;
+    border-radius: 4px;
+    padding: 10px 15px;
+    width: 630px;
+    height: 46px;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 18px;
+    color: vars.$semiBlue;
+    background: #fbfdff;
+}
+
+.inputName:hover {
+    background-color: vars.$input-hover;
+}
+
+.inputName:focus {
+    outline: none;
+    border: 1px solid vars.$input-focus;
+}
+
+.inputName::placeholder {
+    font-weight: 400;
+    font-size: 16px;
+    color: vars.$placeholder;
+}
+
+
+
+///////////phone//////////
+
+.wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.phoneLab {
+    align-self: baseline;
+}
+
+.phoneInputWrapper {
+    border: 1px solid vars.$placeholder;
+    border-radius: 4px;
+    padding: 10px 15px;
+    width: 630px;
+    height: 46px;
+    margin: -20px 0px 4px 0px;
+    display: flex;
+    align-items: center;
+    background: #fbfdff;
+}
+
+.phonePrefix {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: vars.$semiBlue;
+    margin-right: 8px;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.phonePrefixText {
+    margin-right: 10px;
+}
+
+.line {
+    border: 1px solid vars.$placeholder;
+    width: 14px;
+    height: 0px;
+    transform: rotate(90deg);
+    margin-left: 6px;
+}
+
+.phoneInput {
+    border: none;
+    outline: none;
+    flex: 1;
+    padding: 4px 0;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 16px;
+    color: #505ea5;
+    background: #fbfdff;
+}
+
+.phoneInput::placeholder {
+    font-size: 16px;
+}
+
+.phoneInputWrapper:hover,
+.phoneInputWrapper:hover .phoneInput {
+    background-color: vars.$input-hover;
+}
+
+.errorTextPhone {
+    color: red;
+    font-size: 12px;
+    margin-top: -25px;
+}
+
+///////checked//////
+.inputChek::placeholder {
+    font-size: 16px;
+}
+
+.agree {
+    display: flex;
+    gap: 20px;
+    width: 630px;
+    height: 50px;
+    border-radius: 4px;
+    margin-top: 11px;
+    margin-bottom: 25px;
+    font-size: 16px;
+    line-height: 150%;
+    cursor: pointer;
+}
+
+.agreeInput {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+}
+
+/////////select/////
+.lab {
+    margin-bottom: 8px;
+}
+
+.inputTextQuestion {
+    margin-bottom: 5px;
+}
+
+.errorInput {
+    border: 1px solid red;
+}

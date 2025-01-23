@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-import { useNewsStore } from "shared/store/newsStore";
+import { useNewsStore } from "entities/store/newsStore/newsStore";
 import { Container } from "shared/ui/Container/Container";
 import { Typography } from "shared/ui/Typography/Typography";
 import styles from "./NewsDetail.module.scss";
 import { Button } from "shared/ui/Button/Button";
 import { path } from "shared/constants/constants";
 import { SmallNewsCard } from "shared/ui/SmallNewsCard/SmallNewsCard";
-import { CircleLoader } from "../Loader/CircleLoader";
+import { CircleLoader } from "../../shared/ui/Loader/CircleLoader";
 import { ArrowNewsButton } from "shared/assets/icons/ArrowNewsButton";
 
 export const NewsDetail = () => {

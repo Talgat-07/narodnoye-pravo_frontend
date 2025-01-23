@@ -1,10 +1,10 @@
 import { useEffect } from "react";
-import { useSliderStore } from "shared/store/sliderStore";
+import { useSliderStore } from "entities/store/sliderStore/sliderStore";
 import { Container } from "shared/ui/Container/Container";
 import { CircleLoader } from "shared/ui/Loader/CircleLoader";
 import { AboutPage } from "widgets/AboutPage/AboutPage";
-import { useFooterIconStore } from "shared/store/footerIconStore";
-import { useFooterStore } from "shared/store/footerStore";
+import { useFooterIconStore } from "entities/store/footerIconStore/footerIconStore";
+import { useFooterStore } from "entities/store/footerStore/footerStore";
 
 
 export const About = () => {

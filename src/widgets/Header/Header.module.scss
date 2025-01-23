@@ -1,23 +1,20 @@
 @use 'shared/styles/variables' as vars;
 
-.no-scroll {
-    overflow: hidden;
-}
-
-.container {
+.headerRoot {
     background-color: white;
-    margin: 0 auto;
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 5.625rem;
+    height: 90px;
     margin: 0 auto;
+    width: 100%;
     max-width: 1290px;
 
     @media (max-width:1435px) {
@@ -30,7 +27,7 @@
 }
 
 .nav {
-    max-width: 816px;
+    // max-width: 816px;
     margin-left: 35px;
 
     @media (max-width: 1345px) {
@@ -69,7 +66,11 @@
 
 .list {
     display: flex;
-    gap: 3.125rem;
+    gap: 50px;
+
+    &.listKg {
+        gap: 28px;
+    }
 
     @media (max-width:1435px) {
         gap: 40px;
@@ -80,6 +81,10 @@
         gap: 11px;
         align-self: baseline;
         width: 100%;
+
+        &.listKg {
+            gap: 11px;
+        }
     }
 }
 
@@ -209,4 +214,69 @@
         display: flex;
     }
 
+}
+
+
+
+.containerLanguage {
+    position: relative;
+    width: 59px;
+    font-family: sans-serif;
+    cursor: pointer;
+}
+
+.toggleButton {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 4px 10px 4px 4px;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 59px;
+    height: 30px;
+}
+
+.selectedText {
+    margin-right: 8px;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    margin-top: 4px;
+    overflow: hidden;
+}
+
+.dropdownItem {
+    padding: 8px;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+
+    &:hover {
+        background: #e1e1e1;
+    }
+}
+
+.dropdownItem:last-child {
+    border-bottom: none;
+}
+
+.arrow {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid black;
+    transition: transform 0.2s;
+}
+
+.arrow.open {
+    transform: rotate(180deg);
 }

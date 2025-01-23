@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { path } from 'shared/constants/constants';
 import { Container } from 'shared/ui/Container/Container';
 import { Button } from 'shared/ui/Button/Button';
-import { useServicesStore } from 'shared/store/servicesStore';
+import { useServicesStore } from 'entities/store/servicesStore/servicesStore';
 
 export const Service = () => {
     const { services, error } = useServicesStore()

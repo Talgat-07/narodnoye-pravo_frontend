@@ -17,7 +17,7 @@
 
     .up {
         display: flex;
-        gap: 143px;
+        gap: 148px;
 
         @media (max-width:1380px) {
             gap: 110px;
@@ -49,7 +49,7 @@
 
     .right {
         display: flex;
-        gap: 170px;
+        gap: 150px;
 
         @media (max-width:1380px) {
             gap: 110px;
@@ -72,8 +72,26 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 40px 0 28px;
-        gap: 30px;
+        margin: 37px 0 27px;
+        gap: 36px;
+
+        .iconWrap {
+            width: 40px;
+            height: 40px;
+
+            &>img {
+                width: 100%;
+            }
+        }
+
+        .instagrWrap {
+            width: 34px;
+            height: 34px;
+
+            &>img {
+                width: 100%;
+            }
+        }
     }
 
 
