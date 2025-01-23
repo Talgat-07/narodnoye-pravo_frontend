@@ -30,10 +30,7 @@ export const useContactModal = () => {
     const [isOpen, setIsOpen] = useState(false);
 
 
-    const openModal = () => {
-        console.log(1)
-        setIsOpen(true);
-    }
+    const openModal = () => setIsOpen(true)
     const closeModal = () => setIsOpen(false);
 
     return { isOpen, openModal, closeModal };

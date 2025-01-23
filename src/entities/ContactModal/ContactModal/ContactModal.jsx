@@ -174,7 +174,6 @@ export const ContactModal = ({ isOpen, closeModal }) => {
         closeModal();
     };
     if (!isOpen) {
-        console.log(2)
         return null;
     }
 
