@@ -7,10 +7,7 @@ import { Button } from 'shared/ui/Button/Button';
 
 export const ServiceCard = ({ id, title, subtitle, img }) => {
     return (
-        <Link
-            to={`${path.services}/${id}`}
-            className={styles.serviceCard}
-        >
+        <div className={styles.serviceCard}>
             <div className={styles.content}>
                 <div className={styles.imgWrap}>
                     <img src={img} alt={title} className={styles.svg} />
@@ -33,17 +30,19 @@ export const ServiceCard = ({ id, title, subtitle, img }) => {
                         {subtitle}...
                     </Typography>
                 </div>
-                <Button
-                    className={styles.linkBtn}
-                    variant='span'
-                    lineHeight='lineSemiTight'
-                    weight='semibold'
-                    color='blue'
-                >
-                    Подробнее
-                </Button>
+                <Link to={`${path.services}/${id}`} className={styles.linkWrapBtn}>
+                    <Button
+                        className={styles.linkBtn}
+                        variant='span'
+                        lineHeight='lineSemiTight'
+                        weight='semibold'
+                        color='blue'
+                    >
+                        Подробнее
+                    </Button>
+                </Link >
             </div>
-        </Link >
+        </div>
     );
 };
 

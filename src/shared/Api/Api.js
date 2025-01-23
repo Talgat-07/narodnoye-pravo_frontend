@@ -8,11 +8,10 @@ export const Api = axios.create({
 
 Api.interceptors.request.use(
     (config) => {
-        const language = JSON.parse(localStorage.getItem('language'))
-        if (language) {
-            config.headers["Accept-Language"] = language.code
+        const userLanguage = localStorage.getItem("i18nextLng");
+        if (userLanguage) {
+            config.headers["Accept-Language"] = userLanguage;
         }
-        return config
-    },
-    (err) => Promise.reject(err),
-)
+        return config;
+    }
+);

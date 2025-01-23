@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNewsStore } from 'shared/store/newsStore';
+import { useNewsStore } from 'entities/store/newsStore/newsStore';
 import { SmallNewsCard } from 'shared/ui/SmallNewsCard/SmallNewsCard';
 import { Typography } from 'shared/ui/Typography/Typography';
 import Pagination from '@mui/material/Pagination';
@@ -8,70 +8,60 @@ import Stack from '@mui/material/Stack';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import styles from './NewsPage.module.scss';
-import { SearchField } from 'shared/ui/SearchField/SearchField';
 import { Button } from 'shared/ui/Button/Button';
 import { Container } from 'shared/ui/Container/Container';
-import { useWindowWidth } from 'shared/lib/hooks/hooks';
-
+import { useMediaQuery } from '@mui/material';
+import { Close } from 'shared/assets/icons/Close';
+import { Search } from 'shared/assets/icons/Search';
 
 export const NewsPage = () => {
-    const { news, error, } = useNewsStore()
-
+    const { news, searchResults, error, searchNews, resetSearch } = useNewsStore()
+    const [searchQuery, setSearchQuery] = useState('')
     const [currentPage, setCurrentPage] = useState(1)
     const [activeButton, setActiveButton] = useState('kg')
-    const [searchQuery, setSearchQuery] = useState('')
 
-    const width = useWindowWidth()
-    const itemsPerPage = width <= 768 ? 10 : 12
+    const isMobile = useMediaQuery('(max-width:768px)')
+    const itemsPerPage = isMobile ? 10 : 12;
 
     const handleButtonClick = (buttonName) => {
-        setActiveButton(buttonName)
-        setCurrentPage(1)
-        setSearchQuery('')
-    }
+        setActiveButton(buttonName);
+        setCurrentPage(1);
+        resetSearch();
+    };
 
-    const handleSearchChange = (e) => {
-        setSearchQuery(e.target.value)
-        setCurrentPage(1)
-    }
+    const handleSearch = () => {
+        if (searchQuery.trim()) {
+            searchNews(searchQuery);
+            setCurrentPage(1);
+        }
+    };
 
     const handleClearSearch = () => {
         setSearchQuery('');
-    }
+        resetSearch();
+    };
 
-    const handleSearchClick = () => {
-        setCurrentPage(1)
-    }
+    const filteredNews = searchResults.length > 0
+        ? searchResults
+        : news.filter(item => {
+            if (activeButton === 'kg') {
+                return item.category === 'kg_news';
+            } else {
+                return item.category === 'foreign_news';
+            }
+        });
 
-
-    if (error) return <div>Ошибка: {error}</div>
-
-    let filteredNews = news.filter(item => {
-        if (activeButton === 'kg') {
-            return item.category === 'kg_news'
-        } else {
-            return item.category === 'foreign_news';
-        }
-    })
-
-    if (searchQuery) {
-        const lowerSearch = searchQuery.toLowerCase();
-        filteredNews = filteredNews.filter(item =>
-            item.title.toLowerCase().includes(lowerSearch) ||
-            item.text.toLowerCase().includes(lowerSearch)
-        );
-    }
-
-
-    const totalPages = Math.ceil(filteredNews.length / itemsPerPage)
-    const startIndex = (currentPage - 1) * itemsPerPage
-    const endIndex = startIndex + itemsPerPage
-    const currentNews = filteredNews.slice(startIndex, endIndex)
+    const totalPages = Math.ceil(filteredNews.length / itemsPerPage);
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const currentNews = filteredNews.slice(startIndex, endIndex);
 
     const handlePageChange = (event, page) => {
         setCurrentPage(page);
-        window.scrollTo({ top: 0, behavior: 'smooth' })
-    }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    if (error) return <div>Ошибка: {error}</div>;
 
     return (
         <Container>
@@ -86,31 +76,54 @@ export const NewsPage = () => {
                 <div className={styles.buttonWrap}>
                     <Button
                         onClick={() => handleButtonClick('kg')}
-                        variant='span'
-                        weight='semibold'
-                        lineHeight='lineCompact'
-                        color='blue'
+                        variant="span"
+                        weight="semibold"
+                        lineHeight="lineCompact"
+                        color="blue"
                         className={`${styles.kg} ${activeButton === 'kg' ? styles.active : ''}`}
                     >
                         Кыргызская Республика
                     </Button>
                     <Button
                         onClick={() => handleButtonClick('fcon')}
-                        variant='span'
-                        weight='semibold'
-                        lineHeight='lineCompact'
-                        color='blue'
+                        variant="span"
+                        weight="semibold"
+                        lineHeight="lineCompact"
+                        color="blue"
                         className={`${styles.fcon} ${activeButton === 'fcon' ? styles.active : ''}`}
                     >
                         Зарубежные страны
                     </Button>
                 </div>
-                <SearchField
-                    value={searchQuery}
-                    onChange={handleSearchChange}
-                    onClear={handleClearSearch}
-                    onSearch={handleSearchClick}
-                />
+                <div className={styles.searchContainer}>
+                    <Search />
+                    <input
+                        className={styles.searchInput}
+                        type="text"
+                        placeholder="Поиск"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                    {searchQuery && (
+                        <button
+                            className={styles.clearButton}
+                            onClick={handleClearSearch}
+                        >
+                            <Close />
+                        </button>
+                    )}
+                    <Button
+                        className="searchBtn"
+                        variant="span"
+                        lineHeight="lineCompact"
+                        weight="semibold"
+                        color="white"
+                        onClick={handleSearch}
+                    >
+                        Найти
+                    </Button>
+                </div>
+
                 <div className={styles.wrap}>
                     {currentNews.map((item) => (
                         <SmallNewsCard
