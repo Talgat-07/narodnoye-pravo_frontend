@@ -10,8 +10,6 @@ import { navLinks } from "shared/constants/constants";
 import { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
-
-
 export const Header = () => {
     const { t, i18n } = useTranslation()
     const { isOpen, openModal, closeModal } = useContactModal()

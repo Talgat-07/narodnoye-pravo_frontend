@@ -72,7 +72,8 @@
 }
 
 .inputName {
-    border: 1px solid vars.$input-color;
+    // border: 1px solid vars.$input-color;
+    border: 1px solid #8aa3d0;
     border-radius: 4px;
     padding: 10px 15px;
     width: 630px;
@@ -114,7 +115,8 @@
 }
 
 .phoneInputWrapper {
-    border: 1px solid vars.$placeholder;
+    // border: 1px solid vars.$placeholder;
+    border: 1px solid #8aa3d0;
     border-radius: 4px;
     padding: 10px 15px;
     width: 630px;
@@ -161,7 +163,9 @@
 
 .phoneInput::placeholder {
     font-size: 16px;
+    color: #505ea5;
 }
+
 
 .phoneInputWrapper:hover,
 .phoneInputWrapper:hover .phoneInput {
@@ -177,6 +181,7 @@
 ///////checked//////
 .inputChek::placeholder {
     font-size: 16px;
+    color: #8aa3d0;
 }
 
 .agree {

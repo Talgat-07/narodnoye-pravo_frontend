@@ -27,20 +27,19 @@ export const ContactModal = ({ isOpen, closeModal }) => {
     const [agreementError, setAgreementError] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
 
-    const { phone_numbers, emails, fetchFooter } = useFooterStore();
-
+    const { phone_numbers, emails } = useFooterStore();
 
     useEffect(() => {
         if (isOpen) {
-            fetchFooter()
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = '';
         }
+
         return () => {
             document.body.style.overflow = '';
         };
-    }, [isOpen, fetchFooter]);
+    }, [isOpen]);
 
     const validateName = (value) => {
         const regex = /^[A-Za-zА-Яа-яЁё]+([ '-][A-Za-zА-Яа-яЁё]+){0,2}$/;
@@ -158,7 +157,8 @@ export const ContactModal = ({ isOpen, closeModal }) => {
         setAgreementError(false);
     };
 
-    const handleCloseModal = () => {
+    const handleCloseModal = (e) => {
+        e.preventDefault();
         setName('');
         setNameError('');
         setQuestion('');
@@ -173,13 +173,16 @@ export const ContactModal = ({ isOpen, closeModal }) => {
         setShowSuccess(false);
         closeModal();
     };
-    if (!isOpen) return null;
+    if (!isOpen) {
+        console.log(2)
+        return null;
+    }
 
     return (
         <div className={styles.overlay}>
             {!showSuccess ? (
                 <form className={styles.modal} ref={modalRef} onSubmit={handleSubmit}>
-                    <button className={styles.close} onClick={handleCloseModal}>
+                    <button type="button" className={styles.close} onClick={handleCloseModal}>
                         <Close />
                     </button>
                     <Typography

@@ -10,7 +10,9 @@ export function useClickOutside(
             if (!mainRef.current) return;
             if (mainRef.current.contains(e.target)) return;
             if (ignoreRef?.current?.contains(e.target)) return;
-            handler(e);
+            if (typeof handler === 'function') {
+                handler(e);
+            }
         };
 
         document.addEventListener('mousedown', listener);
@@ -28,7 +30,10 @@ export const useContactModal = () => {
     const [isOpen, setIsOpen] = useState(false);
 
 
-    const openModal = () => setIsOpen(true);
+    const openModal = () => {
+        console.log(1)
+        setIsOpen(true);
+    }
     const closeModal = () => setIsOpen(false);
 
     return { isOpen, openModal, closeModal };
