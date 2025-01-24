@@ -11,6 +11,7 @@ import { customStyles } from 'entities/ContactModal/ContactModal/SelectStyles';
 import CreatableSelect from 'react-select/creatable';
 import { useFooterStore } from 'entities/store/footerStore/footerStore';
 import { SuccessWindow } from 'widgets/SuccessWindow/SuccessWindow';
+// import { sendContactForm } from 'entities/store/sendContactForm/sendContactForm';
 
 export const ContactModal = ({ isOpen, closeModal }) => {
     const modalRef = useRef(null);
@@ -95,7 +96,7 @@ export const ContactModal = ({ isOpen, closeModal }) => {
     };
 
 
-    const handlePhoneChange = (e) => {
+    const handlePhoneChange = async (e) => {
         const value = e.target.value;
         setDigits(value);
 
@@ -108,7 +109,7 @@ export const ContactModal = ({ isOpen, closeModal }) => {
 
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const nameValidationError = validateName(name);
@@ -131,6 +132,7 @@ export const ContactModal = ({ isOpen, closeModal }) => {
         if (nameValidationError || phoneValidationError || !question || !agreement) {
             return;
         }
+
         if (question === '1' || question === '2') {
             const whatsappUrl = phone_numbers[0]?.phone_number
                 ? `https://wa.me/${phone_numbers[0].phone_number.replace(/\D/g, '')}`
@@ -144,6 +146,14 @@ export const ContactModal = ({ isOpen, closeModal }) => {
                 window.location.href = `mailto:${emailAddress}`;
             }
         }
+        // const postData = {
+        //     name: name,
+        //     interesting_question: question,
+        //     phone: digits,
+        // };
+
+        // try {
+        //     await sendContactForm(postData)
 
         setShowSuccess(true);
 
@@ -155,7 +165,19 @@ export const ContactModal = ({ isOpen, closeModal }) => {
         setPhoneError('');
         setAgreement(false);
         setAgreementError(false);
-    };
+    }
+    //catch (error) {
+    //         console.error('Ошибка при отправке формы:', error);
+
+    //         if (error.name) {
+    //             setNameError(error.name[0]);
+    //         }
+
+    //         if (error.interesting_question) {
+    //             setQuestionError(true);
+    //         }
+    //     }
+    // }
 
     const handleCloseModal = (e) => {
         e.preventDefault();
