@@ -11,8 +11,8 @@ import styles from './NewsPage.module.scss';
 import { Button } from 'shared/ui/Button/Button';
 import { Container } from 'shared/ui/Container/Container';
 import { useMediaQuery } from '@mui/material';
-import { Close } from 'shared/assets/icons/Close';
-import { Search } from 'shared/assets/icons/Search';
+import { Search } from 'shared/ui/Search/Search';
+
 
 export const NewsPage = () => {
     const { news, searchResults, error, searchNews, resetSearch } = useNewsStore()
@@ -95,35 +95,12 @@ export const NewsPage = () => {
                         Зарубежные страны
                     </Button>
                 </div>
-                <div className={styles.searchContainer}>
-                    <Search />
-                    <input
-                        className={styles.searchInput}
-                        type="text"
-                        placeholder="Поиск"
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                    />
-                    {searchQuery && (
-                        <button
-                            className={styles.clearButton}
-                            onClick={handleClearSearch}
-                        >
-                            <Close />
-                        </button>
-                    )}
-                    <Button
-                        className="searchBtn"
-                        variant="span"
-                        lineHeight="lineCompact"
-                        weight="semibold"
-                        color="white"
-                        onClick={handleSearch}
-                    >
-                        Найти
-                    </Button>
-                </div>
-
+                <Search
+                    searchQuery={searchQuery}
+                    setSearchQuery={setSearchQuery}
+                    handleSearch={handleSearch}
+                    handleClearSearch={handleClearSearch}
+                />
                 <div className={styles.wrap}>
                     {currentNews.map((item) => (
                         <SmallNewsCard

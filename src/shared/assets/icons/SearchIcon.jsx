@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export const Search = (props) => {
+export const SearchIcon = (props) => {
     const { width = '24', height = '24', color = '#555555' } = props
 
     return (
@@ -16,7 +16,7 @@ export const Search = (props) => {
     );
 };
 
-Search.propTypes = {
+SearchIcon.propTypes = {
     width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     color: PropTypes.string,
