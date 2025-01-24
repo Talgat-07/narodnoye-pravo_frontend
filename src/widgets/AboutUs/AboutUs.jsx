@@ -3,7 +3,7 @@ import styles from './AboutUs.module.scss'
 import { Link } from 'react-router-dom';
 import { path } from 'shared/constants/constants';
 import { Button } from 'shared/ui/Button/Button';
-import { useAboutUsStore } from 'shared/store/aboutUsStore';
+import { useAboutUsStore } from 'entities/store/aboutUsStore/aboutUsStore';
 import { Container } from 'shared/ui/Container/Container';
 
 

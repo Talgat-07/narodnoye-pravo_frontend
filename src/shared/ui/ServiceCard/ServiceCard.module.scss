@@ -31,15 +31,6 @@
     background: #fff;
     padding: 35px 42px;
 
-    &:hover {
-        background-color: vars.$cardHover;
-
-        .subtitle {
-            color: black;
-        }
-
-    }
-
     .linkBtn:hover {
         background-color: vars.$btn-link-hover;
         border: 1px solid vars.$secondary-color;
@@ -60,6 +51,7 @@
 }
 
 
+
 .content {
     display: flex;
     flex-direction: column;
@@ -73,7 +65,7 @@
     }
 }
 
-.svg {
+.imgWrap {
     width: 70px;
     height: 70px;
 }
@@ -84,4 +76,8 @@
     flex-direction: column;
     gap: 11px;
     margin-top: -9px;
+}
+
+.linkWrapBtn {
+    width: 154px;
 }

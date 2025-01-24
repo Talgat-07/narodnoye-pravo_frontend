@@ -39,6 +39,7 @@ export const AboutPage = () => {
                 <div className={styles.member}>
                     <div className={styles.memberText2}>
                         <Typography
+                            className={styles.memberText2Abz1}
                             variant='bodyL'
                             weight='regular'
                             lineHeight='lineBig'>
@@ -48,7 +49,7 @@ export const AboutPage = () => {
                             variant='bodyL'
                             weight='regular'
                             lineHeight='lineBig'>
-                            Деятельность нашей компании основывается, в первую очередь, на принципе законности. Мы работаем только в соответствии с требованиями и нормами законодательства Кыргызской Республики, постоянно расширяя спектр оказываемых услуг.
+                            Деятельность нашей компании основывается, в первую очередь, на принципе законности. Мы работаем только в соответствии<br /> с требованиями и нормами законодательства Кыргызской Республики, постоянно расширяя спектр оказываемых услуг.
                         </Typography>
                     </div>
                     <img src={aboutPage2} alt="команда «Народное право»" />

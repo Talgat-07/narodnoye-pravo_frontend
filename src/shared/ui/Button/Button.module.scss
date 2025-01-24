@@ -40,10 +40,12 @@
     border-color: transparent;
     transition: 0.3s;
     cursor: pointer;
+    margin-top: 4px;
 
     &:hover {
         background: vars.$primary-btn-hover;
     }
+
 }
 
 .buttonSend {
@@ -52,11 +54,11 @@
     justify-content: center;
     font-family: "Open Sans", sans-serif;
     border-radius: 4px;
-    padding: 13px 14px;
+    padding: 12px 10px;
     background: vars.$primary-color;
     border: none;
     transition: 0.3s;
-    margin-left: 40px;
+    margin-left: 35px;
     cursor: pointer;
 
     &:hover {
@@ -150,8 +152,32 @@
     justify-content: center;
     border-radius: 4px;
     padding: 16px 32px;
-    width: 147px;
+    width: 244px;
     height: 56px;
+    background-color: vars.$primary-color;
+    border: transparent;
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:hover {
+        background: vars.$primary-btn-hover;
+    }
+
+    &>span {
+        display: flex;
+        gap: 13px;
+        align-items: center;
+    }
+}
+
+.searchBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 4px 4px 0;
+    padding: 16px 32px;
+    width: 150px;
+    height: 54px;
     background-color: vars.$primary-color;
     border: transparent;
     transition: 0.3s;

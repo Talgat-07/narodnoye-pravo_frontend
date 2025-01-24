@@ -2,17 +2,22 @@ import styles from './Address.module.scss';
 import { Email } from 'shared/assets/icons/Email';
 import { Phone } from 'shared/assets/icons/Phone';
 import { Typography } from 'shared/ui/Typography/Typography';
-import { useFooterStore } from 'shared/store/footerStore';
+import { useFooterStore } from 'entities/store/footerStore/footerStore';
+import { useEffect } from "react";
 
 export const Address = () => {
-    const { phone_numbers, emails, error } = useFooterStore();
+    const { phone_numbers, emails, error, fetchFooter } = useFooterStore()
+
+    useEffect(() => {
+        fetchFooter()
+    }, [fetchFooter])
 
     if (error) return <div>Ошибка: {error}</div>;
 
     return (
         <div className={styles.middle}>
             <Typography
-                variant='bodyL'
+                variant='bodyXLL'
                 weight='bold'
                 color='black'>
                 КОНТАКТЫ
@@ -29,7 +34,7 @@ export const Address = () => {
                         className={styles.contactLink}
                     >
                         <Typography
-                            variant="bodyM"
+                            variant="bodyL"
                             weight="regular">
                             {contact.formatted_phone_number}
                         </Typography>
@@ -45,7 +50,7 @@ export const Address = () => {
                         className={styles.contactLink}
                     >
                         <Typography
-                            variant="bodyM"
+                            variant="bodyL"
                             weight="regular">
                             {email.email}
                         </Typography>

@@ -5,15 +5,13 @@ import styles from "./Header.module.scss";
 import { useClickOutside, useContactModal } from "shared/lib/hooks/hooks";
 import { Button } from "shared/ui/Button/Button";
 import { HeaderLogo } from "shared/assets/icons/HeaderLogo";
-import { ContactModal } from "shared/ui/ContactModal/ContactModal/ContactModal";
+import { ContactModal } from 'entities/ContactModal/ContactModal/ContactModal';
 import { navLinks } from "shared/constants/constants";
-import LanguageDropdown from "shared/ui/LanguageDropdown/LanguageDropdown";
-import { Container } from "shared/ui/Container/Container";
 import { useState, useRef, useEffect } from "react";
-
-
+import { useTranslation } from "react-i18next";
 
 export const Header = () => {
+    const { t, i18n } = useTranslation()
     const { isOpen, openModal, closeModal } = useContactModal()
     const [menuOpen, setMenuOpen] = useState(false)
     const navRef = useRef(null)
@@ -34,77 +32,121 @@ export const Header = () => {
     const toggleMenu = () => {
         setMenuOpen(!menuOpen)
     }
-    const navLink = navLinks.slice(1)
+    const handleChangeLanguage = (lang) => {
+        i18n.changeLanguage(lang);
+    }
+    const navLink = navLinks(t).slice(1);
+
+    const [isOpenLanguage, setIsOpenLanguage] = useState(false);
+    const [selected, setSelected] = useState("Ru");
+    const containerRef = useRef(null);
+
+    useClickOutside(containerRef, () => {
+        setIsOpenLanguage(false);
+    });
+
+    const handleSelect = (langLabel) => {
+        setSelected(langLabel);
+        setIsOpenLanguage(false);
+
+        if (langLabel === "Ru") {
+            i18n.changeLanguage("ru");
+        } else if (langLabel === "Kg") {
+            i18n.changeLanguage("kg");
+        }
+    };
 
     return (
-        <Container>
-            <div className={styles.container}>
-                <header className={styles.header}>
-                    {location.pathname === path.home ? (
-                        <div className={styles.logo}>
-                            <HeaderLogo />
-                        </div>
-                    ) : (
-                        <Link to={path.home} className={styles.logo}>
-                            <HeaderLogo />
-                        </Link>
-                    )}
-                    <nav
-                        ref={navRef}
-                        className={`${styles.nav} ${menuOpen ? styles.open : ""}`}
-                    >
-                        <div className={styles.btnWrap}>
-                            <button className={styles.ruLang}>
-                                <Typography variant="span" weight="semibold">
-                                    Ru
-                                </Typography>
-                            </button>
-                            <button className={styles.kgLang}>
-                                <Typography variant="span" weight="semibold">
-                                    Kg
-                                </Typography>
-                            </button>
-                        </div>
-                        <ul className={styles.list}>
-                            {navLink.map((el) => (
-                                <li className={styles.li} key={el.path}>
-                                    <Link to={el.path} className={styles.typo}>
-                                        <Typography variant="bodyMl" lineHeight="lineBig">
-                                            {el.label}
-                                        </Typography>
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </nav>
-                    <div className={styles.rightWrap}>
-                        <Button
-                            onClick={openModal}
-                            className="buttonSend"
-                            variant="span"
-                            weight="semibold"
-                            color="white"
-                            lineHeight="lineTight"
-                        >
-                            Оставить заявку
-                        </Button>
-                        <div className={styles.lang}>
-                            <LanguageDropdown />
-                        </div>
-                        <button
-                            ref={burgerRef}
-                            className={`${styles.burgerBtn} ${menuOpen ? styles.open : ""}`}
-                            onClick={toggleMenu}
-                        >
-                            <span className={styles.spanLine}></span>
-                            <span className={styles.spanLine}></span>
-                            <span className={styles.spanLine}></span>
+        <div className={styles.headerRoot}>
+            <header className={styles.header}>
+                {location.pathname === path.home ? (
+                    <div className={styles.logo}>
+                        <HeaderLogo />
+                    </div>
+                ) : (
+                    <Link to={path.home} className={styles.logo}>
+                        <HeaderLogo />
+                    </Link>
+                )}
+                <nav
+                    ref={navRef}
+                    className={`${styles.nav} ${menuOpen ? styles.open : ""}`}
+                >
+                    <div className={styles.btnWrap}>
+                        <button className={styles.ruLang} onClick={() => handleChangeLanguage("ru")}>
+                            <Typography variant="span" weight="semibold">
+                                Ru
+                            </Typography>
+                        </button>
+                        <button className={styles.kgLang} onClick={() => handleChangeLanguage("kg")}>
+                            <Typography variant="span" weight="semibold">
+                                Kg
+                            </Typography>
                         </button>
                     </div>
-                    <ContactModal isOpen={isOpen} closeModal={closeModal} />
-                </header>
-            </div>
-        </Container>
+                    <ul
+                        className={`${styles.list} ${i18n.language === 'kg' ? styles.listKg : ''}`}
+                    >
+                        {navLink.map((el) => (
+                            <li className={styles.li} key={el.path}>
+                                <Link to={el.path} className={styles.typo}>
+                                    <Typography variant="bodyMl" lineHeight="lineBig">
+                                        {el.label}
+                                    </Typography>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
+                <div className={styles.rightWrap}>
+                    <Button
+                        onClick={openModal}
+                        className="buttonSend"
+                        variant="span"
+                        weight="semibold"
+                        color="white"
+                        lineHeight="lineTight"
+                    >
+                        Оставить заявку
+                    </Button>
+                    <div className={styles.lang}>
+                        <div className={styles.containerLanguage} ref={containerRef}>
+                            <div
+                                className={styles.toggleButton}
+                                onClick={() => setIsOpenLanguage((prev) => !prev)}
+                            >
+                                <span className={styles.selectedText}>{selected}</span>
+                                <div className={`${styles.arrow} ${isOpenLanguage ? styles.open : ''}`} />
+                            </div>
+
+                            {isOpenLanguage && (
+                                <div className={styles.dropdown}>
+                                    {['Ru', 'Kg'].map((lang, index) => (
+                                        <div
+                                            key={index}
+                                            className={styles.dropdownItem}
+                                            onClick={() => handleSelect(lang)}
+                                        >
+                                            {lang}
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                    <button
+                        ref={burgerRef}
+                        className={`${styles.burgerBtn} ${menuOpen ? styles.open : ""}`}
+                        onClick={toggleMenu}
+                    >
+                        <span className={styles.spanLine}></span>
+                        <span className={styles.spanLine}></span>
+                        <span className={styles.spanLine}></span>
+                    </button>
+                </div>
+                <ContactModal isOpen={isOpen} closeModal={closeModal} />
+            </header>
+        </div>
     );
 };
 

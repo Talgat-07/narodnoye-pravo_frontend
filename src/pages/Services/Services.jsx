@@ -1,9 +1,9 @@
 import { Container } from "shared/ui/Container/Container";
-import { Service } from "widgets/Service/Service";
-import { useServicesStore } from 'shared/store/servicesStore';
+import { ServicePage } from "widgets/ServicePage/ServicePage";
+import { useServicesStore } from 'entities/store/servicesStore/servicesStore';
 import { CircleLoader } from 'shared/ui/Loader/CircleLoader';
-import { useFooterIconStore } from "shared/store/footerIconStore";
-import { useFooterStore } from "shared/store/footerStore";
+import { useFooterIconStore } from "entities/store/footerIconStore/footerIconStore";
+import { useFooterStore } from "entities/store/footerStore/footerStore";
 import { useEffect } from "react";
 
 export const Services = () => {
@@ -23,9 +23,7 @@ export const Services = () => {
     }
     return (
         <Container>
-            <Service
-                withButton={false}
-                cardWrapClassName='cardWrapPage' />
+            <ServicePage />
         </Container>
     );
 };

@@ -1,9 +1,8 @@
-import { Container } from "shared/ui/Container/Container";
 import { NewsPage } from "widgets/NewsPage/NewsPage";
-import { useNewsStore } from 'shared/store/newsStore';
+import { useNewsStore } from 'entities/store/newsStore/newsStore';
 import { CircleLoader } from 'shared/ui/Loader/CircleLoader';
-import { useFooterIconStore } from "shared/store/footerIconStore";
-import { useFooterStore } from "shared/store/footerStore";
+import { useFooterIconStore } from "entities/store/footerIconStore/footerIconStore";
+import { useFooterStore } from "entities/store/footerStore/footerStore";
 import { useEffect } from "react";
 
 
@@ -25,8 +24,6 @@ export const LegislativeNews = () => {
     }
 
     return (
-        <Container>
-            <NewsPage />
-        </Container>
+        <NewsPage />
     );
 };

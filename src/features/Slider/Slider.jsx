@@ -8,7 +8,7 @@ import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import { PrevBtn } from 'shared/assets/icons/PrevBtn';
 import { NextBtn } from 'shared/assets/icons/NextBtn';
-import { useSliderStore } from 'shared/store/sliderStore';
+import { useSliderStore } from 'entities/store/sliderStore/sliderStore';
 
 export const Slider = () => {
     const { employees, error } = useSliderStore();
@@ -55,8 +55,6 @@ export const Slider = () => {
                 loop={true}
                 className={styles.swiperContainer}
                 slidesPerView={3}
-                slidesOffsetBefore={5}
-                slidesOffsetAfter={5}
                 centeredSlides={true}
                 onSwiper={(swiper) => {
                     swiperRef.current = swiper;

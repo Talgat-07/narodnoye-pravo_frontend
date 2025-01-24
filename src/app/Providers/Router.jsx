@@ -9,9 +9,9 @@ import { AnalyticAndPublications } from "pages/AnalytAndPublic/AnalytAndPublic";
 import { Education } from "pages/Education/Education";
 import { BankVacancy } from "pages/BankVacancy/BankVacancy";
 import { Contacts } from "pages/Contacts/Contacts";
-import { ServiceDetail } from "shared/ui/ServiceDetail/ServiceDetail";
+import { ServiceDetail } from "widgets/ServiceDetail/ServiceDetail";
 import { ScrollToTop } from "shared/ui/ScrollToTop/ScrollToTop";
-import { NewsDetail } from "shared/ui/NewsDetail/NewsDetail";
+import { NewsDetail } from "widgets/NewsDetail/NewsDetail";
 
 
 export const Router = createBrowserRouter(
