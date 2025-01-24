@@ -17,16 +17,16 @@ export const useNewsStore = create((set) => ({
         set({ selectedCategory: category });
     },
 
-    fetchAllNews: async () => {
-        set({ isLoading: true, error: null });
+  fetchAllNews: async () => {
+    set({ isLoading: true, error: null });
 
-        try {
-            let allResults = [];
-            let url = 'news/news/';
+    try {
+      let allResults = [];
+      let url = "news/news/";
 
-            while (url) {
-                const response = await Api.get(url);
-                const data = response.data;
+      while (url) {
+        const response = await Api.get(url);
+        const data = response.data;
 
                 allResults = [...allResults, ...data.results];
                 url = data.next;
