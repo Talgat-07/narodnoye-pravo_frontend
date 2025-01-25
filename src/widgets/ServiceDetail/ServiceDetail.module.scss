@@ -1,0 +1,47 @@
+.wrap {
+    display: flex;
+    flex-direction: column;
+    width: 1070px;
+    margin: 0 auto;
+}
+
+.title {
+    text-align: center;
+}
+
+.description {
+    margin-top: 40px;
+}
+
+.text {
+    margin-top: 15px;
+    margin-bottom: 61px;
+    text-align: justify;
+    white-space: pre-wrap;
+}
+
+.linkService {
+    margin: 0 auto;
+}
+
+.line {
+    padding: 6px 576px;
+    width: 1290px;
+    height: 45px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lineText {
+    text-align: center;
+}
+
+.relatedServices {
+    display: flex;
+    gap: 30px;
+    margin-top: 54px;
+    margin-bottom: 125px;
+}

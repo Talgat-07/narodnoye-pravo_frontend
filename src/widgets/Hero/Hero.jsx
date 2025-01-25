@@ -2,8 +2,8 @@ import { Typography } from 'shared/ui/Typography/Typography';
 import styles from './Hero.module.scss'
 import { Button } from 'shared/ui/Button/Button';
 import { useContactModal } from 'shared/lib/hooks/hooks';
-import { ContactModal } from 'shared/ui/ContactModal/ContactModal/ContactModal';
 import { Container } from 'shared/ui/Container/Container';
+import { ContactModal } from 'entities/ContactModal/ContactModal/ContactModal';
 
 export const Hero = () => {
     const { isOpen, openModal, closeModal } = useContactModal();

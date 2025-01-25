@@ -4,7 +4,7 @@ import { Typography } from 'shared/ui/Typography/Typography';
 import { Link } from "react-router-dom";
 import { path } from "shared/constants/constants";
 import { Button } from 'shared/ui/Button/Button';
-import { useNewsStore } from 'shared/store/newsStore';
+import { useNewsStore } from 'entities/store/newsStore/newsStore';
 import { Container } from 'shared/ui/Container/Container';
 
 

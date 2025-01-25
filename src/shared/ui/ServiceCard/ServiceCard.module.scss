@@ -31,17 +31,13 @@
     background: #fff;
     padding: 35px 42px;
 
-    &:hover {
-        background-color: vars.$cardHover;
+    .linkBtn:hover {
+        background-color: vars.$btn-link-hover;
+        border: 1px solid vars.$secondary-color;
+        color: vars.$secondary-color;
 
-        .linkBtn {
-            background-color: vars.$btn-link-hover;
-            border: 1px solid vars.$secondary-color;
+        span {
             color: vars.$secondary-color;
-
-            span {
-                color: vars.$secondary-color;
-            }
         }
     }
 
@@ -53,6 +49,7 @@
         padding: 35px 35px;
     }
 }
+
 
 
 .content {
@@ -68,8 +65,19 @@
     }
 }
 
-.svg {
-    margin-bottom: 17px;
+.imgWrap {
     width: 70px;
     height: 70px;
+}
+
+.wrapText {
+    height: 143px;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    margin-top: -9px;
+}
+
+.linkWrapBtn {
+    width: 154px;
 }

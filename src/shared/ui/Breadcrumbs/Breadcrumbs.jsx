@@ -3,8 +3,8 @@ import { Typography } from 'shared/ui/Typography/Typography';
 import styles from './Breadcrumbs.module.scss';
 import { Link, useLocation } from 'react-router-dom';
 import { routesMap } from 'shared/constants/constants'
-import { useNewsStore } from 'shared/store/newsStore';
-import { useServicesStore } from 'shared/store/servicesStore';
+import { useNewsStore } from 'entities/store/newsStore/newsStore';
+import { useServicesStore } from 'entities/store/servicesStore/servicesStore';
 import { useEffect } from 'react';
 
 export const Breadcrumbs = () => {
@@ -40,7 +40,7 @@ export const Breadcrumbs = () => {
             </Link>
 
             {pathnames.map((value, index) => {
-                const to = `/${pathnames.slice(0, index + 1).join('/')}`;
+                const to = `/${pathnames.slice(0, index + 1).join('/')}`
                 let displayName = routesMap[to];
                 if (!displayName && !Number.isNaN(Number(value))) {
                     if (pathnames.includes('services')) {
@@ -78,5 +78,3 @@ export const Breadcrumbs = () => {
         </nav>
     );
 };
-
-

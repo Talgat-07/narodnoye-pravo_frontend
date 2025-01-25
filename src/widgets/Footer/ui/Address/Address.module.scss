@@ -29,8 +29,9 @@
     }
 }
 
-.secondContactItem {
+.middle .contactItem.secondContactItem {
     margin-left: 34px;
+    display: flex;
 }
 
 .contactLink:hover>p {

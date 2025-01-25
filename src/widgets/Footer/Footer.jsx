@@ -5,8 +5,9 @@ import { Map } from "widgets/Footer/ui/Map/Map";
 import { Address } from "./ui/Address/Address";
 import { Nav } from "./ui/Nav/Nav";
 import { Logo } from 'shared/assets/icons/Logo';
-import { useFooterIconStore } from "shared/store/footerIconStore";
+import { useFooterIconStore } from "entities/store/footerIconStore/footerIconStore";
 import { Container } from "shared/ui/Container/Container";
+import { useEffect } from "react";
 
 
 export const Footer = () => {
@@ -16,7 +17,7 @@ export const Footer = () => {
         facebookUrl, facebookImg, facebookImgHover,
         telegramUrl, telegramImg, telegramImgHover,
         youtubeUrl, youtubeImg, youtubeImgHover,
-        error
+        error, fetchFooterIcons
     } = useFooterIconStore();
 
 
@@ -24,8 +25,12 @@ export const Footer = () => {
         e.target.styles.display = 'none';
     }
 
-    if (error) return <div>Ошибка: {error}</div>
 
+    useEffect(() => {
+        fetchFooterIcons()
+    }, [fetchFooterIcons])
+
+    if (error) return <div>Ошибка: {error}</div>
 
     return (
         <Container noPadding>
@@ -50,11 +55,13 @@ export const Footer = () => {
                                 onMouseLeave={(e) => {
                                     e.currentTarget.querySelector('img').src = whatsappImg;
                                 }}>
-                                <img
-                                    src={whatsappImg}
-                                    alt="WhatsApp"
-                                    onError={handleImageError}
-                                />
+                                <div className={styles.iconWrap}>
+                                    <img
+                                        src={whatsappImg}
+                                        alt="WhatsApp"
+                                        onError={handleImageError}
+                                    />
+                                </div>
                             </a>
                         )}
                         {instagramUrl && instagramImg && (
@@ -65,11 +72,13 @@ export const Footer = () => {
                                 onMouseLeave={(e) => {
                                     e.currentTarget.querySelector('img').src = instagramImg;
                                 }}>
-                                <img
-                                    src={instagramImg}
-                                    alt="Instagram"
-                                    onError={handleImageError}
-                                />
+                                <div className={styles.instagrWrap}>
+                                    <img
+                                        src={instagramImg}
+                                        alt="Instagram"
+                                        onError={handleImageError}
+                                    />
+                                </div>
                             </a>
                         )}
                         {facebookUrl && facebookImg && (
@@ -80,11 +89,13 @@ export const Footer = () => {
                                 onMouseLeave={(e) => {
                                     e.currentTarget.querySelector('img').src = facebookImg;
                                 }}>
-                                <img
-                                    src={facebookImg}
-                                    alt="Facebook"
-                                    onError={handleImageError}
-                                />
+                                <div className={styles.instagrWrap}>
+                                    <img
+                                        src={facebookImg}
+                                        alt="Facebook"
+                                        onError={handleImageError}
+                                    />
+                                </div>
                             </a>
                         )}
                         {telegramUrl && telegramImg && (
@@ -95,11 +106,13 @@ export const Footer = () => {
                                 onMouseLeave={(e) => {
                                     e.currentTarget.querySelector('img').src = telegramImg;
                                 }}>
-                                <img
-                                    src={telegramImg}
-                                    alt="Telegram"
-                                    onError={handleImageError}
-                                />
+                                <div className={styles.instagrWrap}>
+                                    <img
+                                        src={telegramImg}
+                                        alt="Telegram"
+                                        onError={handleImageError}
+                                    />
+                                </div>
                             </a>
                         )}
                         {youtubeUrl && youtubeImg && (
@@ -110,11 +123,13 @@ export const Footer = () => {
                                 onMouseLeave={(e) => {
                                     e.currentTarget.querySelector('img').src = youtubeImg;
                                 }}>
-                                <img
-                                    src={youtubeImg}
-                                    alt="YouTube"
-                                    onError={handleImageError}
-                                />
+                                <div className={styles.iconWrap}>
+                                    <img
+                                        src={youtubeImg}
+                                        alt="YouTube"
+                                        onError={handleImageError}
+                                    />
+                                </div>
                             </a>
                         )}
                     </div >

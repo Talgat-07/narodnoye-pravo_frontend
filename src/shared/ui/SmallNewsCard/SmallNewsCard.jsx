@@ -1,28 +1,35 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styles from "./SmallNewsCard.module.scss";
 import { Typography } from "shared/ui/Typography/Typography";
 import { path } from "shared/constants/constants";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 import { ArrowLink } from "shared/assets/icons/ArrowLink";
 
-
 export const SmallNewsCard = ({ title, description, image, date, id }) => {
+    const location = useLocation();
     return (
-        <Link to={`${path.legislativeNews}/${id}`}>
+        <Link
+            to={{
+                pathname: `${path.legislativeNews}/${id}`
+            }}
+            state={{ from: location.pathname }}
+        >
             <div className={styles.smallContent}>
                 <div className={styles.smallUp}>
                     <Typography
-                        variant='bodyM'
-                        lineHeight='lineSemiTight'
-                        weight='regular'>
-                        {date}
+                        variant="bodyM"
+                        lineHeight="lineSemiTight"
+                        weight="regular"
+                    >
+                        {date} г.
                     </Typography>
                     <Typography
                         className={styles.link}
-                        variant='bodyM'
-                        weight='semibold'
-                        lineHeight='lineSemiTight'
-                        color='blue'>
+                        variant="bodyM"
+                        weight="semibold"
+                        lineHeight="lineSemiTight"
+                        color="blue"
+                    >
                         Подробнее
                         <ArrowLink />
                     </Typography>
@@ -31,22 +38,24 @@ export const SmallNewsCard = ({ title, description, image, date, id }) => {
                     <img
                         src={image}
                         alt={title}
-                        className={styles.imageSmall} />
+                        className={styles.imageSmall}
+                    />
                 </div>
                 <div className={styles.smallDown}>
                     <Typography
-                        variant='bodyL'
-                        weight='semibold'
-                        lineHeight='lineFixed'
+                        variant="bodyL"
+                        weight="semibold"
+                        lineHeight="lineFixed"
                         className={styles.smallTitle}
                     >
                         {title}
                     </Typography>
                     <Typography
                         className={styles.smallDescription}
-                        variant='bodyM'
-                        weight='regular'
-                        lineHeight='lineCompact' >
+                        variant="bodyM"
+                        weight="regular"
+                        lineHeight="lineCompact"
+                    >
                         {description}
                     </Typography>
                 </div>
@@ -61,4 +70,4 @@ SmallNewsCard.propTypes = {
     image: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
-}
+};

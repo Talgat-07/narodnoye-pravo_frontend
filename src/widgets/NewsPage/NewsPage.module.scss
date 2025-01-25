@@ -1,3 +1,5 @@
+@use 'shared/styles/variables' as vars;
+
 .aboutNews {
     display: flex;
     flex-direction: column;
@@ -5,12 +7,93 @@
     width: 100%;
 }
 
+.title {
+    @media (max-width: 1345px) {
+        margin-top: 40px;
+    }
+}
+
+.buttonWrap {
+    display: flex;
+    width: 100%;
+    max-width: 944px;
+    height: 54px;
+    margin-bottom: 50px;
+
+    .kg,
+    .fcon {
+        border-radius: 4px 0 0 4px;
+        padding: 16px 32px;
+        width: 472px;
+        height: 54px;
+        border: 1px solid vars.$primary-color;
+        background: #fff;
+        transition: 0.3s;
+        cursor: pointer;
+
+        &:hover {
+            background-color: vars.$btn-link-hover;
+            border: 1px solid vars.$secondary-color;
+            color: vars.$secondary-color;
+        }
+
+        &:hover span {
+            color: vars.$secondary-color;
+        }
+    }
+
+    .fcon {
+        border-radius: 0 4px 4px 0;
+
+        &:hover {
+            background-color: vars.$btn-link-hover;
+            border: 1px solid vars.$secondary-color;
+            color: vars.$secondary-color;
+        }
+
+        &:hover span {
+            color: vars.$secondary-color;
+        }
+    }
+
+    .active {
+        background: vars.$primary-color;
+
+        &>span {
+            color: white;
+        }
+
+        &:hover {
+            background: vars.$primary-btn-hover;
+
+            &>span {
+                color: white;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        max-width: 628px;
+    }
+}
+
+
+
 .wrap {
-    width: 1290px;
+    max-width: 1290px;
     display: flex;
     gap: 30px;
     flex-wrap: wrap;
     margin: 0 auto;
+    justify-content: center;
+
+    @media (max-width: 1120px) {
+        gap: 20px;
+    }
+
+    @media (max-width: 775px) {
+        gap: 15px;
+    }
 }
 
 .title {
@@ -19,6 +102,7 @@
 
 .paginationContainer {
     margin-bottom: 105px;
+    margin-top: 48px;
 
     :global {
         .MuiPaginationItem-root {
