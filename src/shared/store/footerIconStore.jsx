@@ -1,4 +1,4 @@
-import { Api } from "shared/api/Api";
+import { Api } from "shared/Api/Api";
 import { create } from "zustand";
 
 const isValidUrl = (url) => {
