@@ -1,18 +1,19 @@
-
-
 export const customStyles = (hasError) => ({
-    control: (base) => ({
+    control: (base, state) => ({
         ...base,
-        border: hasError ? '1px solid red' : '1px solid #b0c3e0',
+        border: hasError
+            ? '1px solid red'
+            : state.isFocused
+                ? '1px solid #505EA5'
+                : '1px solid #b0c3e0',
         borderRadius: '4px',
-        padding: '0px 0px',
         width: '630px',
         height: '46px',
         boxShadow: 'none',
         cursor: 'pointer',
         background: '#fbfdff',
         '&:hover': {
-            backgroundColor: hasError ? '#ffe6e6' : '#f4f9ff',
+            border: '1px solid #505EA5',
         },
     }),
     valueContainer: (base) => ({
@@ -30,18 +31,18 @@ export const customStyles = (hasError) => ({
         color: '#B0C3E0',
         fontSize: '16px',
     }),
-    option: (base) => ({
+    option: (base, state) => ({
         ...base,
         fontFamily: 'var(--font-family)',
         fontWeight: 400,
         fontSize: '16px',
         lineHeight: '125%',
-        color: '#365180',
-        backgroundColor: '#fff',
-        '&:hover': {
-            backgroundColor: '#7490f5',
-            color: '#fff',
-        },
+        color: state.isFocused ? '#fff' : '#365180',
+        backgroundColor: state.isFocused ? '#7490f5' : '#fff',
+        // При фокусе/ховере на option
+        // добавляем обводку:
+        border: state.isFocused ? '1px solid #505EA5' : 'none',
+        cursor: 'pointer',
     }),
     singleValue: (base) => ({
         ...base,
@@ -55,16 +56,17 @@ export const customStyles = (hasError) => ({
         ...base,
         display: 'none',
     }),
-    dropdownIndicator: (base) => ({
+    dropdownIndicator: (base, state) => ({
         ...base,
         color: '#b0c3e0',
         '&:hover': {
             color: '#b0c3e0',
         },
+        ...(state.isFocused && {
+            color: '#505EA5',
+        }),
     }),
 });
-
-
 export const options = [
     { value: '1', label: 'Запись на онлайн-консультацию', shortLabel: 'онлайн-консультацию' },
     { value: '2', label: 'Запись на очную консультацию', shortLabel: 'очную консультацию' },
