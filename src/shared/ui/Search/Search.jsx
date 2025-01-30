@@ -5,6 +5,22 @@ import styles from './Search.module.scss';
 import { Button } from 'shared/ui/Button/Button';
 
 export const Search = ({ searchQuery, setSearchQuery, handleSearch, handleClearSearch }) => {
+
+    const onKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault()
+            handleSearch()
+        }
+    }
+
+    const onChange = (e) => {
+        const { value } = e.target
+        setSearchQuery(value)
+        if (!value.trim()) {
+            handleClearSearch()
+        }
+    };
+
     return (
         <div className={styles.searchContainer}>
             <SearchIcon />
@@ -13,7 +29,8 @@ export const Search = ({ searchQuery, setSearchQuery, handleSearch, handleClearS
                 type="text"
                 placeholder="Поиск"
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={onChange}
+                onKeyDown={onKeyDown}
             />
             {searchQuery && (
                 <button

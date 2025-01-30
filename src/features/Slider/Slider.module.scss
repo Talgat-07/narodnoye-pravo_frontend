@@ -177,6 +177,11 @@
     box-sizing: border-box;
     position: relative;
     margin-bottom: 24px;
+
+    // @media (max-width: 1400px) {
+    //     width: 930px;
+    //     height: 678px;
+    // }
 }
 
 .swiperContainer {
@@ -184,6 +189,10 @@
     height: 682px;
     display: flex;
     align-items: center;
+
+    @media (max-width: 1400px) {
+        height: 582px;
+    }
 }
 
 .swiperSlide {
@@ -205,12 +214,22 @@
     box-shadow: 2px 6px 8px 4px rgba(0, 0, 0, 0.12);
     position: absolute;
     z-index: 1;
+
+    @media (max-width: 1400px) {
+        width: 260px;
+        height: 418px;
+    }
 }
 
 .swiperSlide .card img {
     width: 308px;
     height: 320px;
     object-fit: cover;
+
+    @media (max-width: 1400px) {
+        width: 208px;
+        height: 220px;
+    }
 }
 
 .wrapText {
@@ -234,6 +253,11 @@
             text-align: center;
         }
     }
+
+    @media (max-width: 1400px) {
+        width: 100%;
+        gap: 6px;
+    }
 }
 
 .initialsDown {
@@ -251,6 +275,18 @@
     margin-left: -20px;
     position: absolute;
     z-index: 3;
+
+    @media (max-width:1400px) {
+        // padding: 20px;
+        width: 340px;
+        height: 528px;
+    }
+
+    // @media (max-width:1400px) {
+    //     // padding: 20px;
+    //     width: 288px;
+    //     height: 457px;
+    // }
 }
 
 :global(.swiper-slide-active) .card .wrapText {
@@ -258,14 +294,42 @@
     height: 120px;
     padding-top: 19px;
     margin: 0 auto;
+
+    @media (max-width:1400px) {
+        padding-top: 10px;
+        width: 100%;
+        gap: 8px;
+    }
 }
 
+.name {
+    @media (max-width: 1400px) {
+        font-size: 16px;
+    }
+}
+
+.jobTitle {
+    @media (max-width: 1400px) {
+        font-size: 14px;
+    }
+}
+
+.nameWrap {
+    @media (max-width: 1400px) {
+        font-size: 12px;
+
+    }
+}
 
 :global(.swiper-slide-active) .card .wrapText .name {
     font-weight: 600;
     font-size: 24px;
     line-height: 140%;
     text-align: center;
+
+    @media (max-width: 1400px) {
+        font-size: 20px;
+    }
 }
 
 :global(.swiper-slide-active) .card .wrapText .jobTitle {
@@ -273,6 +337,11 @@
     font-size: 18px;
     text-align: center;
     color: #365180;
+
+    @media (max-width: 1400px) {
+        font-size: 16px;
+        line-height: 140%;
+    }
 }
 
 :global(.swiper-slide-active) .card .wrapText .initialsDown .nameWrap {
@@ -286,6 +355,18 @@
     width: 388px;
     height: 412px;
     object-fit: cover;
+
+    @media (max-width: 1400px) {
+        border-radius: 2px;
+        width: 288px;
+        height: 312px;
+    }
+
+    // @media (max-width: 1400px) {
+    //     border-radius: 2px;
+    //     width: 248px;
+    //     height: 270px;
+    // }
 }
 
 .swiperSlide img {
@@ -328,6 +409,10 @@
     top: -202px;
     left: 190px;
     z-index: -1;
+
+    @media (max-width: 1400px) {
+        left: 0;
+    }
 }
 
 :global(.swiper-slide-prev) {
