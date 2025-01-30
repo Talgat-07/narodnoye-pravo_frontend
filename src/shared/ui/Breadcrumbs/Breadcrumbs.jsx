@@ -2,23 +2,22 @@ import { Arrow } from 'shared/assets/icons/Arrow';
 import { Typography } from 'shared/ui/Typography/Typography';
 import styles from './Breadcrumbs.module.scss';
 import { Link, useLocation } from 'react-router-dom';
-import { routesMap } from 'shared/constants/constants'
+import { routesMap } from 'shared/constants/constants';
 import { useNewsStore } from 'entities/store/newsStore/newsStore';
 import { useServicesStore } from 'entities/store/servicesStore/servicesStore';
 import { useEffect } from 'react';
 
 export const Breadcrumbs = () => {
     const location = useLocation();
+    const pathnames = location.pathname.split('/').filter(Boolean);
 
-    const pathnames = location.pathname.split('/').filter(Boolean)
+    const { services, fetchServices } = useServicesStore();
+    const { news, fetchAllNews, selectedCategory } = useNewsStore();
 
-    const { services, fetchServices } = useServicesStore()
-
-    const { news, fetchAllNews } = useNewsStore()
     useEffect(() => {
         fetchServices();
         fetchAllNews();
-    }, [fetchServices, fetchAllNews])
+    }, [fetchServices, fetchAllNews]);
 
     if (location.pathname === '/') {
         return null;
@@ -27,6 +26,7 @@ export const Breadcrumbs = () => {
     if (!pathnames.length) {
         return null;
     }
+
     return (
         <nav className={styles.breadcrumbs} aria-label="breadcrumb">
             <Link to="/">
@@ -38,10 +38,18 @@ export const Breadcrumbs = () => {
                     Главная
                 </Typography>
             </Link>
-
             {pathnames.map((value, index) => {
-                const to = `/${pathnames.slice(0, index + 1).join('/')}`
+                const to = `/${pathnames.slice(0, index + 1).join('/')}`;
+                const isLast = index === pathnames.length - 1;
                 let displayName = routesMap[to];
+
+                if (to === '/legislativeNews') {
+                    if (selectedCategory === 'kg') {
+                        displayName = 'Новости законодательства Кыргызской Республики';
+                    } else {
+                        displayName = 'Новости законодательства зарубежных стран';
+                    }
+                }
                 if (!displayName && !Number.isNaN(Number(value))) {
                     if (pathnames.includes('services')) {
                         const service = services.find(
@@ -65,13 +73,29 @@ export const Breadcrumbs = () => {
                 }
 
                 return (
-                    <span key={to} className={styles.right}>
+                    <span key={to}
+                        className={
+                            isLast
+                                ? `${styles.right} ${styles.lastCrumbContainer}`
+                                : styles.right
+                        }
+                    >
                         <Arrow />
-                        <Link to={to}>
-                            <Typography variant="bodyM" weight="regular">
+                        {isLast ? (
+                            <Typography
+                                variant="bodyM"
+                                weight="regular"
+                                className={styles.lastCrumbText}
+                            >
                                 {displayName}
                             </Typography>
-                        </Link>
+                        ) : (
+                            <Link to={to} className={isLast ? styles.lastCrumb : ''}>
+                                <Typography variant="bodyM" weight="regular">
+                                    {displayName}
+                                </Typography>
+                            </Link>
+                        )}
                     </span>
                 );
             })}
