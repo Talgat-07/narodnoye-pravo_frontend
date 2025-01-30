@@ -1,17 +1,17 @@
-import { create } from 'zustand';
-import { Api } from 'shared/api/Api';
+import { create } from "zustand";
+import { Api } from "shared/Api/Api";
 
 export const useSearchStore = create((set) => ({
-    searchResults: [],
-    isLoading: false,
-    error: null,
+  searchResults: [],
+  isLoading: false,
+  error: null,
 
     searchNews: async (query, category) => {
         set({ isLoading: true, error: null });
 
-        try {
-            let results = [];
-            let url = `news/news/?search=${encodeURIComponent(query)}`;
+    try {
+      let results = [];
+      let url = `news/news/?search=${encodeURIComponent(query)}`;
 
             while (url) {
 
@@ -38,7 +38,7 @@ export const useSearchStore = create((set) => ({
         }
     },
 
-    resetSearch: () => {
-        set({ searchResults: [] });
-    },
+  resetSearch: () => {
+    set({ searchResults: [] });
+  },
 }));
