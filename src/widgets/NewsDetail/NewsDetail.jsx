@@ -20,7 +20,7 @@ export const NewsDetail = () => {
         fetchAllNews();
     }, [fetchAllNews]);
 
-    if (isLoading) {
+    if (isLoading) { 
         return <CircleLoader />;
     }
 
