@@ -56,6 +56,11 @@ export const Slider = () => {
                 className={styles.swiperContainer}
                 slidesPerView={3}
                 centeredSlides={true}
+                breakpoints={{
+                    // 768: { spaceBetween: 2 },
+                    // 768: { slidesPerView: 1 }
+                }}
+
                 onSwiper={(swiper) => {
                     swiperRef.current = swiper;
                 }}

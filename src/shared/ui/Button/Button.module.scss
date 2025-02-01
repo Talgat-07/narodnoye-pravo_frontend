@@ -15,6 +15,7 @@
 
     span {
         transition: 0.3s;
+        color: #4d73aa;
     }
 
     &:hover {
@@ -25,6 +26,13 @@
 
     &:hover span {
         color: vars.$secondary-color;
+    }
+
+    @media (max-width: 500px) {
+        width: 315px;
+        height: 44px;
+        margin-top: 12px;
+        border: 1px solid #4d73aa;
     }
 }
 
@@ -72,6 +80,39 @@
     @media (max-width:1340px) {
         margin-left: 0;
     }
+
+    @media (max-width:768px) {
+        width: 171px;
+        height: 55px;
+    }
+
+    @media (max-width:650px) {
+        display: none;
+    }
+}
+
+.buttonSendMobile {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-family: "Open Sans", sans-serif;
+    border-radius: 4px;
+    padding: 12px 10px;
+    background: vars.$primary-color;
+    border: none;
+    transition: 0.3s;
+    width: 315px;
+    height: 44px;
+    cursor: pointer;
+    margin-top: 20px;
+
+    &:hover {
+        background: vars.$primary-btn-hover;
+    }
+
+    @media (max-width:650px) {
+        display: flex;
+    }
 }
 
 .buttonSendHero {
@@ -91,6 +132,13 @@
 
     &:hover {
         background: vars.$primary-btn-hover;
+    }
+
+    @media (max-width: 530px) {
+        border-radius: 4px;
+        padding: 11px 32px;
+        width: 267px;
+        height: 44px;
     }
 }
 
@@ -128,6 +176,20 @@
 
     &:hover {
         background: vars.$primary-btn-hover;
+    }
+
+    @media (max-width:768px) {
+        border-radius: 4px;
+        padding: 16px 32px;
+        width: 230px;
+        height: 54px;
+    }
+
+    @media (max-width:375px) {
+        border-radius: 4px;
+        padding: 11px 32px;
+        width: 315px;
+        height: 44px;
     }
 }
 
@@ -185,5 +247,9 @@
 
     &:hover {
         background: vars.$primary-btn-hover;
+    }
+
+    @media (max-width: 500px) {
+        display: none;
     }
 }

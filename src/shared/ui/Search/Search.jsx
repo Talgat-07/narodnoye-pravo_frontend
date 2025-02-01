@@ -23,23 +23,25 @@ export const Search = ({ searchQuery, setSearchQuery, handleSearch, handleClearS
 
     return (
         <div className={styles.searchContainer}>
-            <SearchIcon />
-            <input
-                className={styles.searchInput}
-                type="text"
-                placeholder="Поиск"
-                value={searchQuery}
-                onChange={onChange}
-                onKeyDown={onKeyDown}
-            />
-            {searchQuery && (
-                <button
-                    className={styles.clearButton}
-                    onClick={handleClearSearch}
-                >
-                    <Close />
-                </button>
-            )}
+            <div className={styles.searchSvgWrap}>
+                <input
+                    className={styles.searchInput}
+                    type="text"
+                    placeholder="Поиск"
+                    value={searchQuery}
+                    onChange={onChange}
+                    onKeyDown={onKeyDown}
+                />
+                <SearchIcon />
+                {searchQuery && (
+                    <button
+                        className={styles.clearButton}
+                        onClick={handleClearSearch}
+                    >
+                        <Close />
+                    </button>
+                )}
+            </div>
             <Button
                 className="searchBtn"
                 variant="span"

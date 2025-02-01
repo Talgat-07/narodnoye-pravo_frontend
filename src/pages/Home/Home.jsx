@@ -1,6 +1,6 @@
 import { AboutUs } from "widgets/AboutUs/AboutUs";
 import { Hero } from "widgets/Hero/Hero";
-import { LegislativeNews } from "widgets/LegislativeNews/LegislativeNews";
+// import { LegislativeNews } from "widgets/LegislativeNews/LegislativeNews";   
 import { Service } from "widgets/Service/Service";
 import { useAboutUsStore } from 'entities/store/aboutUsStore/aboutUsStore';
 import { useServicesStore } from 'entities/store/servicesStore/servicesStore';
@@ -37,7 +37,7 @@ export const Home = () => {
             <Hero />
             <AboutUs />
             <Service />
-            <LegislativeNews />
+            {/* <LegislativeNews /> */}
         </div>
     );
 };

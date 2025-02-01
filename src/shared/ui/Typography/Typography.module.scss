@@ -40,6 +40,10 @@ span {
     font-size: 18px;
 }
 
+.bodyLL {
+    font-size: 18px;
+}
+
 .bodyMl {
     font-size: 16px;
 }
@@ -174,6 +178,7 @@ span {
     }
 }
 
+
 @media (max-width: 768px) {
     .h1 {
         font-size: 40px;
@@ -181,6 +186,10 @@ span {
 
     .h3 {
         font-size: 36px;
+    }
+
+    .h5 {
+        font-size: 32px;
     }
 
     .bodyXXL {
@@ -191,4 +200,30 @@ span {
         font-size: 16px;
     }
 
+    @media (max-width: 540px) {
+        .h1 {
+            font-size: 26px;
+        }
+
+        .h4 {
+            font-size: 20px;
+        }
+    }
+
+}
+
+@media (max-width:760px) {
+    .h3 {
+        font-size: 24px;
+    }
+
+    .bodyLL {
+        font-size: 16px;
+    }
+}
+
+@media (max-width:375px) {
+    .bodyXXL {
+        font-size: 18px;
+    }
 }

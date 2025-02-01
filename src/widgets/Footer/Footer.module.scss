@@ -26,14 +26,21 @@
         @media (max-width:768px) {
             flex-direction: column;
             align-items: center;
-            gap: 36px;
+            gap: 43px;
         }
-
-
 
         &>svg {
             width: 130px;
             height: 112px;
+        }
+
+        @media (max-width:580px) {
+            gap: 11px;
+
+            &>svg {
+                width: 161px;
+                height: 145px;
+            }
         }
     }
 
@@ -44,6 +51,16 @@
 
         @media (max-width:1320px) {
             gap: 110px;
+        }
+
+        @media (max-width:768px) {
+            gap: 122px;
+        }
+
+        @media (max-width:580px) {
+            flex-direction: column;
+            align-items: center;
+            gap: 52px;
         }
     }
 
@@ -82,6 +99,11 @@
             &>img {
                 width: 100%;
             }
+
+            @media (max-width: 768px) {
+                width: 32px;
+                height: 32px;
+            }
         }
 
         .instagrWrap {
@@ -91,6 +113,20 @@
             &>img {
                 width: 100%;
             }
+
+            @media (max-width: 768px) {
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            gap: 20px;
+            margin: 56px 0 31px;
+        }
+
+        @media (max-width:375px) {
+            margin: 38px 0 21px;
         }
     }
 

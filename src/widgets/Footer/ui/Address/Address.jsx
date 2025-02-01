@@ -34,7 +34,7 @@ export const Address = () => {
                         className={styles.contactLink}
                     >
                         <Typography
-                            variant="bodyL"
+                            variant="bodyLL"
                             weight="regular">
                             {contact.formatted_phone_number}
                         </Typography>
@@ -43,14 +43,14 @@ export const Address = () => {
             ))
             }
             {emails.map((email) => (
-                <div className={styles.contactItem} key={email.id}>
+                <div className={`${styles.contactItem} ${styles.contactEmal}`} key={email.id}>
                     <Email />
                     <a
                         href={`mailto:${email.email}`}
                         className={styles.contactLink}
                     >
                         <Typography
-                            variant="bodyL"
+                            variant="bodyLL"
                             weight="regular">
                             {email.email}
                         </Typography>

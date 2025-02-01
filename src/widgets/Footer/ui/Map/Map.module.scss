@@ -4,7 +4,15 @@
     margin-top: 47px;
 
     @media (max-width:768px) {
-        margin-top: 60px;
+        margin-top: 63px;
+        margin-left: -17px;
+    }
+
+    @media (max-width:580px) {
+        margin-top: 42px;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
     }
 
     .addressWrap {
@@ -14,10 +22,26 @@
         width: 254px;
         height: 116px;
 
-        & svg {
+        &>svg {
             width: 60%;
             margin-right: -5px;
+
+            @media (max-width: 768px) {
+                height: 32px;
+            }
         }
+
+        @media (max-width: 768px) {
+            margin-top: 10px;
+        }
+
+        @media (max-width: 580px) {
+            margin-top: 10px;
+            gap: 15px;
+            width: 264px;
+            margin-left: 35px;
+        }
+
     }
 }
 
@@ -30,5 +54,10 @@
 
     @media (max-width:768px) {
         line-height: 1.9;
+    }
+
+    @media (max-width:580px) {
+        line-height: 1.8;
+        font-size: 16px;
     }
 }

@@ -16,6 +16,19 @@
 
     span {
         transition: 0.5s;
+
+        @media (max-width: 500px) {
+            color: #4d73aa;
+        }
+    }
+
+    @media (max-width: 500px) {
+        border-radius: 4px;
+        padding: 11px 32px;
+        width: 267px;
+        height: 44px;
+        margin-top: -7px;
+        border: 1px solid #4d73aa;
     }
 }
 
@@ -47,6 +60,14 @@
 
     @media (max-width: 768px) {
         padding: 35px 35px;
+        height: 363px;
+    }
+
+    @media (max-width:500px) {
+        border-radius: 4px;
+        width: 315px;
+        height: 314px;
+        padding: 24px;
     }
 }
 
@@ -60,14 +81,25 @@
     .subtitle {
         @media (max-width: 768px) {
             color: black;
+            line-height: 180%;
         }
-
     }
 }
 
 .imgWrap {
     width: 70px;
     height: 70px;
+
+    @media (max-width: 500px) {
+        width: 54px;
+        height: 54px;
+
+        &>img {
+            height: 100%;
+            width: 100%;
+            object-fit: scale-down;
+        }
+    }
 }
 
 .wrapText {
@@ -76,8 +108,30 @@
     flex-direction: column;
     gap: 11px;
     margin-top: -9px;
+
+    @media (max-width: 768px) {
+        width: 284px;
+        height: 126px;
+        line-height: 140%;
+        margin-top: -17px;
+    }
+
+    @media (max-width: 500px) {
+        margin-top: 4px;
+        gap: 0;
+    }
+
+    @media (max-width: 375px) {
+        margin-top: -9px;
+        gap: 10px;
+    }
 }
 
 .linkWrapBtn {
     width: 154px;
+
+    @media (max-width: 500px) {
+        width: 267px;
+        height: 44px;
+    }
 }

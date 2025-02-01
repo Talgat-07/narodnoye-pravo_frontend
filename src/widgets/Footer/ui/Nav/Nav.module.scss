@@ -11,7 +11,12 @@
     }
 
     @media (max-width:768px) {
-        margin-left: -210px;
+        margin-left: -190px;
+        width: 162px;
+    }
+
+    @media (max-width:750px) {
+        margin-left: 0;
     }
 
     .footerImg {
@@ -26,8 +31,14 @@
         margin-top: 50px;
 
         @media (max-width:768px) {
-            margin-top: 0;
-            gap: 18px;
+            margin-left: 8px;
+            margin-top: 0px;
+            gap: 17px;
+        }
+
+        @media (max-width:580px) {
+            align-items: center;
+            gap: 21px;
         }
     }
 
