@@ -14,13 +14,13 @@ export const useSearchStore = create((set) => ({
             let url = `news/news/?search=${encodeURIComponent(query)}`;
 
             while (url) {
+
                 const response = await Api.get(url);
                 const data = response.data;
 
                 results = [...results, ...data.results];
                 url = data.next;
             }
-
             const filteredResults = results.filter((item) => {
                 if (category === 'kg') {
                     return item.category === 'kg_news';
@@ -37,7 +37,6 @@ export const useSearchStore = create((set) => ({
             set({ error: error.message, isLoading: false });
         }
     },
-
 
     resetSearch: () => {
         set({ searchResults: [] });
