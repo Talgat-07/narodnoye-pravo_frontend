@@ -29,3 +29,4 @@ export const useVacanciesStore = create((set) => ({
         }
     }
 }));   
+

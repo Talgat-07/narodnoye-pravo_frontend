@@ -143,7 +143,7 @@ export const Footer = () => {
                             className={styles.geeksLogo}
                             variant='bodyS'
                             weight='medium'>
-                            Made by GeeksPro
+                            Made by Geeks
                         </Typography>
                         <Geeks />
                     </a>
