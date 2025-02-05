@@ -1,16 +1,17 @@
-import { Api } from 'shared/Api/Api';
-import { create } from 'zustand';
+import { create } from 'zustand'
+import { Api } from 'shared/Api/Api'
 
-export const useServicesStore = create((set) => ({
-    services: [],
+export const useNewsStore = create((set) => ({
+    news: [],
     isLoading: false,
     error: null,
-    fetchServices: async () => {
+
+    fetchAllNews: async () => {
         set({ isLoading: true, error: null });
 
         try {
             let allResults = [];
-            let url = 'news/services/';
+            let url = 'news/news/';
 
             while (url) {
                 const response = await Api.get(url);
@@ -20,10 +21,11 @@ export const useServicesStore = create((set) => ({
                 url = data.next;
             }
 
-            set({ services: allResults, isLoading: false });
+            set({ news: allResults, isLoading: false });
 
         } catch (error) {
             set({ error: error.message, isLoading: false });
         }
     }
 }));
+

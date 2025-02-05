@@ -15,7 +15,7 @@ export const ServicePage = () => {
                 <Typography
                     className={styles.title}
                     variant='h3'
-                    weight='bold'>
+                    weight='semibold'>
                     Услуги
                 </Typography>
                 <div className={styles.cardWrap}>

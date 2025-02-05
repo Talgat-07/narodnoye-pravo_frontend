@@ -1,0 +1,103 @@
+@use 'shared/styles/variables' as vars;
+
+
+.title{
+  text-align: center;
+}
+
+.contacts{
+  background-color: vars.$sliderText;
+  color: vars.$white;
+  width: 376px;
+  height: 470px;
+  padding: 28px 30px;
+  display: grid;
+  gap: 20px;
+  border-radius: 4px;
+
+  @media(max-width: 768px){
+    width: 340px;
+    height: 501px;
+  }
+
+  @media (max-width: 375px) {
+    width: 315px;
+    height: 508px;
+    padding: 30px 28px;
+}
+}
+
+
+
+.text{
+  display: grid;
+  gap: 5px;
+
+  @media(max-width: 768px){
+    gap: 10.5px;
+  }
+
+  @media (max-width: 375px) {
+    gap: 11px;
+  }
+  
+}
+.time{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.phone{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.email{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.address{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.map {
+    width: 770px;
+    height: 470px;
+    border-radius: 4px;
+    overflow: hidden;
+    z-index: 9;
+
+    @media(max-width: 768px){
+      width: 368px;
+      height: 501px;
+    }
+
+    @media (max-width: 375px) {
+      width: 275px;
+      height: 325px;
+      margin: 20px;
+  }
+  }
+  
+  .content {
+    display: flex;
+    gap: 30px;
+    box-sizing: border-box;
+    margin: 64px 0 120px 0;
+
+    @media(max-width: 768px){
+      justify-content: center;
+      margin: 32px 0 80px 0;
+    }
+
+    @media (max-width: 375px) {
+    flex-direction: column;
+    align-items: center;
+    margin: 24px 0 60px 0;
+    gap: 24px;
+  }
+  }
+  

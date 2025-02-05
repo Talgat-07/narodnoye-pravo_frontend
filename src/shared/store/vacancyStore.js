@@ -1,29 +1,32 @@
 import { Api } from 'shared/Api/Api';
 import { create } from 'zustand';
 
-export const useServicesStore = create((set) => ({
-    services: [],
+export const useVacanciesStore = create((set) => ({
+    vacancies: [],
     isLoading: false,
     error: null,
-    fetchServices: async () => {
+    fetchVacancies: async () => {
         set({ isLoading: true, error: null });
 
         try {
             let allResults = [];
-            let url = 'news/services/';
+            let url = 'vacancy/vacancies/'; 
 
             while (url) {
                 const response = await Api.get(url);
                 const data = response.data;
 
+                
                 allResults = [...allResults, ...data.results];
+                
                 url = data.next;
             }
 
-            set({ services: allResults, isLoading: false });
+            set({ vacancies: allResults, isLoading: false });
 
         } catch (error) {
             set({ error: error.message, isLoading: false });
         }
     }
-}));
+}));   
+

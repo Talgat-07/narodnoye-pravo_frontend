@@ -176,6 +176,7 @@ span {
     .bodyMl {
         font-size: 18px;
     }
+
 }
 
 
@@ -197,33 +198,12 @@ span {
     }
 
     .bodyXL {
-        font-size: 16px;
-    }
-
-    @media (max-width: 540px) {
-        .h1 {
-            font-size: 26px;
-        }
-
-        .h4 {
-            font-size: 20px;
-        }
-    }
-
-}
-
-@media (max-width:760px) {
-    .h3 {
-        font-size: 24px;
-    }
-
-    .bodyLL {
-        font-size: 16px;
-    }
-}
-
-@media (max-width:375px) {
-    .bodyXXL {
         font-size: 18px;
     }
+
+    .bodyL{
+        font-size: 16px;
+    }
+
+
 }

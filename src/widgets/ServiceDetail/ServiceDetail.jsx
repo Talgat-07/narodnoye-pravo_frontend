@@ -11,7 +11,7 @@ import { CircleLoader } from '../../shared/ui/Loader/CircleLoader';
 
 export const ServiceDetail = () => {
     const { id } = useParams();
-
+   
 
     const { services, isLoading, error, fetchServices } = useServicesStore();
 
@@ -62,8 +62,10 @@ export const ServiceDetail = () => {
                         variant="bodyXXL"
                         weight='regular'
                         lineHeight='lineLarge'
+                      
                     >
                         {service.text}
+                        
                     </Typography>
                     <Link
                         to={path.services}
