@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useNewsStore } from "entities/store/newsStore/newsStore";
 import { Container } from "shared/ui/Container/Container";
 import { Typography } from "shared/ui/Typography/Typography";
@@ -12,7 +12,6 @@ import { ArrowNewsButton } from "shared/assets/icons/ArrowNewsButton";
 
 export const NewsDetail = () => {
     const navigate = useNavigate();
-    const location = useLocation();
     const { id } = useParams();
     const { news, isLoading, error, fetchAllNews } = useNewsStore();
 
@@ -30,14 +29,15 @@ export const NewsDetail = () => {
     const newsAll = news.find((item) => item.id === currentNewsId);
 
     if (!newsAll) {
-        return <p>Услуга не найдена</p>;
+        return <p>Новость не найдена</p>;
     }
+    const currentCategory = newsAll.category
 
     const relatedNews = news
-        .filter((item) => item.id !== currentNewsId)
+        // .filter((item) => item.id !== currentNewsId)
+        // .slice(0, 8);
+        .filter((item) => item.category === currentCategory && item.id !== currentNewsId)
         .slice(0, 8);
-
-    const from = location.state?.from || path.legislativeNews;
 
     return (
         <Container>
@@ -68,7 +68,7 @@ export const NewsDetail = () => {
                     {newsAll.date} г.
                 </Typography>
                 <Button
-                    onClick={() => navigate(from)}
+                    onClick={() => navigate(path.legislativeNews)}
                     className="newsBtn"
                     variant="span"
                     weight="semibold"
@@ -78,6 +78,7 @@ export const NewsDetail = () => {
                     <ArrowNewsButton />
                     Ко всем новостям
                 </Button>
+
             </div>
             <div className={styles.down}>
                 <Typography

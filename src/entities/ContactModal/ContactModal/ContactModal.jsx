@@ -6,7 +6,6 @@ import { options } from 'entities/ContactModal/ContactModal/SelectStyles';
 import PropTypes from 'prop-types';
 import { Button } from 'shared/ui/Button/Button';
 import { useClickOutside } from 'shared/lib/hooks/hooks';
-import { ArrowDown } from 'shared/assets/icons/ArrowDown';
 import { customStyles } from 'entities/ContactModal/ContactModal/SelectStyles';
 import CreatableSelect from 'react-select/creatable';
 import { useFooterStore } from 'entities/store/footerStore/footerStore';
@@ -43,22 +42,26 @@ export const ContactModal = ({ isOpen, closeModal }) => {
     }, [isOpen]);
 
     const validateName = (value) => {
-        const regex = /^[A-Za-zА-Яа-яЁё]+([ '-][A-Za-zА-Яа-яЁё]+){0,2}$/;
-
         if (!value) {
             return 'Поле обязательно для заполнения';
         }
 
-        if (!regex.test(value)) {
-            return 'Введите корректное имя (буквы, пробелы, дефисы, апострофы)';
+        const trimmedValue = value.trim();
+
+        if (trimmedValue.length < 2 || trimmedValue.length > 50) {
+            return 'Имя должно быть от 2 до 50 символов';
         }
 
-        if (value.length < 2 || value.length > 50) {
-            return 'Имя должно быть от 2 до 50 символов';
+        const regex = /^[A-Za-zА-Яа-яЁё]+([ '-][A-Za-zА-Яа-яЁё]+)?$/;
+        if (!regex.test(trimmedValue)) {
+            return 'Введите корректное имя (буквы, пробелы, дефисы, апострофы)';
         }
 
         return '';
     };
+
+
+
 
     const formatPhone = (value) => {
         const cleaned = value.replace(/\D/g, '');
@@ -77,7 +80,7 @@ export const ContactModal = ({ isOpen, closeModal }) => {
         const cleaned = value.replace(/\D/g, '');
 
         if (!cleaned) {
-            return 'Поле обязательно для заполнения';
+            return 'Поле должно содержать только цифры';
         }
 
         if (cleaned.length !== 9) {
@@ -87,13 +90,29 @@ export const ContactModal = ({ isOpen, closeModal }) => {
         return '';
     };
 
+
+    const getTemplateText = (questionValue, userName, userPhone) => {
+        switch (questionValue) {
+            case '1':
+                return `Здравствуйте, меня зовут ${userName}, я бы хотел(а) записаться на онлайн-консультацию`;
+            case '2':
+                return `Здравствуйте, меня зовут ${userName}, я бы хотел(а) записаться на очную консультацию`;
+            case '3':
+                return `Здравствуйте, меня зовут ${userName}, я бы хотел(а) разместить научную публикацию, мой номер телефона: ${userPhone}\n---Научная публикация---`;
+            case '4':
+                return `Здравствуйте, меня зовут ${userName}, я бы хотел(а) разместить вакансию работодателя, мой номер телефона: ${userPhone}\n---Вакансия---`;
+            default:
+                return '';
+        }
+    };
+
     const handleNameChange = (e) => {
         const value = e.target.value;
-        setName(value);
-
-        const error = validateName(value);
+        setName(value)
+        const trimmedValue = value.trim()
+        const error = validateName(trimmedValue)
         setNameError(error);
-    };
+    }
 
 
     const handlePhoneChange = async (e) => {
@@ -132,19 +151,16 @@ export const ContactModal = ({ isOpen, closeModal }) => {
         if (nameValidationError || phoneValidationError || !question || !agreement) {
             return;
         }
+        const greetingText = getTemplateText(question, name, digits);
 
         if (question === '1' || question === '2') {
-            const whatsappUrl = phone_numbers[0]?.phone_number
-                ? `https://wa.me/${phone_numbers[0].phone_number.replace(/\D/g, '')}`
-                : '';
-            if (whatsappUrl) {
-                window.open(whatsappUrl, '_blank');
-            }
+            const rawNumber = phone_numbers[0]?.phone_number.replace(/\D/g, '') || '';
+            const whatsappUrl = `https://wa.me/${rawNumber}?text=${encodeURIComponent(greetingText)}`;
+            window.open(whatsappUrl, '_blank');
         } else if (question === '3' || question === '4') {
             const emailAddress = emails[0]?.email || '';
-            if (emailAddress) {
-                window.location.href = `mailto:${emailAddress}`;
-            }
+            window.location.href = `mailto:${emailAddress}?subject=Запрос&body=${encodeURIComponent(greetingText)}`;
+
         }
         // const postData = {
         //     name: name,
@@ -152,8 +168,8 @@ export const ContactModal = ({ isOpen, closeModal }) => {
         //     phone: digits,
         // };
 
-        // try {
-        //     await sendContactForm(postData)
+        //     try {
+        // await sendContactForm(postData)
 
         setShowSuccess(true);
 
@@ -165,19 +181,20 @@ export const ContactModal = ({ isOpen, closeModal }) => {
         setPhoneError('');
         setAgreement(false);
         setAgreementError(false);
+        //     }
+        //     catch (error) {
+        //         console.error(error);
+
+        //         if (error.name) {
+        //             setNameError(error.name[0]);
+        //         }
+
+        //         if (error.interesting_question) {
+        //             setQuestionError(true);
+        //         }
+        //     }
+        //     console.log(postData)
     }
-    //catch (error) {
-    //         console.error('Ошибка при отправке формы:', error);
-
-    //         if (error.name) {
-    //             setNameError(error.name[0]);
-    //         }
-
-    //         if (error.interesting_question) {
-    //             setQuestionError(true);
-    //         }
-    //     }
-    // }
 
     const handleCloseModal = (e) => {
         e.preventDefault();
@@ -219,7 +236,8 @@ export const ContactModal = ({ isOpen, closeModal }) => {
                                     className={styles.inputText}
                                     variant="bodyXL"
                                     weight="semibold">
-                                    Имя*
+                                    Имя
+                                    <span className={styles.star}>*</span>
                                 </Typography>
                             </label>
                             <input
@@ -231,7 +249,6 @@ export const ContactModal = ({ isOpen, closeModal }) => {
                                 onChange={handleNameChange}
                                 placeholder="Имя Фамилия"
                             />
-                            {nameError && <span className={styles.errorText}>{nameError}</span>}
                         </div>
                         <div>
                             <label htmlFor="question">
@@ -239,22 +256,24 @@ export const ContactModal = ({ isOpen, closeModal }) => {
                                     className={styles.inputTextQuestion}
                                     variant="bodyXL"
                                     weight="semibold">
-                                    Интересующий вопрос*
+                                    Интересующий вопрос
+                                    <span className={styles.star}>*</span>
                                 </Typography>
                             </label>
                             <CreatableSelect
                                 styles={customStyles(questionError)}
                                 options={options}
                                 value={options.find((opt) => opt.value === question)}
-                                onChange={(selectedOption) =>
-                                    setQuestion(selectedOption ? selectedOption.value : '')
-                                }
+                                onChange={(selectedOption) => {
+                                    setQuestion(selectedOption ? selectedOption.value : '');
+                                    if (selectedOption) {
+                                        setQuestionError(false);
+                                    }
+                                }}
                                 isClearable={false}
                                 placeholder="Выбрать опцию"
+                                isSearchable={false}
                             />
-                            {questionError && (
-                                <span className={styles.errorText}>Выберите опцию</span>
-                            )}
                         </div>
                         <div className={styles.wrap}>
                             <label htmlFor="phone" className={styles.phoneLab}>
@@ -262,7 +281,8 @@ export const ContactModal = ({ isOpen, closeModal }) => {
                                     className={styles.inputTextPhone}
                                     variant='bodyXL'
                                     weight='semibold'>
-                                    Номер телефона*
+                                    Номер телефона
+                                    <span className={styles.star}>*</span>
                                 </Typography>
                             </label>
                             <div className={`${styles.phoneInputWrapper} ${phoneError ? styles.errorInput : ''}`}>
@@ -275,7 +295,6 @@ export const ContactModal = ({ isOpen, closeModal }) => {
                                         color='semiBlue'>
                                         KG +996
                                     </Typography>
-                                    <ArrowDown />
                                     <span className={styles.line}></span>
                                     <input
                                         className={styles.phoneInput}
@@ -287,21 +306,27 @@ export const ContactModal = ({ isOpen, closeModal }) => {
                                         placeholder='(000) 00-00-00' />
                                 </span>
                             </div>
-                            {phoneError && <span className={styles.errorTextPhone}>{phoneError}</span>}
                         </div>
-                        <div className={`${styles.agreeWrap} ${agreementError ? styles.errorInput : ''
-                            }`}
-                        >
+                        <div className={`${styles.agreeWrap} ${agreementError ? styles.errorInput1 : ''}`}>
                             <label className={styles.agree}>
                                 <input
-                                    className={styles.agreeInput}
+                                    className={`${styles.agreeInput} ${agreementError ? styles.errorCheckbox : ''}`}
                                     type='checkbox'
                                     name='agreement'
                                     checked={agreement}
-                                    onChange={(e) => setAgreement(e.target.checked)} />
-                                Нажимая на кнопку и/или отправляя данные, вы соглашаетесь<br /> на обработку персональных данных*
+                                    onChange={(e) => {
+                                        setAgreement(e.target.checked);
+                                        if (e.target.checked) {
+                                            setAgreementError(false);
+                                        }
+                                    }}
+                                />
+
+                                Нажимая на кнопку и/или отправляя данные, вы соглашаетесь
+                                на обработку персональных данных<span className={styles.star1}>*</span>
                             </label>
                         </div>
+
                         <Button
                             className='modalBtn'
                             variant='span'

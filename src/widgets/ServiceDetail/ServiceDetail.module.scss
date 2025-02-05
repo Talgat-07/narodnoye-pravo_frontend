@@ -3,14 +3,42 @@
     flex-direction: column;
     width: 1070px;
     margin: 0 auto;
+
+    @media (max-width:1230px) {
+        width: 100%;
+    }
+
+    @media (max-width: 375px) {
+        width: 94%;
+    }
 }
 
 .title {
     text-align: center;
+
+    @media (max-width:1345px) {
+        margin-top: 36px;
+    }
+
+    @media (max-width:375px) {
+        margin-top: 27px;
+    }
 }
 
 .description {
     margin-top: 40px;
+
+    @media (max-width:1345px) {
+        margin-top: 23px;
+    }
+
+    @media (max-width:768px) {
+        margin-top: 33px;
+    }
+
+    @media (max-width:375px) {
+        margin-top: 24px;
+    }
 }
 
 .text {
@@ -18,6 +46,14 @@
     margin-bottom: 61px;
     text-align: justify;
     white-space: pre-wrap;
+
+    @media (max-width:1345px) {
+        margin-top: 4px;
+    }
+
+    @media (max-width:768px) {
+        margin-top: 10px;
+    }
 }
 
 .linkService {
@@ -44,4 +80,18 @@
     gap: 30px;
     margin-top: 54px;
     margin-bottom: 125px;
+
+    @media (max-width: 1360px) {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+        width: 728px;
+        gap: 20px;
+    }
+
+    @media (max-width:760px) {
+        width: 100%;
+    }
 }

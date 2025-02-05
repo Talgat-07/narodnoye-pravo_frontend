@@ -9,7 +9,13 @@
 
     @media (max-width:768px) {
         margin-top: 0;
-        gap: 27px;
+        gap: 17px;
+    }
+
+    @media (max-width:580px) {
+        margin-left: 0;
+        gap: 18px;
+        align-items: center;
     }
 
     .contactItem,
@@ -26,7 +32,16 @@
                 width: 20px;
             }
         }
+
+        @media (max-width: 580px) {
+            gap: 21px;
+        }
     }
+}
+
+.contactItem>svg {
+    height: 32px;
+    width: 30px;
 }
 
 .middle .contactItem.secondContactItem {
@@ -34,6 +49,18 @@
     display: flex;
 }
 
+.contactItem {
+    @media (max-width: 580px) {
+        margin-left: -33px;
+    }
+}
+
 .contactLink:hover>p {
     color: vars.$footerHover;
+}
+
+.contactEmal {
+    @media (max-width:580px) {
+        margin-left: 10px;
+    }
 }

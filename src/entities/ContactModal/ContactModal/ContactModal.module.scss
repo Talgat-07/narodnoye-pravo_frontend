@@ -72,7 +72,6 @@
 }
 
 .inputName {
-    // border: 1px solid vars.$input-color;
     border: 1px solid #8aa3d0;
     border-radius: 4px;
     padding: 10px 15px;
@@ -83,15 +82,17 @@
     font-size: 18px;
     color: vars.$semiBlue;
     background: #fbfdff;
+    line-height: 46px;
 }
 
 .inputName:hover {
     background-color: vars.$input-hover;
+    border: 1px solid #505EA5;
 }
 
 .inputName:focus {
     outline: none;
-    border: 1px solid vars.$input-focus;
+    border: 1px solid #505EA5;
 }
 
 .inputName::placeholder {
@@ -99,6 +100,7 @@
     font-size: 16px;
     color: vars.$placeholder;
 }
+
 
 
 
@@ -137,9 +139,6 @@
     width: 100%;
 }
 
-.phonePrefixText {
-    margin-right: 10px;
-}
 
 .line {
     border: 1px solid vars.$placeholder;
@@ -166,9 +165,22 @@
     color: #8aa3d0;
 }
 
+.phoneInputWrapper:hover {
+    background-color: vars.$input-hover;
+    border: 1px solid #505EA5;
+}
+
+.phoneInputWrapper:focus-within {
+    background-color: vars.$input-hover;
+    border: 1px solid #505EA5;
+}
 
 .phoneInputWrapper:hover,
 .phoneInputWrapper:hover .phoneInput {
+    background-color: vars.$input-hover;
+}
+
+.phoneInput:focus {
     background-color: vars.$input-hover;
 }
 
@@ -176,6 +188,14 @@
     color: red;
     font-size: 12px;
     margin-top: -25px;
+}
+
+.inputName:-webkit-autofill,
+.inputName:-webkit-autofill:hover,
+.inputName:-webkit-autofill:focus {
+    box-shadow: 0 0 0 1000px #fbfdff inset !important;
+    -webkit-box-shadow: 0 0 0 1000px #fbfdff inset !important;
+    -webkit-text-fill-color: vars.$semiBlue !important;
 }
 
 ///////checked//////
@@ -191,16 +211,26 @@
     height: 50px;
     border-radius: 4px;
     margin-top: 11px;
-    margin-bottom: 25px;
     font-size: 16px;
     line-height: 150%;
     cursor: pointer;
+    position: relative;
 }
 
 .agreeInput {
     cursor: pointer;
     width: 18px;
     height: 18px;
+}
+
+.errorTextAgree {
+    color: red;
+    font-size: 12px;
+}
+
+.errorCheckbox {
+    outline: 2px solid red;
+    outline-offset: 2px;
 }
 
 /////////select/////
@@ -214,4 +244,18 @@
 
 .errorInput {
     border: 1px solid red;
+}
+
+.star {
+    color: red;
+    font-size: 20px;
+}
+
+.star1 {
+    color: red;
+    font-size: 20px;
+    display: inline;
+    position: absolute;
+    top: 23px;
+    left: 204px;
 }

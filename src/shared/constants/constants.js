@@ -28,7 +28,6 @@ export const routesMap = {
     '/': 'Главная',
     '/about': 'О нас',
     '/services': 'Услуги',
-    '/legislativeNews': 'Новости',
     '/analyticAndPublications': 'Научные статьи',
     '/education': 'Обучение',
     '/bankVacancy': 'Вакансии',

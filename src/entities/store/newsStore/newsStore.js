@@ -1,11 +1,21 @@
 import { create } from 'zustand';
 import { Api } from 'shared/Api/Api';
 
+function parseDateFromDDMMYYYY(dateStr) {
+    const [day, month, year] = dateStr.split('.');
+    return new Date(`${year}-${month}-${day}`);
+}
+
 export const useNewsStore = create((set) => ({
     news: [],
-    searchResults: [],
     isLoading: false,
     error: null,
+
+    selectedCategory: 'kg',
+
+    setSelectedCategory: (category) => {
+        set({ selectedCategory: category });
+    },
 
     fetchAllNews: async () => {
         set({ isLoading: true, error: null });
@@ -21,36 +31,15 @@ export const useNewsStore = create((set) => ({
                 allResults = [...allResults, ...data.results];
                 url = data.next;
             }
+            allResults.sort((a, b) => {
+                const dateA = parseDateFromDDMMYYYY(a.date);
+                const dateB = parseDateFromDDMMYYYY(b.date);
+                return dateB - dateA;
+            });
 
             set({ news: allResults, isLoading: false });
-
         } catch (error) {
             set({ error: error.message, isLoading: false });
         }
-    },
-
-    searchNews: async (query) => {
-        set({ isLoading: true, error: null });
-
-        try {
-            let searchResults = [];
-            let url = `news/news/?search=${encodeURIComponent(query)}`;
-
-            while (url) {
-                const response = await Api.get(url);
-                const data = response.data;
-
-                searchResults = [...searchResults, ...data.results];
-                url = data.next;
-            }
-
-            set({ searchResults, isLoading: false });
-        } catch (error) {
-            set({ error: error.message, isLoading: false });
-        }
-    },
-
-    resetSearch: () => {
-        set({ searchResults: [] });
     },
 }));

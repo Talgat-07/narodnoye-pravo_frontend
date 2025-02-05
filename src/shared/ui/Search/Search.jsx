@@ -5,24 +5,43 @@ import styles from './Search.module.scss';
 import { Button } from 'shared/ui/Button/Button';
 
 export const Search = ({ searchQuery, setSearchQuery, handleSearch, handleClearSearch }) => {
+
+    const onKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault()
+            handleSearch()
+        }
+    }
+
+    const onChange = (e) => {
+        const { value } = e.target
+        setSearchQuery(value)
+        if (!value.trim()) {
+            handleClearSearch()
+        }
+    };
+
     return (
         <div className={styles.searchContainer}>
-            <SearchIcon />
-            <input
-                className={styles.searchInput}
-                type="text"
-                placeholder="Поиск"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            {searchQuery && (
-                <button
-                    className={styles.clearButton}
-                    onClick={handleClearSearch}
-                >
-                    <Close />
-                </button>
-            )}
+            <div className={styles.searchSvgWrap}>
+                <input
+                    className={styles.searchInput}
+                    type="text"
+                    placeholder="Поиск"
+                    value={searchQuery}
+                    onChange={onChange}
+                    onKeyDown={onKeyDown}
+                />
+                <SearchIcon />
+                {searchQuery && (
+                    <button
+                        className={styles.clearButton}
+                        onClick={handleClearSearch}
+                    >
+                        <Close />
+                    </button>
+                )}
+            </div>
             <Button
                 className="searchBtn"
                 variant="span"

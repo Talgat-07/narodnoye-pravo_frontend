@@ -97,6 +97,16 @@ export const Header = () => {
                             </li>
                         ))}
                     </ul>
+                    <Button
+                        onClick={openModal}
+                        className="buttonSendMobile"
+                        variant="span"
+                        weight="semibold"
+                        color="white"
+                        lineHeight="lineTight"
+                    >
+                        Оставить заявку
+                    </Button>
                 </nav>
                 <div className={styles.rightWrap}>
                     <Button
