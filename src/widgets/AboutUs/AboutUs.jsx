@@ -33,7 +33,7 @@ export function AboutUs() {
                     <div className={styles.text}>
                         <div className={styles.textUp}>
                             <Typography
-                                variant='bodyL'
+                                variant='bodyLL'
                                 weight='semibold'
                                 lineHeight='lineBig'
                                 className={styles.titleUp}
@@ -42,7 +42,7 @@ export function AboutUs() {
                             </Typography>
                             <Typography
                                 className={styles.titleDown}
-                                variant='bodyL'
+                                variant='bodyLL'
                                 weight='regular'
                                 lineHeight='lineBig'
                             >
@@ -51,7 +51,7 @@ export function AboutUs() {
                         </div>
                         <div className={styles.textDown}>
                             <Typography
-                                variant='bodyL'
+                                variant='bodyLL'
                                 weight='semibold'
                                 lineHeight='lineBig'
                                 className={styles.titleUp}
@@ -60,7 +60,7 @@ export function AboutUs() {
                             </Typography>
                             <Typography
                                 className={styles.titleDown}
-                                variant='bodyL'
+                                variant='bodyLL'
                                 weight='regular'
                                 lineHeight='lineBig'
                             >

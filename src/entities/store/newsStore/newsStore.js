@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { Api } from 'shared/api/Api';
+import { Api } from 'shared/Api/Api';
 
 function parseDateFromDDMMYYYY(dateStr) {
     const [day, month, year] = dateStr.split('.');

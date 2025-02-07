@@ -5,29 +5,32 @@ import { CircleLoader } from "shared/ui/Loader/CircleLoader";
 import { AboutPage } from "widgets/AboutPage/AboutPage";
 import { useFooterIconStore } from "entities/store/footerIconStore/footerIconStore";
 import { useFooterStore } from "entities/store/footerStore/footerStore";
-
+import { Slider } from "features/Slider/Slider";
 
 export const About = () => {
-    const { fetchSlider, isLoading: sliderLoading } = useSliderStore()
-    const { fetchFooterIcons, isLoading: footerIconLoading } = useFooterIconStore()
-    const { fetchFooter, isLoading: footerLoading } = useFooterStore()
+  const { fetchSlider, isLoading: sliderLoading } = useSliderStore();
+  const { fetchFooterIcons, isLoading: footerIconLoading } =
+    useFooterIconStore();
+  const { fetchFooter, isLoading: footerLoading } = useFooterStore();
 
-    useEffect(() => {
-        fetchSlider()
-        fetchFooterIcons()
-        fetchFooter()
-    }, [fetchSlider, fetchFooterIcons, fetchFooter])
+  useEffect(() => {
+    fetchSlider();
+    fetchFooterIcons();
+    fetchFooter();
+  }, [fetchSlider, fetchFooterIcons, fetchFooter]);
 
-    const pageIsLoading = sliderLoading || footerIconLoading || footerLoading
+  const pageIsLoading = sliderLoading || footerIconLoading || footerLoading;
 
-    if (pageIsLoading) {
-        return <CircleLoader />
-    }
+  if (pageIsLoading) {
+    return <CircleLoader />;
+  }
 
-    return (
-        <Container>
-            <AboutPage />
-        </Container>
-    );
+  return (
+    <>
+      <Container>
+        <AboutPage />
+      </Container>
+      <Slider />
+    </>
+  );
 };
-

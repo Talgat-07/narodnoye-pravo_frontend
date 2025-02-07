@@ -14,6 +14,7 @@ export const Hero = () => {
                     <div className={styles.left}>
                         <div className={styles.title}>
                             <Typography
+                                className={styles.h1}
                                 variant='h1'
                                 weight='bold'
                                 color='blue'>

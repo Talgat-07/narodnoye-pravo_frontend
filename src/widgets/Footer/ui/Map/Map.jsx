@@ -5,14 +5,10 @@ import { useFooterStore } from 'entities/store/footerStore/footerStore';
 
 
 export const Map = () => {
-    const { address, error } = useFooterStore()
+    const { address, error, google_map_address } = useFooterStore()
 
 
     if (error) return <div>Ошибка: {error}</div>
-
-    const encodedAddress = encodeURIComponent(address);
-    const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
-
 
     return (
         <div className={styles.right}>
@@ -22,7 +18,7 @@ export const Map = () => {
                 color='black'>
                 АДРЕС
             </Typography>
-            <a href={googleMapsUrl}
+            <a href={google_map_address}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.addressWrap}>

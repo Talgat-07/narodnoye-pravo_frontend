@@ -28,7 +28,7 @@ export const Nav = () => {
                         <li className={styles.footerLi} key={el.path}>
                             <Link to={el.path} className={styles.leftLink}>
                                 <Typography
-                                    variant="bodyL"
+                                    variant="bodyLL"
                                     weight="regular">
                                     {el.label}
                                 </Typography>

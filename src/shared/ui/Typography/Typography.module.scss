@@ -40,6 +40,10 @@ span {
     font-size: 18px;
 }
 
+.bodyLL {
+    font-size: 18px;
+}
+
 .bodyMl {
     font-size: 16px;
 }
@@ -172,7 +176,9 @@ span {
     .bodyMl {
         font-size: 18px;
     }
+
 }
+
 
 @media (max-width: 768px) {
     .h1 {
@@ -183,12 +189,21 @@ span {
         font-size: 36px;
     }
 
+    .h5 {
+        font-size: 32px;
+    }
+
     .bodyXXL {
         font-size: 20px;
     }
 
     .bodyXL {
+        font-size: 18px;
+    }
+
+    .bodyL{
         font-size: 16px;
     }
+
 
 }

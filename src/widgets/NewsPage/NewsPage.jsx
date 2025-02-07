@@ -36,9 +36,16 @@ export const NewsPage = () => {
         setHasSearched(false);
     };
 
+    // const handleSearch = () => {
+    //     if (searchQuery.trim()) {
+    //         searchNews(searchQuery);
+    //         setHasSearched(true);
+    //         setCurrentPage(1);
+    //     }
+    // };
     const handleSearch = () => {
         if (searchQuery.trim()) {
-            searchNews(searchQuery);
+            searchNews(searchQuery, selectedCategory);
             setHasSearched(true);
             setCurrentPage(1);
         }
@@ -86,36 +93,37 @@ export const NewsPage = () => {
                 >
                     Новости законодательства
                 </Typography>
+                <div className={styles.mobileWrap}>
+                    <div className={styles.buttonWrap}>
+                        <Button
+                            onClick={() => handleButtonClick('kg')}
+                            variant="span"
+                            weight="semibold"
+                            lineHeight="lineCompact"
+                            color="blue"
+                            className={`${styles.kg} ${selectedCategory === 'kg' ? styles.active : ''}`}
+                        >
+                            Кыргызская Республика
+                        </Button>
+                        <Button
+                            onClick={() => handleButtonClick('fcon')}
+                            variant="span"
+                            weight="semibold"
+                            lineHeight="lineCompact"
+                            color="blue"
+                            className={`${styles.fcon} ${selectedCategory === 'fcon' ? styles.active : ''}`}
+                        >
+                            Зарубежные страны
+                        </Button>
+                    </div>
 
-                <div className={styles.buttonWrap}>
-                    <Button
-                        onClick={() => handleButtonClick('kg')}
-                        variant="span"
-                        weight="semibold"
-                        lineHeight="lineCompact"
-                        color="blue"
-                        className={`${styles.kg} ${selectedCategory === 'kg' ? styles.active : ''}`}
-                    >
-                        Кыргызская Республика
-                    </Button>
-                    <Button
-                        onClick={() => handleButtonClick('fcon')}
-                        variant="span"
-                        weight="semibold"
-                        lineHeight="lineCompact"
-                        color="blue"
-                        className={`${styles.fcon} ${selectedCategory === 'fcon' ? styles.active : ''}`}
-                    >
-                        Зарубежные страны
-                    </Button>
+                    <Search
+                        searchQuery={searchQuery}
+                        setSearchQuery={setSearchQuery}
+                        handleSearch={handleSearch}
+                        handleClearSearch={handleClearSearch}
+                    />
                 </div>
-
-                <Search
-                    searchQuery={searchQuery}
-                    setSearchQuery={setSearchQuery}
-                    handleSearch={handleSearch}
-                    handleClearSearch={handleClearSearch}
-                />
                 {showNoResults && (
                     <div className={styles.noResultsContainer}>
                         <Typography
@@ -162,6 +170,7 @@ export const NewsPage = () => {
                         )}
                     </>
                 )}
+
             </section>
         </Container>
     );

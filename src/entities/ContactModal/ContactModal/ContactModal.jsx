@@ -6,7 +6,6 @@ import { options } from 'entities/ContactModal/ContactModal/SelectStyles';
 import PropTypes from 'prop-types';
 import { Button } from 'shared/ui/Button/Button';
 import { useClickOutside } from 'shared/lib/hooks/hooks';
-import { ArrowDown } from 'shared/assets/icons/ArrowDown';
 import { customStyles } from 'entities/ContactModal/ContactModal/SelectStyles';
 import CreatableSelect from 'react-select/creatable';
 import { useFooterStore } from 'entities/store/footerStore/footerStore';
@@ -43,22 +42,25 @@ export const ContactModal = ({ isOpen, closeModal }) => {
     }, [isOpen]);
 
     const validateName = (value) => {
-        const regex = /^[A-Za-zА-Яа-яЁё]+([ '-][A-Za-zА-Яа-яЁё]+){0,2}$/;
-
         if (!value) {
             return 'Поле обязательно для заполнения';
         }
 
-        if (!regex.test(value)) {
-            return 'Введите корректное имя (буквы, пробелы, дефисы, апострофы)';
+        const trimmedValue = value.trim();
+
+        if (trimmedValue.length < 2 || trimmedValue.length > 50) {
+            return 'Имя должно быть от 2 до 50 символов';
         }
 
-        if (value.length < 2 || value.length > 50) {
-            return 'Имя должно быть от 2 до 50 символов';
+        const regex = /^[A-Za-zА-Яа-яЁё]+([ '-][A-Za-zА-Яа-яЁё]+)?$/;
+        if (!regex.test(trimmedValue)) {
+            return 'Введите корректное имя (буквы, пробелы, дефисы, апострофы)';
         }
 
         return '';
     };
+
+
 
 
     const formatPhone = (value) => {
@@ -181,7 +183,7 @@ export const ContactModal = ({ isOpen, closeModal }) => {
         setAgreementError(false);
         //     }
         //     catch (error) {
-        //         console.error('Ошибка при отправке формы:', error);
+        //         console.error(error);
 
         //         if (error.name) {
         //             setNameError(error.name[0]);
@@ -293,7 +295,6 @@ export const ContactModal = ({ isOpen, closeModal }) => {
                                         color='semiBlue'>
                                         KG +996
                                     </Typography>
-                                    <ArrowDown />
                                     <span className={styles.line}></span>
                                     <input
                                         className={styles.phoneInput}
